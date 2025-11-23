@@ -1,0 +1,33 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "time": "3:30 PM",
+      "title": "Guest Arrival",
+      "description": "Guests arrive and gather",
+      "venue": "Churinga Eco-Resort"
+    },
+    {
+      "id": 2,
+      "time": "4:00 PM",
+      "title": "Debut Program Begins",
+      "description": "Welcome and opening program",
+      "venue": "Churinga Eco-Resort"
+    },
+    {
+      "id": 3,
+      "time": "6:00 PM",
+      "title": "Dinner & Celebration",
+      "description": "Dinner and celebration",
+      "venue": "Churinga Eco-Resort"
+    },
+    {
+      "id": 4,
+      "time": "9:00 PM",
+      "title": "Evening Ends",
+      "description": "Thank you for celebrating with us",
+      "venue": "Churinga Eco-Resort"
+    }
+  ]
+}
+

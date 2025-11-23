@@ -1,0 +1,58 @@
+{
+  "entourageList": [
+    {
+      "category": "Principal Sponsors (Godparents)",
+      "names": [
+        "Lorna Alvarada",
+        "Margarita Perez",
+        "Pedro Fernandez",
+        "Richard Sanchez",
+        "Teddy Yu",
+        "Jamie Chastain",
+        "Dani Martinez",
+        "Isabel Mercado"
+      ]
+    },
+    {
+      "category": "Secondary Sponsors",
+      "names": [
+        "Hannah Morales",
+        "Yael Amari",
+        "Francisco Andrade",
+        "Sebastian Bennett",
+        "Noah Schumacher",
+        "Chiaki Sato"
+      ]
+    },
+    {
+      "category": "Groomsmen",
+      "names": [
+        "Morgan Maxwell",
+        "Jonathan Patterson",
+        "Howard Ong",
+        "James Thompson",
+        "David Wilson",
+        "Robert Lee"
+      ]
+    },
+    {
+      "category": "Bridesmaids",
+      "names": [
+        "Kimberly Nguyen",
+        "Chiaki Sato",
+        "Juliana Silva",
+        "Lars Peeters",
+        "Harper Russo",
+        "Helene Paquet"
+      ]
+    },
+    {
+      "category": "Ring Bearer",
+      "names": ["Taylor Alonso"]
+    },
+    {
+      "category": "Flower Girl",
+      "names": ["Henrietta Mitchell"]
+    }
+  ]
+} 

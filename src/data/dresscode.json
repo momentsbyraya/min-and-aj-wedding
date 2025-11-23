@@ -1,0 +1,28 @@
+{
+  "mainDressCode": {
+    "title": "Dress Code",
+    "description": "We kindly request our guests to dress in dusty blue, navy blue and cream colors. Casual/Semi-formal attire."
+  },
+  "colorPalette": [
+    {
+      "name": "color-1",
+      "hex": "#a8b5c0",
+      "label": "Dusty Blue"
+    },
+    {
+      "name": "color-2",
+      "hex": "#1e3a5f",
+      "label": "Navy Blue"
+    },
+    {
+      "name": "color-3",
+      "hex": "#e8dcc6",
+      "label": "Cream"
+    },
+    {
+      "name": "color-4",
+      "hex": "#7ba7cc",
+      "label": "Sky Blue"
+    }
+  ]
+} 

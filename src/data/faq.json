@@ -1,0 +1,36 @@
+{
+  "faqData": [
+    {
+      "question": "What time should I arrive?",
+      "answer": "Please arrive at least 30 minutes before the program start time. This allows time for parking, seating, and getting settled."
+    },
+    {
+      "question": "Can I bring a plus one?",
+      "answer": "Plus ones are welcome if they were included in your invitation. Please check your RSVP for the exact number of guests."
+    },
+    {
+      "question": "Is there a dress code?",
+      "answer": "Yes, the dress code is casual/semi-formal attire in dusty blue, navy blue, and cream colors. We want everyone to feel elegant and comfortable."
+    },
+    {
+      "question": "Are children welcome?",
+      "answer": "Yes, children are welcome! This is a family-friendly celebration."
+    },
+    {
+      "question": "What type of food will be served?",
+      "answer": "We will be serving a buffet dinner with multiple options. Please indicate any dietary restrictions when you RSVP, and we'll do our best to accommodate your needs."
+    },
+    {
+      "question": "Is there parking available?",
+      "answer": "Yes, the venue has parking available. On-site parking is provided for all guests."
+    },
+    {
+      "question": "Can I take photos during the event?",
+      "answer": "Yes, feel free to take photos! We'd love for you to share your memories. Please use our hashtag when posting on social media."
+    },
+    {
+      "question": "What's the best way to RSVP?",
+      "answer": "Please use the RSVP button on our website. You can also contact us directly if you have any issues with the online RSVP system."
+    }
+  ]
+} 

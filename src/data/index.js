@@ -1,0 +1,11 @@
+// Export all data files for easy importing
+export { default as images } from './images.json'
+export { default as entourage } from './entourage.json'
+export { default as dresscode } from './dresscode.json'
+export { default as venues } from './venues.json'
+export { default as schedule } from './schedule.json'
+export { default as faq } from './faq.json'
+export { default as paymentMethods } from './payment-methods.json'
+export { default as loveStory } from './love-story.json'
+export { default as couples } from './couples.json'
+export { default as audio } from './audio.json' 

@@ -1,0 +1,31 @@
+{
+  "paymentMethods": [
+    {
+      "name": "Bank Transfer",
+      "icon": "Building",
+      "accountInfo": {
+        "bank": "Chase Bank",
+        "accountNumber": "1234-5678-9012-3456",
+        "accountName": "Sarah Davids"
+      }
+    },
+    {
+      "name": "PayPal",
+      "icon": "CreditCard",
+      "accountInfo": {
+        "provider": "PayPal",
+        "accountNumber": "wedding@email.com",
+        "accountName": "Michael Smith"
+      }
+    },
+    {
+      "name": "Venmo",
+      "icon": "Smartphone",
+      "accountInfo": {
+        "provider": "Venmo",
+        "accountNumber": "@SarahMichaelWedding",
+        "accountName": "Michael Smith"
+      }
+    }
+  ]
+} 

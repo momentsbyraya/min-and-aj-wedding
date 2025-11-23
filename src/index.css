@@ -1,0 +1,660 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carattere:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+/* Custom Font - LovelyHome */
+@font-face {
+  font-family: 'LovelyHome';
+  src: url('/assets/fonts/LovelyHome-9aBZ.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Alamark */
+@font-face {
+  font-family: 'Alamark';
+  src: url('/assets/fonts/Alamarklitefree-4oWx.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Ants Valley */
+@font-face {
+  font-family: 'Ants Valley';
+  src: url('/assets/fonts/AntsValleyPersonalUse-z8drl.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  font-family: 'Elsie Swash Caps', cursive;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #ad8369;
+  background-color: #f6f1ee; /* Calendar background color */
+}
+
+@layer base {
+  body {
+    font-family: 'Elsie Swash Caps', cursive;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .wedding-gradient {
+    /* background: #212639; */
+  }
+  
+  .wedding-text {
+    /* color: #ad8369; */
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #bfa094 0%, #a18072 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .elegant-border {
+    border: 1px solid rgba(191, 160, 148, 0.2);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Handwriting font for Polaroid text */
+  .font-handwriting {
+    font-family: 'Elsie Swash Caps', cursive;
+  }
+  
+  /* Main website font */
+  .font-main {
+    font-family: 'Elsie Swash Caps', cursive !important;
+  }
+  
+  /* Handwritten style font for photo text */
+  .font-handwritten {
+    font-family: 'Nothing You Could Do', cursive !important;
+  }
+  
+  /* Albert Sans font for countdown numbers */
+  .font-albert {
+    font-family: 'Albert Sans', sans-serif !important;
+  }
+  
+  /* Poppins font */
+  .font-poppins {
+    font-family: 'Poppins', sans-serif !important;
+  }
+  
+  /* Footer with Poppins font - override global font */
+  footer a,
+  footer a *,
+  footer a span {
+    font-family: 'Poppins', sans-serif !important;
+  }
+  
+  /* Footer link active/focus states */
+  footer a {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  footer:hover,
+  footer:has(a:hover),
+  footer:has(a:active),
+  footer:has(a:focus) {
+    background-color: #013718 !important;
+  }
+  
+  footer a:hover,
+  footer a:active,
+  footer a:focus {
+    background-color: transparent !important;
+    color: white !important;
+    outline: none;
+  }
+  
+  footer:hover .footer-heart,
+  footer:has(a:hover) .footer-heart,
+  footer:has(a:active) .footer-heart,
+  footer:has(a:focus) .footer-heart {
+    color: white !important;
+  }
+  
+  footer:hover span,
+  footer:has(a:hover) span,
+  footer:has(a:active) span,
+  footer:has(a:focus) span {
+    color: white !important;
+  }
+  
+  /* Force font on all text elements */
+  * {
+    font-family: 'Elsie Swash Caps', cursive !important;
+    font-weight: 400 !important;
+  }
+  
+  /* Cookie font - must come after global rule */
+  .font-cookie,
+  h1.font-cookie,
+  h1.font-cookie span,
+  .font-cookie * {
+    font-family: 'Cookie', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.1), 
+                 0px 0.5px 0px rgba(0, 0, 0, 0.1),
+                 0.5px 0px 0px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.02em;
+  }
+  
+  /* LovelyHome font - must come after global rule */
+  .font-lovelyhome,
+  h1.font-lovelyhome,
+  h1.font-lovelyhome span,
+  .font-lovelyhome * {
+    font-family: 'LovelyHome', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.1), 
+                 0px 0.5px 0px rgba(0, 0, 0, 0.1),
+                 0.5px 0px 0px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.02em;
+  }
+  
+  /* Alamark font - must come after global rule */
+  .font-alamark,
+  h1.font-alamark,
+  h1.font-alamark span,
+  .font-alamark * {
+    font-family: 'Alamark', cursive !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Ants Valley font - must come after global rule */
+  .font-antsvalley,
+  h1.font-antsvalley,
+  h1.font-antsvalley span,
+  .font-antsvalley * {
+    font-family: 'Ants Valley', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Carattere font - must come after global rule */
+  .font-carattere,
+  h1.font-carattere,
+  h1.font-carattere span,
+  .font-carattere * {
+    font-family: 'Carattere', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.1), 
+                 0px 0.5px 0px rgba(0, 0, 0, 0.1),
+                 0.5px 0px 0px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.02em;
+  }
+  
+  /* Prevent transform overflow issues */
+  .transform-safe {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Ensure sections don't cause horizontal overflow */
+  .section-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Hero polaroid container sizing */
+  .hero-polaroid-container {
+    width: 25vw;
+    max-width: 300px;
+    min-width: 200px;
+  }
+  
+  @media (min-width: 640px) {
+    .hero-polaroid-container {
+      width: 45vw;
+      max-width: 500px;
+      min-width: 400px;
+    }
+  }
+  
+  /* Counter polaroid sizing */
+  .counter-polaroid {
+    transform: rotate(1deg) scale(1);
+  }
+  
+  @media (min-width: 640px) {
+    .counter-polaroid {
+      transform: rotate(1deg) scale(1.2);
+    }
+  }
+  
+  /* Corner pulsing animation */
+  @keyframes subtlePulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+  }
+  
+  .corner-pulse {
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+}
+
+/* Envelope Styles */
+:root {
+  --envelope-x: 300px;
+  --envelope-y: 200px;
+  --envelope-bg: #f5f0e8;
+  --envelope-shadow: #d4c5b0;
+  --heart-bg: darkred;
+  --heart-text: white;
+  --letter-font: "Dancing Script", serif;
+  --letter-x: 250px;
+  --letter-y: calc(250px - 1rem - 10px);
+  --letter-bg: AntiqueWhite;
+  --letter-shadow: BurlyWood;
+  --letter-text: #180d07;
+}
+
+@media (min-width: 650px) {
+  :root {
+    --envelope-x: 600px;
+    --envelope-y: 400px;
+    --letter-x: 500px;
+    --letter-y: calc(400px - 1rem - 10px);
+  }
+  
+  .envelope {
+    transform: rotate(-5deg) scale(0.85) !important;
+  }
+}
+
+.cssletter {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.envelope {
+  position: relative;
+  width: var(--envelope-x);
+  height: var(--envelope-y);
+  background: var(--envelope-bg);
+  box-shadow: inset 0 0 30px -5px var(--envelope-shadow), 0 0 50vw 0 rgba(212, 197, 176, 0.3);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transform: rotate(-5deg);
+}
+
+.envelope-flap {
+  width: 100%;
+  height: 71%;
+  position: absolute;
+  top: 0;
+  z-index: 6;
+  overflow: hidden;
+  transition: transform 0.6s linear;
+  transform-origin: top;
+  pointer-events: all;
+  transform-style: preserve-3d;
+}
+
+.envelope-folds {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.envelope-flap::before,
+.envelope-left::before,
+.envelope-right::before,
+.envelope-bottom::before {
+  content: "";
+  transform: rotate(45deg);
+  background: var(--envelope-bg);
+  box-shadow: 0 0 30px -5px var(--envelope-shadow);
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  position: absolute;
+  top: 60%;
+}
+
+.envelope-flap::before {
+  border-radius: 5rem;
+  bottom: 30px;
+  border-radius: 5rem;
+  top: auto;
+}
+
+@media (min-width: 650px) {
+  .envelope-flap::before {
+    bottom: 100px;
+  }
+}
+
+.envelope-left::before {
+  top: 10%;
+  left: -65%;
+}
+
+.envelope-right::before {
+  top: 10%;
+  right: -65%;
+}
+
+.envelope-bottom::before {
+  top: 60%;
+  border-radius: 5rem;
+}
+
+.heart {
+  z-index: 7;
+  position: relative;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.stamp-image {
+  width: 70px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (min-width: 650px) {
+  .stamp-image {
+    width: 150px;
+  }
+}
+
+.heart:hover,
+.heart:active,
+.heart:focus {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.heart:hover .stamp-image,
+.heart:active .stamp-image,
+.heart:focus .stamp-image {
+  filter: brightness(1.1);
+}
+
+.heart-text {
+  display: none;
+}
+
+.envelope.active * {
+  pointer-events: none;
+}
+
+.envelope.active .envelope-flap {
+  transform: rotateX(-180deg);
+  z-index: 3;
+}
+
+.envelope.active .envelope-flap::before {
+  box-shadow: inset 0 0 30px -5px var(--envelope-shadow);
+}
+
+.envelope.active .heart {
+  display: none;
+}
+
+/* Letter inside envelope */
+.envelope-letter {
+  box-sizing: border-box;
+  font-family: var(--letter-font);
+  font-size: 1rem;
+  line-height: 1.1;
+  background-color: var(--letter-bg);
+  color: var(--letter-text);
+  width: var(--letter-x);
+  height: fit-content;
+  min-height: calc(var(--envelope-y) * 0.9);
+  box-shadow: inset 0 0 20px -5px var(--letter-shadow);
+  padding: 2rem 1rem 1rem;
+  margin: 0;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: auto;
+  text-align: center;
+  border: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  opacity: 1;
+  transition: transform 0.8s ease-out 0.3s;
+  z-index: 4;
+}
+
+.envelope.active .envelope-letter {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.envelope-letter p {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .envelope-letter {
+    min-height: calc(var(--envelope-y) * 0.5);
+    padding: 1rem 1rem 1rem;
+  }
+}
+
+@media (min-width: 650px) {
+  .envelope-letter {
+    font-size: 1.5rem;
+    min-height: calc(var(--envelope-y) * 0.87);
+    padding: 2rem 1rem 1rem;
+    transform: translateX(-50%) scale(1.1);
+    overflow: hidden;
+  }
+  
+  .envelope-letter p {
+    font-size: 2.5rem !important;
+    transform: scale(1.2);
+  }
+  
+  .envelope-letter img {
+    transform: scale(1) !important;
+    width: 35% !important;
+  }
+}
+
+/* Opening background pulsing animation */
+@keyframes openingBgPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.opening-bg-pulse {
+  background-size: cover !important;
+  animation: openingBgPulse 4s ease-in-out infinite;
+}
+
+/* Opening section zoom in and fadeout */
+@keyframes zoomInAndFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.opening-section {
+  transition: transform 1.5s ease-in-out;
+}
+
+/* Ensure pulsing animation runs continuously */
+.opening-section.opening-bg-pulse {
+  animation: openingBgPulse 4s ease-in-out infinite;
+}
+
+/* Ensure pulsing continues until zoom starts */
+.opening-section.opening-bg-pulse:not(.zooming-out) {
+  animation: openingBgPulse 4s ease-in-out infinite !important;
+}
+
+.opening-section.zooming-out {
+  animation: zoomInAndFade 1.5s ease-in-out forwards;
+  pointer-events: none;
+}
+
+/* Stop pulsing only when zooming out */
+.opening-section.zooming-out.opening-bg-pulse {
+  animation: zoomInAndFade 1.5s ease-in-out forwards;
+}
+
+/* Watermark for client approval */
+.watermark-approval {
+  position: fixed;
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+  font-family: 'Poppins', sans-serif !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.watermark-1 {
+  top: 30%;
+  left: 30%;
+}
+
+.watermark-2 {
+  top: 50%;
+  left: 50%;
+}
+
+.watermark-3 {
+  top: 70%;
+  left: 70%;
+}
+
+@media (max-width: 768px) {
+  .watermark-approval {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Reduce gap between Click me and envelope on large screens */
+@media (min-width: 992px) {
+  .click-me-container {
+    margin-bottom: 1rem !important;
+  }
+  
+  .couple-name-container {
+    margin-top: 1rem !important;
+  }
+}
+
+/* Scale down opening section content on very large screens */
+@media (min-width: 1200px) {
+  .cssletter {
+    transform: scale(0.7);
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #152a42;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e3a5f #f1f1f1;
+}
+
