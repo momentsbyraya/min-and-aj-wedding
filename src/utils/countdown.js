@@ -1,9 +1,9 @@
-import { couples } from '../data'
+import { celebrant } from '../data'
 
 // Countdown utility functions
 export const getTimeUntilWedding = () => {
-  // Get debut date from couples data (now contains debutant info)
-  const debutDate = new Date(couples.debutant.debut.date)
+  // Get debut date from celebrant data (now contains debutant info)
+  const debutDate = new Date(celebrant.debutant.debut.date)
   
   const now = new Date()
   const difference = debutDate - now

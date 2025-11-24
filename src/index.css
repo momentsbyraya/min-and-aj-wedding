@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Carattere:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Custom Font - LovelyHome */
 @font-face {
@@ -27,6 +28,51 @@
 @font-face {
   font-family: 'Ants Valley';
   src: url('/assets/fonts/AntsValleyPersonalUse-z8drl.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Mocaroni */
+@font-face {
+  font-family: 'Mocaroni';
+  src: url('/assets/fonts/Mocaroni-MVDPr.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Brushberry */
+@font-face {
+  font-family: 'Brushberry';
+  src: url('/assets/fonts/Brushberry-lxYLy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Rain In November */
+@font-face {
+  font-family: 'Rain In November';
+  src: url('/assets/fonts/RainInNovember-V4OVz.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Brasilia Delight */
+@font-face {
+  font-family: 'Brasilia Delight';
+  src: url('/assets/fonts/BrasiliaDelight-MVogw.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - Bestlight */
+@font-face {
+  font-family: 'Bestlight';
+  src: url('/assets/fonts/Bestlight-Font.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -111,6 +157,19 @@ body {
   /* Poppins font */
   .font-poppins {
     font-family: 'Poppins', sans-serif !important;
+  }
+  
+  /* Caudex font */
+  .caudex-regular {
+    font-family: "Caudex", serif !important;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .caudex-bold {
+    font-family: "Caudex", serif !important;
+    font-weight: 700;
+    font-style: normal;
   }
   
   /* Footer with Poppins font - override global font */
@@ -222,6 +281,61 @@ body {
     text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.1), 
                  0px 0.5px 0px rgba(0, 0, 0, 0.1),
                  0.5px 0px 0px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.02em;
+  }
+  
+  /* Mocaroni font - must come after global rule */
+  .font-mocaroni,
+  h1.font-mocaroni,
+  h1.font-mocaroni span,
+  .font-mocaroni * {
+    font-family: 'Mocaroni', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Brushberry font - must come after global rule */
+  .font-brushberry,
+  h1.font-brushberry,
+  h1.font-brushberry span,
+  .font-brushberry * {
+    font-family: 'Brushberry', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Rain In November font - must come after global rule */
+  .font-rain-in-november,
+  h1.font-rain-in-november,
+  h1.font-rain-in-november span,
+  .font-rain-in-november * {
+    font-family: 'Rain In November', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Brasilia Delight font - must come after global rule */
+  .font-brasilia-delight,
+  h1.font-brasilia-delight,
+  h1.font-brasilia-delight span,
+  .font-brasilia-delight * {
+    font-family: 'Brasilia Delight', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Bestlight font - must come after global rule */
+  .font-bestlight,
+  h1.font-bestlight,
+  h1.font-bestlight span,
+  .font-bestlight * {
+    font-family: 'Bestlight', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
     letter-spacing: 0.02em;
   }
   

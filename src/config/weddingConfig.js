@@ -7,32 +7,32 @@
 export const weddingConfig = {
   // Basic Debut Information
   debutant: {
-    firstName: "Rhealyn",
+    firstName: "Penelope",
     lastName: "",
-    fullName: "Rhealyn",
-    nickname: "Rhea",
+    fullName: "Penelope",
+    nickname: "Penny",
     age: 18
   },
 
   // Debut Details
   debut: {
-    date: "2026-06-20", // YYYY-MM-DD format
-    time: "4:00 PM",
-    dayOfWeek: "Saturday",
-    month: "June",
-    day: "20",
-    year: "2026"
+    date: "2025-12-21", // YYYY-MM-DD format
+    time: "5:00 PM",
+    dayOfWeek: "Sunday",
+    month: "December",
+    day: "21",
+    year: "2025"
   },
 
   // Venue Information
   venue: {
     main: {
-      name: "Churinga Eco-Resort",
+      name: "Magdalene Garden Private Resort",
       address: "Zone 2, National Highway",
       city: "San Antonio",
       state: "Tigaon",
       zip: "Camarines Sur",
-      time: "4:00 PM",
+      time: "5:00 PM",
       details: "Please arrive 30 minutes early"
     },
     reception: {
@@ -78,7 +78,7 @@ export const weddingConfig = {
 
   // Additional Information
   details: {
-    hashtag: "#RhealynTurns18",
+    hashtag: "#PenelopeTurns18",
     website: "https://example.com",
     registry: "https://registry.example.com",
     message: "We're excited to celebrate this special milestone with you!",

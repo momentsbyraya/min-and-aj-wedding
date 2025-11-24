@@ -1,10 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { couples } from '../data'
+import { celebrant } from '../data'
 
 const DynamicTitle = () => {
-  const debutantName = couples.debutant.name.full
-  const debutDate = new Date(couples.debutant.debut.date).toLocaleDateString('en-US', {
+  const debutantName = celebrant.debutant.name.full
+  const debutDate = new Date(celebrant.debutant.debut.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'

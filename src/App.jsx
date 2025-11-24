@@ -8,7 +8,7 @@ import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showOpeningScreen, setShowOpeningScreen] = useState(true)
+  const [showOpeningScreen, setShowOpeningScreen] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -16,6 +16,11 @@ function App() {
     audioRef.current = new Audio(audio.background)
     audioRef.current.loop = audio.loop
     audioRef.current.volume = audio.volume
+
+    // Start music automatically since opening screen is hidden
+    audioRef.current.play().catch(error => {
+      console.error('Error playing audio:', error)
+    })
 
     // Cleanup only on app unmount
     return () => {
@@ -42,8 +47,8 @@ function App() {
 
   return (
     <div className="App min-h-screen wedding-gradient relative">
-      {/* Watermarks */}
-      <div className="watermark-approval watermark-1">
+      {/* Watermarks - Hidden for now */}
+      {/* <div className="watermark-approval watermark-1">
         THIS IS FOR CLIENT APPROVAL ONLY.
       </div>
       <div className="watermark-approval watermark-2">
@@ -51,7 +56,7 @@ function App() {
       </div>
       <div className="watermark-approval watermark-3">
         THIS IS FOR CLIENT APPROVAL ONLY.
-      </div>
+      </div> */}
       
       {showOpeningScreen ? (
         <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />

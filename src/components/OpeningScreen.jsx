@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { couples } from '../data'
+import { celebrant } from '../data'
 import { weddingConfig } from '../config/weddingConfig'
 
 function OpeningScreen({ onEnvelopeOpen }) {
@@ -88,7 +88,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-script leading-tight"
             style={{ color: '#1e3a5f', fontSize: 'clamp(1.5rem, 4vw, 48px)' }}
           >
-            {couples.debutant.name.full}
+            {celebrant.debutant.name.full}
           </h2>
           <p 
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-script mt-1"

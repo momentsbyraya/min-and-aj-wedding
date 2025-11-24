@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { Menu, X, Heart, Calendar, Camera, Mail, MapPin } from 'lucide-react'
 import RSVPModal from './RSVPModal'
-import { couples } from '../data'
+import { celebrant } from '../data'
 import { themeConfig } from '../config/themeConfig'
 
 const Navigation = () => {
@@ -88,7 +88,7 @@ const Navigation = () => {
             <div ref={logoRef} className="flex items-center space-x-2">
               <Heart className="h-8 w-8 text-rose-500 nav-heart" />
               <span className="text-xl font-serif font-semibold text-wedding-800">
-                {couples.debutant.name.full}
+                {celebrant.debutant.name.full}
               </span>
             </div>
 

@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Calendar, Clock } from 'lucide-react'
 import { themeConfig } from '../config/themeConfig'
-import { couples } from '../data'
+import { celebrant } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)

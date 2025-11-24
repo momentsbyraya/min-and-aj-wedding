@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { themeConfig } from '../config/themeConfig'
-import { couples, audio } from '../data'
+import { celebrant, audio } from '../data'
 import { weddingConfig } from '../config/weddingConfig'
 
 // Register ScrollTrigger plugin
@@ -125,8 +125,16 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-screen w-full overflow-hidden flex items-center justify-center m-0 p-0"
     >
-      {/* Theme Background */}
-      <div className={`absolute inset-0 z-0 ${themeConfig.backgrounds.theme}`}></div>
+      {/* Hero Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/hero-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
       
       {/* Crumpled Paper Background on top */}
       <div 
@@ -139,86 +147,109 @@ const Hero = () => {
         }}
       ></div>
       
-      {/* Corner Design - Top Left */}
-      <img 
-        src="/assets/images/graphics/corner-tl.png" 
-        alt="Corner design top left" 
-        className="absolute z-50 corner-pulse"
-        style={{ 
-          top: 0, 
-          left: 0, 
-          width: '65vw', 
-          height: '65vh', 
-          maxWidth: '300px', 
-          maxHeight: '300px',
-          objectFit: 'contain',
-          objectPosition: 'top left'
-        }}
-      />
-      
-      {/* Corner Design - Bottom Right */}
-      <img 
-        src="/assets/images/graphics/corner-br.png" 
-        alt="Corner design bottom right" 
-        className="absolute z-50 corner-pulse"
-        style={{ 
-          bottom: 0, 
-          right: 0, 
-          width: '65vw', 
-          height: '65vh', 
-          maxWidth: '300px', 
-          maxHeight: '300px',
-          objectFit: 'contain',
-          objectPosition: 'bottom right'
-        }}
-      />
-      
       {/* Content */}
-      <div ref={contentRef} className="relative z-20 text-center px-4 py-8 sm:py-12 md:py-16" style={{ transform: 'scale(1.02)', opacity: 0 }}>
-        {/* Join Us Text */}
-        <div className="text-sm sm:text-base md:text-lg uppercase tracking-wider mb-4 sm:mb-6 md:mb-8 font-poppins" style={{ color: '#1e3a5f' }}>
-          JOIN US TO CELEBRATE<br />MY 18TH BIRTHDAY
+      <div ref={contentRef} className="relative z-20" style={{ transform: 'scale(1.02)', opacity: 0 }}>
+        {/* Penelope's Text */}
+        <div 
+          className="font-bestlight"
+          style={{ 
+            color: '#4b2259', 
+            transform: 'rotate(-5deg)',
+            fontSize: 'min(14vw, 200px)',
+            marginBottom: '-0.5rem',
+            position: 'relative'
+          }}
+        >
+          Penelope's
+          <img 
+            src="/assets/images/graphics/butterfly-half-left.png" 
+            alt="Butterfly" 
+            style={{ 
+              position: 'absolute',
+              top: '-15px',
+              right: '10px',
+              width: 'min(14vw, 240px)',
+              height: 'auto',
+              transform: 'translate(50%, -50%)'
+            }}
+          />
         </div>
-
-        {/* Debutant Name - Script Font */}
-        <div className="mb-6 sm:mb-8 md:mb-10">
-          <h1 
-            className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-antsvalley leading-tight my-8 sm:my-12 md:my-16"
-            style={{ transform: 'rotate(-10deg)', color: '#1e3a5f', fontSize: 'clamp(3rem, 8vw, 8rem)' }}
+        
+        {/* 18th Birthday Text */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+          <div 
+            className="font-bestlight"
+            style={{ 
+              color: '#4b2259', 
+              transform: 'rotate(-5deg)',
+              fontSize: 'min(14vw, 200px)',
+              width: 'fit-content',
+              display: 'flex',
+              alignItems: 'center'
+            }}
           >
-            <span className="block">{couples.debutant.name.full}</span>
-          </h1>
+            18th
+          </div>
+          <div 
+            className="caudex-regular"
+            style={{ 
+              color: '#4b2259', 
+              transform: 'rotate(-5deg)',
+              fontSize: 'min(5vw, 80px)',
+              width: 'fit-content',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            BIRTHDAY
+          </div>
         </div>
-
-        {/* Date */}
-        <div className="text-base sm:text-lg md:text-xl uppercase tracking-wider mb-1 sm:mb-1 md:mb-1 font-poppins" style={{ color: '#1e3a5f' }}>
-          {formatWeddingDate()}
-        </div>
-
-        {/* Time */}
-        <div className="text-base sm:text-lg md:text-xl uppercase tracking-wider mb-4 sm:mb-6 md:mb-8 font-poppins" style={{ color: '#1e3a5f' }}>
-          FROM {weddingConfig.debut.time.toUpperCase()}
-        </div>
-
-        {/* Location */}
-        <div className="text-base sm:text-lg md:text-xl uppercase tracking-wider mb-1 sm:mb-1 md:mb-1 font-poppins" style={{ color: '#1e3a5f' }}>
-          {weddingConfig.venue.main.name.toUpperCase()}
-        </div>
-        <div className="text-sm sm:text-base md:text-lg uppercase tracking-wider mb-4 sm:mb-6 md:mb-8 font-poppins" style={{ color: '#1e3a5f' }}>
-          SAN ANTONIO, TIGAON<br />
-          CAMARINES SUR
-        </div>
-
-        {/* Reception to Follow */}
-        <div className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8 font-script" style={{ color: '#1e3a5f' }}>
-          Reception to follow
-        </div>
-
-        {/* RSVP */}
-        <div className="text-sm sm:text-base md:text-lg uppercase tracking-wider font-poppins" style={{ color: '#1e3a5f' }}>
-          RSVP BELOW
+        
+        {/* Join Us Container */}
+        <div style={{ display: 'flex', width: '100%', marginTop: '2rem' }}>
+          <div style={{ width: '60%' }}>
+            <div className="font-poppins" style={{ color: '#4b2259', textTransform: 'uppercase', textAlign: 'center', lineHeight: '1.2' }}>
+              JOIN US FOR PENELOPE'S<br />
+              SWEET 18TH PARTY!
+            </div>
+            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '1rem', textTransform: 'uppercase', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+              <div className="font-poppins" style={{ borderRight: '2px solid #4b2259', paddingRight: '1rem', fontSize: '0.8em' }}>
+                {weddingConfig.debut.month.toUpperCase()}
+              </div>
+              <div className="font-poppins" style={{ fontSize: '1.5em', fontWeight: 'bold' }}>
+                {weddingConfig.debut.day}
+              </div>
+              <div className="font-poppins" style={{ borderLeft: '2px solid #4b2259', paddingLeft: '1rem', fontSize: '0.8em' }}>
+                {weddingConfig.debut.year}
+              </div>
+            </div>
+            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '0.25rem', textTransform: 'uppercase', fontSize: '0.9em', textAlign: 'center', fontWeight: 600 }}>
+              AT {weddingConfig.debut.time.toUpperCase()}
+            </div>
+            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '0.5rem', textTransform: 'uppercase', fontSize: '0.9em', textAlign: 'center', fontWeight: 600 }}>
+              {weddingConfig.venue.main.name.toUpperCase()}
+            </div>
+          </div>
+          <div style={{ width: '40%' }}>
+          </div>
         </div>
       </div>
+      
+      {/* Bottom Design */}
+      <img 
+        src="/assets/images/graphics/bottom-design.png" 
+        alt="Bottom design" 
+        className="absolute bottom-0 left-0 z-30"
+        style={{ width: '100%' }}
+      />
+      
+      {/* Hero Portrait - Bottom Right */}
+      <img 
+        src="/assets/images/graphics/hero-portrait.png" 
+        alt="Hero portrait" 
+        className="absolute bottom-0 right-0 z-30"
+        style={{ maxHeight: '50vh', height: 'auto', width: 'auto' }}
+      />
     </section>
   )
 }
