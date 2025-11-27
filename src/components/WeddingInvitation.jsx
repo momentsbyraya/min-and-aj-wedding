@@ -40,10 +40,35 @@ const WeddingInvitation = () => {
         {/* Hero Section - Always visible */}
         <section className='h-full'><Hero /></section>
         
-        {/* Calendar Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
-          <Calendar />
+        {/* Wedding Details */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
         </EnhancedLazySection>
+        
+        {/* Love Story Section */}
+        <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
+          <LoveStory />
+        </EnhancedLazySection>
+
+        {/* Gift Registry Section */}
+        <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
+          <GiftRegistry />
+        </EnhancedLazySection>
+
+        {/* FAQ Section */}
+        <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
+          <FAQ />
+        </EnhancedLazySection>
+        
+        {/* Gallery Section */}
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
+          <Gallery />
+        </EnhancedLazySection> */}
+        
+        {/* Calendar Section */}
+        {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
+          <Calendar />
+        </EnhancedLazySection> */}
 
         {/* Map & Directions Section */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="map-directions">
@@ -51,35 +76,19 @@ const WeddingInvitation = () => {
         </EnhancedLazySection>
 
          {/* Invitation Section - Full Width */}
-         <EnhancedLazySection animationClass="fade-scale" sectionName="invitation">
-          <Schedule />
-        </EnhancedLazySection>
+         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="invitation">
+           <Schedule />
+         </EnhancedLazySection> */}
 
         {/* Dress Code Section */}
         <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
           <DressCode />
         </EnhancedLazySection>
 
-        {/* Gift Registry Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
-          <GiftRegistry />
-        </EnhancedLazySection> */}
-
-        {/* Love Story Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
-          <LoveStory />
-        </EnhancedLazySection> */}
-
         {/* CTA Section - Full Width */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="cta">
           <CTASection />
         </EnhancedLazySection>   
-        
-        {/* Wedding Details */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
-        </EnhancedLazySection>
-
         
         {/* Couple Image Section */}
         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-image">
@@ -89,16 +98,6 @@ const WeddingInvitation = () => {
             subtitle=""
           />
         </EnhancedLazySection> */}
-
-        {/* Gallery Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
-          <Gallery />
-        </EnhancedLazySection> */}
-        
-        {/* FAQ Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
-          <FAQ />
-        </EnhancedLazySection> */}
         
         {/* Footer */}
         <footer className="py-4 text-center">
@@ -107,10 +106,10 @@ const WeddingInvitation = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer hover:opacity-80 transition-all duration-200 font-poppins footer-link"
-            style={{ color: '#1e3a5f' }}
+            style={{ color: '#4b2259' }}
           >
             <span>Made with</span>
-            <IoHeart className="w-4 h-4 sm:w-5 sm:h-5 footer-heart" style={{ color: '#1e3a5f' }} />
+            <IoHeart className="w-4 h-4 sm:w-5 sm:h-5 footer-heart" style={{ color: '#4b2259' }} />
             <span>|</span>
             <span>Moments by Raya</span>
           </a>

@@ -16,11 +16,43 @@ const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = [
-    "/assets/images/couple-1.jpg",
-    "/assets/images/couple-2.jpg", 
-    "/assets/images/couple-3.jpg",
-    "/assets/images/couple-4.jpg"
+    "/assets/images/prenup/WYN08076.JPG",
+    "/assets/images/prenup/WYN08086.JPG",
+    "/assets/images/prenup/WYN08091.JPG",
+    "/assets/images/prenup/WYN08093.JPG",
+    "/assets/images/prenup/WYN08109.JPG",
+    "/assets/images/prenup/WYN08112.JPG",
+    "/assets/images/prenup/WYN08127.JPG",
+    "/assets/images/prenup/WYN08161.JPG",
+    "/assets/images/prenup/WYN08170.JPG",
+    "/assets/images/prenup/WYN08181.JPG",
+    "/assets/images/prenup/WYN08185.JPG",
+    "/assets/images/prenup/WYN08214.JPG"
   ]
+
+  // Polaroid layout - all 12 images scattered organically
+  const getImageLayout = (index) => {
+    const layouts = [
+      // Top row
+      { top: '8%', left: '5%', width: '200px', height: '200px', rotation: -8 },
+      { top: '10%', left: '25%', width: '190px', height: '190px', rotation: 10 },
+      { top: '12%', left: '50%', width: '210px', height: '210px', rotation: -5 },
+      { top: '10%', left: '70%', width: '200px', height: '200px', rotation: 12 },
+      
+      // Middle row
+      { top: '35%', left: '10%', width: '220px', height: '200px', rotation: -7 },
+      { top: '38%', left: '35%', width: '190px', height: '190px', rotation: 9 },
+      { top: '40%', left: '58%', width: '200px', height: '200px', rotation: -6 },
+      { top: '42%', left: '78%', width: '180px', height: '180px', rotation: 11 },
+      
+      // Bottom row
+      { top: '65%', left: '8%', width: '200px', height: '200px', rotation: -9 },
+      { top: '68%', left: '30%', width: '210px', height: '210px', rotation: 8 },
+      { top: '70%', left: '55%', width: '190px', height: '190px', rotation: -7 },
+      { top: '72%', left: '75%', width: '200px', height: '200px', rotation: 10 }
+    ]
+    return layouts[index]
+  }
 
   useEffect(() => {
     // Cleanup function
@@ -50,61 +82,71 @@ const Gallery = () => {
     <>
       <section
         ref={sectionRef}
-        className={`py-20 w-full ${themeConfig.calendar.background}`}
+        className="relative py-20 w-full"
       >
-        <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
-          {/* Gallery Grid */}
-          <div ref={galleryRef} className="max-w-7xl mx-auto">
-            {/* Bento Grid Layout */}
-            <div className="grid grid-cols-4 gap-2">
-              {/* Large featured image - top left */}
-              <div 
-                className="col-span-2 row-span-2 h-80 md:h-96 overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => openModal(0)}
-              >
-                <LazyImage 
-                  src={images[0]} 
-                  alt="Wedding couple photo 1"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Medium image - top right */}
-              <div 
-                className="col-span-2 h-full overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => openModal(1)}
-              >
-                <LazyImage 
-                  src={images[1]} 
-                  alt="Wedding couple photo 2"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-               {/* Small image - bottom left */}
-               <div 
-                 className="h-full overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                 onClick={() => openModal(2)}
-               >
-                 <LazyImage 
-                   src={images[2]} 
-                   alt="Wedding couple photo 3"
-                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                 />
-               </div>
- 
-               {/* Small image - bottom right */}
-               <div 
-                 className="h-full overflow-hidden rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                 onClick={() => openModal(3)}
-               >
-                 <LazyImage 
-                   src={images[3]} 
-                   alt="Wedding couple photo 4"
-                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                 />
-               </div>
-            </div>
+        {/* Hero Background */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/assets/images/graphics/hero-bg.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        
+        {/* Crumpled Paper Background on top */}
+        <div 
+          className="absolute inset-0 opacity-30 z-10"
+          style={{
+            backgroundImage: 'url(/assets/images/crumpled-paper.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        
+        <div className={`relative z-20 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
+          {/* Gallery Container with polaroid layout */}
+          <div ref={galleryRef} className="relative w-full min-h-[1000px] max-w-6xl mx-auto">
+            {images.map((image, index) => {
+              const layout = getImageLayout(index)
+              return (
+                <div 
+                  key={index}
+                  className="absolute cursor-pointer"
+                  style={{ 
+                    top: layout.top,
+                    left: layout.left,
+                    width: layout.width,
+                    height: layout.height,
+                    transform: `rotate(${layout.rotation}deg)`,
+                    transition: 'transform 0.3s ease, z-index 0.3s ease',
+                    zIndex: 10
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = `rotate(${layout.rotation}deg) scale(1.05)`
+                    e.currentTarget.style.zIndex = '20'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = `rotate(${layout.rotation}deg)`
+                    e.currentTarget.style.zIndex = '10'
+                  }}
+                  onClick={() => openModal(index)}
+                >
+                  {/* Polaroid frame with white border */}
+                  <div className="bg-white p-2 w-full h-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="w-full h-full overflow-hidden">
+                      <LazyImage 
+                        src={image} 
+                        alt={`Prenup photo ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -146,7 +188,7 @@ const Gallery = () => {
             <div className="relative">
               <img
                 src={images[currentImageIndex]}
-                alt={`Wedding couple photo ${currentImageIndex + 1}`}
+                alt={`Prenup photo ${currentImageIndex + 1}`}
                 className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
               />
             </div>

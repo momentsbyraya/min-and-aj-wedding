@@ -62,7 +62,7 @@ const FAQ = () => {
     >
               <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
         {/* Section Title */}
-        <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script ${themeConfig.text.custom} mb-16 text-center faq-title`}>
+        <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-16 text-center faq-title`} style={{ color: '#4b2259' }}>
           Frequently Asked Questions
         </h2>
         
@@ -78,13 +78,14 @@ const FAQ = () => {
                 onClick={() => toggleAccordion(index)}
                 className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
               >
-                <h3 className={`text-lg sm:text-xl md:text-2xl font-serif ${themeConfig.text.custom} pr-4`}>
+                <h3 className={`font-poppins pr-4`} style={{ color: '#4b2259', fontSize: '1rem' }}>
                   {faq.question}
                 </h3>
                 <ChevronDown 
-                  className={`w-5 h-5 ${themeConfig.text.custom} transition-transform duration-300`}
+                  className={`w-5 h-5 transition-transform duration-300`}
                   style={{
-                    transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)'
+                    transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                    color: '#4b2259'
                   }}
                 />
               </button>
@@ -96,7 +97,7 @@ const FAQ = () => {
                 }`}
               >
                 <div className="px-6 pb-4">
-                  <p className="text-gray-600 font-serif leading-relaxed text-base sm:text-lg">
+                  <p className="font-poppins leading-relaxed" style={{ color: '#4b2259', fontSize: '1rem' }}>
                     {faq.answer}
                   </p>
                 </div>

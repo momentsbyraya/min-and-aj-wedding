@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { themeConfig } from '../config/themeConfig'
-import { dresscode, images } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -11,8 +10,6 @@ const DressCode = () => {
   const sectionRef = useRef(null)
   const image1Ref = useRef(null)
   const image2Ref = useRef(null)
-  const image3Ref = useRef(null)
-  const image4Ref = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -35,16 +32,6 @@ const DressCode = () => {
       { opacity: 1, duration: 0.8, ease: "power2.out" },
       "-=0.4"
     )
-    .fromTo(image3Ref.current, 
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
-    .fromTo(image4Ref.current, 
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
 
     // Cleanup function
     return () => {
@@ -55,16 +42,14 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className={`relative py-20 w-full overflow-hidden ${themeConfig.calendar.background}`}
+      className="relative py-20 w-full overflow-hidden"
+      style={{ backgroundColor: 'white' }}
     >
-      {/* Theme Background */}
-      <div className={`absolute inset-0 `}></div>
-      
-      {/* Crumpled Paper Background on top */}
+      {/* Background - bg-2 */}
       <div 
-        className="absolute inset-0 opacity-30 z-10"
+        className="absolute inset-0 z-10"
         style={{
-          backgroundImage: 'url(/assets/images/crumpled-paper.png)',
+          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -76,67 +61,49 @@ const DressCode = () => {
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-6xl w-full mx-auto px-4">
             {/* Header Section */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-script mb-6" style={{ color: '#1e3a5f' }}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-6" style={{ color: '#1e3a5f' }}>
                 Dress Code
               </h2>
-              <p className="text-lg sm:text-xl leading-tight max-w-2xl mx-auto" style={{ color: '#1e3a5f' }}>
-                We would be grateful if you support the style and color scheme of our wedding in your outfits. We recommend wearing casual/semi formal attire.
+              <p className="font-poppins leading-tight max-w-2xl mx-auto mb-8" style={{ color: '#1e3a5f', fontSize: '1rem' }}>
+                I would love for everyone to dress formally for this special day.
               </p>
             </div>
 
-            {/* Color Palette */}
-            <div className="flex justify-center items-center mb-16">
-              {dresscode.colorPalette.map((color, index) => (
-                <div 
-                  key={index} 
-                  className={`w-16 h-16 rounded-full flex-shrink-0 ${index < dresscode.colorPalette.length - 1 ? '-mr-4' : ''}`}
-                  style={{ backgroundColor: color.hex }}
-                  title={color.name}
-                ></div>
-              ))}
-            </div>
-
-            {/* Outfit Examples Section */}
-            <div className="flex items-start justify-end xl:justify-end">
-              {/* Vertical Label */}
-              <div className="w-8 flex-shrink-0 flex items-center">
-                <div className="w-8 text-gray-700 text-sm sm:text-base font-medium transform -rotate-90 origin-center whitespace-nowrap mt-20">
-                  Outfit Examples
-                </div>
-              </div>
-              
-              {/* Image Grid */}
-              <div className="flex-1 grid grid-cols-2 xl:grid-cols-4 gap-1 max-w-md lg:max-w-xl xl:max-w-4xl">
-                <div className="aspect-[3/4] overflow-hidden max-h-96">
+            {/* Female Attendees Section */}
+            <div className="mb-12 sm:mb-16">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-antsvalley mb-4 text-center" style={{ color: '#1e3a5f' }}>
+                Female Attendees
+              </h3>
+              <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#1e3a5f', fontSize: '1rem' }}>
+                Long dress in blue, white, or periwinkle
+              </p>
+              <div className="flex justify-center">
+                <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden">
                   <img 
                     ref={image1Ref}
-                    src="/assets/images/dresscode/dresscode-1.jpg" 
-                    alt="Dress code example 1" 
-                    className="w-full h-full object-cover"
+                    src="/assets/images/dresscode/girls.png" 
+                    alt="Female dress code" 
+                    className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="aspect-[3/4] overflow-hidden max-h-96">
+              </div>
+            </div>
+
+            {/* Male Attendees Section */}
+            <div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-antsvalley mb-4 text-center" style={{ color: '#1e3a5f' }}>
+                Male Attendees
+              </h3>
+              <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#1e3a5f', fontSize: '1rem' }}>
+                Coat or long sleeve
+              </p>
+              <div className="flex justify-center">
+                <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden">
                   <img 
                     ref={image2Ref}
-                    src="/assets/images/dresscode/dresscode-2.jpg" 
-                    alt="Dress code example 2" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-[3/4] overflow-hidden max-h-96">
-                  <img 
-                    ref={image3Ref}
-                    src="/assets/images/dresscode/dresscode-3.jpg" 
-                    alt="Dress code example 3" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-[3/4] overflow-hidden max-h-96">
-                  <img 
-                    ref={image4Ref}
-                    src="/assets/images/dresscode/dresscode-4.jpg" 
-                    alt="Dress code example 4" 
-                    className="w-full h-full object-cover"
+                    src="/assets/images/dresscode/boys.png" 
+                    alt="Male dress code" 
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>

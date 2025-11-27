@@ -55,40 +55,71 @@ const CTASection = () => {
     <>
       <section
         ref={sectionRef}
-        className={`relative py-20 w-full overflow-hidden ${themeConfig.calendar.background}`}
+        className="relative py-20 w-full min-h-screen overflow-hidden"
+        style={{ backgroundColor: 'white' }}
       >
+        {/* Background - bg-2 */}
+        <div 
+          className="absolute inset-0 z-10"
+          style={{
+            backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        
+        {/* Butterflies Background on top - flipped */}
+        <div 
+          className="absolute inset-0 z-10"
+          style={{
+            backgroundImage: 'url(/assets/images/graphics/butterflies-bg.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: 0.75,
+            transform: 'scaleX(-1)'
+          }}
+        ></div>
+        
         {/* Content */}
-        <div className="relative z-20 flex items-center justify-center">
-          <div ref={contentRef} className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-4">
+        <div className="relative z-20 flex items-end justify-start min-h-screen">
+          <div ref={contentRef} className="px-8 pb-12" style={{ maxWidth: '85%' }}>
             {/* Header Section */}
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-script text-gray-800 mb-6">
-                We Await Your Presence
+            <div className="text-left">
+              <h2 className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-antsvalley mb-6" style={{ color: '#4b2259' }}>
+                respond
               </h2>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Your presence would make our special day even more meaningful. 
-                Please let us know if you'll be joining us for our celebration.
+              <p className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#4b2259', fontSize: '1rem' }}>
+                Please let us know if you'll <br /> be joining us.
               </p>
-            </div>
 
-            {/* RSVP Button */}
-            <div className="text-center">
-              <button
-                onClick={openRSVPModal}
-                className="w-full inline-flex items-center justify-center space-x-3 px-8 py-3 sm:py-5 lg:py-2 text-white rounded-sm transition-colors duration-200 text-sm sm:text-2xl lg:text-base font-medium hover:opacity-90"
-                style={{ backgroundColor: '#1e3a5f' }}
-              >
-                <span>RSVP</span>
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-              
-              {/* Entourage Text */}
-              <button
-                onClick={openEntourageModal}
-                className="text-sm text-gray-600 mt-4 hover:text-gray-800 transition-colors duration-200 underline"
-              >
-                View our entourage
-              </button>
+              {/* RSVP Button */}
+              <div className="text-left">
+                <button
+                  onClick={openRSVPModal}
+                  className="inline-flex items-center justify-center space-x-3 py-3 sm:py-5 lg:py-2 transition-all duration-200 text-sm sm:text-2xl lg:text-base font-medium rsvp-button"
+                  style={{ 
+                    backgroundColor: 'rgba(255, 255, 255, 0.3)', 
+                    borderRadius: '25px', 
+                    color: '#1e3a5f',
+                    border: '1px solid #4b2259',
+                    paddingLeft: '2rem',
+                    paddingRight: '2rem'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#8b5cf6'
+                    e.currentTarget.style.color = 'white'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
+                    e.currentTarget.style.color = '#1e3a5f'
+                  }}
+                >
+                  <span>RSVP</span>
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+              </div>
             </div>
           </div>
         </div>

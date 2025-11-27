@@ -1,20 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
-import { images } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
 const LoveStory = () => {
   const sectionRef = useRef(null)
-  const photoRef = useRef(null)
 
   useEffect(() => {
-    // Set initial state of photo
-    gsap.set(photoRef.current, { y: 50, opacity: 0 })
-
     // Scroll-triggered animations
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -25,11 +19,6 @@ const LoveStory = () => {
       }
     })
 
-    // Slide from bottom to top animation for photo only
-    tl.to(photoRef.current, 
-      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
-    )
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
@@ -38,50 +27,41 @@ const LoveStory = () => {
   return (
     <section
       ref={sectionRef}
-      className={`relative py-20 w-full ${themeConfig.backgrounds.theme}`}
+      className="relative py-20 w-full min-h-screen"
+      style={{ backgroundColor: 'white' }}
     >
-      {/* Crumpled Paper Background on top */}
+      {/* Background - bg-2 */}
       <div 
-        className="absolute inset-0 opacity-30 z-10"
+        className="absolute inset-0 z-10"
         style={{
-          backgroundImage: 'url(/assets/images/crumpled-paper.png)',
+          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
       
+      {/* Butterflies Background on top */}
+      <div 
+        className="absolute inset-0 z-10"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/butterflies-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.75
+        }}
+      ></div>
+      
       {/* Content */}
-      <div className="relative z-20 flex items-center justify-center py-12">
-        <div className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto px-8">
-          {/* Two Column Layout for Large Screens */}
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-            {/* Left Column - Story and Heading */}
-            <div className="lg:order-1 relative z-40">
-              {/* Header Section */}
-              <div className="text-center lg:text-left mb-8">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-script mb-6" style={{ color: '#1e3a5f' }}>
-                  Our Love Story
-                </h2>
-                <p className="text-lg sm:text-xl leading-relaxed max-w-lg mx-auto lg:mx-0" style={{ color: '#1e3a5f' }}>
-                  From the moment our eyes first met, we knew something magical was beginning. 
-                  What started as a simple conversation has blossomed into a beautiful journey of 
-                  laughter, adventures, and countless precious memories together.
-                </p>
-              </div>
-            </div>
+      <div className="relative z-20 flex items-end justify-end min-h-screen">
+        <div className="px-8 pb-12" style={{ maxWidth: '85%' }}>
+          {/* Header Section */}
+          <div className="text-right">
             
-            {/* Right Column - Polaroid Photo */}
-            <div className="lg:order-2">
-              <div className="flex justify-center lg:justify-end">
-                <div ref={photoRef} className="w-56 h-62 lg:w-96 lg:h-104 bg-white shadow-2xl hover:scale-105 transition-transform duration-300 p-2">
-                  <div className="w-full h-56 lg:h-96 bg-cover bg-center" style={{backgroundImage: `url(${images.couple.couple3})`}}></div>
-                  <div className="p-3 text-center">
-                    <div className="text-sm sm:text-base text-gray-600 font-handwritten">love you to the moon and back</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p className="font-poppins leading-relaxed max-w-lg ml-auto" style={{ color: '#4b2259', fontSize: '16px' }}>
+              She blossomed from a sweet young girl into a <span className="font-bestlight" style={{ fontSize: '28px', marginLeft: '10px' }}>confident</span> <span className="font-poppins" style={{ fontSize: '16px' }}>young woman</span>. Now stepping into adulthood, she carries big dreams and a bright future, making everyone proud of the person she's become.
+            </p>
           </div>
         </div>
       </div>
