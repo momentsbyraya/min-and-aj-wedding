@@ -148,7 +148,7 @@ const Hero = () => {
       ></div>
       
       {/* Content */}
-      <div ref={contentRef} className="relative z-20" style={{ transform: 'scale(1.02)', opacity: 0 }}>
+      <div ref={contentRef} className="relative z-40" style={{ transform: 'scale(1.02)', opacity: 0 }}>
         {/* Celebrant's Text */}
         <div 
           className="font-bestlight"
@@ -247,8 +247,8 @@ const Hero = () => {
       <img 
         src="/assets/images/graphics/hero-portrait.png" 
         alt="Hero portrait" 
-        className="absolute bottom-0 right-0 z-30"
-        style={{ maxHeight: '50vh', height: 'auto', width: 'auto' }}
+        className="absolute bottom-0 z-30"
+        style={{ maxHeight: '50vh', height: 'auto', width: 'auto', right: '-5%' }}
       />
     </section>
   )
