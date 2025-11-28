@@ -18,31 +18,30 @@ const Counter = ({ countdown }) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
+        start: "top 50%",
         end: "bottom 20%",
         toggleActions: "play none none reverse"
       }
     })
 
 
-    // Countdown container animation
-    tl.fromTo(countdownRef.current, 
-      { opacity: 0, y: 50, scale: 0.9 },
-      { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power2.out" },
-      "-=0.3"
+    // Countdown title animation
+    tl.fromTo(".save-date-title", 
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
-    // Countdown numbers stagger animation
+    // Countdown numbers stagger animation with delay
     tl.fromTo(".countdown-number", 
-      { opacity: 0, y: 30 },
+      { opacity: 0, y: 50 },
       { 
         opacity: 1, 
         y: 0, 
-        duration: 0.8, 
+        duration: 0.6, 
         ease: "power2.out",
-        stagger: 0.2
+        stagger: 0.15
       },
-      "-=0.5"
+      "-=0.3"
     )
 
     // Cleanup function
@@ -76,7 +75,7 @@ const Counter = ({ countdown }) => {
           className="mb-12 max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto px-8 sm:px-12 "
         >
           <div className="flex justify-center mb-4">
-            <h3 className={`flex flex-col scale-75 sm:scale-90 md:scale-75 lg:scale-100 origin-center sm:origin-center md:origin-center lg:origin-center`}>
+            <h3 className={`save-date-title flex flex-col scale-75 sm:scale-90 md:scale-75 lg:scale-100 origin-center sm:origin-center md:origin-center lg:origin-center`}>
               <div className={`text-7xl sm:text-8xl md:text-9xl lg:text-8xl font-antsvalley text-left`} style={{ marginLeft: '-5vw', color: '#4b2259' }}>Save</div>
               <div className={`flex items-center justify-center gap-2 text-center`} style={{ marginRight: '-3vw' }}>
                 <span className={`text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-antsvalley self-start pt-2 sm:pt-3 md:pt-4 lg:pt-3`} style={{ color: '#4b2259' }}>the</span>

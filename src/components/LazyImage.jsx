@@ -6,6 +6,7 @@ const LazyImage = ({
   className = '', 
   placeholder = null,
   threshold = 0.1,
+  priority = "low",
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -23,7 +24,7 @@ const LazyImage = ({
       },
       {
         threshold: threshold,
-        rootMargin: '200px 0px' // Start loading when 200px away from viewport
+        rootMargin: '50px 0px' // Reduced margin for better performance
       }
     )
 
@@ -67,7 +68,9 @@ const LazyImage = ({
           className={`w-full h-full object-cover transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          loading="eager" // Load immediately when in view
+          loading="lazy"
+          decoding="async"
+          fetchpriority={priority}
           {...props}
         />
       )}

@@ -40,14 +40,29 @@ const WeddingInvitation = () => {
         {/* Hero Section - Always visible */}
         <section className='h-full'><Hero /></section>
         
-        {/* Wedding Details */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
-        </EnhancedLazySection>
-        
         {/* Love Story Section */}
         <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
           <LoveStory />
+        </EnhancedLazySection>
+        
+        {/* Gallery Section */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
+          <Gallery />
+        </EnhancedLazySection>
+
+        {/* Map & Directions Section */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="map-directions">
+          <MapDirections />
+        </EnhancedLazySection>
+
+        {/* Dress Code Section */}
+        <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
+          <DressCode />
+        </EnhancedLazySection>
+
+        {/* CTA Section - Full Width */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="cta">
+          <CTASection />
         </EnhancedLazySection>
 
         {/* Gift Registry Section */}
@@ -60,35 +75,20 @@ const WeddingInvitation = () => {
           <FAQ />
         </EnhancedLazySection>
         
-        {/* Gallery Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
-          <Gallery />
-        </EnhancedLazySection> */}
-        
         {/* Calendar Section */}
         {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
           <Calendar />
         </EnhancedLazySection> */}
 
-        {/* Map & Directions Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="map-directions">
-          <MapDirections />
-        </EnhancedLazySection>
-
          {/* Invitation Section - Full Width */}
          {/* <EnhancedLazySection animationClass="fade-scale" sectionName="invitation">
            <Schedule />
          </EnhancedLazySection> */}
-
-        {/* Dress Code Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
-          <DressCode />
+        
+        {/* Save the Date Section - At the end */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
         </EnhancedLazySection>
-
-        {/* CTA Section - Full Width */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="cta">
-          <CTASection />
-        </EnhancedLazySection>   
         
         {/* Couple Image Section */}
         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-image">

@@ -25,21 +25,20 @@ const MapDirections = () => {
       }
     })
 
-    // Venue section animations
+    // Venue section animations - slide up with delays
     tl.fromTo(receptionDetailsRef.current, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.2"
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
     .fromTo(receptionPhotoRef.current, 
-      { opacity: 0, scale: 0.9 },
-      { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.3"
     )
     .fromTo(receptionButtonRef.current, 
-      { opacity: 0, y: 20 },
+      { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-      "-=0.4"
+      "-=0.3"
     )
 
     // Cleanup function

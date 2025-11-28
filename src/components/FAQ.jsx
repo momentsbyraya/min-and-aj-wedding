@@ -20,29 +20,29 @@ const FAQ = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
+        start: "top 50%",
         end: "bottom 20%",
         toggleActions: "play none none reverse"
       }
     })
 
-    // Section title animation
+    // Section title animation - slide up
     tl.fromTo(".faq-title", 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
-    // Accordion items animation with stagger
+    // Accordion items animation with stagger - slide up with delays
     tl.fromTo(accordionRef.current.children, 
-      { opacity: 0, y: 20 },
+      { opacity: 0, y: 50 },
       { 
         opacity: 1, 
         y: 0, 
         duration: 0.6, 
         ease: "power2.out",
-        stagger: 0.1
+        stagger: 0.15
       },
-      "-=0.5"
+      "-=0.4"
     )
 
     // Cleanup function
@@ -58,9 +58,22 @@ const FAQ = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-20 w-full ${themeConfig.calendar.background}`}
+      className="relative py-20 w-full overflow-hidden"
+      style={{ backgroundColor: 'white' }}
     >
-              <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
+      {/* Background - bg-2 */}
+      <div 
+        className="absolute inset-0 z-10"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
+      
+      {/* Content */}
+      <div className={`relative z-20 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
         {/* Section Title */}
         <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-16 text-center faq-title`} style={{ color: '#4b2259' }}>
           Frequently Asked Questions
@@ -96,7 +109,7 @@ const FAQ = () => {
                   openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-4">
+                <div className="px-6 pt-4 pb-4">
                   <p className="font-poppins leading-relaxed" style={{ color: '#4b2259', fontSize: '1rem' }}>
                     {faq.answer}
                   </p>

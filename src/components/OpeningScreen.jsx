@@ -33,11 +33,17 @@ function OpeningScreen({ onEnvelopeOpen }) {
       ref={openingSectionRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
     >
-      {/* Background image with pulsing animation */}
+      {/* Background matching dress code section */}
       <div 
-        className="absolute inset-0 opening-bg-pulse"
+        className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/openine-bg-6.jpg)',
+          backgroundColor: 'white'
+        }}
+      />
+      <div 
+        className="absolute inset-0 z-10 opening-bg-pulse"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

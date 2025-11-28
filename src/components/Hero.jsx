@@ -149,7 +149,7 @@ const Hero = () => {
       
       {/* Content */}
       <div ref={contentRef} className="relative z-20" style={{ transform: 'scale(1.02)', opacity: 0 }}>
-        {/* Penelope's Text */}
+        {/* Celebrant's Text */}
         <div 
           className="font-bestlight"
           style={{ 
@@ -160,7 +160,7 @@ const Hero = () => {
             position: 'relative'
           }}
         >
-          Penelope's
+          {celebrant.debutant.name.nickname}'s
           <img 
             src="/assets/images/graphics/butterfly-half-left.png" 
             alt="Butterfly" 
@@ -209,7 +209,7 @@ const Hero = () => {
         <div style={{ display: 'flex', width: '100%', marginTop: '2rem' }}>
           <div style={{ width: '60%' }}>
             <div className="font-poppins" style={{ color: '#4b2259', textTransform: 'uppercase', textAlign: 'center', lineHeight: '1.2' }}>
-              JOIN US FOR PENELOPE'S<br />
+              JOIN US FOR {celebrant.debutant.name.nickname.toUpperCase()}'S<br />
               SWEET 18TH PARTY!
             </div>
             <div className="font-poppins" style={{ color: '#4b2259', marginTop: '1rem', textTransform: 'uppercase', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>

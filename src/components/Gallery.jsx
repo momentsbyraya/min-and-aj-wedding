@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,9 +11,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Gallery = () => {
   const sectionRef = useRef(null)
-  const galleryRef = useRef(null)
+  const titleRef = useRef(null)
+  const gridRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [galleryIndex, setGalleryIndex] = useState(0)
 
   const images = [
     "/assets/images/prenup/WYN08076.JPG",
@@ -30,41 +32,67 @@ const Gallery = () => {
     "/assets/images/prenup/WYN08214.JPG"
   ]
 
-  // Polaroid layout - all 12 images scattered organically
-  const getImageLayout = (index) => {
-    const layouts = [
-      // Top row
-      { top: '8%', left: '5%', width: '200px', height: '200px', rotation: -8 },
-      { top: '10%', left: '25%', width: '190px', height: '190px', rotation: 10 },
-      { top: '12%', left: '50%', width: '210px', height: '210px', rotation: -5 },
-      { top: '10%', left: '70%', width: '200px', height: '200px', rotation: 12 },
-      
-      // Middle row
-      { top: '35%', left: '10%', width: '220px', height: '200px', rotation: -7 },
-      { top: '38%', left: '35%', width: '190px', height: '190px', rotation: 9 },
-      { top: '40%', left: '58%', width: '200px', height: '200px', rotation: -6 },
-      { top: '42%', left: '78%', width: '180px', height: '180px', rotation: 11 },
-      
-      // Bottom row
-      { top: '65%', left: '8%', width: '200px', height: '200px', rotation: -9 },
-      { top: '68%', left: '30%', width: '210px', height: '210px', rotation: 8 },
-      { top: '70%', left: '55%', width: '190px', height: '190px', rotation: -7 },
-      { top: '72%', left: '75%', width: '200px', height: '200px', rotation: 10 }
-    ]
-    return layouts[index]
-  }
-
   useEffect(() => {
+    // Use Intersection Observer for better performance
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Only animate when section is in view
+            const tl = gsap.timeline()
+
+            // Animate title first
+            if (titleRef.current) {
+              tl.fromTo(titleRef.current,
+                { opacity: 0, y: 50 },
+                { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+              )
+            }
+
+              // Animate grid items with stagger - batch animation for performance
+              if (gridRef.current) {
+                const children = Array.from(gridRef.current.children)
+                // Animate in smaller batches to reduce load - use requestAnimationFrame for smoother performance
+                const animateBatch = (startIndex, batchSize = 3) => {
+                  const endIndex = Math.min(startIndex + batchSize, children.length)
+                  for (let i = startIndex; i < endIndex; i++) {
+                    gsap.fromTo(children[i],
+                      { opacity: 0, y: 50 },
+                      { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.5, 
+                        ease: "power2.out",
+                        delay: 0.3 + ((i - startIndex) * 0.08)
+                      }
+                    )
+                  }
+                  if (endIndex < children.length) {
+                    requestAnimationFrame(() => {
+                      setTimeout(() => animateBatch(endIndex, batchSize), 50)
+                    })
+                  }
+                }
+                animateBatch(0, 3) // Animate 3 at a time
+              }
+
+            observer.disconnect()
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '100px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
     // Cleanup function
     return () => {
+      observer.disconnect()
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
-
-  const openModal = (index) => {
-    setCurrentImageIndex(index)
-    setIsModalOpen(true)
-  }
 
   const closeModal = () => {
     setIsModalOpen(false)
@@ -78,11 +106,33 @@ const Gallery = () => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
   }
 
+  const openModal = (index) => {
+    setCurrentImageIndex(index)
+    setIsModalOpen(true)
+  }
+
+  // Bento grid layout - define sizes for each image (optimized to fill grid)
+  const bentoLayout = [
+    { colSpan: 2, rowSpan: 2 }, // Large top-left
+    { colSpan: 1, rowSpan: 1 }, // Small top-right
+    { colSpan: 1, rowSpan: 1 }, // Small top-right
+    { colSpan: 1, rowSpan: 2 }, // Tall right
+    { colSpan: 2, rowSpan: 1 }, // Wide middle-left
+    { colSpan: 1, rowSpan: 1 }, // Small middle
+    { colSpan: 1, rowSpan: 1 }, // Small middle
+    { colSpan: 1, rowSpan: 1 }, // Small bottom-left
+    { colSpan: 1, rowSpan: 1 }, // Small bottom-left
+    { colSpan: 1, rowSpan: 1 }, // Small bottom
+    { colSpan: 1, rowSpan: 1 }, // Small bottom
+    { colSpan: 4, rowSpan: 1 }, // Full row
+  ]
+
   return (
     <>
       <section
         ref={sectionRef}
         className="relative py-20 w-full"
+        style={{ minHeight: '100vh' }}
       >
         {/* Hero Background */}
         <div 
@@ -106,47 +156,55 @@ const Gallery = () => {
           }}
         ></div>
         
-        <div className={`relative z-20 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
-          {/* Gallery Container with polaroid layout */}
-          <div ref={galleryRef} className="relative w-full min-h-[1000px] max-w-6xl mx-auto">
-            {images.map((image, index) => {
-              const layout = getImageLayout(index)
-              return (
-                <div 
-                  key={index}
-                  className="absolute cursor-pointer"
-                  style={{ 
-                    top: layout.top,
-                    left: layout.left,
-                    width: layout.width,
-                    height: layout.height,
-                    transform: `rotate(${layout.rotation}deg)`,
-                    transition: 'transform 0.3s ease, z-index 0.3s ease',
-                    zIndex: 10
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = `rotate(${layout.rotation}deg) scale(1.05)`
-                    e.currentTarget.style.zIndex = '20'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = `rotate(${layout.rotation}deg)`
-                    e.currentTarget.style.zIndex = '10'
-                  }}
-                  onClick={() => openModal(index)}
-                >
-                  {/* Polaroid frame with white border */}
-                  <div className="bg-white p-2 w-full h-full shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="w-full h-full overflow-hidden">
-                      <LazyImage 
-                        src={image} 
-                        alt={`Prenup photo ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
+        <div className={`relative z-20 flex flex-col items-center justify-center`} style={{ minHeight: '100vh', padding: '2rem 0' }}>
+          {/* Title */}
+          <div ref={titleRef} className="text-center mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-antsvalley" style={{ color: '#4b2259' }}>
+              The Celebrant
+            </h2>
+          </div>
+
+          {/* Bento Grid Gallery */}
+          <div className={`w-full max-w-7xl mx-auto px-4 ${themeConfig.container.padding}`}>
+            <div 
+              ref={gridRef}
+              className="grid grid-cols-4 gap-4"
+              style={{
+                gridAutoRows: 'minmax(150px, auto)',
+                gridAutoFlow: 'dense',
+                contain: 'layout style',
+                contentVisibility: 'auto'
+              }}
+            >
+              {images.map((image, index) => {
+                const layout = bentoLayout[index] || { colSpan: 1, rowSpan: 1 }
+                return (
+                  <div
+                    key={index}
+                    className="group cursor-pointer relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] gallery-grid-item"
+                    style={{
+                      gridColumn: index === 0 ? '1 / span 2' : `span ${layout.colSpan}`,
+                      gridRow: `span ${layout.rowSpan}`,
+                      willChange: 'transform, opacity',
+                      contain: 'layout style paint',
+                      transform: 'translateZ(0)'
+                    }}
+                    onClick={() => openModal(index)}
+                  >
+                    <div className="absolute left-0 top-0 bottom-0 w-1/2 bg-gradient-to-r from-black/50 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+                    <LazyImage
+                      src={image}
+                      alt={`Prenup photo ${index + 1}`}
+                      className="w-full h-full object-cover"
+                      priority={index < 4 ? "high" : "low"}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                      <p className="text-sm font-medium">Photo {index + 1}</p>
                     </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -156,8 +214,9 @@ const Gallery = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Black Overlay */}
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/50"
             onClick={closeModal}
+            style={{ backdropFilter: 'blur(2px)' }}
           />
           
           {/* Modal Content */}
@@ -190,6 +249,9 @@ const Gallery = () => {
                 src={images[currentImageIndex]}
                 alt={`Prenup photo ${currentImageIndex + 1}`}
                 className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
 
