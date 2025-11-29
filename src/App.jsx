@@ -37,6 +37,20 @@ function App() {
     }
   }
 
+  const pauseMusic = () => {
+    if (audioRef.current && !audioRef.current.paused) {
+      audioRef.current.pause()
+    }
+  }
+
+  const resumeMusic = () => {
+    if (audioRef.current && audioRef.current.paused) {
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error)
+      })
+    }
+  }
+
   const handleEnvelopeOpen = () => {
     setShowOpeningScreen(false)
     // Start music when wedding invitation is shown
@@ -45,23 +59,16 @@ function App() {
 
   return (
     <div className="App min-h-screen wedding-gradient relative">
-      {/* Watermarks */}
-      <div className="watermark-approval watermark-1">
-        THIS IS FOR CLIENT APPROVAL ONLY.
-      </div>
-      <div className="watermark-approval watermark-2">
-        THIS IS FOR CLIENT APPROVAL ONLY.
-      </div>
-      <div className="watermark-approval watermark-3">
-        THIS IS FOR CLIENT APPROVAL ONLY.
-      </div>
-      
+      <DynamicTitle />
       {showOpeningScreen ? (
         <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />
       ) : (
         <>
-          <DynamicTitle />
-          <WeddingInvitation onOpenRSVP={() => setIsRSVPModalOpen(true)} />
+          <WeddingInvitation 
+            onOpenRSVP={() => setIsRSVPModalOpen(true)} 
+            onPauseMusic={pauseMusic}
+            onResumeMusic={resumeMusic}
+          />
           <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
         </>
       )}

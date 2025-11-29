@@ -93,7 +93,7 @@ const MapDirections = () => {
         {/* Section Header */}
         <div className="text-center mb-8">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-6" style={{ color: '#4b2259' }}>
-            Venues
+            Venue
           </h2>
         </div>
 
@@ -103,10 +103,15 @@ const MapDirections = () => {
           <div className="flex justify-center">
             <div className="w-full max-w-md">
               <div ref={receptionDetailsRef} className="text-center mb-6">
-                <h3 className="text-xl sm:text-3xl font-poppins" style={{ color: '#4b2259' }}>
-                  {venues.main.name}
+                <h3 className="font-poppins" style={{ color: '#4b2259', fontSize: '16px' }}>
+                  {venues.main.name.replace('Magdalene Garden Private Resort', 'Magdalene Garden\nPrivate Resort').split('\n').map((line, i) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      {i < 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </h3>
-                <p className="text-sm sm:text-lg font-poppins" style={{ color: '#4b2259' }}>
+                <p className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
                   {venues.main.address}, {venues.main.city}, {venues.main.state} {venues.main.zip}
                 </p>
               </div>

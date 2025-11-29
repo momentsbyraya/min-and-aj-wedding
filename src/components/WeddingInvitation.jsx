@@ -9,15 +9,17 @@ import PhotoSection from './PhotoSection'
 import Schedule from './Schedule'
 import LoveStory from './LoveStory'
 import DressCode from './DressCode'
-import Gallery from './Gallery'
+import Gallery2 from './Gallery2'
+import VideoSection from './VideoSection'
 import FAQ from './FAQ'
 import MapDirections from './Venue'
 import GiftRegistry from './GiftRegistry'
 import CTASection from './CTASection'
+import EighteenList from './EighteenList'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
 
-const WeddingInvitation = () => {
+const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
 
   useEffect(() => {
@@ -40,14 +42,19 @@ const WeddingInvitation = () => {
         {/* Hero Section - Always visible */}
         <section className='h-full'><Hero /></section>
         
+        {/* Video Section */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="videos">
+          <VideoSection onPauseMusic={onPauseMusic} onResumeMusic={onResumeMusic} />
+        </EnhancedLazySection>
+        
         {/* Love Story Section */}
         <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
           <LoveStory />
         </EnhancedLazySection>
         
-        {/* Gallery Section */}
+        {/* Gallery Section - Square Grid */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
-          <Gallery />
+          <Gallery2 />
         </EnhancedLazySection>
 
         {/* Map & Directions Section */}
@@ -63,6 +70,11 @@ const WeddingInvitation = () => {
         {/* CTA Section - Full Width */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="cta">
           <CTASection />
+        </EnhancedLazySection>
+
+        {/* 18 List Section */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
+          <EighteenList />
         </EnhancedLazySection>
 
         {/* Gift Registry Section */}

@@ -76,8 +76,8 @@ const LoveStory = () => {
           {/* Header Section */}
           <div className="text-right">
             
-            <p ref={textRef} className="font-poppins leading-relaxed max-w-lg ml-auto" style={{ color: '#4b2259', fontSize: '16px' }}>
-              She blossomed from a sweet young girl into a <span className="font-bestlight" style={{ fontSize: '28px', marginLeft: '10px' }}>confident</span> <span className="font-poppins" style={{ fontSize: '16px' }}>young woman</span>. Now stepping into adulthood, she carries big dreams and a bright future, making everyone proud of the person she's become.
+            <p ref={textRef} className="font-poppins leading-relaxed max-w-lg ml-auto" style={{ color: '#B76E79', fontSize: '16px' }}>
+              She blossomed from a sweet young girl into a <span className="font-bestlight" style={{ fontSize: '28px', marginLeft: '10px', color: '#4b2259' }}>confident</span> <span className="font-poppins" style={{ fontSize: '16px', color: '#B76E79' }}>young woman</span>. Now stepping into adulthood, she carries big dreams and a bright future, making everyone proud of the person she's become.
             </p>
           </div>
         </div>

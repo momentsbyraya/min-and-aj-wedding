@@ -81,14 +81,16 @@ const DressCode = () => {
       className="relative py-20 w-full overflow-hidden"
       style={{ backgroundColor: 'white' }}
     >
-      {/* Background - bg-2 */}
+      {/* Rose Gold Purple Background - Flipped Vertically and Zoomed */}
       <div 
         className="absolute inset-0 z-10"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          transform: 'scaleY(-1) scale(1.2)',
+          opacity: 0.3
         }}
       ></div>
       
@@ -100,17 +102,17 @@ const DressCode = () => {
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-6" style={{ color: '#4b2259' }}>
                 Dress Code
               </h2>
-              <p className="font-poppins leading-tight max-w-2xl mx-auto mb-8" style={{ color: '#4b2259', fontSize: '1rem' }}>
+              <p className="font-poppins leading-tight max-w-2xl mx-auto mb-8" style={{ color: '#B76E79', fontSize: '1rem' }}>
                 I would love for everyone to dress formally for this special day.
               </p>
             </div>
 
             {/* Female Attendees Section */}
             <div ref={femaleSectionRef} className="mb-12 sm:mb-16">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-antsvalley mb-4 text-center" style={{ color: '#4b2259' }}>
+              <h3 className="text-xl sm:text-2xl md:text-2xl caudex-regular mb-1 text-center uppercase" style={{ color: '#4b2259' }}>
                 Female Attendees
               </h3>
-              <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#4b2259', fontSize: '1rem' }}>
+              <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#B76E79', fontSize: '1rem' }}>
                 Long dress in blue, white, or periwinkle
               </p>
               <div className="flex justify-center">
@@ -127,10 +129,10 @@ const DressCode = () => {
 
             {/* Male Attendees Section */}
             <div ref={maleSectionRef}>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-antsvalley mb-4 text-center" style={{ color: '#4b2259' }}>
+              <h3 className="text-xl sm:text-2xl md:text-2xl caudex-regular mb-1 text-center uppercase" style={{ color: '#4b2259' }}>
                 Male Attendees
               </h3>
-              <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#4b2259', fontSize: '1rem' }}>
+              <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#B76E79', fontSize: '1rem' }}>
                 Coat or long sleeve
               </p>
               <div className="flex justify-center">

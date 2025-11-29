@@ -61,14 +61,16 @@ const FAQ = () => {
       className="relative py-20 w-full overflow-hidden"
       style={{ backgroundColor: 'white' }}
     >
-      {/* Background - bg-2 */}
+      {/* Rose Gold Purple Background - Flipped Vertically */}
       <div 
         className="absolute inset-0 z-10"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          transform: 'scaleY(-1)',
+          opacity: 0.3
         }}
       ></div>
       
@@ -110,7 +112,7 @@ const FAQ = () => {
                 }`}
               >
                 <div className="px-6 pt-4 pb-4">
-                  <p className="font-poppins leading-relaxed" style={{ color: '#4b2259', fontSize: '1rem' }}>
+                  <p className="font-poppins leading-relaxed" style={{ color: '#B76E79', fontSize: '1rem' }}>
                     {faq.answer}
                   </p>
                 </div>

@@ -43,10 +43,11 @@ function OpeningScreen({ onEnvelopeOpen }) {
       <div 
         className="absolute inset-0 z-10 opening-bg-pulse"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.3
         }}
       />
       <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
@@ -67,7 +68,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
             onClick={handleEnvelopeClick}
           >
             <img 
-              src="/assets/images/graphics/stamp.png" 
+              src="/assets/images/graphics/rg-stamp.png" 
               alt="Stamp" 
               className="stamp-image"
             />

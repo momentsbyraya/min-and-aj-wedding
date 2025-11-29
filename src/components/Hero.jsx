@@ -208,25 +208,25 @@ const Hero = () => {
         {/* Join Us Container */}
         <div style={{ display: 'flex', width: '100%', marginTop: '2rem' }}>
           <div style={{ width: '60%' }}>
-            <div className="font-poppins" style={{ color: '#4b2259', textTransform: 'uppercase', textAlign: 'center', lineHeight: '1.2' }}>
+            <div className="font-poppins" style={{ color: '#4b2259', textTransform: 'uppercase', textAlign: 'center', lineHeight: '1.2', fontSize: 'clamp(0.875rem, 2vw, 1.5rem)' }}>
               JOIN US FOR {celebrant.debutant.name.nickname.toUpperCase()}'S<br />
               SWEET 18TH PARTY!
             </div>
-            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '1rem', textTransform: 'uppercase', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-              <div className="font-poppins" style={{ borderRight: '2px solid #4b2259', paddingRight: '1rem', fontSize: '0.8em' }}>
+            <div className="font-poppins" style={{ color: '#B76E79', marginTop: '0.5rem', textTransform: 'uppercase', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontSize: 'clamp(0.75rem, 1.5vw, 1rem)' }}>
+              <div className="font-poppins" style={{ borderRight: '2px solid #B76E79', paddingRight: '0.75rem', fontSize: 'clamp(0.6rem, 1.2vw, 0.8rem)' }}>
                 {weddingConfig.debut.month.toUpperCase()}
               </div>
-              <div className="font-poppins" style={{ fontSize: '1.5em', fontWeight: 'bold' }}>
+              <div className="font-poppins" style={{ fontSize: 'clamp(1rem, 2.25vw, 1.5rem)', fontWeight: 'bold' }}>
                 {weddingConfig.debut.day}
               </div>
-              <div className="font-poppins" style={{ borderLeft: '2px solid #4b2259', paddingLeft: '1rem', fontSize: '0.8em' }}>
+              <div className="font-poppins" style={{ borderLeft: '2px solid #B76E79', paddingLeft: '0.75rem', fontSize: 'clamp(0.6rem, 1.2vw, 0.8rem)' }}>
                 {weddingConfig.debut.year}
               </div>
             </div>
-            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '0.25rem', textTransform: 'uppercase', fontSize: '0.9em', textAlign: 'center', fontWeight: 600 }}>
+            <div className="font-poppins" style={{ color: '#B76E79', marginTop: '0.125rem', textTransform: 'uppercase', fontSize: 'clamp(0.875rem, 1.5vw, 0.9rem)', textAlign: 'center', fontWeight: 600 }}>
               AT {weddingConfig.debut.time.toUpperCase()}
             </div>
-            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '0.5rem', textTransform: 'uppercase', fontSize: '0.9em', textAlign: 'center', fontWeight: 600 }}>
+            <div className="font-poppins" style={{ color: '#4b2259', marginTop: '0.25rem', textTransform: 'uppercase', fontSize: 'clamp(0.875rem, 1.5vw, 0.9rem)', textAlign: 'center', fontWeight: 600 }}>
               {weddingConfig.venue.main.name.toUpperCase()}
             </div>
           </div>
@@ -255,3 +255,5 @@ const Hero = () => {
 }
 
 export default Hero
+
+
