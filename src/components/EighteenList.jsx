@@ -75,7 +75,7 @@ const EighteenList = () => {
           <div className="grid grid-cols-2 gap-4 md:gap-6">
             {/* Roses */}
             <div className="flex flex-col">
-              <h3 className="text-2xl sm:text-3xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
+              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
                 Roses
                 <img 
                   src="/assets/images/graphics/butterfly-half-left.png" 
@@ -118,7 +118,7 @@ const EighteenList = () => {
 
             {/* Blue Bills */}
             <div className="flex flex-col" style={{ marginBottom: '4rem' }}>
-              <h3 className="text-2xl sm:text-3xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
+              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
                 Blue Bills
                 <img 
                   src="/assets/images/graphics/butterfly-half-left.png" 
@@ -161,7 +161,7 @@ const EighteenList = () => {
 
             {/* Bags */}
             <div className="flex flex-col">
-              <h3 className="text-2xl sm:text-3xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
+              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
                 Bags
                 <img 
                   src="/assets/images/graphics/butterfly-half-left.png" 
@@ -204,7 +204,7 @@ const EighteenList = () => {
 
             {/* Gifts and Candles */}
             <div className="flex flex-col" style={{ marginBottom: '4rem' }}>
-              <h3 className="text-2xl sm:text-3xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
+              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
                 Gifts & Candles
                 <img 
                   src="/assets/images/graphics/butterfly-half-left.png" 
@@ -247,7 +247,7 @@ const EighteenList = () => {
 
             {/* Shots */}
             <div className="col-span-2 flex flex-col items-center w-full" style={{ marginBottom: '6rem' }}>
-              <h3 className="text-2xl sm:text-3xl font-lovelyhome mb-6 text-center relative" style={{ color: '#4b2259', width: 'fit-content', margin: '0 auto' }}>
+              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-center relative" style={{ color: '#4b2259', width: 'fit-content', margin: '0 auto' }}>
                 Shots
                 <img 
                   src="/assets/images/graphics/butterfly-half-left.png" 
