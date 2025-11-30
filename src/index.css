@@ -784,3 +784,114 @@ body {
   will-change: transform, opacity;
 }
 
+/* Hero section details - larger font on screens 640px and above */
+@media (min-width: 640px) {
+  .hero-join-us {
+    font-size: clamp(1.125rem, 2.5vw, 20px) !important;
+  }
+  
+  .hero-date-container {
+    font-size: clamp(0.875rem, 2vw, 20px) !important;
+  }
+  
+  .hero-month-year {
+    font-size: clamp(0.75rem, 1.5vw, 20px) !important;
+  }
+  
+  .hero-day {
+    font-size: clamp(1.25rem, 3vw, 20px) !important;
+  }
+  
+  .hero-time {
+    font-size: clamp(1rem, 2vw, 20px) !important;
+  }
+  
+  .hero-venue {
+    font-size: clamp(1rem, 2vw, 20px) !important;
+  }
+}
+
+/* Hero top and bottom design - 3 images on screens 992px and above */
+@media (min-width: 992px) {
+  .hero-top-design-container {
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+  }
+  
+  .hero-top-design-left {
+    display: block !important;
+    width: fit-content !important;
+    position: absolute;
+    left: 0;
+    transform: rotate(180deg) !important;
+  }
+  
+  .hero-top-design-center {
+    display: block !important;
+    width: fit-content !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg) !important;
+  }
+  
+  .hero-top-design-right {
+    display: block !important;
+    width: fit-content !important;
+    position: absolute;
+    right: 0;
+    transform: rotate(180deg) !important;
+  }
+  
+  .hero-bottom-design-container {
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+  }
+  
+  .hero-bottom-design-left {
+    display: block !important;
+    width: fit-content !important;
+    position: absolute;
+    left: 0;
+  }
+  
+  .hero-bottom-design-center {
+    width: fit-content !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) !important;
+  }
+  
+  .hero-bottom-design-right {
+    display: block !important;
+    width: fit-content !important;
+    position: absolute;
+    right: 0;
+  }
+  
+  .hero-portrait {
+    max-height: 60vh !important;
+    transform: scale(1.1) !important;
+    transform-origin: bottom right;
+  }
+}
+
+/* Move hero content to the left on screens 1024px and above */
+@media (min-width: 1024px) {
+  .hero-content {
+    transform: translateX(-10%) scale(1.02) !important;
+  }
+  
+  .hero-details-container {
+    justify-content: center !important;
+  }
+  
+  .hero-details-container > div:first-child {
+    width: 100% !important;
+    max-width: 600px;
+  }
+  
+  .hero-details-container > div:last-child {
+    display: none !important;
+  }
+}
+

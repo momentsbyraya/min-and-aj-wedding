@@ -31,6 +31,7 @@ function App() {
 
   const startMusic = () => {
     if (audioRef.current) {
+      audioRef.current.currentTime = 41.15 // Start at 00:32 seconds
       audioRef.current.play().catch(error => {
         console.error('Error playing audio:', error)
       })
