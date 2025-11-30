@@ -133,7 +133,7 @@ const EighteenList = () => {
               </h3>
               <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {[
-                  'Mamila Eligren Lomboy',
+                  'Mamila Eligren Lovedioro',
                   'Ailyn Bundang',
                   'Ninang Dorie Rioveros',
                   'Uncle Pablo Lomboy Jr.',
