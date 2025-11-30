@@ -104,10 +104,10 @@ const EighteenList = () => {
                   'Kyle Estrella',
                   'Glen Olivo',
                   'Ninong Louie Morales',
-                  'Ralph Lagaya (brother)',
+                  'Ralph Lagaya',
                   'Lolo Oscar Lovedioro',
                   'Lolo Pablo Lomboy',
-                  'Arnold Lagaya (daddy)'
+                  'Arnold Lagaya'
                 ].map((name, index) => (
                   <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
                     {index + 1}. {name}
@@ -134,23 +134,23 @@ const EighteenList = () => {
               <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {[
                   'Mamila Eligren Lomboy',
-                  'Tita Lorilyn Lagaya',
+                  'Ailyn Bundang',
                   'Ninang Dorie Rioveros',
                   'Uncle Pablo Lomboy Jr.',
                   'Uncle Gerry Lomboy',
-                  'Tito Lorie Dante',
-                  'Ninang Jheng Finch',
+                  'Ailene Flores',
+                  'Ninong Emil Lagaya',
                   'Uncle Nick Lomboy',
                   'Tita Heidy Aquino',
                   'Mimi Lucio',
                   'Fer Briones',
                   'Ninang Lanie Dela Cruz',
                   'Tito dick',
-                  'Ailyn Bundang',
-                  'Ailene Flores',
+                  'Ninong Larry Allado',
                   'Ninong Louie Morales',
-                  'Ninong Larry Lomboy',
-                  'Ninong Emil Lagaya'
+                  'Ninang Jheng Finch',
+                  'Tita Lorilyn Lagaya',
+                  'Tita Lorie Dante'
                 ].map((name, index) => (
                   <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
                     {index + 1}. {name}
