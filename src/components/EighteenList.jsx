@@ -179,7 +179,7 @@ const EighteenList = () => {
                   'Tita Becca Magpantay',
                   'Mitch Nepomosino',
                   'Marimar Sibonga',
-                  'Celina Cantabaco',
+                  'Crisel Adoy Ababan',
                   'Maxine Bebita',
                   'Althea Rompe',
                   'Vivian Pandac',
