@@ -1,0 +1,39 @@
+{
+  "rsvp": {
+    "deadline": "2026-01-08",
+    "email": "rsvp@example.com",
+    "phone": "(555) 123-4567",
+    "website": "https://example.rsvp",
+    "message": "Please RSVP on or before January 8, 2026"
+  },
+  "theme": {
+    "primaryColor": "wedding-600",
+    "secondaryColor": "rose-400",
+    "accentColor": "gold-500",
+    "fontFamily": "serif",
+    "style": "elegant"
+  },
+  "photos": {
+    "hero": "/assets/images/hero-couple.jpg",
+    "gallery": [
+      "/assets/images/couple-1.jpg",
+      "/assets/images/couple-2.jpg",
+      "/assets/images/couple-3.jpg",
+      "/assets/images/couple-4.jpg"
+    ],
+    "background": "/assets/images/background-pattern.jpg"
+  },
+  "details": {
+    "hashtag": "#AmandaIraTurns18",
+    "website": "https://example.com",
+    "registry": "https://registry.example.com",
+    "message": "We're excited to celebrate this special milestone with you!",
+    "covidInfo": "We're following local health guidelines. Please stay home if you're feeling unwell."
+  },
+  "social": {
+    "instagram": "@example",
+    "facebook": "ExampleDebut",
+    "twitter": "@example"
+  }
+}
+

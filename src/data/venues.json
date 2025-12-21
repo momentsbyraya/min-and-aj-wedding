@@ -1,12 +1,12 @@
 {
   "venue": {
-    "name": "Magdalene Garden Private Resort",
-    "address": "#630 M.L Quezon St.",
-    "city": "Pililla",
-    "state": "Rizal",
-    "zip": "Philippines",
+    "name": "The Palms Country Club Alabang",
+    "address": "",
+    "city": "Alabang",
+    "state": "",
+    "zip": "",
     "main": {
-      "time": "4:00 PM",
+      "time": "4:00 PM - 11:00 PM",
       "details": "Please arrive 30 minutes early."
     },
     "reception": {
@@ -14,7 +14,7 @@
       "details": "Casual/Semi-formal attire requested."
     },
     "image": "/assets/images/venue/venue.jpg",
-    "googleMapsUrl": "",
-    "directionsUrl": ""
+    "googleMapsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8",
+    "directionsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8"
   }
 } 

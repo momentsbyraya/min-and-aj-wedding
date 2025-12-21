@@ -4,7 +4,7 @@ import { gsap } from 'gsap'
 import { Menu, X, Heart, Calendar, Camera, Mail, MapPin } from 'lucide-react'
 import RSVPModal from './RSVPModal'
 import { celebrant } from '../data'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -82,7 +82,7 @@ const Navigation = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-wedding-200">
-        <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
+        <div className={`${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div ref={logoRef} className="flex items-center space-x-2">

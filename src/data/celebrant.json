@@ -1,15 +1,19 @@
 {
   "debutant": {
     "name": {
-      "first": "Penelope",
-      "last": "Lagaya",
-      "full": "Princess Penelope L. Lagaya",
-      "nickname": "Penelope"
+      "first": "Amanda Ira",
+      "last": "Panuncialman",
+      "full": "Amanda Ira Inis Panuncialman",
+      "nickname": "Amanda"
     },
     "debut": {
-      "date": "2025-12-21",
-      "time": "4:00 PM",
-      "location": "Churinga Eco-Resort"
+      "date": "2026-01-31",
+      "time": "4:00 PM - 11:00 PM",
+      "dayOfWeek": "Saturday",
+      "month": "January",
+      "day": "31",
+      "year": "2026",
+      "location": "The Palms Country Club Alabang"
     },
     "announcement": "Turning 18!"
   }

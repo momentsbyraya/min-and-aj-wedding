@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ChevronDown } from 'lucide-react'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 import { faq } from '../data'
 
 // Register ScrollTrigger plugin
@@ -75,7 +75,7 @@ const FAQ = () => {
       ></div>
       
       {/* Content */}
-      <div className={`relative z-20 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
+      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
         {/* Section Title */}
         <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-16 text-center faq-title`} style={{ color: '#4b2259' }}>
           Frequently Asked Questions

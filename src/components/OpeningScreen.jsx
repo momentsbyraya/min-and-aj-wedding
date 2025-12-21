@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { celebrant } from '../data'
-import { weddingConfig } from '../config/weddingConfig'
 
 function OpeningScreen({ onEnvelopeOpen }) {
   const envelopeRef = useRef(null)
@@ -101,7 +100,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-script mt-1"
             style={{ color: '#1e3a5f', fontSize: 'clamp(1rem, 2.5vw, 30px)' }}
           >
-            {new Date(weddingConfig.debut.date).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}
+            {new Date(celebrant.debutant.debut.date).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}
           </p>
         </div>
       </section>

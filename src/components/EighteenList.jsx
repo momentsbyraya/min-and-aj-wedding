@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -62,7 +62,7 @@ const EighteenList = () => {
       ></div>
       
       {/* Content */}
-      <div className={`relative z-20 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
+      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
         {/* Section Title */}
         <div ref={titleRef} className="text-center mb-12" style={{ marginTop: '4rem' }}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-4" style={{ color: '#4b2259' }}>

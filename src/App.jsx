@@ -8,7 +8,7 @@ import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showOpeningScreen, setShowOpeningScreen] = useState(true)
+  const [showOpeningScreen, setShowOpeningScreen] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -17,8 +17,7 @@ function App() {
     audioRef.current.loop = audio.loop
     audioRef.current.volume = audio.volume
 
-    // Don't start music automatically - wait for envelope to be opened
-    // Music will start when handleEnvelopeOpen is called
+    // Don't auto-start - music will start when play button is clicked in Hero section
 
     // Cleanup only on app unmount
     return () => {

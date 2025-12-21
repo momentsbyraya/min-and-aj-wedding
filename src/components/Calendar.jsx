@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
-import { weddingConfig } from '../config/weddingConfig'
+import { theme, celebrant } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -14,7 +13,7 @@ const Calendar = () => {
   const calendarGridRef = useRef(null)
 
   // Parse debut date from config
-  const debutDate = new Date(weddingConfig.debut.date)
+  const debutDate = new Date(celebrant.debutant.debut.date)
   const debutYear = debutDate.getFullYear()
   const debutMonth = debutDate.getMonth()
   const debutDay = debutDate.getDate()
@@ -93,7 +92,7 @@ const Calendar = () => {
   }, [])
   
   return (
-    <div ref={sectionRef} className={`relative w-full max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-6xl mx-auto px-4 ${themeConfig.calendar.background}`} style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
+    <div ref={sectionRef} className={`relative w-full max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-6xl mx-auto px-4 ${theme.calendar.background}`} style={{ paddingTop: '5rem', paddingBottom: '5rem' }}>
       {/* Invitation Text */}
       <div className="text-center mb-8 sm:my-12">
         <h1 ref={headerRef} className="text-3xl sm:text-5xl font-serif font-light mb-4 text-gray-800" style={{ opacity: 0 }}>
@@ -108,7 +107,7 @@ const Calendar = () => {
       <div className="xl:scale-90 origin-center max-w-[660px] mx-auto">
         <div className="p-8">
           {/* Month Header */}
-          <div className={`text-center mb-4 ${themeConfig.calendar.headerColor}`}>
+          <div className={`text-center mb-4 ${theme.calendar.headerColor}`}>
             <h3 className="text-2xl sm:text-4xl font-serif font-light mt-2">
               {monthNames[displayMonth]} {displayYear}
             </h3>
@@ -117,7 +116,7 @@ const Calendar = () => {
           {/* Day Names Header */}
           <div className="grid grid-cols-7 gap-1 mb-2 lg:mt-8">
             {dayNames.map((day) => (
-              <div key={day} className={`text-center text-sm sm:text-lg lg:text-2xl font-medium ${themeConfig.calendar.dayNamesColor}`}>
+              <div key={day} className={`text-center text-sm sm:text-lg lg:text-2xl font-medium ${theme.calendar.dayNamesColor}`}>
                 {day}
               </div>
             ))}
@@ -133,7 +132,7 @@ const Calendar = () => {
                   key={index}
                   className={`
                     aspect-square flex items-center justify-center text-sm sm:text-lg lg:text-2xl font-medium
-                    ${day ? themeConfig.calendar.textColor : 'text-transparent'}
+                    ${day ? theme.calendar.textColor : 'text-transparent'}
                     ${isWeddingDay ? 'relative' : ''}
                   `}
                   style={{ opacity: 0 }}
@@ -144,7 +143,7 @@ const Calendar = () => {
                         {day}
                       </span>
                       {isWeddingDay && (
-                        <div className={`absolute inset-0 rounded-full ${themeConfig.calendar.highlightColor} opacity-20`}></div>
+                        <div className={`absolute inset-0 rounded-full ${theme.calendar.highlightColor} opacity-20`}></div>
                       )}
                     </>
                   )}

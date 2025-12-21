@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Play } from 'lucide-react'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 import { celebrant } from '../data'
 
 // Register ScrollTrigger plugin
@@ -294,7 +294,7 @@ const VideoSection = ({ onPauseMusic, onResumeMusic }) => {
           </div>
 
           {/* Video Grid - Polaroid Style */}
-          <div className={`w-full max-w-7xl mx-auto px-4 ${themeConfig.container.padding}`}>
+          <div className={`w-full max-w-7xl mx-auto px-4 ${theme.container.padding}`}>
             <div 
               ref={gridRef}
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"

@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Mail, Users } from 'lucide-react'
 import RSVPModal from './RSVPModal'
 import EntourageModal from './EntourageModal'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)

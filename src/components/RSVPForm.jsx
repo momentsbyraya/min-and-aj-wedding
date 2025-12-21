@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft, Mail, Phone, Calendar, Users, CheckCircle } from 'lucide-react'
-import { weddingConfig } from '../config/weddingConfig'
-import { themeConfig } from '../config/themeConfig'
+import { wedding, theme } from '../data'
 
 const RSVPForm = () => {
   const navigate = useNavigate()
@@ -96,7 +95,7 @@ const RSVPForm = () => {
 
   return (
     <div className="min-h-screen wedding-gradient py-8">
-      <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
+      <div className={`${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
         {/* Header */}
         <div
           ref={headerRef}
@@ -298,19 +297,19 @@ const RSVPForm = () => {
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-rose-500" />
                 <a 
-                  href={`mailto:${weddingConfig.rsvp.email}`}
+                  href={`mailto:${wedding.rsvp.email}`}
                   className="text-rose-600 hover:text-rose-700 underline"
                 >
-                  {weddingConfig.rsvp.email}
+                  {wedding.rsvp.email}
                 </a>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-rose-500" />
                 <a 
-                  href={`tel:${weddingConfig.rsvp.phone}`}
+                  href={`tel:${wedding.rsvp.phone}`}
                   className="text-rose-600 hover:text-rose-700 underline"
                 >
-                  {weddingConfig.rsvp.phone}
+                  {wedding.rsvp.phone}
                 </a>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 import LazyImage from './LazyImage'
 
 // Register ScrollTrigger plugin
@@ -165,7 +165,7 @@ const Gallery = () => {
           </div>
 
           {/* Bento Grid Gallery */}
-          <div className={`w-full max-w-7xl mx-auto px-4 ${themeConfig.container.padding}`}>
+          <div className={`w-full max-w-7xl mx-auto px-4 ${theme.container.padding}`}>
             <div 
               ref={gridRef}
               className="grid grid-cols-4 gap-4"

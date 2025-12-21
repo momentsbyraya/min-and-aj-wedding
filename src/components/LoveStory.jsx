@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { celebrant } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
 const LoveStory = () => {
   const sectionRef = useRef(null)
-  const textRef = useRef(null)
+  const contentRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -20,16 +21,16 @@ const LoveStory = () => {
       }
     })
 
-    // Slide-in animation for text from the right with delay
-    if (textRef.current) {
-      tl.fromTo(textRef.current,
+    // Fade in animation for content
+    if (contentRef.current) {
+      tl.fromTo(contentRef.current,
         { 
           opacity: 0, 
-          x: 100 
+          y: 30 
         },
         { 
           opacity: 1, 
-          x: 0, 
+          y: 0, 
           duration: 1, 
           ease: "power2.out" 
         }
@@ -44,46 +45,77 @@ const LoveStory = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full min-h-screen"
-      style={{ backgroundColor: 'white' }}
+      className="relative py-20 w-full min-h-screen flex items-center justify-center"
+      style={{ backgroundColor: '#065143', padding: '4rem 2rem' }}
     >
-      {/* Background - bg-2 */}
-      <div 
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      ></div>
-      
-      {/* Butterflies Background on top */}
-      <div 
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/butterflies-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.75
-        }}
-      ></div>
-      
       {/* Content */}
-      <div className="relative z-20 flex items-end justify-end min-h-screen">
-        <div className="px-8 pb-12" style={{ maxWidth: '85%' }}>
-          {/* Header Section */}
-          <div className="text-right">
-            
-            <p ref={textRef} className="font-poppins leading-relaxed max-w-lg ml-auto" style={{ color: '#B76E79', fontSize: '16px' }}>
-              She blossomed from a sweet young girl into a <span className="font-bestlight" style={{ fontSize: '28px', marginLeft: '10px', color: '#4b2259' }}>confident</span> <span className="font-poppins" style={{ fontSize: '16px', color: '#B76E79' }}>young woman</span>. Now stepping into adulthood, she carries big dreams and a bright future, making everyone proud of the person she's become.
-            </p>
-          </div>
+      <div ref={contentRef} className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Welcome */}
+        <h1 
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+          style={{ color: '#f5f1eb' }}
+        >
+          The Story
+        </h1>
+        
+        {/* AND */}
+        <p 
+          className="text-4xl sm:text-base uppercase mb-2 font-tebranos"
+          style={{ color: '#f5f1eb', letterSpacing: '0.1em' }}
+        >
+          OF OUR 
+        </p>
+        
+        {/* Thank you */}
+        <h2 
+          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-8"
+          style={{ color: '#f5f1eb' }}
+        >
+          Celebrant
+        </h2>
+        
+        {/* Paragraphs */}
+        <div className="space-y-6 mb-8">
+          <p 
+            className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed"
+            style={{ color: '#f5f1eb' }}
+          >
+            Amanda Ira is a well-rounded individual who excels both academically, in music, and in sports. She plays the violin and has been part of the San Beda Junior Symphony Orchestra since she was 8 years old. A born leader, she has been part of the student council, and she loves tennis, wishing she could play every day if she could.
+          </p>
+          
+          <p 
+            className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed"
+            style={{ color: '#f5f1eb' }}
+          >
+            She is also a Philippine team mathlete and loves math as it helps her de-stress. In all that she does, she is focused and puts so much passion into everything. She is a perfectionist and was consistently top 1 during her high school years.
+          </p>
+          
+          <p 
+            className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed"
+            style={{ color: '#f5f1eb' }}
+          >
+            As a daughter, she is loving, very responsible, and thoughtful. We are incredibly proud of the person she has become and excited to celebrate this milestone with all of you.
+          </p>
         </div>
+        
+        {/* WITH LOVE */}
+        <p 
+          className="text-2xl sm:text-sm uppercase tracking-widest mb-4 font-tebranos"
+          style={{ color: '#f5f1eb', letterSpacing: '0.1em' }}
+        >
+          AGAIN,
+        </p>
+        
+        {/* Name */}
+        <p 
+          className="text-4xl sm:text-5xl md:text-6xl -mt-4 font-ballet"
+          style={{ color: '#f5f1eb' }}
+        >
+          Amanda Iris
+        </p>
       </div>
     </section>
   )
 }
 
-export default LoveStory 
+export default LoveStory

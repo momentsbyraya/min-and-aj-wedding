@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, Navigation, Car, Train, Bus, Clock, Phone, Mail } from 'lucide-react'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 import { venues as venuesData, images } from '../data'
 
 // Register ScrollTrigger plugin
@@ -89,10 +89,10 @@ const MapDirections = () => {
           transform: 'rotate(180deg) scale(1.2)',
         }}
       ></div>
-      <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding} relative z-20`}>
+      <div className={`${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding} relative z-20`}>
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-6" style={{ color: '#4b2259' }}>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-6" style={{ color: theme.colors.primary }}>
             Venue
           </h2>
         </div>
@@ -103,7 +103,7 @@ const MapDirections = () => {
           <div className="flex justify-center">
             <div className="w-full max-w-md">
               <div ref={receptionDetailsRef} className="text-center mb-6">
-                <h3 className="font-poppins" style={{ color: '#4b2259', fontSize: '16px' }}>
+                <h3 className="font-poppins" style={{ color: theme.colors.primary, fontSize: '16px' }}>
                   {venues.main.name.replace('Magdalene Garden Private Resort', 'Magdalene Garden\nPrivate Resort').split('\n').map((line, i) => (
                     <React.Fragment key={i}>
                       {line}
@@ -128,7 +128,7 @@ const MapDirections = () => {
               {/* Map Button */}
               <div ref={receptionButtonRef} className="flex flex-col items-center mt-8">
                 <a
-                  href="https://maps.app.goo.gl/YGwxu6B2dyrtSWck9"
+                  href={venues.main.googleMapsUrl || venues.main.directionsUrl || "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center space-x-3 py-3 sm:py-5 lg:py-2 transition-all duration-200 text-sm sm:text-2xl lg:text-base font-medium font-poppins"
@@ -136,7 +136,7 @@ const MapDirections = () => {
                     backgroundColor: 'rgba(255, 255, 255, 0.3)', 
                     borderRadius: '25px', 
                     color: '#1e3a5f',
-                    border: '1px solid #4b2259',
+                    border: `1px solid ${theme.colors.primary}`,
                     paddingLeft: '2rem',
                     paddingRight: '2rem'
                   }}
@@ -152,7 +152,7 @@ const MapDirections = () => {
                   <span>Check for directions</span>
                   <Navigation className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
-                <p className="text-sm font-poppins mt-3 text-center" style={{ color: '#4b2259' }}>
+                <p className="text-sm font-poppins mt-3 text-center" style={{ color: theme.colors.primary }}>
                   This location is nearby the venue
                 </p>
               </div>

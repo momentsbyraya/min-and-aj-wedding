@@ -15,6 +15,7 @@ import FAQ from './FAQ'
 import MapDirections from './Venue'
 import GiftRegistry from './GiftRegistry'
 import CTASection from './CTASection'
+import DetailsSection from './DetailsSection'
 import EighteenList from './EighteenList'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
@@ -39,17 +40,32 @@ const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
   return (
     <div className="min-h-screen w-full overflow-hidden">
       <main className="main-container h-full section-container">
+        {/* Schedule Section - First */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
+          <Schedule />
+        </EnhancedLazySection>
+
+        {/* Love Story Section - After Schedule */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="love-story">
+          <LoveStory />
+        </EnhancedLazySection>
+
+        {/* Details Section - Combined RSVP, DressCode, and Gift Registry - After Love Story */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="details">
+          <DetailsSection />
+        </EnhancedLazySection>
+
+        {/* Save the Date Section - After Details */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
+        </EnhancedLazySection>
+
         {/* Hero Section - Always visible */}
         <section className='h-full'><Hero /></section>
         
         {/* Video Section */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="videos">
           <VideoSection onPauseMusic={onPauseMusic} onResumeMusic={onResumeMusic} />
-        </EnhancedLazySection>
-        
-        {/* Love Story Section */}
-        <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
-          <LoveStory />
         </EnhancedLazySection>
         
         {/* Gallery Section - Square Grid */}
@@ -62,24 +78,9 @@ const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
           <MapDirections />
         </EnhancedLazySection>
 
-        {/* Dress Code Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
-          <DressCode />
-        </EnhancedLazySection>
-
-        {/* CTA Section - Full Width */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="cta">
-          <CTASection />
-        </EnhancedLazySection>
-
         {/* 18 List Section */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
           <EighteenList />
-        </EnhancedLazySection>
-
-        {/* Gift Registry Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
-          <GiftRegistry />
         </EnhancedLazySection>
 
         {/* FAQ Section */}
@@ -91,16 +92,6 @@ const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
         {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
           <Calendar />
         </EnhancedLazySection> */}
-
-         {/* Invitation Section - Full Width */}
-         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="invitation">
-           <Schedule />
-         </EnhancedLazySection> */}
-        
-        {/* Save the Date Section - At the end */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
-        </EnhancedLazySection>
         
         {/* Couple Image Section */}
         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-image">

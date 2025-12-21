@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -58,15 +58,15 @@ const Entourage = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-20 ${themeConfig.backgrounds.primary}`}
+      className={`py-20 ${theme.backgrounds.primary}`}
     >
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div ref={contentRef} className="text-center mb-20">
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script ${themeConfig.text.theme} mb-6 entourage-title`}>
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script ${theme.text.theme} mb-6 entourage-title`}>
             Entourage
           </h2>
-          <p className={`text-xl sm:text-2xl ${themeConfig.text.secondary} max-w-3xl mx-auto`}>
+          <p className={`text-xl sm:text-2xl ${theme.text.secondary} max-w-3xl mx-auto`}>
             Honoring those who will stand with us on our special day
           </p>
         </div>

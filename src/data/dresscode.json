@@ -1,28 +1,38 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly request our guests to dress in dusty blue, navy blue and cream colors. Casual/Semi-formal attire."
+    "description": "Come in your Semi-Formal Pastel Smashin' Chic Outfit. Strictly NO Pink and Red"
   },
   "colorPalette": [
     {
       "name": "color-1",
-      "hex": "#a8b5c0",
-      "label": "Dusty Blue"
+      "hex": "#ffffff",
+      "label": "White"
     },
     {
       "name": "color-2",
-      "hex": "#1e3a5f",
-      "label": "Navy Blue"
+      "hex": "#ffd4a3",
+      "label": "Pastel Orange"
     },
     {
       "name": "color-3",
-      "hex": "#e8dcc6",
-      "label": "Cream"
+      "hex": "#fff9c4",
+      "label": "Pastel Yellow"
     },
     {
       "name": "color-4",
-      "hex": "#7ba7cc",
-      "label": "Sky Blue"
+      "hex": "#c8e6c9",
+      "label": "Pastel Green"
+    },
+    {
+      "name": "color-5",
+      "hex": "#bbdefb",
+      "label": "Pastel Blue"
+    },
+    {
+      "name": "color-6",
+      "hex": "#e1bee7",
+      "label": "Pastel Purple"
     }
   ]
 } 

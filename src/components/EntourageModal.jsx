@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
 
 const EntourageModal = ({ isOpen, onClose }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null)

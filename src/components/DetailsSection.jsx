@@ -1,0 +1,271 @@
+import React, { useEffect, useRef, useState } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { theme } from '../data'
+import { dresscode } from '../data'
+import RSVPModal from './RSVPModal'
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
+
+const DetailsSection = () => {
+  const sectionRef = useRef(null)
+  const headerRef = useRef(null)
+  const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
+
+  useEffect(() => {
+    // Scroll-triggered animations
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse"
+      }
+    })
+
+    // Animate header
+    if (headerRef.current) {
+      tl.fromTo(headerRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      )
+    }
+
+    // Animate sections with stagger
+    tl.fromTo(".details-subsection",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.2
+      },
+      "-=0.4"
+    )
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
+
+  const openRSVPModal = () => {
+    setIsRSVPModalOpen(true)
+  }
+
+  return (
+    <>
+      <section
+        ref={sectionRef}
+        className="relative w-full overflow-hidden"
+        style={{ backgroundColor: '#f5f1eb', padding: '4rem 2rem' }}
+      >
+        {/* Content */}
+        <div className="relative z-10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header Section */}
+            <div ref={headerRef} className="text-center mb-12">
+              {/* The in Ballet font */}
+              <h1
+                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+                style={{ color: theme.colors.primary }}
+              >
+                The
+              </h1>
+
+              {/* DETAILS */}
+              <h2
+                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-4"
+                style={{
+                  color: theme.colors.primary,
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  marginTop: '-0.4em'
+                }}
+              >
+                DETAILS
+              </h2>
+
+              {/* Wine glass below title with words on both sides */}
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <span
+                  className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
+                  style={{ color: theme.colors.primary }}
+                >
+                  For Your
+                </span>
+                <img
+                  src="/assets/images/graphics/wine-glass.png"
+                  alt="Wine glass"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+                />
+                <span
+                  className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
+                  style={{ color: theme.colors.primary }}
+                >
+                  Information
+                </span>
+              </div>
+            </div>
+
+            {/* RSVP Section */}
+            <div className="details-subsection mb-12 text-center">
+              <h2
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
+                style={{ color: theme.colors.primary }}
+              >
+                RSVP
+              </h2>
+              <p
+                className="font-poppins mb-6 max-w-2xl mx-auto"
+                style={{ color: theme.colors.primary, fontSize: '1rem' }}
+              >
+                Please let us know if you'll be joining us. Your presence means the world to us.
+              </p>
+              <button
+                onClick={openRSVPModal}
+                className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                  borderRadius: 0,
+                  color: theme.colors.primary,
+                  border: `0.5px solid ${theme.colors.primary}`,
+                  outline: `0.5px solid ${theme.colors.primary}`,
+                  outlineOffset: '-5px',
+                  fontFamily: "'Poppins', sans-serif",
+                  font: "normal normal 400 1rem 'Poppins', sans-serif"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = theme.colors.primary
+                  e.currentTarget.style.color = 'white'
+                  const img = e.currentTarget.querySelector('img')
+                  if (img) {
+                    img.style.filter = 'brightness(0) invert(1)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
+                  e.currentTarget.style.color = theme.colors.primary
+                  const img = e.currentTarget.querySelector('img')
+                  if (img) {
+                    img.style.filter = 'none'
+                  }
+                }}
+              >
+                <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>RSVP</span>
+                <img
+                  src="/assets/images/graphics/tennis.png"
+                  alt="Tennis"
+                  className="w-5 h-5 object-contain transition-all duration-200"
+                />
+              </button>
+            </div>
+
+            {/* Dress Code Section */}
+            <div className="details-subsection mb-12 text-center">
+              <h2
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
+                style={{ color: theme.colors.primary }}
+              >
+                DRESSCODE
+              </h2>
+              <p
+                className="font-poppins mb-6 max-w-2xl mx-auto"
+                style={{ color: theme.colors.primary, fontSize: '1rem' }}
+              >
+                {dresscode.mainDressCode.description}
+              </p>
+              {/* Color Swatches */}
+              <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+                {dresscode.colorPalette.map((color, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center"
+                  >
+                    <div
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 mb-2"
+                      style={{
+                        backgroundColor: color.hex,
+                        borderColor: theme.colors.primary
+                      }}
+                    ></div>
+                    <span
+                      className="text-xs sm:text-sm font-poppins"
+                      style={{ color: theme.colors.primary }}
+                    >
+                      {color.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Gift Registry Section */}
+            <div className="details-subsection text-center">
+              <h2
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
+                style={{ color: theme.colors.primary }}
+              >
+                GIFT REGISTRY
+              </h2>
+              <p
+                className="font-poppins mb-6 max-w-2xl mx-auto"
+                style={{ color: theme.colors.primary, fontSize: '1rem' }}
+              >
+                Your presence is our present, but we would appreciate monetary gift.
+              </p>
+              {/* Gift Button */}
+              <button
+                className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                  borderRadius: 0,
+                  color: theme.colors.primary,
+                  border: `0.5px solid ${theme.colors.primary}`,
+                  outline: `0.5px solid ${theme.colors.primary}`,
+                  outlineOffset: '-5px',
+                  fontFamily: "'Poppins', sans-serif",
+                  font: "normal normal 400 1rem 'Poppins', sans-serif"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = theme.colors.primary
+                  e.currentTarget.style.color = 'white'
+                  const img = e.currentTarget.querySelector('img')
+                  if (img) {
+                    img.style.filter = 'brightness(0) invert(1)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
+                  e.currentTarget.style.color = theme.colors.primary
+                  const img = e.currentTarget.querySelector('img')
+                  if (img) {
+                    img.style.filter = 'none'
+                  }
+                }}
+              >
+                <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>Send Gift</span>
+                <img
+                  src="/assets/images/graphics/tennis.png"
+                  alt="Tennis"
+                  className="w-5 h-5 object-contain transition-all duration-200"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RSVP Modal */}
+      <RSVPModal
+        isOpen={isRSVPModalOpen}
+        onClose={() => setIsRSVPModalOpen(false)}
+      />
+    </>
+  )
+}
+
+export default DetailsSection
+

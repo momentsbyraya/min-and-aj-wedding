@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
+import { theme } from '../data'
+import { dresscode } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -103,7 +104,7 @@ const DressCode = () => {
                 Dress Code
               </h2>
               <p className="font-poppins leading-tight max-w-2xl mx-auto mb-8" style={{ color: '#B76E79', fontSize: '1rem' }}>
-                I would love for everyone to dress formally for this special day.
+                {dresscode.mainDressCode.description}
               </p>
             </div>
 
@@ -113,7 +114,7 @@ const DressCode = () => {
                 Female Attendees
               </h3>
               <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#B76E79', fontSize: '1rem' }}>
-                Long dress in blue, white, or periwinkle
+                Semi-Formal Smashin' Chic Outfit
               </p>
               <div className="flex justify-center">
                 <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden">
@@ -133,7 +134,7 @@ const DressCode = () => {
                 Male Attendees
               </h3>
               <p className="font-poppins leading-relaxed max-w-2xl mx-auto text-center" style={{ color: '#B76E79', fontSize: '1rem' }}>
-                Coat or long sleeve
+                Semi-Formal Smashin' Chic Outfit
               </p>
               <div className="flex justify-center">
                 <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden">

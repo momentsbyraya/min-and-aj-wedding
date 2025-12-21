@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
-import { celebrant, audio } from '../data'
-import { weddingConfig } from '../config/weddingConfig'
+import { Play, Pause, SkipBack, SkipForward } from 'lucide-react'
+import { theme, celebrant, audio, venues } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -26,14 +25,27 @@ const Hero = () => {
     const updateTime = () => setCurrentTime(audioRef.current.currentTime)
     const updateDuration = () => setDuration(audioRef.current.duration)
     
+    // Update playing state
+    const handlePlay = () => setIsPlaying(true)
+    const handlePause = () => setIsPlaying(false)
+    const handleEnded = () => setIsPlaying(false)
+    
     audioRef.current.addEventListener('timeupdate', updateTime)
     audioRef.current.addEventListener('loadedmetadata', updateDuration)
+    audioRef.current.addEventListener('play', handlePlay)
+    audioRef.current.addEventListener('pause', handlePause)
+    audioRef.current.addEventListener('ended', handleEnded)
+
+    // Don't auto-start - music will start when play button is clicked
 
     // Cleanup audio on component unmount
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener('timeupdate', updateTime)
         audioRef.current.removeEventListener('loadedmetadata', updateDuration)
+        audioRef.current.removeEventListener('play', handlePlay)
+        audioRef.current.removeEventListener('pause', handlePause)
+        audioRef.current.removeEventListener('ended', handleEnded)
         audioRef.current.pause()
         audioRef.current = null
       }
@@ -103,9 +115,17 @@ const Hero = () => {
     audioRef.current.currentTime = Math.min(duration, currentTime + 10) // Skip forward 10 seconds
   }
 
+  // Format time helper
+  const formatTime = (seconds) => {
+    if (!seconds || isNaN(seconds)) return '0:00'
+    const mins = Math.floor(seconds / 60)
+    const secs = Math.floor(seconds % 60)
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
   // Format date for display
   const formatWeddingDate = () => {
-    const date = new Date(weddingConfig.debut.date)
+    const date = new Date(celebrant.debutant.debut.date)
     const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase()
     const day = date.getDate()
     const month = date.toLocaleDateString('en-US', { month: 'long' }).toUpperCase()
@@ -236,20 +256,20 @@ const Hero = () => {
             </div>
             <div className="font-poppins hero-date-container" style={{ color: '#B76E79', marginTop: '0.5rem', textTransform: 'uppercase', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontSize: 'clamp(0.75rem, 1.5vw, 20px)' }}>
               <div className="font-poppins hero-month-year" style={{ borderRight: '2px solid #B76E79', paddingRight: '0.75rem', fontSize: 'clamp(0.6rem, 1.2vw, 20px)' }}>
-                {weddingConfig.debut.month.toUpperCase()}
+                {celebrant.debutant.debut.month.toUpperCase()}
               </div>
               <div className="font-poppins hero-day" style={{ fontSize: 'clamp(1rem, 2.25vw, 20px)', fontWeight: 'bold' }}>
-                {weddingConfig.debut.day}
+                {celebrant.debutant.debut.day}
               </div>
               <div className="font-poppins hero-month-year" style={{ borderLeft: '2px solid #B76E79', paddingLeft: '0.75rem', fontSize: 'clamp(0.6rem, 1.2vw, 20px)' }}>
-                {weddingConfig.debut.year}
+                {celebrant.debutant.debut.year}
               </div>
             </div>
             <div className="font-poppins hero-time" style={{ color: '#B76E79', marginTop: '0.125rem', textTransform: 'uppercase', fontSize: 'clamp(0.875rem, 1.5vw, 20px)', textAlign: 'center', fontWeight: 600 }}>
-              AT {weddingConfig.debut.time.toUpperCase()}
+              AT {celebrant.debutant.debut.time.toUpperCase()}
             </div>
             <div className="font-poppins hero-venue" style={{ color: '#4b2259', marginTop: '0.25rem', textTransform: 'uppercase', fontSize: 'clamp(0.875rem, 1.5vw, 20px)', textAlign: 'center', fontWeight: 600 }}>
-              {weddingConfig.venue.main.name.toUpperCase()}
+              {venues.venue.name.toUpperCase()}
             </div>
           </div>
           <div style={{ width: '40%' }}>
@@ -286,6 +306,80 @@ const Hero = () => {
         className="absolute bottom-0 z-30 hero-portrait"
         style={{ maxHeight: '50vh', height: 'auto', width: 'auto', right: '-5%' }}
       />
+
+      {/* Audio Player - Bottom Center */}
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '50px',
+          padding: '0.75rem 1.5rem',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+          minWidth: '300px',
+          maxWidth: '90%'
+        }}
+      >
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Skip Backward Button */}
+          <button
+            onClick={skipBackward}
+            className="flex items-center justify-center p-2 hover:opacity-70 transition-opacity"
+            style={{ color: '#4b2259' }}
+            aria-label="Skip backward 10 seconds"
+          >
+            <SkipBack size={20} />
+          </button>
+
+          {/* Play/Pause Button */}
+          <button
+            onClick={toggleMusic}
+            className="flex items-center justify-center p-2 rounded-full hover:opacity-70 transition-opacity"
+            style={{ 
+              color: '#4b2259',
+              backgroundColor: 'rgba(75, 34, 89, 0.1)'
+            }}
+            aria-label={isPlaying ? 'Pause' : 'Play'}
+          >
+            {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+          </button>
+
+          {/* Skip Forward Button */}
+          <button
+            onClick={skipForward}
+            className="flex items-center justify-center p-2 hover:opacity-70 transition-opacity"
+            style={{ color: '#4b2259' }}
+            aria-label="Skip forward 10 seconds"
+          >
+            <SkipForward size={20} />
+          </button>
+
+          {/* Progress Bar */}
+          <div className="flex-1 mx-2 sm:mx-4">
+            <div
+              onClick={handleProgressClick}
+              className="w-full h-2 bg-gray-200 rounded-full cursor-pointer relative"
+              style={{ backgroundColor: 'rgba(75, 34, 89, 0.2)' }}
+            >
+              <div
+                className="h-full rounded-full transition-all duration-300"
+                style={{
+                  width: `${progressPercentage}%`,
+                  backgroundColor: '#4b2259'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Time Display */}
+          <div 
+            className="text-xs sm:text-sm font-poppins whitespace-nowrap"
+            style={{ color: '#4b2259', minWidth: '80px', textAlign: 'right' }}
+          >
+            {formatTime(currentTime)} / {formatTime(duration)}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

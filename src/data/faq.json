@@ -1,16 +1,28 @@
 {
   "faqData": [
     {
-      "question": "Will there be enough parking space?",
-      "answer": "Yes, there will be more parking space in the venue."
+      "question": "What time should I arrive?",
+      "answer": "Be there by 4pm to enjoy the pre-match booths and qualify for the raffle draw. The event will strictly begin at 5:30pm, and we don't want any defaults!"
     },
     {
-      "question": "Can I bring a plus one?",
-      "answer": "We appreciate your understanding, but we are unable to accommodate additional guests. This invitation is exclusive for you."
+      "question": "Can I bring a Plus One?",
+      "answer": "This is a singles tournament. I have taken the time to hand-pick those who are special to me as I celebrate this milestone of my life. So, no plus ones allowed."
     },
     {
-      "question": "Can I leave during the event?",
-      "answer": "We kindly request that all guests stay for the duration of the celebration to fully experience this special occasion with us."
+      "question": "Is there Parking at the venue?",
+      "answer": "There is ample parking at the Palms' premises on a first come-first serve basis."
+    },
+    {
+      "question": "Until when can I RSVP?",
+      "answer": "Please RSVP on or before January 8, 2026."
+    },
+    {
+      "question": "Is there a Dress Code?",
+      "answer": "Come in your Semi-Formal Smashin' Chic Outfit. Think summer sophistication! Women: Tennis skirts, summer dresses, stylish jumpsuits, smart blouses with skirts/trousers, wedges, ballet flats, heels, or (clean) sneakers. Men: Chinos, smart shirts (collared), lightweight blazers, loafers, or (clean) sneakers. No Basketball Jerseys/Shorts, and Jeans/Maong Pants."
+    },
+    {
+      "question": "Can I bring pet/s?",
+      "answer": "As much as we love them, unfortunately no pets are allowed."
     }
   ]
 } 
