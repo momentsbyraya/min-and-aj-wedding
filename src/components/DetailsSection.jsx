@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
 import { dresscode } from '../data'
 import RSVPModal from './RSVPModal'
+import GiftModal from './GiftModal'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -12,6 +13,9 @@ const DetailsSection = () => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
+  const [isGiftModalOpen, setIsGiftModalOpen] = useState(false)
+  const [hoveredColorIndex, setHoveredColorIndex] = useState(null)
+  const [clickedColorIndex, setClickedColorIndex] = useState(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -53,6 +57,10 @@ const DetailsSection = () => {
 
   const openRSVPModal = () => {
     setIsRSVPModalOpen(true)
+  }
+
+  const openGiftModal = () => {
+    setIsGiftModalOpen(true)
   }
 
   return (
@@ -177,28 +185,59 @@ const DetailsSection = () => {
               >
                 {dresscode.mainDressCode.description}
               </p>
-              {/* Color Swatches */}
-              <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
-                {dresscode.colorPalette.map((color, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center"
-                  >
+              {/* Color Swatches and Image Side by Side */}
+              <div className="flex items-center justify-center gap-8 max-w-2xl mx-auto">
+                {/* Dresscode Image */}
+                <div className="flex justify-center">
+                  <img 
+                    src="/assets/images/dresscode/dresscode.png" 
+                    alt="Dress Code" 
+                    className="max-w-full h-auto object-contain"
+                    style={{ maxWidth: '200px' }}
+                  />
+                </div>
+                {/* Color Swatches - Vertical with Overlap */}
+                <div className="flex flex-col overflow-visible">
+                  {dresscode.colorPalette.map((color, index) => (
                     <div
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 mb-2"
+                      key={index}
+                      className="relative flex flex-col items-center"
                       style={{
-                        backgroundColor: color.hex,
-                        borderColor: theme.colors.primary
+                        marginTop: index === 0 ? 0 : '-0.75rem',
+                        zIndex: dresscode.colorPalette.length - index
                       }}
-                    ></div>
-                    <span
-                      className="text-xs sm:text-sm font-poppins"
-                      style={{ color: theme.colors.primary }}
+                      onMouseEnter={() => setHoveredColorIndex(index)}
+                      onMouseLeave={() => setHoveredColorIndex(null)}
+                      onClick={() => setClickedColorIndex(clickedColorIndex === index ? null : index)}
                     >
-                      {color.label}
-                    </span>
-                  </div>
-                ))}
+                      <div
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 cursor-pointer transition-transform duration-200 hover:scale-110"
+                        style={{
+                          backgroundColor: color.hex,
+                          borderColor: theme.colors.primary
+                        }}
+                      ></div>
+                      {/* Tooltip */}
+                      {(hoveredColorIndex === index || clickedColorIndex === index) && (
+                        <div
+                          className="absolute right-full mr-2 px-3 py-1 rounded bg-gray-800 text-white text-xs font-poppins whitespace-nowrap z-10 pointer-events-none"
+                          style={{
+                            backgroundColor: theme.colors.primary,
+                            color: '#f5f1eb'
+                          }}
+                        >
+                          {color.label}
+                          <div
+                            className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent"
+                            style={{
+                              borderLeftColor: theme.colors.primary
+                            }}
+                          ></div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -218,6 +257,7 @@ const DetailsSection = () => {
               </p>
               {/* Gift Button */}
               <button
+                onClick={openGiftModal}
                 className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.3)',
@@ -262,6 +302,12 @@ const DetailsSection = () => {
       <RSVPModal
         isOpen={isRSVPModalOpen}
         onClose={() => setIsRSVPModalOpen(false)}
+      />
+
+      {/* Gift Modal */}
+      <GiftModal
+        isOpen={isGiftModalOpen}
+        onClose={() => setIsGiftModalOpen(false)}
       />
     </>
   )

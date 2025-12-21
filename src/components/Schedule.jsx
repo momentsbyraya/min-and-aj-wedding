@@ -51,7 +51,7 @@ const Schedule = () => {
           stagger: 0.2
         },
         "-=1.0"
-      )
+    )
     }
 
     // Cleanup function
@@ -74,7 +74,7 @@ const Schedule = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden"
+      className="relative pt-20 w-full overflow-hidden"
       style={{ backgroundColor: '#f5f1eb' }}
     >
       {/* Content */}
@@ -153,7 +153,7 @@ const Schedule = () => {
                 }}
               >
                 THE TIMELINE
-              </h2>
+            </h2>
               <img 
                 src="/assets/images/graphics/sparkle.png" 
                 alt="Sparkle" 
@@ -172,7 +172,7 @@ const Schedule = () => {
           </div>
 
           {/* Main Content with Timeline */}
-          <div className="relative" style={{ paddingTop: '1rem', paddingBottom: '3rem' }}>
+          <div className="relative" style={{ paddingTop: '1rem' }}>
             {/* Vertical Timeline */}
             <div ref={timelineRef} className="relative max-w-2xl mx-auto">
               {/* Continuous Vertical Line - Centered */}
@@ -188,7 +188,7 @@ const Schedule = () => {
                   bottom: 0
                 }}
               ></div>
-              
+
               {/* Timeline Events */}
               <div className="space-y-12 sm:space-y-16">
                 {schedule.events.map((event, index) => {
@@ -209,8 +209,8 @@ const Schedule = () => {
                           style={{ color: theme.colors.primary }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">{timePeriod}</span>
-                        </div>
-                      </div>
+                            </div>
+                          </div>
                       
                       {/* Circle - Centered */}
                       <div 
@@ -230,9 +230,9 @@ const Schedule = () => {
                           className="font-poppins"
                           style={{ color: theme.colors.primary, opacity: 0.8, fontSize: '1rem' }}
                         >
-                          {event.title}
-                        </div>
-                      </div>
+                              {event.title}
+                            </div>
+                          </div>
                     </div>
                   )
                 })}
@@ -262,6 +262,23 @@ const Schedule = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Prenup Image - Full Viewport Width */}
+        <div 
+          className="mt-16 sm:mt-20"
+          style={{ 
+            width: '100vw',
+            marginLeft: 'calc(-50vw + 50%)',
+            marginRight: 'calc(-50vw + 50%)'
+          }}
+        >
+          <img 
+            src="/assets/images/prenup/prenup-1.jpg" 
+            alt="Prenup" 
+            className="w-full h-auto object-cover"
+            style={{ maxHeight: '600px', display: 'block' }}
+          />
         </div>
       </div>
     </section>

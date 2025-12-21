@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { theme } from '../data'
+import { theme, eighteenths } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -38,266 +38,206 @@ const EighteenList = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden"
-      style={{ backgroundColor: 'white' }}
+      className="relative w-full overflow-hidden"
+      style={{ 
+        backgroundColor: theme.colors.primary,
+        border: '2px solid #f0ede6'
+      }}
     >
-      {/* Top Design */}
-      <img 
-        src="/assets/images/graphics/bottom-design.png" 
-        alt="Top design" 
-        className="absolute top-0 left-0"
-        style={{ width: '100%', transform: 'rotate(180deg)', zIndex: 60 }}
-      />
-      
-      {/* Rose Gold Purple Background */}
-      <div 
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.3
-        }}
-      ></div>
-      
       {/* Content */}
-      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
-        {/* Section Title */}
-        <div ref={titleRef} className="text-center mb-12" style={{ marginTop: '4rem' }}>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-4" style={{ color: '#4b2259' }}>
-            The Eigteenth's
-          </h2>
-        </div>
-        
+      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center}`}>
         {/* Lists - 2 categories per row using grid, all centered */}
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 gap-4 md:gap-6">
+        <div className="max-w-6xl mx-auto px-8 md:px-16">
+          <div 
+            style={{
+              borderLeft: '2px solid #f5f1eb',
+              borderRight: '2px solid #f5f1eb'
+            }}
+          >
+            {/* Section Title */}
+            <div 
+              ref={titleRef} 
+              className="text-center"
+              style={{
+                borderBottom: '2px solid #f5f1eb',
+                paddingTop: '3rem',
+                paddingBottom: '3rem'
+              }}
+            >
+              {/* The in Ballet font */}
+              <h1
+                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+                style={{ color: '#f5f1eb' }}
+              >
+                The
+              </h1>
+
+              {/* EIGHTEENTH'S */}
+              <h2
+                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
+                style={{
+                  color: '#f5f1eb',
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  marginTop: '-0.4em'
+                }}
+              >
+                EIGHTEENTH'S
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-2" style={{ alignItems: 'stretch', gap: 0 }}>
             {/* Roses */}
-            <div className="flex flex-col">
-              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
-                Roses
-                <img 
-                  src="/assets/images/graphics/butterfly-half-left.png" 
-                  alt="Butterfly" 
-                  className="absolute top-0 right-0 z-10"
-                  style={{ 
-                    width: 'min(7vw, 70px)',
-                    height: 'auto',
-                    transform: 'translate(80%, -50%)'
-                  }}
-                />
+            <div className="flex flex-col h-full" style={{ borderRight: '2px solid #f5f1eb', borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
+              <h3 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
+                style={{ 
+                  color: '#f5f1eb',
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  fontFamily: "'Tebranos', cursive !important"
+                }}
+              >
+                ROSES
               </h3>
-              <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {[
-                  'Criz Bayani',
-                  'Andrey Pandac',
-                  'Garette Honora',
-                  'Lester Culaba',
-                  'Mckenzie Basto',
-                  'Jhabes Cortez',
-                  'Clark Dela Paz',
-                  'Zyrus Simbajon',
-                  'Aviel Martinez',
-                  'Lance Lagaya',
-                  'Darryl Lomboy',
-                  'Kyle Estrella',
-                  'Glen Olivo',
-                  'Ninong Louie Morales',
-                  'Ralph Lagaya',
-                  'Lolo Oscar Lovedioro',
-                  'Lolo Pablo Lomboy',
-                  'Arnold Lagaya'
-                ].map((name, index) => (
-                  <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
-                    {index + 1}. {name}
+              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {eighteenths.categories[0].names.map((name, index) => (
+                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+                    {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Blue Bills */}
-            <div className="flex flex-col" style={{ marginBottom: '4rem' }}>
-              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
-                Blue Bills
-                <img 
-                  src="/assets/images/graphics/butterfly-half-left.png" 
-                  alt="Butterfly" 
-                  className="absolute top-0 right-0 z-10"
-                  style={{ 
-                    width: 'min(7vw, 70px)',
-                    height: 'auto',
-                    transform: 'translate(80%, -50%)'
-                  }}
-                />
+            <div className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+              <h3 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
+                style={{ 
+                  color: '#f5f1eb',
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  fontFamily: "'Tebranos', cursive !important"
+                }}
+              >
+                BLUE BILLS
               </h3>
-              <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {[
-                  'Mamila Eligren Lovedioro',
-                  'Ailyn Bundang',
-                  'Ninang Dorie Rioveros',
-                  'Uncle Pablo Lomboy Jr.',
-                  'Uncle Gerry Lomboy',
-                  'Ailene Flores',
-                  'Ninong Emil Lagaya',
-                  'Uncle Nick Lomboy',
-                  'Aunty Virginia',
-                  'Marjsally Bulauan',
-                  'Fer Briones',
-                  'Ninang Lanie Dela Cruz',
-                  'Tito dick',
-                  'Ninong Larry Allado',
-                  'Ninong Louie Morales',
-                  'Ninang Jheng Finch',
-                  'Tita Lorilyn Lagaya',
-                  'Tita Lorie Dante'
-                ].map((name, index) => (
-                  <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
-                    {index + 1}. {name}
+              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {eighteenths.categories[1].names.map((name, index) => (
+                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+                    {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Bags */}
-            <div className="flex flex-col">
-              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
-                Bags
-                <img 
-                  src="/assets/images/graphics/butterfly-half-left.png" 
-                  alt="Butterfly" 
-                  className="absolute top-0 right-0 z-10"
-                  style={{ 
-                    width: 'min(7vw, 70px)',
-                    height: 'auto',
-                    transform: 'translate(80%, -50%)'
-                  }}
-                />
+            <div className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', borderRight: '2px solid #f5f1eb', padding: '1.5rem' }}>
+              <h3 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
+                style={{ 
+                  color: '#f5f1eb',
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  fontFamily: "'Tebranos', cursive !important"
+                }}
+              >
+                BAGS
               </h3>
-              <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {[
-                  'Tita Becca Magpantay',
-                  'Mitch Nepomosino',
-                  'Marimar Sibonga',
-                  'Crisel Adoy Ababan',
-                  'Maxine Bebita',
-                  'Althea Rompe',
-                  'Vivian Pandac',
-                  'Celina Contabaco',
-                  'Tita Jane Belazon',
-                  'Melo Manalansan',
-                  'Tita Grace Veloso',
-                  'Tita Josephine Velgado',
-                  'Tita Priscilla Rosales',
-                  'Tita Ardee Lagaya',
-                  'April Lomboy',
-                  'Tita Janine Lagaya',
-                  'Tita Niara Balincamaya',
-                  'Tita Melody Cawicaan'
-                ].map((name, index) => (
-                  <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
-                    {index + 1}. {name}
+              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {eighteenths.categories[2].names.map((name, index) => (
+                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+                    {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Gifts and Candles */}
-            <div className="flex flex-col" style={{ marginBottom: '4rem' }}>
-              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-left relative" style={{ color: '#4b2259', width: 'fit-content' }}>
-                Gifts & Candles
-                <img 
-                  src="/assets/images/graphics/butterfly-half-left.png" 
-                  alt="Butterfly" 
-                  className="absolute top-0 right-0 z-10"
-                  style={{ 
-                    width: 'min(7vw, 70px)',
-                    height: 'auto',
-                    transform: 'translate(80%, -50%)'
-                  }}
-                />
+            <div className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: '#f0ede6' }}>
+              <h3 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
+                style={{ 
+                  color: theme.colors.primary,
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  fontFamily: "'Tebranos', cursive !important"
+                }}
+              >
+                GIFTS & CANDLES
               </h3>
-              <div className="text-left" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {[
-                  'Tito Paul Barrun',
-                  'Yuleen Ebido',
-                  'Jean Lerry Lomboy',
-                  'Yenna Umali',
-                  'Aj Huelar',
-                  'Judeah Francisco',
-                  'Ynony Lamsen',
-                  'Daphney Molina',
-                  'Lucille Caiña',
-                  'Hannah Encarnacion',
-                  'Zianne Lacza',
-                  'Yesha Oliveros',
-                  'Audrey Javier',
-                  'Marc Lester Perater',
-                  'Juliana Galban',
-                  'Francine Clavillas',
-                  'Mariella Galban',
-                  'Princess Lomboy'
-                ].map((name, index) => (
-                  <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
-                    {index + 1}. {name}
+              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {eighteenths.categories[3].names.map((name, index) => (
+                  <div key={index} className="font-poppins uppercase" style={{ color: theme.colors.primary, fontSize: '14px', opacity: 0.8 }}>
+                    {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Shots */}
-            <div className="col-span-2 flex flex-col items-center w-full" style={{ marginBottom: '6rem' }}>
-              <h3 className="text-xl sm:text-2xl font-lovelyhome mb-6 text-center relative" style={{ color: '#4b2259', width: 'fit-content', margin: '0 auto' }}>
-                Shots
-                <img 
-                  src="/assets/images/graphics/butterfly-half-left.png" 
-                  alt="Butterfly" 
-                  className="absolute top-0 right-0 z-10"
-                  style={{ 
-                    width: 'min(7vw, 70px)',
-                    height: 'auto',
-                    transform: 'translate(80%, -50%)'
-                  }}
-                />
+            <div className="flex flex-col h-full" style={{ borderRight: '2px solid #f5f1eb', borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
+              <h3 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
+                style={{ 
+                  color: '#f5f1eb',
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  fontFamily: "'Tebranos', cursive !important"
+                }}
+              >
+                SHOTS
               </h3>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-0.5 text-left" style={{ maxWidth: '600px' }}>
-                {[
-                  'Ara Lomboy',
-                  'Ronalyn Mendoza',
-                  'Blanchie Vito',
-                  'Tito Jayson Lagaya',
-                  'Tito Erwin Lagaya',
-                  'Tito Alvin Lagaya',
-                  'Justine Ante',
-                  'Zyrus Simbajon',
-                  'Aviel Martinez',
-                  'Jorosh Tiratira',
-                  'Garette Honora',
-                  'Ynomy Lamsen',
-                  'Yesha Oliveros',
-                  'Lance Lagaya',
-                  'Mariella Galban',
-                  'Princess Lomboy',
-                  'Audrey Javier',
-                  'Criz Bayani'
-                ].map((name, index) => (
-                  <div key={index} className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
-                    {index + 1}. {name}
+              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {eighteenths.categories[4].names.map((name, index) => (
+                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+                    {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
+
+            {/* Sixth Category - Card */}
+            <div className="flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+              <div className="text-center">
+                <h3 
+                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8"
+                  style={{ 
+                    color: '#f5f1eb',
+                    fontWeight: 900,
+                    lineHeight: '1',
+                    fontFamily: "'Tebranos', cursive !important"
+                  }}
+                >
+                  BE<br />THERE
+                </h3>
+                <img 
+                  src="/assets/images/graphics/tennis.png" 
+                  alt="Tennis" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto mb-8"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+                <p 
+                  className="text-base sm:text-lg md:text-xl font-poppins uppercase mb-8"
+                  style={{ 
+                    color: '#f5f1eb',
+                    letterSpacing: '0.1em'
+                  }}
+                >
+                  Game · On
+                </p>
+                <img 
+                  src="/assets/images/graphics/sparkle.png" 
+                  alt="Sparkle" 
+                  className="w-6 h-6 sm:w-8 sm:h-8 object-contain mx-auto mt-8"
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+              </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Bottom Design */}
-      <img 
-        src="/assets/images/graphics/bottom-design.png" 
-        alt="Bottom design" 
-        className="absolute bottom-0 left-0 z-30"
-        style={{ width: '100%' }}
-      />
     </section>
   )
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { X } from 'lucide-react'
+import { theme } from '../data'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
@@ -74,7 +75,13 @@ const RSVPModal = ({ isOpen, onClose }) => {
       {/* Modal Content */}
       <div
         ref={contentRef}
-        className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+        className="relative bg-white shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+        style={{
+          border: `0.5px solid ${theme.colors.primary}`,
+          outline: `0.5px solid ${theme.colors.primary}`,
+          outlineOffset: '-5px',
+          borderRadius: 0
+        }}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-wedding-200">

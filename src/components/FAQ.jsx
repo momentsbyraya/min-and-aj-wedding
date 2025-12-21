@@ -58,67 +58,163 @@ const FAQ = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden"
-      style={{ backgroundColor: 'white' }}
+      className="relative w-full overflow-hidden"
+      style={{ backgroundColor: '#f0ede6', paddingTop: '4rem' }}
     >
-      {/* Rose Gold Purple Background - Flipped Vertically */}
-      <div 
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          transform: 'scaleY(-1)',
-          opacity: 0.3
-        }}
-      ></div>
       
       {/* Content */}
-      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
+      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center}`}>
         {/* Section Title */}
-        <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-16 text-center faq-title`} style={{ color: '#4b2259' }}>
-          Frequently Asked Questions
-        </h2>
+        <div className="text-center mb-16 faq-title" style={{ padding: '0 2rem' }}>
+          {/* FREQUENTLY */}
+          <h2 
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-2"
+            style={{ 
+              color: theme.colors.primary,
+              fontWeight: 900,
+              lineHeight: '1'
+            }}
+          >
+            FREQUENTLY
+          </h2>
+          
+          {/* ASKED in Ballet font with sparkles */}
+          <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '-1rem' }}>
+            <img 
+              src="/assets/images/graphics/sparkle.png" 
+              alt="Sparkle" 
+              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+              style={{ alignSelf: 'center' }}
+            />
+            <h3 
+              className="text-5xl sm:text-6xl md:text-7xl font-ballet"
+              style={{ 
+                color: theme.colors.primary, 
+                lineHeight: '1'
+              }}
+            >
+              Asked
+            </h3>
+            <img 
+              src="/assets/images/graphics/sparkle.png" 
+              alt="Sparkle" 
+              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+              style={{ alignSelf: 'center' }}
+            />
+          </div>
+          
+          {/* QUESTIONS in Tebranos font */}
+          <h3 
+            className="text-5xl sm:text-6xl md:text-7xl font-tebranos"
+            style={{ 
+              color: theme.colors.primary, 
+              marginTop: '-1rem',
+              fontWeight: 900,
+              lineHeight: '1'
+            }}
+          >
+            QUESTIONS
+          </h3>
+        </div>
         
         {/* FAQ Accordion */}
-        <div ref={accordionRef} className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto space-y-4">
-          {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-gray-300"
-            >
-              {/* Question Header */}
-              <button
-                onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-              >
-                <h3 className={`font-poppins pr-4`} style={{ color: '#4b2259', fontSize: '1rem' }}>
-                  {faq.question}
-                </h3>
-                <ChevronDown 
-                  className={`w-5 h-5 transition-transform duration-300`}
-                  style={{
-                    transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
-                    color: '#4b2259'
-                  }}
-                />
-              </button>
-              
-              {/* Answer Content */}
+        <div ref={accordionRef} className="w-full space-y-0">
+          {faqData.map((faq, index) => {
+            // Pattern: primary, secondary, tertiary, secondary, primary, secondary, tertiary, secondary, repeat
+            const patternIndex = index % 4
+            let bgColor, textColor
+            if (patternIndex === 0) {
+              // primary
+              bgColor = theme.colors.primary
+              textColor = '#f5f1eb'
+            } else if (patternIndex === 1) {
+              // secondary
+              bgColor = '#f0ede6'
+              textColor = theme.colors.primary
+            } else if (patternIndex === 2) {
+              // tertiary
+              bgColor = theme.colors.tertiary
+              textColor = '#f5f1eb'
+            } else {
+              // secondary (patternIndex === 3)
+              bgColor = '#f0ede6'
+              textColor = theme.colors.primary
+            }
+            
+            return (
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+                key={index}
+                className="overflow-hidden transition-all duration-300 w-full"
+                style={{ backgroundColor: bgColor }}
               >
-                <div className="px-6 pt-4 pb-4">
-                  <p className="font-poppins leading-relaxed" style={{ color: '#B76E79', fontSize: '1rem' }}>
-                    {faq.answer}
-                  </p>
+                {/* Question Header */}
+                <button
+                  onClick={() => toggleAccordion(index)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between transition-colors duration-200"
+                  style={{ 
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (openIndex !== index) {
+                      if (patternIndex === 0 || patternIndex === 2) {
+                        // primary or tertiary - use light overlay
+                        e.currentTarget.style.backgroundColor = 'rgba(245, 241, 235, 0.1)'
+                      } else {
+                        // secondary - use primary overlay
+                        e.currentTarget.style.backgroundColor = 'rgba(6, 81, 67, 0.1)'
+                      }
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (openIndex !== index) {
+                      e.currentTarget.style.backgroundColor = 'transparent'
+                    }
+                  }}
+                >
+                  <h3 className={`font-poppins pr-4`} style={{ color: textColor, fontSize: '1rem' }}>
+                    {faq.question}
+                  </h3>
+                  <ChevronDown 
+                    className={`w-5 h-5 transition-transform duration-300`}
+                    style={{
+                      transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)',
+                      color: textColor
+                    }}
+                  />
+                </button>
+                
+                {/* Answer Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="px-6 pt-4 pb-4">
+                    <p className="font-poppins leading-relaxed" style={{ color: textColor, fontSize: '1rem' }}>
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Prenup Image - Full Viewport Width */}
+        <div 
+          className="mt-16 sm:mt-20"
+          style={{ 
+            width: '100vw',
+            marginLeft: 'calc(-50vw + 50%)',
+            marginRight: 'calc(-50vw + 50%)'
+          }}
+        >
+          <img 
+            src="/assets/images/prenup/prenup-3.jpg" 
+            alt="Prenup" 
+            className="w-full h-auto object-cover"
+            style={{ maxHeight: '600px', display: 'block' }}
+          />
         </div>
       </div>
     </section>

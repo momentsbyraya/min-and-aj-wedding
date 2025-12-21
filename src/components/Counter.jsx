@@ -56,10 +56,12 @@ const Counter = ({ countdown }) => {
       id="details"
       className="relative overflow-hidden flex items-stretch justify-center text-center"
       style={{
-        background: 'repeating-linear-gradient(90deg, #f0ede6 0px, #f0ede6 20px, #065143 20px, #065143 40px)',
+        background: `repeating-linear-gradient(90deg, ${theme.colors.primary} 0px, ${theme.colors.primary} 20px, #f0ede6 20px, #f0ede6 40px, ${theme.colors.tertiary} 40px, ${theme.colors.tertiary} 60px, #f0ede6 60px, #f0ede6 80px, ${theme.colors.primary} 80px, ${theme.colors.primary} 100px, #f0ede6 100px, #f0ede6 120px, ${theme.colors.tertiary} 120px, ${theme.colors.tertiary} 140px, #f0ede6 140px, #f0ede6 160px)`,
         minHeight: '100vh',
         paddingTop: '5rem',
-        paddingBottom: '5rem'
+        paddingBottom: '5rem',
+        paddingLeft: '1rem',
+        paddingRight: '1rem'
       }}
     >
       
@@ -71,7 +73,9 @@ const Counter = ({ countdown }) => {
            className="w-full max-w-4xl mx-auto px-8 sm:px-12 py-8 flex flex-col justify-center"
            style={{
              backgroundColor: '#f0ede6',
-             border: `2px solid ${theme.colors.primary}`,
+             border: `0.5px solid ${theme.colors.primary}`,
+             outline: `0.5px solid ${theme.colors.primary}`,
+             outlineOffset: '-10px',
              borderRadius: 0,
              minHeight: '100%'
            }}

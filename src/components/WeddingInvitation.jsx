@@ -10,7 +10,7 @@ import Schedule from './Schedule'
 import LoveStory from './LoveStory'
 import DressCode from './DressCode'
 import Gallery2 from './Gallery2'
-import VideoSection from './VideoSection'
+import Gallery from './Gallery'
 import FAQ from './FAQ'
 import MapDirections from './Venue'
 import GiftRegistry from './GiftRegistry'
@@ -20,7 +20,7 @@ import EighteenList from './EighteenList'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
 
-const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
+const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
 
   useEffect(() => {
@@ -40,7 +40,10 @@ const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
   return (
     <div className="min-h-screen w-full overflow-hidden">
       <main className="main-container h-full section-container">
-        {/* Schedule Section - First */}
+        {/* Hero Section - First */}
+        <Hero />
+        
+        {/* Schedule Section - After Hero */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
           <Schedule />
         </EnhancedLazySection>
@@ -55,37 +58,29 @@ const WeddingInvitation = ({ onPauseMusic, onResumeMusic }) => {
           <DetailsSection />
         </EnhancedLazySection>
 
-        {/* Save the Date Section - After Details */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
+        {/* Gallery Section - After Details */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
+          <Gallery />
         </EnhancedLazySection>
 
-        {/* Hero Section - Always visible */}
-        <section className='h-full'><Hero /></section>
-        
-        {/* Video Section */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="videos">
-          <VideoSection onPauseMusic={onPauseMusic} onResumeMusic={onResumeMusic} />
+        {/* 18 List Section - After Gallery */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
+          <EighteenList />
         </EnhancedLazySection>
-        
-        {/* Gallery Section - Square Grid */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
-          <Gallery2 />
+
+        {/* FAQ Section - After EighteenList */}
+        <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
+          <FAQ />
+        </EnhancedLazySection>
+
+        {/* Save the Date Section - After FAQ */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
         </EnhancedLazySection>
 
         {/* Map & Directions Section */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="map-directions">
           <MapDirections />
-        </EnhancedLazySection>
-
-        {/* 18 List Section */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
-          <EighteenList />
-        </EnhancedLazySection>
-
-        {/* FAQ Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
-          <FAQ />
         </EnhancedLazySection>
         
         {/* Calendar Section */}

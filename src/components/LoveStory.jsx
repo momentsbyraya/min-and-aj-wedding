@@ -45,10 +45,10 @@ const LoveStory = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full min-h-screen flex items-center justify-center"
-      style={{ backgroundColor: '#065143', padding: '4rem 2rem' }}
+      className="relative pt-20 w-full min-h-screen flex flex-col items-center justify-center"
+      style={{ backgroundColor: '#065143', paddingTop: '4rem', paddingLeft: '2rem', paddingRight: '2rem' }}
     >
-      {/* Content */}
+      {/* Content Group */}
       <div ref={contentRef} className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Welcome */}
         <h1 
@@ -113,6 +113,23 @@ const LoveStory = () => {
         >
           Amanda Iris
         </p>
+      </div>
+
+      {/* Prenup Image - Full Viewport Width */}
+      <div 
+        className="mt-16 sm:mt-20"
+        style={{ 
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          marginRight: 'calc(-50vw + 50%)'
+        }}
+      >
+        <img 
+          src="/assets/images/prenup/prenup-2.jpg" 
+          alt="Prenup" 
+          className="w-full h-auto object-cover"
+          style={{ maxHeight: '600px', display: 'block' }}
+        />
       </div>
     </section>
   )
