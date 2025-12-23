@@ -3,16 +3,13 @@ import { theme } from '../data'
 
 const Gallery = () => {
   const prenupImages = [
-    '/assets/images/prenup/prenup-1.jpg',
-    '/assets/images/prenup/prenup-2.jpg',
-    '/assets/images/prenup/prenup-3.jpg',
-    '/assets/images/prenup/prenup-4.jpg',
-    '/assets/images/prenup/prenup-5.jpg',
-    '/assets/images/prenup/prenup-6.jpg',
-    '/assets/images/prenup/prenup-7.jpg',
-    '/assets/images/prenup/prenup-8.jpg',
-    '/assets/images/prenup/prenup-9.jpg',
-    '/assets/images/prenup/prenup-10.jpg'
+    '/assets/images/prenup/prenup1.jpg',
+    '/assets/images/prenup/prenup2.jpg',
+    '/assets/images/prenup/prenup3.jpg',
+    '/assets/images/prenup/prenup4.jpg',
+    '/assets/images/prenup/prenup5.jpg',
+    '/assets/images/prenup/prenup6.jpg',
+    '/assets/images/prenup/prenup7.jpg'
   ]
 
   return (
@@ -106,7 +103,7 @@ const Gallery = () => {
               src="/assets/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-              style={{ alignSelf: 'center', filter: 'brightness(0) invert(1)' }}
+              style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
             />
             <h2 
               className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
@@ -122,7 +119,7 @@ const Gallery = () => {
               src="/assets/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-              style={{ alignSelf: 'center', filter: 'brightness(0) invert(1)' }}
+              style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
             />
           </div>
           

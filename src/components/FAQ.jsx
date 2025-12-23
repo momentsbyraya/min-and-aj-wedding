@@ -210,7 +210,7 @@ const FAQ = () => {
           }}
         >
           <img 
-            src="/assets/images/prenup/prenup-3.jpg" 
+            src="/assets/images/prenup/prenup3.jpg" 
             alt="Prenup" 
             className="w-full h-auto object-cover"
             style={{ maxHeight: '600px', display: 'block' }}

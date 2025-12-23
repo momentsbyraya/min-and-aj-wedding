@@ -9,10 +9,10 @@ import PhotoSection from './PhotoSection'
 import Schedule from './Schedule'
 import LoveStory from './LoveStory'
 import DressCode from './DressCode'
-import Gallery2 from './Gallery2'
 import Gallery from './Gallery'
 import FAQ from './FAQ'
-import MapDirections from './Venue'
+import MapDirections from './MapDirections'
+import Venue from './Venue'
 import GiftRegistry from './GiftRegistry'
 import CTASection from './CTASection'
 import DetailsSection from './DetailsSection'
@@ -43,7 +43,12 @@ const WeddingInvitation = () => {
         {/* Hero Section - First */}
         <Hero />
         
-        {/* Schedule Section - After Hero */}
+        {/* Venue Section - After Hero */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="venue">
+          <Venue />
+        </EnhancedLazySection>
+
+        {/* Schedule Section - After Venue */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
           <Schedule />
         </EnhancedLazySection>

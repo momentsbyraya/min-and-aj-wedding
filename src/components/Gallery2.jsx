@@ -17,18 +17,16 @@ const Gallery2 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = [
-    "/assets/images/prenup/WYN08076.JPG",
-    "/assets/images/prenup/WYN08086.JPG",
-    "/assets/images/prenup/WYN08091.JPG",
-    "/assets/images/prenup/WYN08093.JPG",
-    "/assets/images/prenup/WYN08109.JPG",
-    "/assets/images/prenup/WYN08112.JPG",
-    "/assets/images/prenup/WYN08127.JPG",
-    "/assets/images/prenup/WYN08161.JPG",
-    "/assets/images/prenup/WYN08170.JPG",
-    "/assets/images/prenup/WYN08181.JPG",
-    "/assets/images/prenup/WYN08185.JPG",
-    "/assets/images/prenup/WYN08214.JPG"
+    "/assets/images/prenup/prenup1.jpg",
+    "/assets/images/prenup/prenup2.jpg",
+    "/assets/images/prenup/prenup3.jpg",
+    "/assets/images/prenup/prenup4.jpg",
+    "/assets/images/prenup/prenup5.jpg",
+    "/assets/images/prenup/prenup6.jpg",
+    "/assets/images/prenup/prenup7.jpg",
+    "/assets/images/prenup/Photo%20%238.jpg",
+    "/assets/images/prenup/Photo%20%239.jpg",
+    "/assets/images/prenup/Photo%20%2310.jpg"
   ]
 
   // Generate random transforms and animation directions for each image

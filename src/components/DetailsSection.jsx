@@ -136,29 +136,31 @@ const DetailsSection = () => {
                 onClick={openRSVPModal}
                 className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                  backgroundColor: theme.colors.tertiary,
                   borderRadius: 0,
-                  color: theme.colors.primary,
+                  color: '#f5f1eb',
                   border: `0.5px solid ${theme.colors.primary}`,
-                  outline: `0.5px solid ${theme.colors.primary}`,
+                  outline: `0.5px solid #f5f1eb`,
                   outlineOffset: '-5px',
                   fontFamily: "'Poppins', sans-serif",
                   font: "normal normal 400 1rem 'Poppins', sans-serif"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.colors.primary
-                  e.currentTarget.style.color = 'white'
+                  e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                  e.currentTarget.style.opacity = '0.9'
+                  e.currentTarget.style.color = '#f5f1eb'
                   const img = e.currentTarget.querySelector('img')
                   if (img) {
                     img.style.filter = 'brightness(0) invert(1)'
                   }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
-                  e.currentTarget.style.color = theme.colors.primary
+                  e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                  e.currentTarget.style.opacity = '1'
+                  e.currentTarget.style.color = '#f5f1eb'
                   const img = e.currentTarget.querySelector('img')
                   if (img) {
-                    img.style.filter = 'none'
+                    img.style.filter = 'brightness(0) invert(1)'
                   }
                 }}
               >
@@ -260,29 +262,31 @@ const DetailsSection = () => {
                 onClick={openGiftModal}
                 className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                  backgroundColor: theme.colors.tertiary,
                   borderRadius: 0,
-                  color: theme.colors.primary,
+                  color: '#f5f1eb',
                   border: `0.5px solid ${theme.colors.primary}`,
-                  outline: `0.5px solid ${theme.colors.primary}`,
+                  outline: `0.5px solid #f5f1eb`,
                   outlineOffset: '-5px',
                   fontFamily: "'Poppins', sans-serif",
                   font: "normal normal 400 1rem 'Poppins', sans-serif"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.colors.primary
-                  e.currentTarget.style.color = 'white'
+                  e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                  e.currentTarget.style.opacity = '0.9'
+                  e.currentTarget.style.color = '#f5f1eb'
                   const img = e.currentTarget.querySelector('img')
                   if (img) {
                     img.style.filter = 'brightness(0) invert(1)'
                   }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
-                  e.currentTarget.style.color = theme.colors.primary
+                  e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                  e.currentTarget.style.opacity = '1'
+                  e.currentTarget.style.color = '#f5f1eb'
                   const img = e.currentTarget.querySelector('img')
                   if (img) {
-                    img.style.filter = 'none'
+                    img.style.filter = 'brightness(0) invert(1)'
                   }
                 }}
               >

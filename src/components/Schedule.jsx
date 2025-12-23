@@ -87,7 +87,7 @@ const Schedule = () => {
               <img 
                 src="/assets/images/graphics/tennis-ball.png" 
                 alt="Tennis ball" 
-                className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
               />
             </div>
             
@@ -136,14 +136,8 @@ const Schedule = () => {
               })}
             </div>
             
-            {/* THE TIMELINE with sparkles */}
+            {/* THE TIMELINE */}
             <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '2rem' }}>
-              <img 
-                src="/assets/images/graphics/sparkle.png" 
-                alt="Sparkle" 
-                className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-                style={{ alignSelf: 'center' }}
-              />
               <h2 
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
                 style={{ 
@@ -154,12 +148,6 @@ const Schedule = () => {
               >
                 THE TIMELINE
             </h2>
-              <img 
-                src="/assets/images/graphics/sparkle.png" 
-                alt="Sparkle" 
-                className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-                style={{ alignSelf: 'center' }}
-              />
             </div>
             
             {/* Unfolds in Ballet font */}
@@ -206,7 +194,7 @@ const Schedule = () => {
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
                           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
-                          style={{ color: theme.colors.primary }}
+                          style={{ color: theme.colors.tertiary }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">{timePeriod}</span>
                             </div>
@@ -239,20 +227,9 @@ const Schedule = () => {
               </div>
             </div>
             
-            {/* Wine Glass and Closing Message Section */}
-            <div className="flex items-center justify-between mt-16 sm:mt-20 px-4 sm:px-8">
-              {/* Wine Glass Graphic on the left */}
-              <div className="flex-shrink-0">
-                <img 
-                  src="/assets/images/graphics/wine-glass.png" 
-                  alt="Wine glass" 
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-                  style={{ color: theme.colors.primary }}
-                />
-              </div>
-              
-              {/* Closing Message on the right */}
-              <div className="flex-1 text-left pl-8">
+            {/* Closing Message Section */}
+            <div className="flex items-center justify-center mt-16 sm:mt-20 px-4 sm:px-8">
+              <div className="text-center">
                 <p 
                   className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
                   style={{ color: theme.colors.primary, opacity: 0.9 }}
@@ -274,7 +251,7 @@ const Schedule = () => {
           }}
         >
           <img 
-            src="/assets/images/prenup/prenup-1.jpg" 
+            src="/assets/images/prenup/prenup2.jpg" 
             alt="Prenup" 
             className="w-full h-auto object-cover"
             style={{ maxHeight: '600px', display: 'block' }}

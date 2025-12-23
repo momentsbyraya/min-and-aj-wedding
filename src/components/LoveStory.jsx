@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { celebrant } from '../data'
+import PhotoSection from './PhotoSection'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -124,11 +125,11 @@ const LoveStory = () => {
           marginRight: 'calc(-50vw + 50%)'
         }}
       >
-        <img 
-          src="/assets/images/prenup/prenup-2.jpg" 
-          alt="Prenup" 
-          className="w-full h-auto object-cover"
-          style={{ maxHeight: '600px', display: 'block' }}
+        <PhotoSection 
+          imagePath="/assets/images/prenup/prenup2.jpg"
+          title=""
+          subtitle=""
+          inline={true}
         />
       </div>
     </section>

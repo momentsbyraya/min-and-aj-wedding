@@ -1,18 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { MapPin, Navigation, Car, Train, Bus, Clock, Phone, Mail } from 'lucide-react'
+import { Navigation } from 'lucide-react'
 import { theme } from '../data'
-import { venues as venuesData, images } from '../data'
+import { venues as venuesData } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
-const MapDirections = () => {
+const Venue = () => {
   const sectionRef = useRef(null)
-  const receptionDetailsRef = useRef(null)
-  const receptionPhotoRef = useRef(null)
-  const receptionButtonRef = useRef(null)
+  const headerRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -25,20 +23,25 @@ const MapDirections = () => {
       }
     })
 
-    // Venue section animations - slide up with delays
-    tl.fromTo(receptionDetailsRef.current, 
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    )
-    .fromTo(receptionPhotoRef.current, 
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.3"
-    )
-    .fromTo(receptionButtonRef.current, 
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-      "-=0.3"
+    // Animate header
+    if (headerRef.current) {
+      tl.fromTo(headerRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      )
+    }
+
+    // Animate sections with stagger
+    tl.fromTo(".venue-subsection",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.2
+      },
+      "-=0.4"
     )
 
     // Cleanup function
@@ -47,121 +50,158 @@ const MapDirections = () => {
     }
   }, [])
 
-  // URLs are now provided in the venues data
   const venueData = venuesData.venue
-
-  const venues = {
-    main: {
-      ...venueData,
-      ...venueData.main,
-      type: 'Main Event',
-      icon: '🎂'
-    },
-    reception: {
-      ...venueData,
-      ...venueData.reception,
-      type: 'Reception',
-      icon: '🎉'
-    }
-  }
-
-  // Generate Google Maps directions URL
-  const getDirectionsUrl = () => {
-    const address = `${venues.main.address}, ${venues.main.city}, ${venues.main.state} ${venues.main.zip}`
-    const encodedAddress = encodeURIComponent(address)
-    return `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`
-  }
 
   return (
     <section
-      id="map"
       ref={sectionRef}
-      className="relative py-20 w-full"
+      className="relative w-full overflow-hidden pb-0 sm:pb-8"
+      style={{ backgroundColor: theme.colors.primary, paddingTop: '4rem', paddingLeft: '2rem', paddingRight: '2rem' }}
     >
-      {/* Abstract Background - Same as Counter with rotation/zoom */}
-      <div 
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/abstract-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          transform: 'rotate(180deg) scale(1.2)',
-        }}
-      ></div>
-      <div className={`${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding} relative z-20`}>
-        {/* Section Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-antsvalley mb-6" style={{ color: theme.colors.primary }}>
-            Venue
-          </h2>
-        </div>
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
+          <div ref={headerRef} className="text-center mb-12">
+            {/* The in Ballet font */}
+            <h1
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+              style={{ color: '#f5f1eb' }}
+            >
+              The
+            </h1>
 
-        {/* Main Content Container */}
-        <div className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto -mt-4 px-8 sm:px-12 lg:px-16">
-          {/* Single Venue Display */}
-          <div className="flex justify-center">
-            <div className="w-full max-w-md">
-              <div ref={receptionDetailsRef} className="text-center mb-6">
-                <h3 className="font-poppins" style={{ color: theme.colors.primary, fontSize: '16px' }}>
-                  {venues.main.name.replace('Magdalene Garden Private Resort', 'Magdalene Garden\nPrivate Resort').split('\n').map((line, i) => (
-                    <React.Fragment key={i}>
-                      {line}
-                      {i < 1 && <br />}
-                    </React.Fragment>
-                  ))}
-                </h3>
-                <p className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
-                  {venues.main.address}, {venues.main.city}, {venues.main.state} {venues.main.zip}
-                </p>
-              </div>
-              
-              <div ref={receptionPhotoRef} className="relative mb-4 flex justify-center">
-                <div className="w-full h-50 sm:h-fit bg-white shadow-2xl hover:scale-105 transition-transform duration-300">
-                  <div className="w-full h-40 sm:h-64 bg-cover border-l-8 border-r-8 border-t-8 border-white" style={{backgroundImage: `url(${venues.main.image || '/assets/images/venue/venue.jpg'})`, backgroundPosition: 'top'}}></div>
-                  <div className="p-3 text-center">
-                    <div className="text-right text-sm sm:text-base text-gray-600 font-handwritten">{venues.main.name}</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Map Button */}
-              <div ref={receptionButtonRef} className="flex flex-col items-center mt-8">
-                <a
-                  href={venues.main.googleMapsUrl || venues.main.directionsUrl || "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center space-x-3 py-3 sm:py-5 lg:py-2 transition-all duration-200 text-sm sm:text-2xl lg:text-base font-medium font-poppins"
-                  style={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.3)', 
-                    borderRadius: '25px', 
-                    color: '#1e3a5f',
-                    border: `1px solid ${theme.colors.primary}`,
-                    paddingLeft: '2rem',
-                    paddingRight: '2rem'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#8b5cf6'
-                    e.currentTarget.style.color = 'white'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
-                    e.currentTarget.style.color = '#1e3a5f'
-                  }}
-                >
-                  <span>Check for directions</span>
-                  <Navigation className="w-5 h-5 sm:w-6 sm:h-6" />
-                </a>
-                <p className="text-sm font-poppins mt-3 text-center" style={{ color: theme.colors.primary }}>
-                  This location is nearby the venue
-                </p>
-              </div>
+            {/* VENUE */}
+            <h2
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-4"
+              style={{
+                color: '#f5f1eb',
+                fontWeight: 900,
+                lineHeight: '1',
+                marginTop: '-0.4em'
+              }}
+            >
+              VENUE
+            </h2>
+
+            {/* Location icon below title with words on both sides */}
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <span
+                className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
+                style={{ color: '#f5f1eb' }}
+              >
+                Where We
+              </span>
+              <img
+                src="/assets/images/graphics/location.png"
+                alt="Location"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
+              <span
+                className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
+                style={{ color: '#f5f1eb' }}
+              >
+                Celebrate
+              </span>
             </div>
           </div>
+
+          {/* Venue Details Section */}
+          <div className="venue-subsection mb-12 text-center">
+            <h3
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-tebranos mb-4"
+              style={{ color: '#f5f1eb' }}
+            >
+              {venueData.name}
+            </h3>
+            <p
+              className="font-poppins mb-4 max-w-2xl mx-auto"
+              style={{ color: '#f5f1eb', fontSize: '1rem' }}
+            >
+              {venueData.address && `${venueData.address}`}
+              {venueData.city && `, ${venueData.city}`}
+              {venueData.zip && `, ${venueData.zip}`}
+              {venueData.state && ` ${venueData.state}`}
+            </p>
+            {venueData.main && venueData.main.time && (
+              <p
+                className="font-poppins mb-6 max-w-2xl mx-auto"
+                style={{ color: '#f5f1eb', fontSize: '1rem', opacity: 0.8 }}
+              >
+                {venueData.main.time}
+              </p>
+            )}
+            {venueData.main && venueData.main.details && (
+              <p
+                className="font-poppins mb-6 max-w-2xl mx-auto"
+                style={{ color: '#f5f1eb', fontSize: '0.9rem', opacity: 0.7 }}
+              >
+                {venueData.main.details}
+              </p>
+            )}
+            
+            {/* Directions Button */}
+            <a
+              href={venueData.googleMapsUrl || venueData.directionsUrl || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
+              style={{
+                backgroundColor: theme.colors.tertiary,
+                borderRadius: 0,
+                color: '#f5f1eb',
+                border: `0.5px solid #f5f1eb`,
+                outline: `0.5px solid #f5f1eb`,
+                outlineOffset: '-5px',
+                fontFamily: "'Poppins', sans-serif",
+                font: "normal normal 400 1rem 'Poppins', sans-serif",
+                textDecoration: 'none'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                e.currentTarget.style.opacity = '0.9'
+                e.currentTarget.style.color = '#f5f1eb'
+                const icon = e.currentTarget.querySelector('svg')
+                if (icon) {
+                  icon.style.color = '#f5f1eb'
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                e.currentTarget.style.opacity = '1'
+                e.currentTarget.style.color = '#f5f1eb'
+                const icon = e.currentTarget.querySelector('svg')
+                if (icon) {
+                  icon.style.color = '#f5f1eb'
+                }
+              }}
+            >
+              <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>Get Directions</span>
+              <Navigation className="w-5 h-5 object-contain transition-all duration-200" style={{ color: '#f5f1eb' }} />
+            </a>
+          </div>
         </div>
+      </div>
+
+      {/* Prenup Image - Full Viewport Width */}
+      <div 
+        className="mt-16 sm:mt-20"
+        style={{ 
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          marginRight: 'calc(-50vw + 50%)'
+        }}
+      >
+        <img 
+          src="/assets/images/prenup/prenup1.jpg" 
+          alt="Prenup" 
+          className="w-full h-auto object-cover"
+          style={{ maxHeight: '600px', display: 'block' }}
+        />
       </div>
     </section>
   )
 }
 
-export default MapDirections 
+export default Venue
