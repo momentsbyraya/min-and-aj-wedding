@@ -83,10 +83,6 @@ const WeddingInvitation = () => {
           <Counter countdown={countdown} />
         </EnhancedLazySection>
 
-        {/* Map & Directions Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="map-directions">
-          <MapDirections />
-        </EnhancedLazySection>
         
         {/* Calendar Section */}
         {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
