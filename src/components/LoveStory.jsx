@@ -14,12 +14,9 @@ const LoveStory = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = [
-    '/assets/images/prenup/prenup7.jpg',
-    '/assets/images/prenup/prenup8.jpg',
     '/assets/images/prenup/prenup1.jpg',
-    '/assets/images/prenup/prenup9.jpg',
-    '/assets/images/prenup/prenup5.jpg',
-    '/assets/images/prenup/prenup10.jpg'
+    '/assets/images/prenup/prenup3.jpg',
+    '/assets/images/prenup/prenup5.jpg'
   ]
 
   useEffect(() => {
@@ -212,7 +209,7 @@ const LoveStory = () => {
                     style={{
                       backgroundImage: `url(${image})`,
                       backgroundSize: 'cover',
-                      backgroundPosition: index === 0 ? 'right center' : 'center center',
+                      backgroundPosition: 'center center',
                       backgroundRepeat: 'no-repeat',
                       opacity: index === currentImageIndex ? 1 : 0,
                       transition: 'opacity 1.5s ease-in-out',

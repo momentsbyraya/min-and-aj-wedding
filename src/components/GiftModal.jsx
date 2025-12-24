@@ -118,7 +118,7 @@ const GiftModal = ({ isOpen, onClose }) => {
               {(() => {
                 const method = paymentMethods[0]
                 return (
-                  <div className="bg-gray-50 rounded-lg p-6 text-center border border-gray-200">
+                  <div className="bg-gray-50 rounded-lg text-center border border-gray-200">
                     {/* QR Code - Only show if qrCode is provided */}
                     {method.accountInfo.qrCode && (
                       <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto mb-4 flex items-center justify-center bg-white p-4 rounded-lg border border-gray-200">
@@ -158,7 +158,7 @@ const GiftModal = ({ isOpen, onClose }) => {
                         </div>
                       </div>
                       <div className="w-full h-px bg-gray-300 mt-2"></div>
-                      <p className="font-poppins text-center mt-2" style={{ color: theme.colors.primary, fontWeight: 500, fontSize: '1rem', opacity: 0.8 }}>{method.accountInfo.accountName}</p>
+                      <p className="font-poppins text-center mt-2" style={{ color: theme.colors.primary, fontWeight: 500, fontSize: '1rem', opacity: 0.8, padding: '1.5rem' }}>{method.accountInfo.accountName}</p>
                     </div>
                   </div>
                 )

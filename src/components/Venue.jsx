@@ -163,7 +163,7 @@ const Venue = () => {
                     className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
                     style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 3vw, 1.75rem)' }}
                   >
-                    Where We
+                    Let's
                   </span>
                   <img
                     src="/assets/images/graphics/location.png"

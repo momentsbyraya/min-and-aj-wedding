@@ -149,7 +149,7 @@ const DetailsSection = () => {
                   className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
                   style={{ color: theme.colors.primary }}
                 >
-                  Information
+                  Info
                 </span>
               </div>
             </div>
