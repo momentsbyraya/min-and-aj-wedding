@@ -118,8 +118,10 @@ const DetailsSection = () => {
               </div>
             </div>
 
+            {/* Sections Container - Grid on lg screens */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-16">
             {/* RSVP Section */}
-            <div className="details-subsection mb-12 text-center">
+            <div className="details-subsection mb-12 lg:mb-0 text-center">
               <h2
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
                 style={{ color: theme.colors.primary }}
@@ -174,7 +176,7 @@ const DetailsSection = () => {
             </div>
 
             {/* Dress Code Section */}
-            <div className="details-subsection mb-12 text-center">
+            <div className="details-subsection mb-12 lg:mb-0 text-center">
               <h2
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
                 style={{ color: theme.colors.primary }}
@@ -183,9 +185,19 @@ const DetailsSection = () => {
               </h2>
               <p
                 className="font-poppins mb-6 max-w-2xl mx-auto"
-                style={{ color: theme.colors.primary, fontSize: '1rem' }}
+                style={{ fontSize: '1rem', fontFamily: 'Poppins, sans-serif' }}
               >
-                {dresscode.mainDressCode.description}
+                {dresscode.mainDressCode.description.split('Strictly NO Pink and Red').map((part, index, array) => {
+                  if (index === 0) {
+                    return <span key={index} className="font-poppins" style={{ color: theme.colors.primary, fontFamily: 'Poppins, sans-serif' }}>{part}</span>;
+                  }
+                  return (
+                    <React.Fragment key={index}>
+                      <span className="font-poppins" style={{ color: 'red', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
+                      {part && <span className="font-poppins" style={{ color: theme.colors.primary, fontFamily: 'Poppins, sans-serif' }}>{part}</span>}
+                    </React.Fragment>
+                  );
+                })}
               </p>
               {/* Color Swatches and Image Side by Side */}
               <div className="flex items-center justify-center gap-8 max-w-2xl mx-auto">
@@ -246,7 +258,7 @@ const DetailsSection = () => {
             {/* Gift Registry Section */}
             <div className="details-subsection text-center">
               <h2
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase whitespace-nowrap"
                 style={{ color: theme.colors.primary }}
               >
                 GIFT REGISTRY
@@ -297,6 +309,7 @@ const DetailsSection = () => {
                   className="w-5 h-5 object-contain transition-all duration-200"
                 />
               </button>
+            </div>
             </div>
           </div>
         </div>

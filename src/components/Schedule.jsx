@@ -74,14 +74,33 @@ const Schedule = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-20 w-full overflow-hidden"
+      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
       style={{ backgroundColor: '#f5f1eb' }}
     >
       {/* Content */}
       <div className="relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header Section */}
-          <div ref={headerRef} className="text-center mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+          {/* Flex Container - Side by side on lg screens */}
+          <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-8 lg:min-h-full">
+            {/* Left Side - Image (50% on lg) */}
+            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex order-2 lg:order-1">
+              <img 
+                src="/assets/images/prenup/prenup2.jpg" 
+                alt="Prenup" 
+                className="w-full h-full object-cover flex-1"
+                style={{ 
+                  display: 'block',
+                  minHeight: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center center'
+                }}
+              />
+            </div>
+
+            {/* Right Side - Text Content (50% on lg) */}
+            <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col order-1 lg:order-2">
+              {/* Header Section */}
+              <div ref={headerRef} className="text-center mb-12">
             {/* Tennis Ball Icon */}
             <div className="flex justify-center mb-4">
               <img 
@@ -143,7 +162,8 @@ const Schedule = () => {
                 style={{ 
                   color: theme.colors.primary,
                   fontWeight: 900,
-                  lineHeight: '1'
+                  lineHeight: '1',
+                  fontSize: 'clamp(3rem, 8vw, 5.5rem)'
                 }}
               >
                 THE TIMELINE
@@ -153,7 +173,7 @@ const Schedule = () => {
             {/* Unfolds in Ballet font */}
             <h3 
               className="text-5xl sm:text-6xl md:text-7xl font-ballet"
-              style={{ color: theme.colors.primary, marginTop: '-1rem' }}
+              style={{ color: theme.colors.primary, marginTop: '-1rem', fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}
             >
               Unfolds
             </h3>
@@ -194,9 +214,9 @@ const Schedule = () => {
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
                           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
-                          style={{ color: theme.colors.tertiary }}
+                          style={{ color: theme.colors.tertiary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
                         >
-                          {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">{timePeriod}</span>
+                          {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>{timePeriod}</span>
                             </div>
                           </div>
                       
@@ -216,7 +236,7 @@ const Schedule = () => {
                       <div className="flex-1 pl-4">
                         <div 
                           className="font-poppins"
-                          style={{ color: theme.colors.primary, opacity: 0.8, fontSize: '1rem' }}
+                          style={{ color: theme.colors.primary, opacity: 0.8, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                         >
                               {event.title}
                             </div>
@@ -226,36 +246,21 @@ const Schedule = () => {
                 })}
               </div>
             </div>
+          </div>
             
-            {/* Closing Message Section */}
-            <div className="flex items-center justify-center mt-16 sm:mt-20 px-4 sm:px-8">
-              <div className="text-center">
-                <p 
-                  className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
-                  style={{ color: theme.colors.primary, opacity: 0.9 }}
-                >
-                  We look forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
-                </p>
-              </div>
+          {/* Closing Message Section */}
+          <div className="flex items-center justify-center mt-16 sm:mt-20 px-4 sm:px-8">
+            <div className="text-center">
+                  <p 
+                    className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
+                    style={{ color: theme.colors.primary, opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
+                  >
+                    We look forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
+                  </p>
             </div>
           </div>
-        </div>
-
-        {/* Prenup Image - Full Viewport Width */}
-        <div 
-          className="mt-16 sm:mt-20"
-          style={{ 
-            width: '100vw',
-            marginLeft: 'calc(-50vw + 50%)',
-            marginRight: 'calc(-50vw + 50%)'
-          }}
-        >
-          <img 
-            src="/assets/images/prenup/prenup2.jpg" 
-            alt="Prenup" 
-            className="w-full h-auto object-cover"
-            style={{ maxHeight: '600px', display: 'block' }}
-          />
+            </div>
+          </div>
         </div>
       </div>
     </section>

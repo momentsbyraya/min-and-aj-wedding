@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { IoHeart } from 'react-icons/io5'
 import { getTimeUntilWedding } from '../utils/countdown'
+import { theme } from '../data'
 import Hero from './Hero'
 import Calendar from './Calendar'
 import Counter from './Counter'
@@ -105,10 +106,10 @@ const WeddingInvitation = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer hover:opacity-80 transition-all duration-200 font-poppins footer-link"
-            style={{ color: '#4b2259' }}
+            style={{ color: theme.colors.primary }}
           >
             <span>Made with</span>
-            <IoHeart className="w-4 h-4 sm:w-5 sm:h-5 footer-heart" style={{ color: '#4b2259' }} />
+            <IoHeart className="w-4 h-4 sm:w-5 sm:h-5 footer-heart" style={{ color: theme.colors.primary }} />
             <span>|</span>
             <span>Moments by Raya</span>
           </a>

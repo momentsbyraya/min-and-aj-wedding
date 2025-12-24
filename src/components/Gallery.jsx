@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { theme } from '../data'
 
 const Gallery = () => {
@@ -11,6 +11,61 @@ const Gallery = () => {
     '/assets/images/prenup/prenup6.jpg',
     '/assets/images/prenup/prenup7.jpg'
   ]
+
+  const scrollContainerRef = useRef(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft)
+    setScrollLeft(scrollContainerRef.current.scrollLeft)
+    scrollContainerRef.current.style.cursor = 'grabbing'
+    scrollContainerRef.current.style.userSelect = 'none'
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.cursor = 'grab'
+      scrollContainerRef.current.style.userSelect = 'auto'
+    }
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.cursor = 'grab'
+      scrollContainerRef.current.style.userSelect = 'auto'
+    }
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.pageX - scrollContainerRef.current.offsetLeft
+    const walk = (x - startX) * 2 // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  // Touch events for mobile
+  const handleTouchStart = (e) => {
+    setIsDragging(true)
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft)
+    setScrollLeft(scrollContainerRef.current.scrollLeft)
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft
+    const walk = (x - startX) * 2
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+  }
 
   return (
     <section
@@ -134,11 +189,20 @@ const Gallery = () => {
 
         {/* Horizontal Scrollable Images */}
         <div 
+          ref={scrollContainerRef}
           className="w-full overflow-x-auto"
           style={{ 
             scrollbarWidth: 'thin',
-            scrollbarColor: `${theme.colors.primary} transparent`
+            scrollbarColor: `${theme.colors.primary} transparent`,
+            cursor: 'grab'
           }}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
             {prenupImages.map((image, index) => (
@@ -147,6 +211,7 @@ const Gallery = () => {
                 src={image}
                 alt={`Prenup ${index + 1}`}
                 className="flex-shrink-0 object-cover"
+                draggable="false"
                 style={{
                   width: '80vw',
                   maxWidth: '450px',

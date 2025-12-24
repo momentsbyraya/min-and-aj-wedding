@@ -36,6 +36,14 @@ const EighteenList = () => {
   }, [])
 
   return (
+    <>
+      <style>{`
+        @media (min-width: 1024px) {
+          .eighteen-title {
+            padding-top: 6rem !important;
+          }
+        }
+      `}</style>
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
@@ -57,7 +65,7 @@ const EighteenList = () => {
             {/* Section Title */}
             <div 
               ref={titleRef} 
-              className="text-center"
+              className="text-center eighteen-title"
               style={{
                 borderBottom: '2px solid #f5f1eb',
                 paddingTop: '3rem',
@@ -239,6 +247,7 @@ const EighteenList = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

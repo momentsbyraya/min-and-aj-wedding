@@ -56,6 +56,14 @@ const FAQ = () => {
   }
 
   return (
+    <>
+      <style>{`
+        @media (min-width: 1024px) {
+          .faq-image {
+            object-position: center 5%;
+          }
+        }
+      `}</style>
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
@@ -118,7 +126,7 @@ const FAQ = () => {
         </div>
         
         {/* FAQ Accordion */}
-        <div ref={accordionRef} className="w-full space-y-0">
+        <div ref={accordionRef} className="w-full lg:max-w-4xl lg:mx-auto space-y-0">
           {faqData.map((faq, index) => {
             // Pattern: primary, secondary, tertiary, secondary, primary, secondary, tertiary, secondary, repeat
             const patternIndex = index % 4
@@ -210,14 +218,17 @@ const FAQ = () => {
           }}
         >
           <img 
-            src="/assets/images/prenup/prenup3.jpg" 
+            src="/assets/images/prenup/prenup6.jpg" 
             alt="Prenup" 
-            className="w-full h-auto object-cover"
-            style={{ maxHeight: '600px', display: 'block' }}
+            className="faq-image w-full max-h-[600px] lg:max-h-none lg:h-[90vh] object-cover"
+            style={{ 
+              display: 'block'
+            }}
           />
         </div>
       </div>
     </section>
+    </>
   )
 }
 
