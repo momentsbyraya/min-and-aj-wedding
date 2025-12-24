@@ -21,7 +21,7 @@ import EighteenList from './EighteenList'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
 
-const WeddingInvitation = () => {
+const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
 
   useEffect(() => {
@@ -42,7 +42,11 @@ const WeddingInvitation = () => {
     <div className="min-h-screen w-full overflow-hidden">
       <main className="main-container h-full section-container">
         {/* Hero Section - First */}
-        <Hero />
+        <Hero 
+          onStartMusic={onStartMusic}
+          onPauseMusic={onPauseMusic}
+          onResumeMusic={onResumeMusic}
+        />
         
         {/* Venue Section - After Hero */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="venue">

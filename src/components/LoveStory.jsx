@@ -10,10 +10,11 @@ gsap.registerPlugin(ScrollTrigger)
 const LoveStory = () => {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
-  const imageRef = useRef(null)
+  const imageContainerRef = useRef(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = [
+    '/assets/images/prenup/prenup7.jpg',
     '/assets/images/prenup/prenup8.jpg',
     '/assets/images/prenup/prenup1.jpg',
     '/assets/images/prenup/prenup9.jpg',
@@ -48,6 +49,46 @@ const LoveStory = () => {
       )
     }
 
+    // Image container animation - responsive
+    if (imageContainerRef.current) {
+      const mm = gsap.matchMedia()
+      
+      // Mobile: fade in
+      mm.add("(max-width: 1023px)", () => {
+        gsap.fromTo(imageContainerRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageContainerRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
+      
+      // Large screens: slide from right
+      mm.add("(min-width: 1024px)", () => {
+        gsap.fromTo(imageContainerRef.current,
+          { opacity: 0, x: 100 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageContainerRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
+    }
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
@@ -57,26 +98,29 @@ const LoveStory = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length)
-    }, 4000) // Change image every 4 seconds
+    }, 5000) // Change image every 5 seconds (matching Hero section)
 
     return () => clearInterval(interval)
   }, [images.length])
 
-  // Fade transition animation
-  useEffect(() => {
-    if (imageRef.current) {
-      gsap.fromTo(imageRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 1.5, ease: "power2.inOut" }
-      )
-    }
-  }, [currentImageIndex])
-
   return (
+    <>
+      <style>{`
+        @media (max-width: 1023px) {
+          .lovestory-image-mobile {
+            margin-left: calc(-1rem - 2rem) !important;
+            margin-right: calc(-1rem - 2rem) !important;
+            width: calc(100% + 6rem) !important;
+            min-height: 600px !important;
+          }
+        }
+      `}</style>
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
-      style={{ backgroundColor: '#065143' }}
+      style={{ 
+        backgroundColor: '#065143'
+      }}
     >
       {/* Content */}
       <div className="relative z-10">
@@ -151,25 +195,38 @@ const LoveStory = () => {
             </div>
 
             {/* Right Side - Image Carousel (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative">
-              <img 
-                ref={imageRef}
-                key={currentImageIndex}
-                src={images[currentImageIndex]} 
-                alt="Prenup" 
-                className="w-full h-full object-cover flex-1 absolute inset-0"
-                style={{ 
-                  display: 'block',
-                  minHeight: '100%',
-                  objectFit: 'cover',
-                  objectPosition: currentImageIndex === 0 ? 'right center' : 'center center'
+            <div ref={imageContainerRef} className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative lovestory-image-mobile">
+              {/* Image Carousel with fade transition */}
+              <div 
+                className="absolute inset-0"
+                style={{
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
                 }}
-              />
+              >
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: `url(${image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: index === 0 ? 'right center' : 'center center',
+                      backgroundRepeat: 'no-repeat',
+                      opacity: index === currentImageIndex ? 1 : 0,
+                      transition: 'opacity 1.5s ease-in-out',
+                      zIndex: 0
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    </>
   )
 }
 

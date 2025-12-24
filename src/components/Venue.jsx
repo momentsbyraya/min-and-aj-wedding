@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const Venue = () => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
+  const imageRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -44,6 +45,46 @@ const Venue = () => {
       "-=0.4"
     )
 
+    // Image animation - responsive
+    if (imageRef.current) {
+      const mm = gsap.matchMedia()
+      
+      // Mobile: fade in
+      mm.add("(max-width: 1023px)", () => {
+        gsap.fromTo(imageRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
+      
+      // Large screens: slide from right
+      mm.add("(min-width: 1024px)", () => {
+        gsap.fromTo(imageRef.current,
+          { opacity: 0, x: 100 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
+    }
+
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
@@ -53,10 +94,37 @@ const Venue = () => {
   const venueData = venuesData.venue
 
   return (
+    <>
+      <style>{`
+        .venue-bg-texture::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url(/assets/images/graphics/bg-textured.png);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.85;
+          z-index: 0;
+        }
+        @media (max-width: 1023px) {
+          .venue-image-mobile {
+            margin-left: calc(-1rem - 2rem) !important;
+            margin-right: calc(-1rem - 2rem) !important;
+            width: calc(100% + 6rem) !important;
+            min-height: 600px !important;
+          }
+        }
+      `}</style>
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
-      style={{ backgroundColor: theme.colors.primary }}
+      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0 venue-bg-texture"
+      style={{ 
+        backgroundColor: theme.colors.primary
+      }}
     >
       {/* Content */}
       <div className="relative z-10">
@@ -189,8 +257,9 @@ const Venue = () => {
             </div>
 
             {/* Right Side - Image (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex">
+            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex venue-image-mobile">
               <img 
+                ref={imageRef}
                 src="/assets/images/prenup/prenup4.jpg" 
                 alt="Venue" 
                 className="w-full h-full object-cover flex-1"
@@ -206,6 +275,7 @@ const Venue = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

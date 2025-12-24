@@ -106,11 +106,18 @@ const DressCode = () => {
               <p className="font-poppins leading-tight max-w-2xl mx-auto mb-8" style={{ fontSize: '1rem', fontFamily: 'Poppins, sans-serif' }}>
                 {dresscode.mainDressCode.description.split('Strictly NO Pink and Red').map((part, index, array) => {
                   if (index === 0) {
-                    return <span key={index} className="font-poppins" style={{ color: '#B76E79', fontFamily: 'Poppins, sans-serif' }}>{part}</span>;
+                    // Split at "Outfit." and add line break on mobile
+                    const parts = part.split('Outfit.')
+                    return (
+                      <span key={index} className="font-poppins" style={{ color: '#B76E79', fontFamily: 'Poppins, sans-serif' }}>
+                        {parts[0]}Outfit.<br className="lg:hidden" />{parts[1]}
+                      </span>
+                    )
                   }
                   return (
                     <React.Fragment key={index}>
-                      <span className="font-poppins" style={{ color: 'red', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
+                      <br className="lg:hidden" />
+                      <span className="font-poppins block lg:inline" style={{ color: 'red', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
                       {part && <span className="font-poppins" style={{ color: '#B76E79', fontFamily: 'Poppins, sans-serif' }}>{part}</span>}
                     </React.Fragment>
                   );

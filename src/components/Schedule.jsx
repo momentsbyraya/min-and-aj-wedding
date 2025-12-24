@@ -12,6 +12,7 @@ const Schedule = () => {
   const timelineRef = useRef(null)
   const lineRef = useRef(null)
   const headerRef = useRef(null)
+  const imageRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -32,26 +33,77 @@ const Schedule = () => {
       )
     }
 
-    // Timeline line expansion from top to bottom
+    // Timeline line expansion from top to bottom - appears first
     tl.fromTo(lineRef.current, 
       { scaleY: 0, transformOrigin: "top" },
       { scaleY: 1, duration: 1.5, ease: "power2.out" },
       "-=0.4"
     )
 
-    // Events animate in with stagger
-    if (timelineRef.current) {
-      tl.fromTo(timelineRef.current.children, 
-        { opacity: 0, y: 20 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.6, 
-          ease: "power2.out",
-          stagger: 0.2
-        },
-        "-=1.0"
+    // Dots appear after line - with stagger
+    tl.fromTo(".timeline-dot",
+      { opacity: 0, scale: 0 },
+      { 
+        opacity: 1, 
+        scale: 1, 
+        duration: 0.4, 
+        ease: "back.out(1.7)",
+        stagger: 0.15
+      },
+      "+=0.2"
     )
+
+    // Time and description appear after dots - with stagger
+    tl.fromTo(".timeline-time, .timeline-description",
+      { opacity: 0, y: 20 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.6, 
+        ease: "power2.out",
+        stagger: 0.1
+      },
+      "-=0.2"
+    )
+
+    // Image animation - responsive
+    if (imageRef.current) {
+      const mm = gsap.matchMedia()
+      
+      // Mobile: fade in
+      mm.add("(max-width: 1023px)", () => {
+        gsap.fromTo(imageRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
+      
+      // Large screens: slide from left
+      mm.add("(min-width: 1024px)", () => {
+        gsap.fromTo(imageRef.current,
+          { opacity: 0, x: -100 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: imageRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        )
+      })
     }
 
     // Cleanup function
@@ -72,6 +124,17 @@ const Schedule = () => {
   const dateInfo = formatDate(celebrant.debutant.debut.date)
 
   return (
+    <>
+      <style>{`
+        @media (max-width: 1023px) {
+          .schedule-image-mobile {
+            margin-left: calc(-1rem - 2rem) !important;
+            margin-right: calc(-1rem - 2rem) !important;
+            width: calc(100% + 6rem) !important;
+            min-height: 600px !important;
+          }
+        }
+      `}</style>
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
@@ -83,8 +146,9 @@ const Schedule = () => {
           {/* Flex Container - Side by side on lg screens */}
           <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-8 lg:min-h-full">
             {/* Left Side - Image (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex order-2 lg:order-1">
+            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex order-2 lg:order-1 schedule-image-mobile">
               <img 
+                ref={imageRef}
                 src="/assets/images/prenup/prenup2.jpg" 
                 alt="Prenup" 
                 className="w-full h-full object-cover flex-1"
@@ -189,7 +253,6 @@ const Schedule = () => {
                 className="absolute w-0.5"
                 style={{ 
                   backgroundColor: theme.colors.primary, 
-                  opacity: 0.3,
                   left: '50%',
                   transform: 'translateX(-50%)',
                   top: 0,
@@ -213,7 +276,7 @@ const Schedule = () => {
                       {/* Time on the left - Instrument Serif font */}
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
-                          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
+                          className="timeline-time text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
                           style={{ color: theme.colors.tertiary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>{timePeriod}</span>
@@ -222,7 +285,7 @@ const Schedule = () => {
                       
                       {/* Circle - Centered */}
                       <div 
-                        className="absolute w-4 h-4 rounded-full border-2 z-10"
+                        className="timeline-dot absolute w-4 h-4 rounded-full border-2 z-10"
                           style={{ 
                             backgroundColor: theme.colors.primary,
                             borderColor: theme.colors.primary,
@@ -235,7 +298,7 @@ const Schedule = () => {
                       {/* Description on the right - Poppins font */}
                       <div className="flex-1 pl-4">
                         <div 
-                          className="font-poppins"
+                          className="timeline-description font-poppins"
                           style={{ color: theme.colors.primary, opacity: 0.8, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                         >
                               {event.title}
@@ -264,6 +327,7 @@ const Schedule = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

@@ -12,6 +12,9 @@ gsap.registerPlugin(ScrollTrigger)
 const DetailsSection = () => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
+  const forYourRef = useRef(null)
+  const informationRef = useRef(null)
+  const colorSwatchesRef = useRef(null)
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
   const [isGiftModalOpen, setIsGiftModalOpen] = useState(false)
   const [hoveredColorIndex, setHoveredColorIndex] = useState(null)
@@ -35,6 +38,37 @@ const DetailsSection = () => {
         { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
       )
     }
+
+    // Animate "For Your" from left
+    if (forYourRef.current) {
+      tl.fromTo(forYourRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.4"
+      )
+    }
+
+    // Animate "Information" from right
+    if (informationRef.current) {
+      tl.fromTo(informationRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.6"
+      )
+    }
+
+    // Animate color swatches one after another starting from top
+    tl.fromTo(".color-swatch-item",
+      { opacity: 0, scale: 0 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+        stagger: 0.15
+      },
+      "-=0.4"
+    )
 
     // Animate sections with stagger
     tl.fromTo(".details-subsection",
@@ -99,6 +133,7 @@ const DetailsSection = () => {
               {/* Wine glass below title with words on both sides */}
               <div className="flex items-center justify-center gap-3 mb-2">
                 <span
+                  ref={forYourRef}
                   className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
                   style={{ color: theme.colors.primary }}
                 >
@@ -110,6 +145,7 @@ const DetailsSection = () => {
                   className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
                 />
                 <span
+                  ref={informationRef}
                   className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
                   style={{ color: theme.colors.primary }}
                 >
@@ -193,7 +229,8 @@ const DetailsSection = () => {
                   }
                   return (
                     <React.Fragment key={index}>
-                      <span className="font-poppins" style={{ color: 'red', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
+                      <br className="lg:hidden" />
+                      <span className="font-poppins block lg:inline" style={{ color: 'red', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
                       {part && <span className="font-poppins" style={{ color: theme.colors.primary, fontFamily: 'Poppins, sans-serif' }}>{part}</span>}
                     </React.Fragment>
                   );
@@ -211,11 +248,11 @@ const DetailsSection = () => {
                   />
                 </div>
                 {/* Color Swatches - Vertical with Overlap */}
-                <div className="flex flex-col overflow-visible">
+                <div ref={colorSwatchesRef} className="flex flex-col overflow-visible">
                   {dresscode.colorPalette.map((color, index) => (
                     <div
                       key={index}
-                      className="relative flex flex-col items-center"
+                      className="color-swatch-item relative flex flex-col items-center"
                       style={{
                         marginTop: index === 0 ? 0 : '-0.75rem',
                         zIndex: dresscode.colorPalette.length - index

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
-import { X, Building, CreditCard, Smartphone } from 'lucide-react'
+import { X, Building, CreditCard, Smartphone, Copy, Check } from 'lucide-react'
 import { paymentMethods as paymentMethodsData } from '../data'
 import { theme } from '../data'
 
@@ -9,8 +9,22 @@ const GiftModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
   const overlayRef = useRef(null)
   const contentRef = useRef(null)
+  const [copied, setCopied] = useState(false)
 
   const { paymentMethods } = paymentMethodsData
+
+  const handleCopyAccountNumber = async () => {
+    if (paymentMethods.length > 0) {
+      const accountNumber = paymentMethods[0].accountInfo.accountNumber
+      try {
+        await navigator.clipboard.writeText(accountNumber)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } catch (err) {
+        console.error('Failed to copy:', err)
+      }
+    }
+  }
 
   useEffect(() => {
     if (isOpen) {
@@ -105,28 +119,9 @@ const GiftModal = ({ isOpen, onClose }) => {
                 const method = paymentMethods[0]
                 return (
                   <div className="bg-gray-50 rounded-lg p-6 text-center border border-gray-200">
-                    <div className="flex items-center justify-center mb-4">
-                      {method.image ? (
-                        <img 
-                          src={method.image} 
-                          alt={method.name} 
-                          className="w-12 h-12 object-contain"
-                          style={{ borderRadius: '50%' }}
-                        />
-                      ) : (
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center`} style={{ backgroundColor: theme.colors.primary, opacity: 0.1 }}>
-                          {method.icon === 'Building' && <Building className="w-6 h-6" style={{ color: theme.colors.primary }} />}
-                          {method.icon === 'CreditCard' && <CreditCard className="w-6 h-6" style={{ color: theme.colors.primary }} />}
-                          {method.icon === 'Smartphone' && <Smartphone className="w-6 h-6" style={{ color: theme.colors.primary }} />}
-                        </div>
-                      )}
-                    </div>
-                    
-                    <h4 className="text-lg sm:text-xl font-poppins uppercase mb-2" style={{ color: theme.colors.primary, fontWeight: 700 }}>{method.name}</h4>
-                    
                     {/* QR Code - Only show if qrCode is provided */}
                     {method.accountInfo.qrCode && (
-                      <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                      <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 mx-auto mb-4 flex items-center justify-center bg-white p-4 rounded-lg border border-gray-200">
                         <img 
                           src={method.accountInfo.qrCode} 
                           alt="QR Code" 
@@ -137,28 +132,37 @@ const GiftModal = ({ isOpen, onClose }) => {
                     
                     <div className="my-3">
                       <div className="w-full h-px bg-gray-300 mb-2"></div>
-                      <p className="font-poppins text-center" style={{ color: theme.colors.primary, fontWeight: 600, fontSize: '1.5rem' }}>{method.accountInfo.accountNumber}</p>
+                      <div className="flex items-center justify-center gap-2 relative">
+                        <p className="font-poppins text-center" style={{ color: theme.colors.primary, fontWeight: 600, fontSize: '1rem' }}>{method.accountInfo.accountNumber}</p>
+                        <div className="relative">
+                          <button
+                            onClick={handleCopyAccountNumber}
+                            className="flex items-center justify-center p-1 hover:opacity-70 transition-opacity"
+                            style={{ color: theme.colors.primary }}
+                            title="Copy account number"
+                          >
+                            {copied ? (
+                              <Check className="w-4 h-4" />
+                            ) : (
+                              <Copy className="w-4 h-4" />
+                            )}
+                          </button>
+                          {copied && (
+                            <div 
+                              className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 rounded bg-gray-800 text-white text-xs font-poppins whitespace-nowrap z-10"
+                              style={{ pointerEvents: 'none' }}
+                            >
+                              Copied
+                            </div>
+                          )}
+                        </div>
+                      </div>
                       <div className="w-full h-px bg-gray-300 mt-2"></div>
                       <p className="font-poppins text-center mt-2" style={{ color: theme.colors.primary, fontWeight: 500, fontSize: '1rem', opacity: 0.8 }}>{method.accountInfo.accountName}</p>
                     </div>
-                    
-                    {/* Account Information */}
-                    {method.accountInfo.bank && (
-                      <div className="text-left space-y-2 font-poppins" style={{ color: theme.colors.primary, fontWeight: 500, fontSize: '1rem' }}>
-                        <p><span style={{ fontWeight: 600 }}>Bank:</span> {method.accountInfo.bank}</p>
-                      </div>
-                    )}
                   </div>
                 )
               })()}
-            </div>
-          )}
-          
-          {paymentMethods.length > 0 && paymentMethods[0].accountInfo.qrCode && (
-            <div className="mt-8 text-center">
-              <p className="text-sm sm:text-base font-poppins" style={{ color: theme.colors.primary, fontWeight: 500 }}>
-                Scan the QR code with your banking app or use the account details above for manual transfer.
-              </p>
             </div>
           )}
         </div>

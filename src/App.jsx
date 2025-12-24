@@ -4,11 +4,14 @@ import WeddingInvitation from './components/WeddingInvitation'
 import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
 import OpeningScreen from './components/OpeningScreen'
+import Preloader from './components/Preloader'
+import Watermark from './components/Watermark'
 import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
   const [showOpeningScreen, setShowOpeningScreen] = useState(false)
+  const [isPreloaderComplete, setIsPreloaderComplete] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -60,7 +63,10 @@ function App() {
   return (
     <div className="App min-h-screen wedding-gradient relative">
       <DynamicTitle />
-      {showOpeningScreen ? (
+      <Watermark />
+      {!isPreloaderComplete ? (
+        <Preloader onComplete={() => setIsPreloaderComplete(true)} />
+      ) : showOpeningScreen ? (
         <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />
       ) : (
         <>
@@ -68,6 +74,7 @@ function App() {
             onOpenRSVP={() => setIsRSVPModalOpen(true)} 
             onPauseMusic={pauseMusic}
             onResumeMusic={resumeMusic}
+            onStartMusic={startMusic}
           />
           <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
         </>

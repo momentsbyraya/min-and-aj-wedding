@@ -8,7 +8,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 const EighteenList = () => {
   const sectionRef = useRef(null)
-  const titleRef = useRef(null)
+  const titleTheRef = useRef(null)
+  const titleEighteenthsRef = useRef(null)
+  const beThereCardRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -21,13 +23,99 @@ const EighteenList = () => {
       }
     })
 
-    // Animate title
-    if (titleRef.current) {
-      tl.fromTo(titleRef.current,
+    // Animate title text elements
+    if (titleTheRef.current) {
+      tl.fromTo(titleTheRef.current,
         { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
       )
     }
+    
+    if (titleEighteenthsRef.current) {
+      tl.fromTo(titleEighteenthsRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.3"
+      )
+    }
+
+    // Animate names per category - categories in same row animate together, names within category stagger
+    // Row 1: Roses (0) and Blue Bills (1) - animate together
+    tl.fromTo(".eighteenth-names-0 .eighteenth-name",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.08
+      },
+      "-=0.2"
+    )
+    
+    tl.fromTo(".eighteenth-names-1 .eighteenth-name",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.08
+      },
+      "-=0.4" // Start at same time as category 0
+    )
+    
+    // Row 2: Bags (2) and Gifts & Candles (3) - animate together
+    tl.fromTo(".eighteenth-names-2 .eighteenth-name",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.08
+      },
+      "-=0.2"
+    )
+    
+    tl.fromTo(".eighteenth-names-3 .eighteenth-name",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.08
+      },
+      "-=0.4" // Start at same time as category 2
+    )
+    
+    // Row 3: Slices (4) - animate alone
+    tl.fromTo(".eighteenth-names-4 .eighteenth-name",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.08
+      },
+      "-=0.2"
+    )
+
+    // Row 4: Slices Names (5) - animate alone
+    tl.fromTo(".eighteenth-names-5 .eighteenth-name",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.08
+      },
+      "-=0.2"
+    )
+
 
     // Cleanup function
     return () => {
@@ -38,15 +126,32 @@ const EighteenList = () => {
   return (
     <>
       <style>{`
+        .eighteen-bg-texture::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url(/assets/images/graphics/bg-textured.png);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.85;
+          z-index: 0;
+        }
         @media (min-width: 1024px) {
           .eighteen-title {
             padding-top: 6rem !important;
+          }
+          .eighteen-description {
+            font-size: clamp(0.75rem, 1vw, 0.875rem) !important;
           }
         }
       `}</style>
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden eighteen-bg-texture"
       style={{ 
         backgroundColor: theme.colors.primary,
         border: '2px solid #f0ede6'
@@ -64,7 +169,6 @@ const EighteenList = () => {
           >
             {/* Section Title */}
             <div 
-              ref={titleRef} 
               className="text-center eighteen-title"
               style={{
                 borderBottom: '2px solid #f5f1eb',
@@ -74,6 +178,7 @@ const EighteenList = () => {
             >
               {/* The in Ballet font */}
               <h1
+                ref={titleTheRef}
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
                 style={{ color: '#f5f1eb' }}
               >
@@ -82,6 +187,7 @@ const EighteenList = () => {
 
               {/* EIGHTEENTH'S */}
               <h2
+                ref={titleEighteenthsRef}
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
                 style={{
                   color: '#f5f1eb',
@@ -95,7 +201,7 @@ const EighteenList = () => {
             </div>
             
             <div className="grid grid-cols-2" style={{ alignItems: 'stretch', gap: 0 }}>
-            {/* Roses */}
+            {/* Tennis Matches */}
             <div className="flex flex-col h-full" style={{ borderRight: '2px solid #f5f1eb', borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
@@ -106,40 +212,55 @@ const EighteenList = () => {
                   fontFamily: "'Tebranos', cursive !important"
                 }}
               >
-                ROSES
+                {eighteenths.categories[0].name.toUpperCase()}
               </h3>
-              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {eighteenths.categories[0].names.map((name, index) => (
-                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
-                    {name.toUpperCase()}
-                  </div>
-                ))}
-              </div>
+              {eighteenths.categories[0].description && (
+                <div 
+                  className="text-center font-poppins eighteen-description"
+                  style={{ 
+                    color: '#f5f1eb', 
+                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+                    lineHeight: '1.6',
+                    opacity: 0.9,
+                    fontFamily: "'Poppins', sans-serif"
+                  }}
+                >
+                  {eighteenths.categories[0].description.split('\n').map((paragraph, index) => (
+                    <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '0.75rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
+                      {paragraph.trim()}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Blue Bills */}
+            {/* Matches */}
             <div className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f5f1eb',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                BLUE BILLS
-              </h3>
-              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {eighteenths.categories[1].names.map((name, index) => (
-                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
-                    {name.toUpperCase()}
+              <div className="eighteenth-names-1 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                {eighteenths.categories[1].matches && eighteenths.categories[1].matches.map((match, matchIndex) => (
+                  <div key={matchIndex} style={{ marginBottom: '0.5rem' }}>
+                    <h3 
+                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-instrument-serif font-semibold mb-3 text-center"
+                      style={{ 
+                        color: '#f5f1eb',
+                        lineHeight: '1',
+                        fontFamily: "'Instrument Serif', serif",
+                        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)'
+                      }}
+                    >
+                      MATCH {match.number}
+                    </h3>
+                    {match.names.map((name, nameIndex) => (
+                      <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
+                        {name}
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Bags */}
+            {/* Sets */}
             <div className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', borderRight: '2px solid #f5f1eb', padding: '1.5rem' }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
@@ -150,18 +271,18 @@ const EighteenList = () => {
                   fontFamily: "'Tebranos', cursive !important"
                 }}
               >
-                BAGS
+                SETS
               </h3>
-              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <div className="eighteenth-names-2 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[2].names.map((name, index) => (
-                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
                     {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Gifts and Candles */}
+            {/* Sets */}
             <div className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: '#f0ede6' }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
@@ -172,18 +293,29 @@ const EighteenList = () => {
                   fontFamily: "'Tebranos', cursive !important"
                 }}
               >
-                GIFTS & CANDLES
+                {eighteenths.categories[3].title || eighteenths.categories[3].name.toUpperCase()}
               </h3>
-              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {eighteenths.categories[3].names.map((name, index) => (
-                  <div key={index} className="font-poppins uppercase" style={{ color: theme.colors.primary, fontSize: '14px', opacity: 0.8 }}>
-                    {name.toUpperCase()}
-                  </div>
-                ))}
-              </div>
+              {eighteenths.categories[3].description && (
+                <div 
+                  className="text-center font-poppins eighteen-description"
+                  style={{ 
+                    color: theme.colors.primary, 
+                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+                    lineHeight: '1.6',
+                    opacity: 0.9,
+                    fontFamily: "'Poppins', sans-serif"
+                  }}
+                >
+                  {eighteenths.categories[3].description.split('\n').map((paragraph, index) => (
+                    <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '0.75rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
+                      {paragraph.trim()}
+                    </p>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Shots */}
+            {/* Slices */}
             <div className="flex flex-col h-full" style={{ borderRight: '2px solid #f5f1eb', borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
@@ -194,19 +326,52 @@ const EighteenList = () => {
                   fontFamily: "'Tebranos', cursive !important"
                 }}
               >
-                SHOTS
+                {eighteenths.categories[4].title || eighteenths.categories[4].name.toUpperCase()}
               </h3>
-              <div className="text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {eighteenths.categories[4].names.map((name, index) => (
-                  <div key={index} className="font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+              {eighteenths.categories[4].description && (
+                <div 
+                  className="text-center font-poppins eighteen-description"
+                  style={{ 
+                    color: '#f5f1eb', 
+                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+                    lineHeight: '1.6',
+                    opacity: 0.9,
+                    fontFamily: "'Poppins', sans-serif"
+                  }}
+                >
+                  {eighteenths.categories[4].description.split('\n').map((paragraph, index) => (
+                    <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '0.75rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
+                      {paragraph.trim()}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Slices Names */}
+            <div ref={beThereCardRef} className="flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+              <h3 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
+                style={{ 
+                  color: '#f5f1eb',
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  fontFamily: "'Tebranos', cursive !important"
+                }}
+              >
+                SLICES
+              </h3>
+              <div className="eighteenth-names-5 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {eighteenths.categories[5]?.names?.map((name, index) => (
+                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0 }}>
                     {name.toUpperCase()}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Sixth Category - Card */}
-            <div className="flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+            {/* Duplicate of BE THERE Card - Full Row */}
+            <div className="col-span-2 flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f5f1eb', paddingTop: '3rem', paddingBottom: '3rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
               <div className="text-center">
                 <h3 
                   className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8"
