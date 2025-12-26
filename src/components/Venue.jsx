@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Navigation } from 'lucide-react'
 import { theme } from '../data'
-import { venues as venuesData } from '../data'
+import { venues as venuesData, dresscode } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -12,6 +12,9 @@ const Venue = () => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
   const imageRef = useRef(null)
+  const colorSwatchesRef = useRef(null)
+  const [hoveredColorIndex, setHoveredColorIndex] = useState(null)
+  const [clickedColorIndex, setClickedColorIndex] = useState(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -41,6 +44,19 @@ const Venue = () => {
         duration: 0.6,
         ease: "power2.out",
         stagger: 0.2
+      },
+      "-=0.4"
+    )
+
+    // Animate color swatches one after another starting from top
+    tl.fromTo(".color-swatch-item",
+      { opacity: 0, scale: 0 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+        stagger: 0.15
       },
       "-=0.4"
     )
@@ -143,7 +159,7 @@ const Venue = () => {
                   The
                 </h1>
 
-                {/* VENUE */}
+                {/* GAME PLAN */}
                 <h2
                   className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-4"
                   style={{
@@ -154,42 +170,56 @@ const Venue = () => {
                     fontSize: 'clamp(3rem, 8vw, 8rem)'
                   }}
                 >
-                  VENUE
+                  GAME PLAN
                 </h2>
 
-                {/* Location icon below title with words on both sides */}
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <span
-                    className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
-                    style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 3vw, 1.75rem)' }}
-                  >
-                    Let's
-                  </span>
-                  <img
-                    src="/assets/images/graphics/location.png"
-                    alt="Location"
-                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
-                    style={{ filter: 'brightness(0) invert(1)' }}
-                  />
-                  <span
-                    className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
-                    style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 3vw, 1.75rem)' }}
-                  >
-                    Celebrate
-                  </span>
+                {/* Embedded Google Map */}
+                <div className="mb-12 w-full max-w-2xl mx-auto" style={{ aspectRatio: '1 / 1', maxWidth: '400px', maxHeight: '400px' }}>
+                  <iframe 
+                    src={venueData.googleMapsEmbedUrl} 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Venue Location"
+                  ></iframe>
                 </div>
               </div>
                 
+              {/* WHERE TO BE Section */}
+              <div className="venue-subsection mb-8 text-center">
+                {/* WHERE TO BE */}
+                <h2
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4"
+                  style={{
+                    color: '#f5f1eb',
+                    fontWeight: 900,
+                    lineHeight: '1',
+                    fontSize: 'clamp(2.5rem, 7vw, 7rem)'
+                  }}
+                >
+                  WHERE TO BE
+                </h2>
+              </div>
+
               {/* Venue Details Section */}
               <div className="venue-subsection mb-12 text-center">
                 <h3
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-tebranos mb-4"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-tebranos"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(1.875rem, 4vw, 2.625rem)' }}
                 >
                   {venueData.name}
                 </h3>
                 <p
                   className="font-poppins mb-4 max-w-2xl mx-auto"
+                  style={{ color: '#f5f1eb', fontSize: 'clamp(1rem, 1.5vw, 1.25rem)' }}
+                >
+                  Multi-Purpose Hall
+                </p>
+                <p
+                  className="font-poppins max-w-2xl mx-auto"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 0.75rem)' }}
                 >
                   {venueData.address && `${venueData.address}`}
@@ -203,14 +233,6 @@ const Venue = () => {
                     style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)', opacity: 0.8 }}
                   >
                     {venueData.main.time}
-                  </p>
-                )}
-                {venueData.main && venueData.main.details && (
-                  <p
-                    className="font-poppins mb-6 max-w-2xl mx-auto"
-                    style={{ color: '#f5f1eb', fontSize: 'clamp(0.8rem, 1vw, 0.65rem)', opacity: 0.7 }}
-                  >
-                    {venueData.main.details}
                   </p>
                 )}
                 
@@ -253,6 +275,87 @@ const Venue = () => {
                   <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>Get Directions</span>
                   <Navigation className="w-5 h-5 object-contain transition-all duration-200" style={{ color: '#f5f1eb' }} />
                 </a>
+              </div>
+
+              {/* Dress Code Section */}
+              <div className="venue-subsection mb-12 text-center mt-12">
+                <h2
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4 uppercase"
+                  style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 7vw, 7rem)' }}
+                >
+                  What to Wear
+                </h2>
+                <p
+                  className="font-poppins mb-6 max-w-2xl mx-auto"
+                  style={{ fontSize: '1rem', fontFamily: 'Poppins, sans-serif', color: '#f5f1eb' }}
+                >
+                  {dresscode.mainDressCode.description.split('Strictly NO Pink and Red').map((part, index, array) => {
+                    if (index === 0) {
+                      return <span key={index} className="font-poppins" style={{ color: '#f5f1eb', fontFamily: 'Poppins, sans-serif' }}>{part}</span>;
+                    }
+                    return (
+                      <React.Fragment key={index}>
+                        <br className="lg:hidden" />
+                        <span className="font-poppins block lg:inline" style={{ color: '#f5f1eb', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
+                        {part && <span className="font-poppins" style={{ color: '#f5f1eb', fontFamily: 'Poppins, sans-serif' }}>{part}</span>}
+                      </React.Fragment>
+                    );
+                  })}
+                </p>
+                {/* Color Swatches and Image Side by Side */}
+                <div className="flex items-center justify-center gap-8 max-w-2xl mx-auto">
+                  {/* Dresscode Image */}
+                  <div className="flex justify-center">
+                    <img 
+                      src="/assets/images/dresscode/dresscode.png" 
+                      alt="Dress Code" 
+                      className="max-w-full h-auto object-contain"
+                      style={{ maxWidth: '200px' }}
+                    />
+                  </div>
+                  {/* Color Swatches - Vertical with Overlap */}
+                  <div ref={colorSwatchesRef} className="flex flex-col overflow-visible">
+                    {dresscode.colorPalette.map((color, index) => (
+                      <div
+                        key={index}
+                        className="color-swatch-item relative flex flex-col items-center"
+                        style={{
+                          marginTop: index === 0 ? 0 : '-0.75rem',
+                          zIndex: dresscode.colorPalette.length - index
+                        }}
+                        onMouseEnter={() => setHoveredColorIndex(index)}
+                        onMouseLeave={() => setHoveredColorIndex(null)}
+                        onClick={() => setClickedColorIndex(clickedColorIndex === index ? null : index)}
+                      >
+                        <div
+                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 cursor-pointer transition-transform duration-200 hover:scale-110"
+                          style={{
+                            backgroundColor: color.hex,
+                            borderColor: theme.colors.tertiary
+                          }}
+                        ></div>
+                        {/* Tooltip */}
+                        {(hoveredColorIndex === index || clickedColorIndex === index) && (
+                          <div
+                            className="absolute right-full mr-2 px-3 py-1 rounded bg-gray-800 text-white text-xs font-poppins whitespace-nowrap z-10 pointer-events-none"
+                            style={{
+                              backgroundColor: theme.colors.primary,
+                              color: '#f5f1eb'
+                            }}
+                          >
+                            {color.label}
+                            <div
+                              className="absolute left-full top-1/2 transform -translate-y-1/2 border-4 border-transparent"
+                              style={{
+                                borderLeftColor: theme.colors.primary
+                              }}
+                            ></div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 

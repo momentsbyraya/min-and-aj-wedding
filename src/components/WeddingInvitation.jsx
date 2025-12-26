@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { IoHeart } from 'react-icons/io5'
-import { getTimeUntilWedding } from '../utils/countdown'
 import { theme } from '../data'
 import Hero from './Hero'
 import Calendar from './Calendar'
-import Counter from './Counter'
+import SaveTheDate from './SaveTheDate'
 import PhotoSection from './PhotoSection'
 import Schedule from './Schedule'
 import LoveStory from './LoveStory'
@@ -22,20 +21,12 @@ import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
-  const [countdown, setCountdown] = useState(getTimeUntilWedding())
-
   useEffect(() => {
     // Initial page load animation
     gsap.fromTo(".main-container", 
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power2.out" }
     )
-    
-    const timer = setInterval(() => {
-      setCountdown(getTimeUntilWedding())
-    }, 1000) // Update every second
-
-    return () => clearInterval(timer)
   }, [])
 
   return (
@@ -84,8 +75,8 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
         </EnhancedLazySection>
 
         {/* Save the Date Section - After FAQ */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="save-the-date">
+          <SaveTheDate />
         </EnhancedLazySection>
 
         

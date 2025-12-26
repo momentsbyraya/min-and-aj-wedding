@@ -126,28 +126,25 @@ const LoveStory = () => {
           <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-8 lg:min-h-full">
             {/* Left Side - Text Content (50% on lg) */}
             <div ref={contentRef} className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col text-center">
-              {/* Welcome */}
+              {/* Our Debutant */}
               <h1 
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
                 style={{ color: '#f5f1eb', fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
               >
-                The Story
+                Our
               </h1>
               
-              {/* AND */}
-              <p 
-                className="text-4xl sm:text-base uppercase mb-2 font-tebranos"
-                style={{ color: '#f5f1eb', letterSpacing: '0.1em', fontSize: 'clamp(0.75rem, 2vw, 1rem)' }}
-              >
-                OF OUR 
-              </p>
-              
-              {/* Thank you */}
               <h2 
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-8"
-                style={{ color: '#f5f1eb', fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
+                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8 uppercase"
+                style={{ 
+                  color: '#f5f1eb', 
+                  fontWeight: 900,
+                  lineHeight: '1',
+                  marginTop: '-0.4em',
+                  fontSize: 'clamp(3rem, 8vw, 8rem)'
+                }}
               >
-                Celebrant
+                Debutant
               </h2>
               
               {/* Paragraphs */}
@@ -156,39 +153,37 @@ const LoveStory = () => {
                   className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
-                  Amanda Ira is a well-rounded individual who excels both academically, in music, and in sports. She plays the violin and has been part of the San Beda Junior Symphony Orchestra since she was 8 years old. A born leader, she has been part of the student council, and she loves tennis, wishing she could play every day if she could.
+                  Game. Set. Match. Amanda Ira! 🎾
                 </p>
                 
                 <p 
                   className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
-                  She is also a Philippine team mathlete and loves math as it helps her de-stress. In all that she does, she is focused and puts so much passion into everything. She is a perfectionist and was consistently top 1 during her high school years.
+                  She's been serving brilliance since pre-school years – whether it's hitting the perfect note with her violin 🎻, smashing aces on the tennis court 💥, or solving math problems like a grand slam champ 🧠✨. Amanda is a true all-court player: born leader, Philippine team mathlete, and high school top seed (a.k.a. consistent Top 1!). Focused, passionate, and always ready to chase the next big win.
                 </p>
                 
                 <p 
                   className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
-                  As a daughter, she is loving, very responsible, and thoughtful. We are incredibly proud of the person she has become and excited to celebrate this milestone with all of you.
+                  Ira is the kind of person who turns every challenge into a win. Off the court, she's the ultimate team player — loving, responsible, obedient, and thoughtful daughter & big sis!
+                </p>
+                
+                <p 
+                  className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
+                  style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                >
+                  Today, we celebrate not just her milestones but the incredible person she has become, and the amazing that she will become.
+                </p>
+                
+                <p 
+                  className="text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
+                  style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                >
+                  Prep up for this big day, and let's all enjoy as we celebrate Amanda! ❤️‍ 🙌
                 </p>
               </div>
-              
-              {/* WITH LOVE */}
-              <p 
-                className="text-2xl sm:text-sm uppercase tracking-widest mb-4 font-tebranos"
-                style={{ color: '#f5f1eb', letterSpacing: '0.1em', fontSize: 'clamp(0.75rem, 1.5vw, 1rem)' }}
-              >
-                AGAIN,
-              </p>
-              
-              {/* Name */}
-              <p 
-                className="text-4xl sm:text-5xl md:text-6xl -mt-4 font-ballet"
-                style={{ color: '#f5f1eb', fontSize: 'clamp(2rem, 5vw, 3rem)' }}
-              >
-                Amanda Iris
-              </p>
             </div>
 
             {/* Right Side - Image Carousel (50% on lg) */}

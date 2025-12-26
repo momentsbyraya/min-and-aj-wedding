@@ -10,7 +10,6 @@ const EighteenList = () => {
   const sectionRef = useRef(null)
   const titleTheRef = useRef(null)
   const titleEighteenthsRef = useRef(null)
-  const beThereCardRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -39,84 +38,6 @@ const EighteenList = () => {
       )
     }
 
-    // Animate names per category - categories in same row animate together, names within category stagger
-    // Row 1: Roses (0) and Blue Bills (1) - animate together
-    tl.fromTo(".eighteenth-names-0 .eighteenth-name",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: 0.08
-      },
-      "-=0.2"
-    )
-    
-    tl.fromTo(".eighteenth-names-1 .eighteenth-name",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: 0.08
-      },
-      "-=0.4" // Start at same time as category 0
-    )
-    
-    // Row 2: Bags (2) and Gifts & Candles (3) - animate together
-    tl.fromTo(".eighteenth-names-2 .eighteenth-name",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: 0.08
-      },
-      "-=0.2"
-    )
-    
-    tl.fromTo(".eighteenth-names-3 .eighteenth-name",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: 0.08
-      },
-      "-=0.4" // Start at same time as category 2
-    )
-    
-    // Row 3: Slices (4) - animate alone
-    tl.fromTo(".eighteenth-names-4 .eighteenth-name",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: 0.08
-      },
-      "-=0.2"
-    )
-
-    // Row 4: Slices Names (5) - animate alone
-    tl.fromTo(".eighteenth-names-5 .eighteenth-name",
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: 0.08
-      },
-      "-=0.2"
-    )
-
-
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
@@ -133,281 +54,325 @@ const EighteenList = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: url(/assets/images/graphics/bg-textured.png);
+          background-image: url(/assets/images/graphics/Background%20for%20Eighteenths.png);
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           opacity: 0.85;
-          z-index: 0;
+          z-index: -1;
+        }
+        .eighteen-bg-texture > * {
+          position: relative;
+          z-index: 1;
+        }
+        .matches-grid {
+          grid-template-columns: repeat(2, minmax(0, 200px));
         }
         @media (min-width: 1024px) {
-          .eighteen-title {
-            padding-top: 6rem !important;
+          .matches-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
           }
-          .eighteen-description {
-            font-size: clamp(0.75rem, 1vw, 0.875rem) !important;
+        }
+        @media (max-width: 1023px) {
+          .eighteen-image-mobile {
+            object-position: right center !important;
           }
         }
       `}</style>
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden eighteen-bg-texture"
+      className="relative w-full overflow-hidden"
       style={{ 
-        backgroundColor: theme.colors.primary,
-        border: '2px solid #f0ede6'
+        backgroundColor: theme.colors.primary
       }}
     >
-      {/* Content */}
-      <div className={`relative z-20 ${theme.container.maxWidth} ${theme.container.center}`}>
-        {/* Lists - 2 categories per row using grid, all centered */}
-        <div className="max-w-6xl mx-auto px-8 md:px-16">
-          <div 
-            style={{
-              borderLeft: '2px solid #f5f1eb',
-              borderRight: '2px solid #f5f1eb'
-            }}
-          >
-            {/* Section Title */}
-            <div 
-              className="text-center eighteen-title"
+      {/* Container 1 - Paragraph with title and photo */}
+      <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-8 pt-16 pb-8 eighteen-bg-texture">
+        {/* Paragraph with title */}
+        <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
+          {/* Title Group */}
+          <div className="pb-8 mb-8" style={{ borderBottom: '1px solid #f5f1eb' }}>
+            {/* The in Ballet font */}
+            <h1
+              ref={titleTheRef}
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+              style={{ color: '#f5f1eb', fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
+            >
+              The
+            </h1>
+
+            {/* EIGHTEENTH'S */}
+            <h2
+              ref={titleEighteenthsRef}
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
               style={{
-                borderBottom: '2px solid #f5f1eb',
-                paddingTop: '3rem',
-                paddingBottom: '3rem'
+                color: '#f5f1eb',
+                fontWeight: 900,
+                lineHeight: '1',
+                marginTop: '-0.4em',
+                fontSize: 'clamp(3rem, 8vw, 8rem)'
               }}
             >
-              {/* The in Ballet font */}
-              <h1
-                ref={titleTheRef}
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                style={{ color: '#f5f1eb' }}
-              >
-                The
-              </h1>
-
-              {/* EIGHTEENTH'S */}
-              <h2
-                ref={titleEighteenthsRef}
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
-                style={{
-                  color: '#f5f1eb',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  marginTop: '-0.4em'
-                }}
-              >
-                EIGHTEENTH'S
-              </h2>
+              EIGHTEENTH'S
+            </h2>
+          </div>
+          <h3 className="mb-4" style={{ color: '#f5f1eb' }}>
+            <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> Tennis Matches</span>
+          </h3>
+          {eighteenths.categories[0].description && (
+            <div className="font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)', lineHeight: '1.6', fontFamily: "'Poppins', sans-serif" }}>
+              {eighteenths.categories[0].description.split('\n').map((paragraph, index) => (
+                <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '1rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
+                  {paragraph.trim()}
+                </p>
+              ))}
             </div>
-            
-            <div className="grid grid-cols-2" style={{ alignItems: 'stretch', gap: 0 }}>
-            {/* Tennis Matches - Full Row */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f5f1eb',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
+          )}
+        </div>
+        {/* Photo */}
+        <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
+          <img 
+            src="/assets/images/prenup/prenup3.jpg" 
+            alt="18 Tennis Matches" 
+            className="w-full h-full object-cover flex-1 eighteen-image-mobile"
+            style={{ 
+              display: 'block',
+              minHeight: '100%',
+              objectFit: 'cover',
+              objectPosition: 'left center'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Container 2 - Matches */}
+      <div className="relative z-20 px-8 py-8 eighteen-bg-texture">
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Title */}
+          <h3 className="mb-8 text-center" style={{ color: '#f5f1eb' }}>
+            <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> Tennis Matches</span>
+          </h3>
+          {/* Grid container for matches */}
+          <div className="grid gap-4 justify-items-center matches-grid">
+            {eighteenths.categories[1].matches && eighteenths.categories[1].matches.map((match, matchIndex) => (
+              <div 
+                key={matchIndex} 
+                className="text-center py-6 px-3 w-full"
+                style={{
+                  backgroundColor: theme.colors.primary,
+                  border: '0.5px solid #f5f1eb',
+                  outline: '0.5px solid #f5f1eb',
+                  outlineOffset: '-5px',
+                  borderRadius: 0,
+                  maxWidth: '200px'
                 }}
               >
-                {eighteenths.categories[0].name.toUpperCase()}
-              </h3>
-              {eighteenths.categories[0].description && (
-                <div 
-                  className="text-center font-poppins eighteen-description"
+                <h3 
+                  className="text-2xl sm:text-3xl md:text-4xl font-instrument-serif font-semibold mb-4"
                   style={{ 
-                    color: '#f5f1eb', 
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-                    lineHeight: '1.6',
-                    opacity: 0.9,
-                    fontFamily: "'Poppins', sans-serif"
+                    color: '#f5f1eb',
+                    fontFamily: "'Instrument Serif', serif",
+                    fontSize: 'clamp(1.5rem, 3vw, 2.5rem)'
                   }}
                 >
-                  {eighteenths.categories[0].description.split('\n').map((paragraph, index) => (
-                    <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '0.75rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
-                      {paragraph.trim()}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Matches - Full Row */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
-              <div className="eighteenth-names-1 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {eighteenths.categories[1].matches && eighteenths.categories[1].matches.map((match, matchIndex) => (
-                  <div key={matchIndex} style={{ marginBottom: '0.5rem' }}>
-                    <h3 
-                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-instrument-serif font-semibold mb-3 text-center"
+                  MATCH {match.number}
+                </h3>
+                <div className="flex flex-col items-center">
+                  {match.names.map((name, nameIndex) => (
+                    <div 
+                      key={nameIndex} 
+                      className="font-poppins"
                       style={{ 
-                        color: '#f5f1eb',
-                        lineHeight: '1',
-                        fontFamily: "'Instrument Serif', serif",
-                        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)'
+                        color: '#f5f1eb', 
+                        fontSize: '14px',
+                        fontFamily: "'Poppins', sans-serif"
                       }}
                     >
-                      MATCH {match.number}
-                    </h3>
-                    {match.names.map((name, nameIndex) => (
-                      <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
-                        {name}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Sets - White BG First (Full Row) */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: '#f0ede6' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: theme.colors.primary,
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                {eighteenths.categories[3].title || eighteenths.categories[3].name.toUpperCase()}
-              </h3>
-              {eighteenths.categories[3].description && (
-                <div 
-                  className="text-center font-poppins eighteen-description"
-                  style={{ 
-                    color: theme.colors.primary, 
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-                    lineHeight: '1.6',
-                    opacity: 0.9,
-                    fontFamily: "'Poppins', sans-serif"
-                  }}
-                >
-                  {eighteenths.categories[3].description.split('\n').map((paragraph, index) => (
-                    <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '0.75rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
-                      {paragraph.trim()}
-                    </p>
+                      {name}
+                    </div>
                   ))}
                 </div>
-              )}
-            </div>
-
-            {/* Sets - Names (Full Row) */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f5f1eb',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                SETS
-              </h3>
-              <div className="eighteenth-names-2 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {eighteenths.categories[2].names.map((name, index) => (
-                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
-                    {name.toUpperCase()}
-                  </div>
-                ))}
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-            {/* Slices - Pink BG First (Full Row) */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f5f1eb',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                {eighteenths.categories[4].title || eighteenths.categories[4].name.toUpperCase()}
-              </h3>
-              {eighteenths.categories[4].description && (
-                <div 
-                  className="text-center font-poppins eighteen-description"
-                  style={{ 
-                    color: '#f5f1eb', 
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-                    lineHeight: '1.6',
-                    opacity: 0.9,
-                    fontFamily: "'Poppins', sans-serif"
-                  }}
-                >
-                  {eighteenths.categories[4].description.split('\n').map((paragraph, index) => (
-                    <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '0.75rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
-                      {paragraph.trim()}
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Slices Names (Full Row) */}
-            <div ref={beThereCardRef} className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f5f1eb',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                SLICES
-              </h3>
-              <div className="eighteenth-names-5 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                {eighteenths.categories[5]?.names?.map((name, index) => (
-                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0 }}>
-                    {name.toUpperCase()}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Duplicate of BE THERE Card - Full Row */}
-            <div className="col-span-2 flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f5f1eb', paddingTop: '3rem', paddingBottom: '3rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
-              <div className="text-center">
-                <h3 
-                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8"
-                  style={{ 
-                    color: '#f5f1eb',
-                    fontWeight: 900,
-                    lineHeight: '1',
-                    fontFamily: "'Tebranos', cursive !important"
-                  }}
-                >
-                  BE<br />THERE
-                </h3>
-                <img 
-                  src="/assets/images/graphics/tennis.png" 
-                  alt="Tennis" 
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto mb-8"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
-                <p 
-                  className="text-base sm:text-lg md:text-xl font-poppins uppercase mb-8"
-                  style={{ 
-                    color: '#f5f1eb',
-                    letterSpacing: '0.1em'
-                  }}
-                >
-                  Game · On
+      {/* Container 3 - SETS */}
+      <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-8 pt-16 pb-8 eighteen-bg-texture">
+        {/* Paragraph with title */}
+        <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
+          <h3 className="mb-4" style={{ color: '#f5f1eb' }}>
+            <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[3]?.title || 'SETS'}</span>
+          </h3>
+          {eighteenths.categories[3]?.description && (
+            <div className="font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)', lineHeight: '1.6', fontFamily: "'Poppins', sans-serif" }}>
+              {eighteenths.categories[3].description.split('\n').map((paragraph, index) => (
+                <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '1rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
+                  {paragraph.trim()}
                 </p>
-                <img 
-                  src="/assets/images/graphics/sparkle.png" 
-                  alt="Sparkle" 
-                  className="w-6 h-6 sm:w-8 sm:h-8 object-contain mx-auto mt-8"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
+              ))}
+            </div>
+          )}
+        </div>
+        {/* Photo */}
+        <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
+          <img 
+            src="/assets/images/prenup/prenup2.jpg" 
+            alt="18 Sets" 
+            className="w-full h-full object-cover flex-1 eighteen-image-mobile"
+            style={{ 
+              display: 'block',
+              minHeight: '100%',
+              objectFit: 'cover',
+              objectPosition: '60% center'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Container 4 - SETS Names Grid */}
+      <div className="relative z-20 px-8 py-8 eighteen-bg-texture">
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Title */}
+          <h3 className="mb-8 text-center" style={{ color: '#f5f1eb' }}>
+            <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[3]?.title || 'SETS'}</span>
+          </h3>
+          {/* Grid container for SETS names */}
+          <div className="grid gap-4 justify-items-center matches-grid">
+            {eighteenths.categories[3]?.names && eighteenths.categories[3].names.map((name, nameIndex) => (
+              <div 
+                key={nameIndex} 
+                className="text-center py-6 px-3 w-full"
+                style={{
+                  backgroundColor: '#fec0ce',
+                  border: '0.5px solid #f5f1eb',
+                  outline: '0.5px solid #f5f1eb',
+                  outlineOffset: '-5px',
+                  borderRadius: 0,
+                  maxWidth: '200px'
+                }}
+              >
+                <div className="font-poppins" style={{ 
+                  color: theme.colors.tertiary, 
+                  fontSize: '14px',
+                  fontFamily: "'Poppins', sans-serif"
+                }}>
+                  {name}
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Container 5 - SLICES */}
+      <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-8 pt-16 pb-8 eighteen-bg-texture">
+        {/* Paragraph with title */}
+        <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
+          <h3 className="mb-4" style={{ color: '#f5f1eb' }}>
+            <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[4]?.title || 'SLICES'}</span>
+          </h3>
+          {eighteenths.categories[4]?.description && (
+            <div className="font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)', lineHeight: '1.6', fontFamily: "'Poppins', sans-serif" }}>
+              {eighteenths.categories[4].description.split('\n').map((paragraph, index) => (
+                <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '1rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
+                  {paragraph.trim()}
+                </p>
+              ))}
             </div>
-            </div>
+          )}
+        </div>
+        {/* Photo */}
+        <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
+          <img 
+            src="/assets/images/prenup/prenup4.jpg" 
+            alt="18 Slices" 
+            className="w-full h-full object-cover flex-1 eighteen-image-mobile"
+            style={{ 
+              display: 'block',
+              minHeight: '100%',
+              objectFit: 'cover',
+              objectPosition: '60% center'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Container 6 - SLICES Names Grid */}
+      <div className="relative z-20 px-8 py-8 eighteen-bg-texture">
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Title */}
+          <h3 className="mb-8 text-center" style={{ color: '#f5f1eb' }}>
+            <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[4]?.title || 'SLICES'}</span>
+          </h3>
+          {/* Two groups container - stack on mobile, side by side on tablet+ */}
+          <div className="flex flex-col md:flex-row gap-4">
+            {eighteenths.categories[4]?.names && (() => {
+              const names = eighteenths.categories[4].names;
+              const midPoint = Math.ceil(names.length / 2);
+              const group1 = names.slice(0, midPoint);
+              const group2 = names.slice(midPoint);
+              
+              return (
+                <>
+                  {/* Group 1 */}
+                  <div className="flex-1 py-6 px-4" style={{
+                    backgroundColor: theme.colors.tertiary,
+                    border: '0.5px solid #f5f1eb',
+                    outline: '0.5px solid #f5f1eb',
+                    outlineOffset: '-5px',
+                    borderRadius: 0
+                  }}>
+                    <div className="flex flex-col items-center">
+                      {group1.map((name, nameIndex) => (
+                        <div 
+                          key={nameIndex} 
+                          className="font-poppins text-center"
+                          style={{ 
+                            color: '#f5f1eb', 
+                            fontSize: '14px',
+                            fontFamily: "'Poppins', sans-serif"
+                          }}
+                        >
+                          {name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Group 2 */}
+                  <div className="flex-1 py-6 px-4" style={{
+                    backgroundColor: theme.colors.tertiary,
+                    border: '0.5px solid #f5f1eb',
+                    outline: '0.5px solid #f5f1eb',
+                    outlineOffset: '-5px',
+                    borderRadius: 0
+                  }}>
+                    <div className="flex flex-col items-center">
+                      {group2.map((name, nameIndex) => (
+                        <div 
+                          key={nameIndex} 
+                          className="font-poppins text-center"
+                          style={{ 
+                            color: '#f5f1eb', 
+                            fontSize: '14px',
+                            fontFamily: "'Poppins', sans-serif"
+                          }}
+                        >
+                          {name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </div>
       </div>

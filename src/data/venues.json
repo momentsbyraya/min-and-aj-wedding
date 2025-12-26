@@ -15,6 +15,7 @@
     },
     "image": "/assets/images/venue/venue.jpg",
     "googleMapsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8",
-    "directionsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8"
+    "directionsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.2825807870727!2d121.034753!3d14.410867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d04cbc6776cb%3A0x35365ea3b69ee9e8!2sThe%20Palms%20Country%20Club%20by%20Filinvest!5e0!3m2!1sen!2sjp!4v1766763875731!5m2!1sen!2sjp"
   }
 } 

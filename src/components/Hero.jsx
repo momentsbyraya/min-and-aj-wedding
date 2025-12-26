@@ -5,29 +5,19 @@ import { theme, audio } from '../data'
 
 const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const audioRef = useRef(null)
   const tennisBallLeftRef = useRef(null)
   const tennisBallRightRef = useRef(null)
   const tennisImageRef = useRef(null)
-  const presentingRef = useRef(null)
   const sparkleLeftRef = useRef(null)
   const sparkleRightRef = useRef(null)
   const titleRef = useRef(null)
   const subtitleRef = useRef(null)
+  const dateRef = useRef(null)
   const musicPlayerRef = useRef(null)
 
-  // Array of prenup images - starting with main cover
-  const heroImages = [
-    '/assets/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg',
-    '/assets/images/prenup/prenup1.jpg',
-    '/assets/images/prenup/prenup2.jpg',
-    '/assets/images/prenup/prenup3.jpg',
-    '/assets/images/prenup/prenup4.jpg',
-    '/assets/images/prenup/prenup5.jpg',
-    '/assets/images/prenup/prenup6.jpg',
-    '/assets/images/prenup/prenup7.jpg'
-  ]
+  // Main cover photo
+  const mainCoverPhoto = '/assets/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
 
   useEffect(() => {
     // Initialize audio
@@ -55,14 +45,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
     }
   }, [])
 
-  // Auto-slide images
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
-    }, 5000) // Change image every 5 seconds
-
-    return () => clearInterval(interval)
-  }, [heroImages.length])
 
   // On-load animations
   useEffect(() => {
@@ -93,14 +75,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
       )
     }
 
-    // PRESENTING text fade in and slide up
-    if (presentingRef.current) {
-      tl.fromTo(presentingRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
 
     // Sparkles scale up and fade in
     if (sparkleLeftRef.current) {
@@ -137,6 +111,15 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
       )
     }
 
+    // Date slides up and fades in
+    if (dateRef.current) {
+      tl.fromTo(dateRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.4"
+      )
+    }
+
     // Music player fades in from bottom
     if (musicPlayerRef.current) {
       tl.fromTo(musicPlayerRef.current,
@@ -157,7 +140,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
     } else {
       // Start or resume music
       if (audioRef.current.paused) {
-        audioRef.current.currentTime = 41.15 // Start at specific time
+        audioRef.current.currentTime = 1 // Start at 1 second
         audioRef.current.play().catch(error => {
           console.error('Error playing audio:', error)
         })
@@ -173,114 +156,24 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
     }
   }
   return (
-    <>
-      <style>{`
-        .tennis-court-lines::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 2;
-          background-image: 
-            /* Outer border */
-            linear-gradient(to right, rgba(245, 241, 235, 0.25) 0%, rgba(245, 241, 235, 0.25) 100%),
-            linear-gradient(to right, rgba(245, 241, 235, 0.25) 0%, rgba(245, 241, 235, 0.25) 100%),
-            linear-gradient(to bottom, rgba(245, 241, 235, 0.25) 0%, rgba(245, 241, 235, 0.25) 100%),
-            linear-gradient(to bottom, rgba(245, 241, 235, 0.25) 0%, rgba(245, 241, 235, 0.25) 100%),
-            /* Center net line (horizontal) */
-            linear-gradient(to right, rgba(245, 241, 235, 0.3) 0%, rgba(245, 241, 235, 0.3) 100%),
-            /* Service lines (horizontal) */
-            linear-gradient(to right, rgba(245, 241, 235, 0.2) 0%, rgba(245, 241, 235, 0.2) 100%),
-            linear-gradient(to right, rgba(245, 241, 235, 0.2) 0%, rgba(245, 241, 235, 0.2) 100%);
-          background-size: 
-            100% 2px,
-            100% 2px,
-            2px 100%,
-            2px 100%,
-            100% 1px,
-            100% 1px,
-            100% 1px;
-          background-position: 
-            0 0,
-            0 100%,
-            0 0,
-            100% 0,
-            center 50%,
-            center 10%,
-            center 85%;
-          background-repeat: no-repeat;
-          pointer-events: none;
-        }
-        .tennis-court-lines::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 2;
-          background-image: 
-            /* Center vertical line (from net to service line) */
-            linear-gradient(to bottom, rgba(245, 241, 235, 0.2) 0%, rgba(245, 241, 235, 0.2) 100%),
-            /* Doubles alley lines (vertical) */
-            linear-gradient(to bottom, rgba(245, 241, 235, 0.15) 0%, rgba(245, 241, 235, 0.15) 100%),
-            linear-gradient(to bottom, rgba(245, 241, 235, 0.15) 0%, rgba(245, 241, 235, 0.15) 100%);
-          background-size: 
-            1px 50%,
-            1px 100%,
-            1px 100%;
-          background-position: 
-            center 10%,
-            12.5% 0,
-            87.5% 0;
-          background-repeat: no-repeat;
-          pointer-events: none;
-        }
-      `}</style>
     <section
-      className="relative min-h-screen w-full overflow-hidden tennis-court-lines"
+      className="relative min-h-screen w-full overflow-hidden"
       style={{ 
         backgroundColor: theme.colors.primary,
         position: 'relative'
       }}
     >
-      {/* Image Carousel Background */}
+      {/* Main Cover Photo Background */}
       <div 
         className="absolute inset-0"
         style={{
+          backgroundImage: `url(${mainCoverPhoto})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          transition: 'opacity 1s ease-in-out'
+          zIndex: 0
         }}
-      >
-        {heroImages.map((image, index) => (
-          <div
-            key={index}
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url(${image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              opacity: index === currentImageIndex ? 1 : 0,
-              transition: 'opacity 1s ease-in-out',
-              zIndex: 0
-            }}
-          />
-        ))}
-      </div>
-      {/* Primary Color Overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundColor: theme.colors.primary,
-          opacity: 0.6,
-          zIndex: 1
-        }}
-      ></div>
+      />
 
       {/* Tennis balls at top corners */}
       <div className="absolute top-8 left-8 z-20" ref={tennisBallLeftRef}>
@@ -312,19 +205,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
               className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
-          </div>
-          
-          {/* PRESENTING text - plain text */}
-          <div 
-            ref={presentingRef}
-            className="text-xs sm:text-sm uppercase mb-2 font-poppins text-center"
-            style={{ 
-              color: '#f5f1eb', 
-              letterSpacing: '0.05em',
-              fontFamily: "'Poppins', sans-serif"
-            }}
-          >
-            PRESENTING
           </div>
           
           {/* AMANDA IRA with sparkles */}
@@ -365,6 +245,19 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
           >
             @ Eighteen
           </h2>
+
+          {/* Celebration Date */}
+          <div 
+            ref={dateRef}
+            className="text-2xl sm:text-3xl md:text-4xl font-poppins text-center mt-6 mb-8"
+            style={{ 
+              color: '#f5f1eb',
+              letterSpacing: '0.1em',
+              fontWeight: 400
+            }}
+          >
+            01.21.2026
+          </div>
         </div>
 
         {/* Music Player at Bottom */}
@@ -393,7 +286,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
         </div>
       </div>
     </section>
-    </>
   )
 }
 

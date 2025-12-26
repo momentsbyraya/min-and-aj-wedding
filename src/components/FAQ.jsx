@@ -57,13 +57,6 @@ const FAQ = () => {
 
   return (
     <>
-      <style>{`
-        @media (min-width: 1024px) {
-          .faq-image {
-            object-position: center 5%;
-          }
-        }
-      `}</style>
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
@@ -198,33 +191,16 @@ const FAQ = () => {
                   }`}
                 >
                   <div className="px-6 pt-4 pb-4">
-                    <p className="font-poppins leading-relaxed" style={{ color: textColor, fontSize: '1rem' }}>
-                      {faq.answer}
-                    </p>
+                    <p 
+                      className="font-poppins leading-relaxed" 
+                      style={{ color: textColor, fontSize: '1rem' }}
+                      dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    />
                   </div>
                 </div>
               </div>
             )
           })}
-        </div>
-
-        {/* Prenup Image - Full Viewport Width */}
-        <div 
-          className="mt-16 sm:mt-20"
-          style={{ 
-            width: '100vw',
-            marginLeft: 'calc(-50vw + 50%)',
-            marginRight: 'calc(-50vw + 50%)'
-          }}
-        >
-          <img 
-            src="/assets/images/prenup/prenup6.jpg" 
-            alt="Prenup" 
-            className="faq-image w-full max-h-[600px] lg:max-h-none lg:h-[90vh] object-cover"
-            style={{ 
-              display: 'block'
-            }}
-          />
         </div>
       </div>
     </section>

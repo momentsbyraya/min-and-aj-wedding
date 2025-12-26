@@ -33,38 +33,42 @@ const Schedule = () => {
       )
     }
 
-    // Timeline line expansion from top to bottom - appears first
+    // Timeline unfolds - line draws progressively, items appear sequentially
+    // Line draws from top to bottom
     tl.fromTo(lineRef.current, 
       { scaleY: 0, transformOrigin: "top" },
       { scaleY: 1, duration: 1.5, ease: "power2.out" },
       "-=0.4"
     )
 
-    // Dots appear after line - with stagger
-    tl.fromTo(".timeline-dot",
-      { opacity: 0, scale: 0 },
-      { 
-        opacity: 1, 
-        scale: 1, 
-        duration: 0.4, 
-        ease: "back.out(1.7)",
-        stagger: 0.15
-      },
-      "+=0.2"
-    )
+    // Each timeline item appears sequentially as line progresses
+    schedule.events.forEach((_, index) => {
+      const itemSelector = `.timeline-item-${index}`
+      
+      // Dot appears first
+      tl.fromTo(`${itemSelector} .timeline-dot`,
+        { opacity: 0, scale: 0 },
+        { 
+          opacity: 1, 
+          scale: 1, 
+          duration: 0.4, 
+          ease: "back.out(1.7)"
+        },
+        index === 0 ? "-=1.1" : "+=0.2"
+      )
 
-    // Time and description appear after dots - with stagger
-    tl.fromTo(".timeline-time, .timeline-description",
-      { opacity: 0, y: 20 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.6, 
-        ease: "power2.out",
-        stagger: 0.1
-      },
-      "-=0.2"
-    )
+      // Time and description appear together after dot
+      tl.fromTo(`${itemSelector} .timeline-time, ${itemSelector} .timeline-description`,
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.6, 
+          ease: "power2.out"
+        },
+        "-=0.2"
+      )
+    })
 
     // Image animation - responsive
     if (imageRef.current) {
@@ -165,83 +169,28 @@ const Schedule = () => {
             <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col order-1 lg:order-2">
               {/* Header Section */}
               <div ref={headerRef} className="text-center mb-12">
-            {/* Tennis Ball Icon */}
-            <div className="flex justify-center mb-4">
-              <img 
-                src="/assets/images/graphics/tennis-ball.png" 
-                alt="Tennis ball" 
-                className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
-              />
-            </div>
-            
-            {/* SERVING text - smooth circular arch downward */}
-            <div 
-              className="text-xs sm:text-sm uppercase mb-2 font-poppins"
-              style={{ 
-                color: theme.colors.primary, 
-                letterSpacing: '0.05em',
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              {'SERVING'.split('').map((letter, index) => {
-                const totalLetters = 7
-                const centerIndex = (totalLetters - 1) / 2
-                const offset = index - centerIndex
-                
-                // Circular arch parameters
-                const radius = 30 // Radius of the circle (adjust for arch depth)
-                const maxAngle = Math.PI / 5 // 36 degrees total arc (adjust for arch width)
-                const angle = (offset / centerIndex) * maxAngle
-                
-                // Calculate position on circle
-                const x = radius * Math.sin(angle)
-                const y = radius * (1 - Math.cos(angle)) // Downward arch
-                const rotation = (angle * 180) / Math.PI // Convert to degrees
-                
-                return (
-                  <span
-                    key={index}
-                    style={{
-                      display: 'inline-block',
-                      fontFamily: "'Poppins', sans-serif",
-                      position: 'relative',
-                      transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
-                      transformOrigin: 'center bottom',
-                      marginRight: '-0.1em'
-                    }}
-                  >
-                    {letter === ' ' ? '\u00A0' : letter}
-                  </span>
-                )
-              })}
-            </div>
-            
-            {/* THE TIMELINE */}
-            <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '2rem' }}>
-              <h2 
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
-                style={{ 
-                  color: theme.colors.primary,
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontSize: 'clamp(3rem, 8vw, 5.5rem)'
-                }}
-              >
-                THE TIMELINE
-            </h2>
-            </div>
-            
-            {/* Unfolds in Ballet font */}
-            <h3 
-              className="text-5xl sm:text-6xl md:text-7xl font-ballet"
-              style={{ color: theme.colors.primary, marginTop: '-1rem', fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}
-            >
-              Unfolds
-            </h3>
-          </div>
+                {/* Order in Ballet font */}
+                <h1
+                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+                  style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
+                >
+                  Order
+                </h1>
+
+                {/* OF PLAY */}
+                <h2
+                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-4 uppercase"
+                  style={{
+                    color: theme.colors.primary,
+                    fontWeight: 900,
+                    lineHeight: '1',
+                    marginTop: '-0.4em',
+                    fontSize: 'clamp(3rem, 8vw, 8rem)'
+                  }}
+                >
+                  OF PLAY
+                </h2>
+              </div>
 
           {/* Main Content with Timeline */}
           <div className="relative" style={{ paddingTop: '1rem' }}>
@@ -271,7 +220,7 @@ const Schedule = () => {
                   return (
                     <div 
                       key={event.id} 
-                      className="relative flex items-center gap-4"
+                      className={`timeline-item-${index} relative flex items-center gap-4`}
                     >
                       {/* Time on the left - Instrument Serif font */}
                       <div className="flex-1 text-right pr-4 relative">
