@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { X } from 'lucide-react'
-import { theme } from '../data'
+import { theme, wedding } from '../data'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
@@ -75,7 +75,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
       {/* Modal Content */}
       <div
         ref={contentRef}
-        className="relative bg-white shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+        className="relative bg-white shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
         style={{
           border: `0.5px solid ${theme.colors.primary}`,
           outline: `0.5px solid ${theme.colors.primary}`,
@@ -83,12 +83,12 @@ const RSVPModal = ({ isOpen, onClose }) => {
           borderRadius: 0
         }}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-wedding-200">
-          <h2 className="text-2xl font-serif text-wedding-800">RSVP</h2>
+        {/* Header - Sticky */}
+        <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200" style={{ borderRadius: 0 }}>
+          <h3 className="text-2xl sm:text-3xl font-poppins uppercase" style={{ color: theme.colors.primary, fontWeight: 700 }}>RSVP</h3>
           <button
             onClick={handleClose}
-            className="p-2 text-wedding-600 hover:text-wedding-800 hover:bg-wedding-100 rounded-full transition-colors duration-200"
+            className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
           >
             <X className="w-6 h-6" />
           </button>
@@ -97,7 +97,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         {/* Google Forms iframe */}
         <div className="p-6">
           <iframe 
-            src="https://forms.gle/nQSNHp7ZyCtcN4Po9" 
+            src={wedding.rsvp.formUrl} 
             width="100%" 
             height="600" 
             frameBorder="0" 

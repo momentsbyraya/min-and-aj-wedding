@@ -204,14 +204,16 @@ const Gallery = () => {
           {/* CAPTURED text - smooth circular arch downward */}
           <div 
             ref={capturedTextRef}
-            className="text-xs sm:text-sm uppercase mb-2 font-poppins"
+            className="uppercase mb-2 font-poppins"
             style={{ 
               color: '#f5f1eb', 
               letterSpacing: '0.05em',
               position: 'relative',
               display: 'flex',
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: 'clamp(0.75rem, 2vw, 0.875rem)'
             }}
           >
             {'CAPTURED'.split('').map((letter, index) => {
@@ -235,6 +237,7 @@ const Gallery = () => {
                   style={{
                     display: 'inline-block',
                     fontFamily: "'Poppins', sans-serif",
+                    fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
                     position: 'relative',
                     transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
                     transformOrigin: 'center bottom',

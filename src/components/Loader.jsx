@@ -1,6 +1,9 @@
 import React from 'react'
+import { theme } from '../data'
 
 const Loader = ({ className = '' }) => {
+  const primaryColor = theme.colors.primary
+  
   return (
     <>
       <style>{`
@@ -26,7 +29,7 @@ const Loader = ({ className = '' }) => {
         }
 
         .preloader span {
-          --c: #f23f3f;
+          --c: ${primaryColor};
           position: absolute;
           display: block;
           height: 64px;

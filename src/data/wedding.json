@@ -4,6 +4,7 @@
     "email": "rsvp@example.com",
     "phone": "(555) 123-4567",
     "website": "https://example.rsvp",
+    "formUrl": "https://forms.gle/BcPzk9y53GkJnJq79",
     "message": "Please RSVP on or before January 8, 2026"
   },
   "theme": {
