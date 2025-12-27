@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Play, Pause } from 'lucide-react'
 import { gsap } from 'gsap'
-import { theme, audio } from '../data'
+import { theme, celebrant } from '../data'
 
-const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef(null)
+const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = false }) => {
+  const [isPlaying, setIsPlaying] = useState(isMusicPlaying)
+  
+  // Sync with parent state when it changes
+  useEffect(() => {
+    setIsPlaying(isMusicPlaying)
+  }, [isMusicPlaying])
   const tennisBallLeftRef = useRef(null)
   const tennisBallRightRef = useRef(null)
   const tennisImageRef = useRef(null)
@@ -19,31 +23,16 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
   // Main cover photo
   const mainCoverPhoto = '/assets/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
 
-  useEffect(() => {
-    // Initialize audio
-    audioRef.current = new Audio(audio.background)
-    audioRef.current.loop = audio.loop
-    audioRef.current.volume = audio.volume
+  // Format date from data file (YYYY-MM-DD to MM.DD.YYYY)
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const day = String(date.getDate()).padStart(2, '0')
+    const year = date.getFullYear()
+    return `${month}.${day}.${year}`
+  }
 
-    // Listen to audio events to update state
-    const handlePlay = () => setIsPlaying(true)
-    const handlePause = () => setIsPlaying(false)
-    const handleEnded = () => setIsPlaying(false)
-
-    audioRef.current.addEventListener('play', handlePlay)
-    audioRef.current.addEventListener('pause', handlePause)
-    audioRef.current.addEventListener('ended', handleEnded)
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener('play', handlePlay)
-        audioRef.current.removeEventListener('pause', handlePause)
-        audioRef.current.removeEventListener('ended', handleEnded)
-        audioRef.current.pause()
-        audioRef.current = null
-      }
-    }
-  }, [])
+  const celebrationDate = formatDate(celebrant.debutant.debut.date)
 
 
   // On-load animations
@@ -131,28 +120,15 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
   }, [])
 
   const handleMusicToggle = () => {
-    if (!audioRef.current) return
-
     if (isPlaying) {
-      audioRef.current.pause()
       setIsPlaying(false)
       if (onPauseMusic) onPauseMusic()
     } else {
-      // Start or resume music
-      if (audioRef.current.paused) {
-        audioRef.current.currentTime = 1 // Start at 1 second
-        audioRef.current.play().catch(error => {
-          console.error('Error playing audio:', error)
-        })
-        setIsPlaying(true)
-        if (onStartMusic) onStartMusic()
-      } else {
-        audioRef.current.play().catch(error => {
-          console.error('Error playing audio:', error)
-        })
-        setIsPlaying(true)
-        if (onResumeMusic) onResumeMusic()
-      }
+      setIsPlaying(true)
+      // Use onStartMusic for first play, onResumeMusic for resume
+      // Since we don't have access to audio state, we'll use onStartMusic
+      // which will handle both cases in App.jsx
+      if (onStartMusic) onStartMusic()
     }
   }
   return (
@@ -283,7 +259,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
               textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
             }}
           >
-            01.21.2026
+            {celebrationDate}
           </div>
         </div>
 

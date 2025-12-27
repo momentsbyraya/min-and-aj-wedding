@@ -351,7 +351,7 @@ const EighteenList = () => {
           </h3>
           {/* Grid container for matches */}
           <div className="grid gap-4 justify-items-center matches-grid">
-            {eighteenths.categories[1].matches && eighteenths.categories[1].matches.map((match, matchIndex) => (
+            {eighteenths.categories[0]?.matches && eighteenths.categories[0].matches.map((match, matchIndex) => (
               <div 
                 key={matchIndex} 
                 className={`match-card text-center py-6 px-3 w-full ${match.number === 10 ? 'match-10-full-width' : ''}`}
@@ -401,11 +401,11 @@ const EighteenList = () => {
         <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
           <h3 ref={setsHeadingRef} className="mb-4" style={{ color: '#f5f1eb' }}>
             <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
-            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[3]?.title || 'SETS'}</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[1]?.title || 'SETS'}</span>
           </h3>
-          {eighteenths.categories[3]?.description && (
+          {eighteenths.categories[1]?.description && (
             <div ref={setsDescRef} className="font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)', lineHeight: '1.6', fontFamily: "'Poppins', sans-serif" }}>
-              {eighteenths.categories[3].description.split('\n').map((paragraph, index) => (
+              {eighteenths.categories[1].description.split('\n').map((paragraph, index) => (
                 <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '1rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
                   {paragraph.trim()}
                 </p>
@@ -435,11 +435,11 @@ const EighteenList = () => {
           {/* Title */}
           <h3 ref={setsGridTitleRef} className="mb-8 text-center" style={{ color: '#f5f1eb' }}>
             <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
-            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[3]?.title || 'SETS'}</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[1]?.title || 'SETS'}</span>
           </h3>
           {/* Grid container for SETS names */}
           <div className="grid gap-4 justify-items-center matches-grid">
-            {eighteenths.categories[3]?.names && eighteenths.categories[3].names.map((name, nameIndex) => (
+            {eighteenths.categories[1]?.names && eighteenths.categories[1].names.map((name, nameIndex) => (
               <div 
                 key={nameIndex} 
                 className="set-card text-center py-6 px-3 w-full"
@@ -471,11 +471,11 @@ const EighteenList = () => {
         <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
           <h3 ref={slicesHeadingRef} className="mb-4" style={{ color: '#f5f1eb' }}>
             <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
-            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[4]?.title || 'SLICES'}</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[2]?.title || 'SLICES'}</span>
           </h3>
-          {eighteenths.categories[4]?.description && (
+          {eighteenths.categories[2]?.description && (
             <div ref={slicesDescRef} className="font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)', lineHeight: '1.6', fontFamily: "'Poppins', sans-serif" }}>
-              {eighteenths.categories[4].description.split('\n').map((paragraph, index) => (
+              {eighteenths.categories[2].description.split('\n').map((paragraph, index) => (
                 <p key={index} className="font-poppins" style={{ marginBottom: paragraph.trim() ? '1rem' : '0.5rem', fontFamily: "'Poppins', sans-serif" }}>
                   {paragraph.trim()}
                 </p>
@@ -506,12 +506,12 @@ const EighteenList = () => {
           {/* Title */}
           <h3 ref={slicesGridTitleRef} className="mb-8 text-center" style={{ color: '#f5f1eb' }}>
             <span className="font-instrument-serif font-semibold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: "'Instrument Serif', serif" }}>18</span>
-            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[4]?.title || 'SLICES'}</span>
+            <span className="font-tebranos uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, fontFamily: "'Tebranos', cursive" }}> {eighteenths.categories[2]?.title || 'SLICES'}</span>
           </h3>
           {/* Two groups container - stack on mobile, side by side on tablet+ */}
           <div className="flex flex-col md:flex-row gap-4">
-            {eighteenths.categories[4]?.names && (() => {
-              const names = eighteenths.categories[4].names;
+            {eighteenths.categories[2]?.names && (() => {
+              const names = eighteenths.categories[2].names;
               const midPoint = Math.ceil(names.length / 2);
               const group1 = names.slice(0, midPoint);
               const group2 = names.slice(midPoint);

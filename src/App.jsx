@@ -12,6 +12,7 @@ function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
   const [showOpeningScreen, setShowOpeningScreen] = useState(false)
   const [isPreloaderComplete, setIsPreloaderComplete] = useState(false)
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -20,11 +21,21 @@ function App() {
     audioRef.current.loop = audio.loop
     audioRef.current.volume = audio.volume
 
-    // Don't auto-start - music will start when play button is clicked in Hero section
+    // Listen to audio events to update state
+    const handlePlay = () => setIsMusicPlaying(true)
+    const handlePause = () => setIsMusicPlaying(false)
+    const handleEnded = () => setIsMusicPlaying(false)
+
+    audioRef.current.addEventListener('play', handlePlay)
+    audioRef.current.addEventListener('pause', handlePause)
+    audioRef.current.addEventListener('ended', handleEnded)
 
     // Cleanup only on app unmount
     return () => {
       if (audioRef.current) {
+        audioRef.current.removeEventListener('play', handlePlay)
+        audioRef.current.removeEventListener('pause', handlePause)
+        audioRef.current.removeEventListener('ended', handleEnded)
         audioRef.current.pause()
         audioRef.current = null
       }
@@ -56,8 +67,7 @@ function App() {
 
   const handleEnvelopeOpen = () => {
     setShowOpeningScreen(false)
-    // Start music when wedding invitation is shown
-    startMusic()
+    // Don't auto-start music - let user control it from Hero section
   }
 
   return (
@@ -75,6 +85,7 @@ function App() {
             onPauseMusic={pauseMusic}
             onResumeMusic={resumeMusic}
             onStartMusic={startMusic}
+            isMusicPlaying={isMusicPlaying}
           />
           <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
         </>

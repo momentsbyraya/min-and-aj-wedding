@@ -4,29 +4,6 @@
       "name": "Tennis Matches",
       "title": "18 Tennis Matches",
       "description": "I am putting a sporty spin on the traditional '18 Roses' and calling it, 18 Tennis Matches.\n\nI invite you to take the court with me because you have been a key player in my life. Whether you've been my 'doubles partner' through thick and thin or the 'coach' who gave me the best advice, you've helped me win the sets that mattered most.\n\nHow it works: Instead of a racket, we'll share a dance and a rose to celebrate this milestone. No running required, just bring your best moves to the dance floor!\n\nSee you at the court-side celebration!",
-      "names": [
-        "Criz Bayani",
-        "Andrey Pandac",
-        "Garette Honora",
-        "Lester Culaba",
-        "Mckenzie Basto",
-        "Jhabes Cortez",
-        "Clark Dela Paz",
-        "Zyrus Simbajon",
-        "Aviel Martinez",
-        "Lance Lagaya",
-        "Darryl Lomboy",
-        "Kyle Estrella",
-        "Glen Olivo",
-        "Ninong Louie Morales",
-        "Ralph Lagaya",
-        "Lolo Oscar Lovedioro",
-        "Lolo Pablo Lomboy",
-        "Arnold Lagaya"
-      ]
-    },
-    {
-      "name": "Blue Bills",
       "matches": [
         {
           "number": 1,
@@ -111,6 +88,8 @@
     },
     {
       "name": "Sets",
+      "title": "SETS",
+      "description": "Here's a tennis twist on the 18 Treasures… and for this special tournament, I am calling it 18 Sets.\n\nIn tennis, a set is a collection of wins, and you are someone who has played an important role in my growing-up years. I am asking you, my special 18 players, to gift me a set or a pair of something :)\n\nThe Playbook:\n\nThe Gift: It can be anything that comes in a set or a pair. Think a set of tennis balls, a pair of earrings, or even a pair of shoes!\n\nThe Play: When your name is called, you'll present your gift and share a short message about why you chose it for me.\n\nI can't wait to see what you've picked out for my 18th season!",
       "names": [
         "Gilian Bio",
         "Jam Vaughn",
@@ -133,58 +112,9 @@
       ]
     },
     {
-      "name": "Sets",
-      "title": "SETS",
-      "description": "Here's a tennis twist on the 18 Treasures… and for this special tournament, I am calling it 18 Sets.\n\nIn tennis, a set is a collection of wins, and you are someone who has played an important role in my growing-up years. I am asking you, my special 18 players, to gift me a set or a pair of something :)\n\nThe Playbook:\n\nThe Gift: It can be anything that comes in a set or a pair. Think a set of tennis balls, a pair of earrings, or even a pair of shoes!\n\nThe Play: When your name is called, you'll present your gift and share a short message about why you chose it for me.\n\nI can't wait to see what you've picked out for my 18th season!",
-      "names": [
-        "Tito Paul Barrun",
-        "Yuleen Ebido",
-        "Jean Lerry Lomboy",
-        "Yenna Umali",
-        "Aj Huelar",
-        "Judeah Francisco",
-        "Ynony Lamsen",
-        "Daphney Molina",
-        "Lucille Caiña",
-        "Hannah Encarnacion",
-        "Zianne Lacza",
-        "Yesha Oliveros",
-        "Audrey Javier",
-        "Marc Lester Perater",
-        "Juliana Galban",
-        "Francine Clavillas",
-        "Mariella Galban",
-        "Princess Lomboy"
-      ]
-    },
-    {
       "name": "Slices",
       "title": "SLICES",
       "description": "To my favorite crew,\n\nI am doing 18 Slices instead of candles. In tennis, a slice is a shot that changes the rhythm of the game, just like how your friendship has changed my world for the better. I have chosen each of you to share this moment because you have been right there with me through every win and every loss.\n\nThe Play: When called, please share a 'slice' of your favorite memory or a wish for my future.\n\nGet your slices ready, I'll see you at the baseline!",
-      "names": [
-        "Ara Lomboy",
-        "Ronalyn Mendoza",
-        "Blanchie Vito",
-        "Tito Jayson Lagaya",
-        "Tito Erwin Lagaya",
-        "Tito Alvin Lagaya",
-        "Justine Ante",
-        "Zyrus Simbajon",
-        "Aviel Martinez",
-        "Jorosh Tiratira",
-        "Garette Honora",
-        "Ynomy Lamsen",
-        "Yesha Oliveros",
-        "Lance Lagaya",
-        "Mariella Galban",
-        "Princess Lomboy",
-        "Audrey Javier",
-        "Criz Bayani"
-      ]
-    },
-    {
-      "name": "Slices",
-      "title": "SLICES",
       "names": [
         "Maria Rosabelle C. Balon",
         "Zyescha Kiz C. Lim",

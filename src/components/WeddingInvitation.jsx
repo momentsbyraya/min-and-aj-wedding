@@ -20,7 +20,7 @@ import EighteenList from './EighteenList'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
 
-const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
+const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
   useEffect(() => {
     // Initial page load animation
     gsap.fromTo(".main-container", 
@@ -37,6 +37,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
           onStartMusic={onStartMusic}
           onPauseMusic={onPauseMusic}
           onResumeMusic={onResumeMusic}
+          isMusicPlaying={isMusicPlaying}
         />
         
         {/* Venue Section - After Hero */}
@@ -54,7 +55,12 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
           <LoveStory />
         </EnhancedLazySection>
 
-        {/* Details Section - Combined RSVP, DressCode, and Gift Registry - After Love Story */}
+        {/* 18 List Section - After Love Story */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
+          <EighteenList />
+        </EnhancedLazySection>
+
+        {/* Details Section - Combined RSVP, DressCode, and Gift Registry - After EighteenList */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="details">
           <DetailsSection />
         </EnhancedLazySection>
@@ -62,11 +68,6 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
         {/* Gallery Section - After Details */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
           <Gallery />
-        </EnhancedLazySection>
-
-        {/* 18 List Section - After Gallery */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
-          <EighteenList />
         </EnhancedLazySection>
 
         {/* FAQ Section - After EighteenList */}
