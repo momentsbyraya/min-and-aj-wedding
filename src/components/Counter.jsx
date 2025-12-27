@@ -141,13 +141,13 @@ const Counter = ({ countdown }) => {
           {/* Title Section */}
           <div className="flex justify-center">
             <h3 className="save-date-title flex flex-col items-center" style={{ lineHeight: '1', gap: 0 }}>
-              <div className="font-tebranos" style={{ color: theme.colors.primary, marginBottom: '-0.4em', fontSize: 'clamp(4rem, 10vw, 10rem)' }}>
+              <div className="font-tebranos" style={{ color: theme.colors.primary, marginBottom: '-0.4em', fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}>
                 SAVE
               </div>
-              <div className="font-ballet" style={{ color: theme.colors.primary, marginTop: 0, marginBottom: 0, fontSize: 'clamp(4rem, 10vw, 10rem)' }}>
+              <div className="font-ballet" style={{ color: theme.colors.primary, marginTop: 0, marginBottom: 0, fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}>
                 the
               </div>
-              <div className="font-tebranos" style={{ color: theme.colors.primary, marginTop: '-0.4em', fontSize: 'clamp(4rem, 10vw, 10rem)' }}>
+              <div className="font-tebranos" style={{ color: theme.colors.primary, marginTop: '-0.4em', fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}>
                 DATE
               </div>
             </h3>

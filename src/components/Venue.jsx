@@ -411,7 +411,7 @@ const Venue = () => {
             <div className="w-full mt-8 lg:mt-0 h-96 overflow-hidden venue-image-mobile">
               <img 
                 ref={imageRef}
-                src="/assets/images/prenup/prenup4.jpg" 
+                src="/assets/images/prenup/prenup7.jpg" 
                 alt="Venue" 
                 className="w-full h-full object-cover"
                 style={{ 

@@ -269,6 +269,9 @@ const EighteenList = () => {
             object-position: center 25% !important;
           }
         }
+        .sets-image {
+          object-position: 50% center !important;
+        }
       `}</style>
     <section
       ref={sectionRef}
@@ -416,12 +419,11 @@ const EighteenList = () => {
             ref={setsImageRef}
             src="/assets/images/prenup/prenup2.jpg" 
             alt="18 Sets" 
-            className="w-full h-full object-cover flex-1 eighteen-image-mobile"
+            className="w-full h-full object-cover flex-1 eighteen-image-mobile sets-image"
             style={{ 
               display: 'block',
               minHeight: '100%',
-              objectFit: 'cover',
-              objectPosition: '60% center'
+              objectFit: 'cover'
             }}
           />
         </div>

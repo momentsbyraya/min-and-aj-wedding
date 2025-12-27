@@ -172,7 +172,7 @@ const SaveTheDate = () => {
                className="font-ballet mb-2"
                style={{ 
                  color: '#f5f1eb',
-                 fontSize: 'clamp(3rem, 7vw, 6rem)',
+                 fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                  lineHeight: '1',
                  textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
                }}

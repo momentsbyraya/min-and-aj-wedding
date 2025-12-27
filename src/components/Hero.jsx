@@ -229,7 +229,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
           </div>
           
           {/* AMANDA IRA with sparkles */}
-          <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '2rem' }}>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-2 lg:gap-4" style={{ marginTop: '2rem' }}>
             <img 
               ref={sparkleLeftRef}
               src="/assets/images/graphics/sparkle.png" 
@@ -250,6 +250,19 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
             >
               AMANDA IRA
             </h1>
+            {/* @ Eighteen in Ballet font - inline on lg screens */}
+            <h2 
+              ref={subtitleRef}
+              className="text-5xl sm:text-6xl md:text-7xl font-ballet lg:ml-2"
+              style={{ 
+                color: '#ffffff', 
+                marginTop: '-1rem',
+                fontSize: 'clamp(3rem, 7.5vw, 5.5rem)',
+                textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              @ Eighteen
+            </h2>
             <img 
               ref={sparkleRightRef}
               src="/assets/images/graphics/sparkle.png" 
@@ -258,20 +271,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
               style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
             />
           </div>
-          
-          {/* @ Eighteen in Ballet font */}
-          <h2 
-            ref={subtitleRef}
-            className="text-5xl sm:text-6xl md:text-7xl font-ballet"
-            style={{ 
-              color: '#ffffff', 
-              marginTop: '-1rem', 
-              fontSize: 'clamp(3rem, 7.5vw, 5.5rem)',
-              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
-            }}
-          >
-            @ Eighteen
-          </h2>
 
           {/* Celebration Date */}
           <div 
