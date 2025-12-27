@@ -156,6 +156,14 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
     }
   }
   return (
+    <>
+      <style>{`
+        @media (min-width: 1024px) {
+          .hero-background-image {
+            background-position: center 35% !important;
+          }
+        }
+      `}</style>
     <section
       className="relative min-h-screen w-full overflow-hidden"
       style={{ 
@@ -165,7 +173,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
     >
       {/* Main Cover Photo Background */}
       <div 
-        className="absolute inset-0"
+        className="absolute inset-0 hero-background-image"
         style={{
           backgroundImage: `url(${mainCoverPhoto})`,
           backgroundSize: 'cover',
@@ -174,6 +182,19 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
           zIndex: 0
         }}
       />
+
+      {/* Green soft overlay at bottom */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '40%',
+          background: 'linear-gradient(to top, rgba(76, 175, 80, 0.4), transparent)',
+          zIndex: 1
+        }}
+      ></div>
 
       {/* Tennis balls at top corners */}
       <div className="absolute top-8 left-8 z-20" ref={tennisBallLeftRef}>
@@ -194,7 +215,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen">
+      <div className="relative z-10 flex items-end justify-center min-h-screen pb-16">
         <div className="text-center mb-8">
           {/* Tennis Image on Top */}
           <div className="flex justify-center mb-4">
@@ -220,10 +241,11 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
               ref={titleRef}
               className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
               style={{ 
-                color: '#f5f1eb',
+                color: '#ffffff',
                 fontWeight: 900,
                 lineHeight: '1',
-                fontSize: 'clamp(4.5rem, 11vw, 8rem)'
+                fontSize: 'clamp(4.5rem, 11vw, 8rem)',
+                textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
               }}
             >
               AMANDA IRA
@@ -241,7 +263,12 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
           <h2 
             ref={subtitleRef}
             className="text-5xl sm:text-6xl md:text-7xl font-ballet"
-            style={{ color: '#f5f1eb', marginTop: '-1rem', fontSize: 'clamp(3rem, 7.5vw, 5.5rem)' }}
+            style={{ 
+              color: '#ffffff', 
+              marginTop: '-1rem', 
+              fontSize: 'clamp(3rem, 7.5vw, 5.5rem)',
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
+            }}
           >
             @ Eighteen
           </h2>
@@ -251,9 +278,10 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
             ref={dateRef}
             className="text-2xl sm:text-3xl md:text-4xl font-poppins text-center mt-6 mb-8"
             style={{ 
-              color: '#f5f1eb',
+              color: '#ffffff',
               letterSpacing: '0.1em',
-              fontWeight: 400
+              fontWeight: 400,
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
             }}
           >
             01.21.2026
@@ -286,6 +314,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic }) => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

@@ -13,6 +13,11 @@ const Venue = () => {
   const headerRef = useRef(null)
   const imageRef = useRef(null)
   const colorSwatchesRef = useRef(null)
+  const mapRef = useRef(null)
+  const whereToBeRef = useRef(null)
+  const venueDetailsRef = useRef(null)
+  const dressCodeHeadingRef = useRef(null)
+  const dressCodeContentRef = useRef(null)
   const [hoveredColorIndex, setHoveredColorIndex] = useState(null)
   const [clickedColorIndex, setClickedColorIndex] = useState(null)
 
@@ -27,26 +32,58 @@ const Venue = () => {
       }
     })
 
-    // Animate header
+    // Animate header - slide down
     if (headerRef.current) {
       tl.fromTo(headerRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    )
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      )
     }
 
-    // Animate sections with stagger
-    tl.fromTo(".venue-subsection",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.2
-      },
-      "-=0.4"
-    )
+    // Animate map - slide up
+    if (mapRef.current) {
+      tl.fromTo(mapRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.3"
+      )
+    }
+
+    // Animate "WHERE TO BE" - slide from left
+    if (whereToBeRef.current) {
+      tl.fromTo(whereToBeRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate venue details - slide from right
+    if (venueDetailsRef.current) {
+      tl.fromTo(venueDetailsRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate dress code heading - slide from left
+    if (dressCodeHeadingRef.current) {
+      tl.fromTo(dressCodeHeadingRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate dress code content - slide from right
+    if (dressCodeContentRef.current) {
+      tl.fromTo(dressCodeContentRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
 
     // Animate color swatches one after another starting from top
     tl.fromTo(".color-swatch-item",
@@ -61,44 +98,13 @@ const Venue = () => {
       "-=0.4"
     )
 
-    // Image animation - responsive
+    // Image animation - slide from right (sequential)
     if (imageRef.current) {
-      const mm = gsap.matchMedia()
-      
-      // Mobile: fade in
-      mm.add("(max-width: 1023px)", () => {
-        gsap.fromTo(imageRef.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: imageRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        )
-      })
-      
-      // Large screens: slide from right
-      mm.add("(min-width: 1024px)", () => {
-        gsap.fromTo(imageRef.current,
-          { opacity: 0, x: 100 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: imageRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        )
-      })
+      tl.fromTo(imageRef.current,
+        { opacity: 0, x: 100 },
+        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.2"
+      )
     }
 
     // Cleanup function
@@ -134,10 +140,15 @@ const Venue = () => {
             min-height: 600px !important;
           }
         }
+        @media (min-width: 1024px) {
+          .venue-image-mobile {
+            height: 600px !important;
+          }
+        }
       `}</style>
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0 venue-bg-texture"
+      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0 lg:pb-16 venue-bg-texture"
       style={{ 
         backgroundColor: theme.colors.primary
       }}
@@ -145,10 +156,10 @@ const Venue = () => {
       {/* Content */}
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-          {/* Flex Container - Side by side on lg screens */}
-          <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-8 lg:min-h-full">
-            {/* Left Side - Text Content (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
+          {/* Flex Container - Stacked on lg screens */}
+          <div className="flex flex-col">
+            {/* Text Content */}
+            <div className="w-full lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-8 lg:flex lg:flex-col">
               {/* Header Section */}
               <div ref={headerRef} className="text-center mb-12">
                 {/* The in Ballet font */}
@@ -173,8 +184,8 @@ const Venue = () => {
                   GAME PLAN
                 </h2>
 
-                {/* Embedded Google Map */}
-                <div className="mb-12 w-full max-w-2xl mx-auto" style={{ aspectRatio: '1 / 1', maxWidth: '400px', maxHeight: '400px' }}>
+                {/* Embedded Google Map - Hidden on lg screens and above */}
+                <div ref={mapRef} className="mb-12 w-full max-w-2xl mx-auto lg:hidden" style={{ aspectRatio: '1 / 1', maxWidth: '400px', maxHeight: '400px' }}>
                   <iframe 
                     src={venueData.googleMapsEmbedUrl} 
                     width="100%" 
@@ -188,24 +199,40 @@ const Venue = () => {
                 </div>
               </div>
                 
-              {/* WHERE TO BE Section */}
-              <div className="venue-subsection mb-8 text-center">
-                {/* WHERE TO BE */}
-                <h2
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4"
-                  style={{
-                    color: '#f5f1eb',
-                    fontWeight: 900,
-                    lineHeight: '1',
-                    fontSize: 'clamp(2.5rem, 7vw, 7rem)'
-                  }}
-                >
-                  WHERE TO BE
-                </h2>
-              </div>
-
-              {/* Venue Details Section */}
-              <div className="venue-subsection mb-12 text-center">
+              {/* WHERE TO BE and What to Wear Container - Flex row on lg screens */}
+              <div className="flex flex-col lg:flex-row lg:gap-8 lg:items-start">
+                {/* Group 1: WHERE TO BE Section with Venue Details */}
+                <div className="venue-subsection mb-8 lg:mb-0 text-center lg:flex-1">
+                  {/* WHERE TO BE */}
+                  <h2
+                    ref={whereToBeRef}
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4"
+                    style={{
+                      color: '#f5f1eb',
+                      fontWeight: 900,
+                      lineHeight: '1',
+                      fontSize: 'clamp(2.5rem, 7vw, 5rem)'
+                    }}
+                  >
+                    WHERE TO BE
+                  </h2>
+                  
+                  {/* Embedded Google Map - Visible on lg screens and above */}
+                  <div className="hidden lg:block mb-8 mx-auto" style={{ width: '250px', height: '250px' }}>
+                    <iframe 
+                      src={venueData.googleMapsEmbedUrl} 
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0 }} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Venue Location"
+                    ></iframe>
+                  </div>
+                  
+                  {/* Venue Details Section */}
+                  <div ref={venueDetailsRef} className="text-center">
                 <h3
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-tebranos"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(1.875rem, 4vw, 2.625rem)' }}
@@ -275,18 +302,21 @@ const Venue = () => {
                   <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>Get Directions</span>
                   <Navigation className="w-5 h-5 object-contain transition-all duration-200" style={{ color: '#f5f1eb' }} />
                 </a>
-              </div>
+                  </div>
+                </div>
 
-              {/* Dress Code Section */}
-              <div className="venue-subsection mb-12 text-center mt-12">
+                {/* Group 2: Dress Code Section */}
+                <div className="venue-subsection mb-12 lg:mb-0 text-center mt-12 lg:mt-0 lg:flex-1">
                 <h2
+                  ref={dressCodeHeadingRef}
                   className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4 uppercase"
-                  style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 7vw, 7rem)' }}
+                  style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}
                 >
                   What to Wear
                 </h2>
+                {/* Description - Visible on mobile, hidden on lg screens */}
                 <p
-                  className="font-poppins mb-6 max-w-2xl mx-auto"
+                  className="font-poppins mb-6 lg:hidden max-w-2xl mx-auto"
                   style={{ fontSize: '1rem', fontFamily: 'Poppins, sans-serif', color: '#f5f1eb' }}
                 >
                   {dresscode.mainDressCode.description.split('Strictly NO Pink and Red').map((part, index, array) => {
@@ -303,7 +333,7 @@ const Venue = () => {
                   })}
                 </p>
                 {/* Color Swatches and Image Side by Side */}
-                <div className="flex items-center justify-center gap-8 max-w-2xl mx-auto">
+                <div ref={dressCodeContentRef} className="flex items-center justify-center gap-8 max-w-2xl mx-auto">
                   {/* Dresscode Image */}
                   <div className="flex justify-center">
                     <img 
@@ -356,16 +386,34 @@ const Venue = () => {
                     ))}
                   </div>
                 </div>
+                {/* Description - Hidden on mobile, visible on lg screens and above */}
+                <p
+                  className="hidden lg:block font-poppins mb-6 mt-6 max-w-2xl mx-auto"
+                  style={{ fontSize: '1rem', fontFamily: 'Poppins, sans-serif', color: '#f5f1eb' }}
+                >
+                  {dresscode.mainDressCode.description.split('Strictly NO Pink and Red').map((part, index, array) => {
+                    if (index === 0) {
+                      return <span key={index} className="font-poppins" style={{ color: '#f5f1eb', fontFamily: 'Poppins, sans-serif' }}>{part}</span>;
+                    }
+                    return (
+                      <React.Fragment key={index}>
+                        <span className="font-poppins" style={{ color: '#f5f1eb', fontFamily: 'Poppins, sans-serif' }}>Strictly NO Pink and Red</span>
+                        {part && <span className="font-poppins" style={{ color: '#f5f1eb', fontFamily: 'Poppins, sans-serif' }}>{part}</span>}
+                      </React.Fragment>
+                    );
+                  })}
+                </p>
+                </div>
               </div>
             </div>
 
-            {/* Right Side - Image (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex venue-image-mobile">
+            {/* Image - Block under text on lg screens */}
+            <div className="w-full mt-8 lg:mt-0 h-96 overflow-hidden venue-image-mobile">
               <img 
                 ref={imageRef}
                 src="/assets/images/prenup/prenup4.jpg" 
                 alt="Venue" 
-                className="w-full h-full object-cover flex-1"
+                className="w-full h-full object-cover"
                 style={{ 
                   display: 'block',
                   minHeight: '100%',

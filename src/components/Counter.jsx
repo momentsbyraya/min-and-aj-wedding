@@ -75,11 +75,45 @@ const Counter = ({ countdown }) => {
             #f0ede6 calc(var(--stripe-unit) * 8)
           );
         }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .timer-graphics-section {
+            margin-top: -1.5rem !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .timer-graphics-section {
+            margin-top: -2rem !important;
+          }
+        }
+        .timer-image {
+          object-position: center 0% !important;
+          margin-top: -2rem !important;
+        }
+        @media (min-width: 768px) {
+          .timer-image {
+            margin-top: -3rem !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .timer-image {
+            margin-top: -5rem !important;
+            object-position: center top !important;
+          }
+          .counter-section {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+          }
+          .counter-inner-container {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            max-width: 400px !important;
+          }
+        }
       `}</style>
     <section
       ref={sectionRef}
       id="details"
-      className="relative overflow-hidden flex items-stretch justify-center text-center counter-stripes"
+      className="relative overflow-hidden flex items-stretch justify-center text-center counter-stripes counter-section"
       style={{
         minHeight: '100vh',
         paddingTop: '5rem',
@@ -94,7 +128,7 @@ const Counter = ({ countdown }) => {
          {/* Countdown Timer */}
          <div
            ref={countdownRef}
-           className="w-full max-w-4xl mx-auto px-8 sm:px-12 py-8 flex flex-col justify-center"
+           className="w-full max-w-4xl mx-auto px-8 sm:px-12 py-8 flex flex-col justify-center counter-inner-container"
            style={{
              backgroundColor: '#f0ede6',
              border: `0.5px solid ${theme.colors.primary}`,
@@ -107,31 +141,31 @@ const Counter = ({ countdown }) => {
           {/* Title Section */}
           <div className="flex justify-center">
             <h3 className="save-date-title flex flex-col items-center" style={{ lineHeight: '1', gap: 0 }}>
-              <div className="font-tebranos" style={{ color: theme.colors.primary, marginBottom: '-0.4em', fontSize: 'clamp(3rem, 8vw, 8rem)' }}>
+              <div className="font-tebranos" style={{ color: theme.colors.primary, marginBottom: '-0.4em', fontSize: 'clamp(4rem, 10vw, 10rem)' }}>
                 SAVE
               </div>
-              <div className="font-ballet" style={{ color: theme.colors.primary, marginTop: 0, marginBottom: 0, fontSize: 'clamp(3rem, 8vw, 8rem)' }}>
+              <div className="font-ballet" style={{ color: theme.colors.primary, marginTop: 0, marginBottom: 0, fontSize: 'clamp(4rem, 10vw, 10rem)' }}>
                 the
               </div>
-              <div className="font-tebranos" style={{ color: theme.colors.primary, marginTop: '-0.4em', fontSize: 'clamp(3rem, 8vw, 8rem)' }}>
+              <div className="font-tebranos" style={{ color: theme.colors.primary, marginTop: '-0.4em', fontSize: 'clamp(4rem, 10vw, 10rem)' }}>
                 DATE
               </div>
             </h3>
           </div>
 
           {/* Timer Graphics Section */}
-          <div className="flex justify-center items-center mb-6 mt-6">
+          <div className="timer-graphics-section flex justify-center items-center mb-6 mt-6">
             {/* Month on the left */}
             <div className="font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(1rem, 2vw, 1.5rem)' }}>
               {new Date(celebrant.debutant.debut.date).getMonth() + 1 < 10 ? `0${new Date(celebrant.debutant.debut.date).getMonth() + 1}` : new Date(celebrant.debutant.debut.date).getMonth() + 1}
             </div>
             
             {/* Timer Graphics in the center */}
-            <div className="mx-8">
+            <div className="mx-8" style={{ display: 'flex', alignItems: 'flex-start' }}>
               <img 
                 src="/assets/images/graphics/timer.png" 
                 alt="Timer" 
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain"
+                className="timer-image w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain"
               />
             </div>
             
@@ -149,34 +183,34 @@ const Counter = ({ countdown }) => {
           {/* Counter */}
           <div className="flex justify-center items-center space-x-2 px-4 max-w-md mx-auto">
             <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
                 {countdown.days}
               </div>
               <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Days</div>
             </div>
             
-            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 4rem)' }}>:</div>
             
             <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
                 {countdown.hours}
               </div>
               <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Hours</div>
             </div>
             
-            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 4rem)' }}>:</div>
             
             <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
                 {countdown.minutes}
               </div>
               <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Minutes</div>
             </div>
             
-            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 4rem)' }}>:</div>
             
             <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
                 {countdown.seconds}
               </div>
               <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Seconds</div>

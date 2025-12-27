@@ -82,6 +82,15 @@ const SaveTheDate = () => {
             #f0ede6 calc(var(--stripe-unit) * 8)
           );
         }
+        @media (min-width: 1024px) {
+          .save-date-stripes {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+          }
+            .save-date-container {
+              max-width: 550px !important;
+            }
+        }
       `}</style>
     <section
       ref={sectionRef}
@@ -101,7 +110,7 @@ const SaveTheDate = () => {
          {/* Content Container */}
          <div
            ref={imageRef}
-           className="relative w-full max-w-4xl mx-auto overflow-hidden"
+           className="relative w-full max-w-4xl mx-auto overflow-hidden save-date-container"
            style={{
              backgroundColor: '#f0ede6',
              border: `0.5px solid ${theme.colors.primary}`,
@@ -126,7 +135,33 @@ const SaveTheDate = () => {
              }}
            ></div>
            
-           {/* Save the Date text at top left */}
+           {/* Green soft overlay at bottom */}
+           <div
+             style={{
+               position: 'absolute',
+               bottom: 0,
+               left: 0,
+               right: 0,
+               height: '40%',
+               background: 'linear-gradient(to top, rgba(76, 175, 80, 0.4), transparent)',
+               zIndex: 5
+             }}
+           ></div>
+           
+           {/* Green soft overlay at top */}
+           <div
+             style={{
+               position: 'absolute',
+               top: 0,
+               left: 0,
+               right: 0,
+               height: '40%',
+               background: 'linear-gradient(to bottom, rgba(76, 175, 80, 0.4), transparent)',
+               zIndex: 5
+             }}
+           ></div>
+           
+           {/* Serve the Date text at top left */}
            <div 
              className="absolute top-0 left-0 flex flex-col items-start px-6 py-6"
              style={{
@@ -137,17 +172,19 @@ const SaveTheDate = () => {
                className="font-ballet mb-2"
                style={{ 
                  color: '#f5f1eb',
-                 fontSize: 'clamp(2rem, 5vw, 4rem)',
-                 lineHeight: '1'
+                 fontSize: 'clamp(3rem, 7vw, 6rem)',
+                 lineHeight: '1',
+                 textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
                }}
              >
-               Save the Date
+               Serve the Date
              </h2>
              <div 
-               className="font-poppins"
+               className="font-instrument-serif font-semibold"
                style={{ 
                  color: '#f5f1eb',
-                 fontSize: 'clamp(1rem, 2.5vw, 1.5rem)'
+                 fontSize: 'clamp(2rem, 5vw, 3.25rem)',
+                 marginLeft: '1rem'
                }}
              >
                {(() => {
@@ -169,37 +206,37 @@ const SaveTheDate = () => {
              }}
            >
              <div className="text-center">
-               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
+               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 6vw, 4rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
                  {countdown.days}
                </div>
-               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.625rem, 0.9vw, 0.75rem)' }}>Days</div>
+               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Days</div>
              </div>
              
-             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1rem, 3vw, 2rem)' }}>:</div>
+             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center">
-               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
+               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 6vw, 4rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
                  {countdown.hours}
                </div>
-               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.625rem, 0.9vw, 0.75rem)' }}>Hours</div>
+               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Hours</div>
              </div>
              
-             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1rem, 3vw, 2rem)' }}>:</div>
+             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center">
-               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
+               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 6vw, 4rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
                  {countdown.minutes}
                </div>
-               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.625rem, 0.9vw, 0.75rem)' }}>Minutes</div>
+               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Minutes</div>
              </div>
              
-             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1rem, 3vw, 2rem)' }}>:</div>
+             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center">
-               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
+               <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(2.5rem, 6vw, 4rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
                  {countdown.seconds}
                </div>
-               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.625rem, 0.9vw, 0.75rem)' }}>Seconds</div>
+               <div className="font-medium font-poppins" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Seconds</div>
              </div>
            </div>
          </div>

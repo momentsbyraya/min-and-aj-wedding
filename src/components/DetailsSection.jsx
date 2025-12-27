@@ -13,6 +13,14 @@ const DetailsSection = () => {
   const headerRef = useRef(null)
   const forYourRef = useRef(null)
   const informationRef = useRef(null)
+  const wineGlassRef = useRef(null)
+  const rsvpHeadingRef = useRef(null)
+  const rsvpTextRef = useRef(null)
+  const rsvpButtonRef = useRef(null)
+  const giftHeadingRef = useRef(null)
+  const giftTextRef = useRef(null)
+  const giftButtonRef = useRef(null)
+  const giftLinkRef = useRef(null)
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
   const [isGiftModalOpen, setIsGiftModalOpen] = useState(false)
 
@@ -27,44 +35,103 @@ const DetailsSection = () => {
       }
     })
 
-    // Animate header
+    // Animate header - slide down
     if (headerRef.current) {
       tl.fromTo(headerRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: -50 },
         { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
       )
     }
 
-    // Animate "For Your" from left
+    // Animate wine glass - scale up
+    if (wineGlassRef.current) {
+      tl.fromTo(wineGlassRef.current,
+        { opacity: 0, scale: 0 },
+        { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+        "-=0.3"
+      )
+    }
+
+    // Animate "Get" from left
     if (forYourRef.current) {
       tl.fromTo(forYourRef.current,
         { opacity: 0, x: -50 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.4"
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
       )
     }
 
-    // Animate "Information" from right
+    // Animate "Set" from right
     if (informationRef.current) {
       tl.fromTo(informationRef.current,
         { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.6"
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.5"
       )
     }
 
-    // Animate sections with stagger
-    tl.fromTo(".details-subsection",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.2
-      },
-      "-=0.4"
-    )
+    // Animate RSVP heading - slide from left
+    if (rsvpHeadingRef.current) {
+      tl.fromTo(rsvpHeadingRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate RSVP text - slide from right
+    if (rsvpTextRef.current) {
+      tl.fromTo(rsvpTextRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate RSVP button - slide up
+    if (rsvpButtonRef.current) {
+      tl.fromTo(rsvpButtonRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate Gift Registry heading - slide from right
+    if (giftHeadingRef.current) {
+      tl.fromTo(giftHeadingRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate Gift Registry text - slide from left
+    if (giftTextRef.current) {
+      tl.fromTo(giftTextRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate Gift Registry button - slide up
+    if (giftButtonRef.current) {
+      tl.fromTo(giftButtonRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
+
+    // Animate Gift Registry link - slide up
+    if (giftLinkRef.current) {
+      tl.fromTo(giftLinkRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.2"
+      )
+    }
 
     // Cleanup function
     return () => {
@@ -124,6 +191,7 @@ const DetailsSection = () => {
                   Get
                 </span>
                 <img
+                  ref={wineGlassRef}
                   src="/assets/images/graphics/wine-glass.png"
                   alt="Wine glass"
                   className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
@@ -143,18 +211,21 @@ const DetailsSection = () => {
             {/* RSVP Section */}
             <div className="details-subsection mb-12 lg:mb-0 text-center">
               <h2
+                ref={rsvpHeadingRef}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
                 style={{ color: theme.colors.primary }}
               >
                 Game On!
               </h2>
               <p
+                ref={rsvpTextRef}
                 className="font-poppins mb-6 max-w-2xl mx-auto"
                 style={{ color: theme.colors.primary, fontSize: '1rem' }}
               >
                 Please confirm your participation in the upcoming match by <strong className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif" }}>January 8, 2026</strong>. We look forward to seeing you on center court.
               </p>
               <button
+                ref={rsvpButtonRef}
                 onClick={openRSVPModal}
                 className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                 style={{
@@ -199,12 +270,14 @@ const DetailsSection = () => {
             {/* Gift Registry Section */}
             <div className="details-subsection text-center">
               <h2
+                ref={giftHeadingRef}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase whitespace-nowrap"
                 style={{ color: theme.colors.primary }}
               >
                 GIFT REGISTRY
               </h2>
               <p
+                ref={giftTextRef}
                 className="font-poppins mb-6 max-w-2xl mx-auto"
                 style={{ color: theme.colors.primary, fontSize: '1rem' }}
               >
@@ -213,6 +286,7 @@ const DetailsSection = () => {
               {/* Gift Buttons */}
               <div className="flex flex-col gap-4 justify-center items-center">
                 <button
+                  ref={giftButtonRef}
                   onClick={openGiftModal}
                   className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                   style={{
@@ -253,6 +327,7 @@ const DetailsSection = () => {
                   />
                 </button>
                 <a
+                  ref={giftLinkRef}
                   href="https://www.myregistry.com/giftlist/IraAces18"
                   target="_blank"
                   rel="noopener noreferrer"
