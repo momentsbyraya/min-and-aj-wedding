@@ -521,7 +521,7 @@ const Venue = () => {
                     <h3
                       className="venue-venue-name text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-tebranos mb-4"
                     >
-                      Semi Form Chic Outfit
+                      Semi-Formal Chic Outfit
                     </h3>
                     <p
                       className="venue-text-medium font-poppins max-w-2xl mx-auto"
