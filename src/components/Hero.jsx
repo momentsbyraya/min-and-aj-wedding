@@ -156,8 +156,8 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-end justify-center min-h-screen pb-16 hero-content-container">
-        <div className="text-center mb-8 hero-content-wrapper">
+      <div className="relative z-10 flex items-end justify-center min-h-screen pb-16">
+        <div className="text-center mb-8">
           {/* AMANDA IRA with sparkles */}
           <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-2 lg:gap-4 hero-title-container">
             <img 
@@ -166,24 +166,12 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain hero-sparkle"
             />
-            <div className="relative hero-title-wrapper">
-              <img 
-                src="/assets/images/graphics/sparkle.png" 
-                alt="Sparkle" 
-                className="hero-sparkle-mobile-left w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain"
-              />
-              <h1 
-                ref={titleRef}
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos hero-title"
-              >
-                AMANDA IRA
-              </h1>
-              <img 
-                src="/assets/images/graphics/sparkle.png" 
-                alt="Sparkle" 
-                className="hero-sparkle-mobile-right w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain"
-              />
-            </div>
+            <h1 
+              ref={titleRef}
+              className="font-tebranos hero-title"
+            >
+              AMANDA IRA
+            </h1>
             {/* @ Eighteen in Ballet font - inline on lg screens */}
             <h2 
               ref={subtitleRef}
@@ -209,11 +197,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
         </div>
 
         {/* Music Player at Bottom */}
-        <div ref={musicPlayerRef} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 hero-music-player-container">
-          {/* Celebration Date - Mobile/Tablet only */}
-          <div className="hero-date-mobile text-2xl sm:text-3xl md:text-4xl font-poppins text-center mb-4">
-            {celebrationDate}
-          </div>
+        <div ref={musicPlayerRef} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
           <button
             onClick={handleMusicToggle}
             className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 hover:opacity-80 hero-music-button"
