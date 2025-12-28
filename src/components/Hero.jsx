@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Play, Pause } from 'lucide-react'
 import { gsap } from 'gsap'
 import { theme, celebrant } from '../data'
+import './Hero.css'
 
 const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = false }) => {
   const [isPlaying, setIsPlaying] = useState(isMusicPlaying)
@@ -12,7 +13,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
   }, [isMusicPlaying])
   const tennisBallLeftRef = useRef(null)
   const tennisBallRightRef = useRef(null)
-  const tennisImageRef = useRef(null)
   const sparkleLeftRef = useRef(null)
   const sparkleRightRef = useRef(null)
   const titleRef = useRef(null)
@@ -54,16 +54,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
         "-=0.6" // Start slightly after left ball
       )
     }
-
-    // Tennis image scales up and fades in
-    if (tennisImageRef.current) {
-      tl.fromTo(tennisImageRef.current,
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
-        "-=0.4"
-      )
-    }
-
 
     // Sparkles scale up and fade in
     if (sparkleLeftRef.current) {
@@ -132,110 +122,60 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
     }
   }
   return (
-    <>
-      <style>{`
-        @media (min-width: 1024px) {
-          .hero-background-image {
-            background-position: center 35% !important;
-          }
-        }
-      `}</style>
     <section
-      className="relative min-h-screen w-full overflow-hidden"
+      className="relative min-h-screen w-full overflow-hidden hero-section"
       style={{ 
-        backgroundColor: theme.colors.primary,
-        position: 'relative'
+        backgroundColor: theme.colors.primary
       }}
     >
       {/* Main Cover Photo Background */}
       <div 
         className="absolute inset-0 hero-background-image"
         style={{
-          backgroundImage: `url(${mainCoverPhoto})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          zIndex: 0
+          backgroundImage: `url(${mainCoverPhoto})`
         }}
       />
 
       {/* Green soft overlay at bottom */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '40%',
-          background: 'linear-gradient(to top, rgba(76, 175, 80, 0.4), transparent)',
-          zIndex: 1
-        }}
-      ></div>
+      <div className="hero-overlay-bottom"></div>
 
       {/* Tennis balls at top corners */}
       <div className="absolute top-8 left-8 z-20" ref={tennisBallLeftRef}>
         <img 
           src="/assets/images/graphics/tennis-ball-white.png" 
           alt="Tennis ball" 
-          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain"
-          style={{ opacity: 0.75 }}
+          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain hero-tennis-ball"
         />
       </div>
       <div className="absolute top-8 right-8 z-20" ref={tennisBallRightRef}>
         <img 
           src="/assets/images/graphics/tennis-ball-white.png" 
           alt="Tennis ball" 
-          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain"
-          style={{ opacity: 0.75 }}
+          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain hero-tennis-ball"
         />
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex items-end justify-center min-h-screen pb-16">
         <div className="text-center mb-8">
-          {/* Tennis Image on Top */}
-          <div className="flex justify-center mb-4">
-            <img 
-              ref={tennisImageRef}
-              src="/assets/images/graphics/tennis.png" 
-              alt="Tennis" 
-              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-              style={{ filter: 'brightness(0) invert(1)' }}
-            />
-          </div>
-          
           {/* AMANDA IRA with sparkles */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-2 lg:gap-4" style={{ marginTop: '2rem' }}>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-2 lg:gap-4 hero-title-container">
             <img 
               ref={sparkleLeftRef}
               src="/assets/images/graphics/sparkle.png" 
               alt="Sparkle" 
-              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain"
-              style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
+              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain hero-sparkle"
             />
             <h1 
               ref={titleRef}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
-              style={{ 
-                color: '#ffffff',
-                fontWeight: 900,
-                lineHeight: '1',
-                fontSize: 'clamp(4.5rem, 11vw, 8rem)',
-                textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
-              }}
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos hero-title"
             >
               AMANDA IRA
             </h1>
             {/* @ Eighteen in Ballet font - inline on lg screens */}
             <h2 
               ref={subtitleRef}
-              className="text-5xl sm:text-6xl md:text-7xl font-ballet lg:ml-2"
-              style={{ 
-                color: '#ffffff', 
-                marginTop: '-1rem',
-                fontSize: 'clamp(3rem, 7.5vw, 5.5rem)',
-                textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
-              }}
+              className="text-5xl sm:text-6xl md:text-7xl font-ballet lg:ml-2 hero-subtitle"
             >
               @ Eighteen
             </h2>
@@ -243,21 +183,14 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
               ref={sparkleRightRef}
               src="/assets/images/graphics/sparkle.png" 
               alt="Sparkle" 
-              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain"
-              style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
+              className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain hero-sparkle"
             />
           </div>
 
           {/* Celebration Date */}
           <div 
             ref={dateRef}
-            className="text-2xl sm:text-3xl md:text-4xl font-poppins text-center mt-6 mb-8"
-            style={{ 
-              color: '#ffffff',
-              letterSpacing: '0.1em',
-              fontWeight: 400,
-              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)'
-            }}
+            className="text-2xl sm:text-3xl md:text-4xl font-poppins text-center mt-6 mb-8 hero-date"
           >
             {celebrationDate}
           </div>
@@ -267,12 +200,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
         <div ref={musicPlayerRef} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
           <button
             onClick={handleMusicToggle}
-            className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 hover:opacity-80"
-            style={{ 
-              backgroundColor: 'rgba(245, 241, 235, 0.2)',
-              backdropFilter: 'blur(10px)',
-              color: '#f5f1eb'
-            }}
+            className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 hover:opacity-80 hero-music-button"
           >
             {isPlaying ? (
               <>
@@ -289,7 +217,6 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
         </div>
       </div>
     </section>
-    </>
   )
 }
 

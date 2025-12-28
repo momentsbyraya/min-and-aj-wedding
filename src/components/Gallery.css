@@ -1,0 +1,69 @@
+/* Gallery Component Styles */
+
+.gallery-section {
+  position: relative;
+  min-height: 100vh;
+}
+
+.gallery-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background-color: var(--primary-color, #065143);
+  z-index: 0;
+}
+
+.gallery-content {
+  padding: 2rem 0;
+}
+
+.gallery-camera-icon {
+  filter: brightness(0) invert(1);
+}
+
+.gallery-title-container {
+  margin-top: 2rem;
+}
+
+.gallery-sparkle {
+  align-self: center;
+  filter: brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%);
+}
+
+.gallery-heading {
+  color: #f5f1eb;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gallery-photos-by {
+  color: #f5f1eb;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  text-transform: none;
+}
+
+.gallery-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color, #065143) transparent;
+  cursor: grab;
+}
+
+.gallery-scroll-container:active {
+  cursor: grabbing;
+}
+
+.gallery-images-wrapper {
+  width: max-content;
+}
+
+.gallery-image {
+  width: 80vw;
+  max-width: 450px;
+  height: auto;
+}
+

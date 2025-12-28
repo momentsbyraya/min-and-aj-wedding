@@ -19,6 +19,7 @@ import DetailsSection from './DetailsSection'
 import EighteenList from './EighteenList'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
+import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
   useEffect(() => {
@@ -96,16 +97,16 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
         </EnhancedLazySection> */}
         
         {/* Footer */}
-        <footer className="py-4 text-center">
+        <footer className="wedding-invitation-footer">
           <a 
             href="https://www.facebook.com/profile.php?id=61571540978411"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer hover:opacity-80 transition-all duration-200 font-poppins footer-link"
+            className="wedding-invitation-footer-link"
             style={{ color: theme.colors.primary }}
           >
             <span>Made with</span>
-            <IoHeart className="w-4 h-4 sm:w-5 sm:h-5 footer-heart" style={{ color: theme.colors.primary }} />
+            <IoHeart className="wedding-invitation-footer-heart" style={{ color: theme.colors.primary }} />
             <span>|</span>
             <span>Moments by Raya</span>
           </a>
@@ -116,4 +117,4 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
   )
 }
 
-export default WeddingInvitation 
+export default WeddingInvitation

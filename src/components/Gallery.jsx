@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
+import './Gallery.css'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -20,11 +21,9 @@ const Gallery = () => {
   const sectionRef = useRef(null)
   const scrollContainerRef = useRef(null)
   const cameraRef = useRef(null)
-  const capturedTextRef = useRef(null)
   const sparkleLeftRef = useRef(null)
   const galleryHeadingRef = useRef(null)
   const sparkleRightRef = useRef(null)
-  const momentsRef = useRef(null)
   const galleryImagesRef = useRef(null)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -99,15 +98,6 @@ const Gallery = () => {
       )
     }
 
-    // Animate CAPTURED text - slide up
-    if (capturedTextRef.current) {
-      tl.fromTo(capturedTextRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
     // Animate left sparkle - scale and rotate
     if (sparkleLeftRef.current) {
       tl.fromTo(sparkleLeftRef.current,
@@ -135,15 +125,6 @@ const Gallery = () => {
       )
     }
 
-    // Animate Moments subtitle - slide up
-    if (momentsRef.current) {
-      tl.fromTo(momentsRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
     // Animate gallery images container - slide from right
     if (galleryImagesRef.current) {
       tl.fromTo(galleryImagesRef.current,
@@ -162,32 +143,13 @@ const Gallery = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full flex flex-col"
-      style={{ 
-        minHeight: '100vh',
-        position: 'relative'
-      }}
+      className="gallery-section relative w-full flex flex-col"
     >
       {/* Pseudo-element Background - Primary Color */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '60%',
-          backgroundColor: theme.colors.primary,
-          zIndex: 0
-        }}
-      />
+      <div className="gallery-background" />
 
       {/* Content Container */}
-      <div 
-        className="w-full flex flex-col relative z-10"
-        style={{ 
-          padding: '2rem 0'
-        }}
-      >
+      <div className="gallery-content w-full flex flex-col relative z-10">
         {/* Title Section */}
         <div className="text-center mb-8">
           {/* Camera Icon */}
@@ -196,77 +158,21 @@ const Gallery = () => {
               ref={cameraRef}
               src="/assets/images/graphics/camera.png" 
               alt="Camera" 
-              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-              style={{ filter: 'brightness(0) invert(1)' }}
+              className="gallery-camera-icon w-6 h-6 sm:w-8 sm:h-8 object-contain"
             />
           </div>
           
-          {/* CAPTURED text - smooth circular arch downward */}
-          <div 
-            ref={capturedTextRef}
-            className="uppercase mb-2 font-poppins"
-            style={{ 
-              color: '#f5f1eb', 
-              letterSpacing: '0.05em',
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontFamily: "'Poppins', sans-serif",
-              fontSize: 'clamp(0.75rem, 2vw, 0.875rem)'
-            }}
-          >
-            {'CAPTURED'.split('').map((letter, index) => {
-              const totalLetters = 8
-              const centerIndex = (totalLetters - 1) / 2
-              const offset = index - centerIndex
-              
-              // Circular arch parameters
-              const radius = 30 // Radius of the circle (adjust for arch depth)
-              const maxAngle = Math.PI / 5 // 36 degrees total arc (adjust for arch width)
-              const angle = (offset / centerIndex) * maxAngle
-              
-              // Calculate position on circle
-              const x = radius * Math.sin(angle)
-              const y = radius * (1 - Math.cos(angle)) // Downward arch
-              const rotation = (angle * 180) / Math.PI // Convert to degrees
-              
-              return (
-                <span
-                  key={index}
-                  style={{
-                    display: 'inline-block',
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
-                    position: 'relative',
-                    transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
-                    transformOrigin: 'center bottom',
-                    marginRight: '-0.1em'
-                  }}
-                >
-                  {letter === ' ' ? '\u00A0' : letter}
-                </span>
-              )
-            })}
-          </div>
-          
           {/* THE GALLERY with sparkles */}
-          <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '2rem' }}>
+          <div className="gallery-title-container flex items-center justify-center gap-3 mb-2">
             <img 
               ref={sparkleLeftRef}
               src="/assets/images/graphics/sparkle.png" 
               alt="Sparkle" 
-              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-              style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
+              className="gallery-sparkle w-6 h-6 sm:w-8 sm:h-8 object-contain"
             />
             <h2 
               ref={galleryHeadingRef}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
-              style={{ 
-                color: '#f5f1eb',
-                fontWeight: 900,
-                lineHeight: '1'
-              }}
+              className="gallery-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
             >
               THE GALLERY
             </h2>
@@ -274,19 +180,14 @@ const Gallery = () => {
               ref={sparkleRightRef}
               src="/assets/images/graphics/sparkle.png" 
               alt="Sparkle" 
-              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-              style={{ alignSelf: 'center', filter: 'brightness(0) saturate(100%) invert(9%) sepia(100%) saturate(7200%) hue-rotate(325deg) brightness(90%) contrast(90%)' }}
+              className="gallery-sparkle w-6 h-6 sm:w-8 sm:h-8 object-contain"
             />
           </div>
           
-          {/* Moments in Ballet font */}
-          <h3 
-            ref={momentsRef}
-            className="text-5xl sm:text-6xl md:text-7xl font-ballet"
-            style={{ color: '#f5f1eb', marginTop: '-1rem' }}
-          >
-            Moments
-          </h3>
+          {/* Photos by Elisha Cacnio */}
+          <p className="gallery-photos-by mt-2 font-poppins">
+            Photos by Elisha Cacnio
+          </p>
         </div>
 
         {/* Horizontal Scrollable Images */}
@@ -296,12 +197,7 @@ const Gallery = () => {
         >
         <div 
           ref={scrollContainerRef}
-          className="w-full overflow-x-auto"
-          style={{ 
-            scrollbarWidth: 'thin',
-            scrollbarColor: `${theme.colors.primary} transparent`,
-            cursor: 'grab'
-          }}
+          className="gallery-scroll-container w-full overflow-x-auto"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
@@ -310,19 +206,14 @@ const Gallery = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
+          <div className="gallery-images-wrapper flex gap-4 px-4">
             {prenupImages.map((image, index) => (
               <img
                 key={index}
                 src={image}
                 alt={`Prenup ${index + 1}`}
-                className="flex-shrink-0 object-cover"
+                className="gallery-image flex-shrink-0 object-cover"
                 draggable="false"
-                style={{
-                  width: '80vw',
-                  maxWidth: '450px',
-                  height: 'auto'
-                }}
               />
             ))}
           </div>

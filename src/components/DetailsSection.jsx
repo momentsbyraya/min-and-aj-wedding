@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
 import RSVPModal from './RSVPModal'
 import GiftModal from './GiftModal'
+import './DetailsSection.css'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -151,42 +152,32 @@ const DetailsSection = () => {
     <>
       <section
         ref={sectionRef}
-        className="relative w-full overflow-hidden"
-        style={{ backgroundColor: '#f5f1eb', padding: '4rem 2rem' }}
+        className="details-section relative w-full overflow-hidden"
       >
         {/* Content */}
         <div className="relative z-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="details-content-wrapper max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header Section */}
-            <div ref={headerRef} className="text-center mb-12">
+            <div ref={headerRef} className="details-header-section text-center mb-12">
               {/* The in Ballet font */}
               <h1
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                style={{ color: theme.colors.primary }}
+                className="details-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
               >
                 The
               </h1>
 
               {/* TOURNAMENT ENTRY */}
               <h2
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4"
-                style={{
-                  color: theme.colors.primary,
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  marginTop: '-0.4em',
-                  fontSize: 'clamp(2.75rem, 7.5vw, 7rem)'
-                }}
+                className="details-tournament-entry text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4"
               >
                 TOURNAMENT ENTRY
               </h2>
 
               {/* Wine glass below title with words on both sides */}
-              <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="wine-glass-container flex items-center justify-center gap-3 mb-2">
                 <span
                   ref={forYourRef}
-                  className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
-                  style={{ color: theme.colors.primary }}
+                  className="details-text-primary text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
                 >
                   Get
                 </span>
@@ -194,12 +185,11 @@ const DetailsSection = () => {
                   ref={wineGlassRef}
                   src="/assets/images/graphics/wine-glass.png"
                   alt="Wine glass"
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+                  className="details-wine-glass-image wine-glass-image w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-auto object-contain"
                 />
                 <span
                   ref={informationRef}
-                  className="text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
-                  style={{ color: theme.colors.primary }}
+                  className="details-text-primary text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
                 >
                   Set
                 </span>
@@ -212,57 +202,36 @@ const DetailsSection = () => {
             <div className="details-subsection mb-12 lg:mb-0 text-center">
               <h2
                 ref={rsvpHeadingRef}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
-                style={{ color: theme.colors.primary }}
+                className="details-rsvp-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
               >
                 Game On!
               </h2>
               <p
                 ref={rsvpTextRef}
-                className="font-poppins mb-6 max-w-2xl mx-auto"
-                style={{ color: theme.colors.primary, fontSize: '1rem' }}
+                className="details-text-primary font-poppins mb-6 max-w-2xl mx-auto"
               >
-                Please confirm your participation in the upcoming match by <strong className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif" }}>January 8, 2026</strong>. We look forward to seeing you on center court.
+                Please confirm your participation in the upcoming match by <strong className="details-strong-text font-poppins">January 8, 2026</strong>. We look forward to seeing you on center court.
               </p>
               <button
                 ref={rsvpButtonRef}
                 onClick={openRSVPModal}
-                className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
+                className="details-button inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                 style={{
                   backgroundColor: theme.colors.tertiary,
-                  borderRadius: 0,
-                  color: '#f5f1eb',
-                  border: `0.5px solid ${theme.colors.primary}`,
-                  outline: `0.5px solid #f5f1eb`,
-                  outlineOffset: '-5px',
-                  fontFamily: "'Poppins', sans-serif",
-                  font: "normal normal 400 1rem 'Poppins', sans-serif"
+                  border: `0.5px solid ${theme.colors.primary}`
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = theme.colors.tertiary
-                  e.currentTarget.style.opacity = '0.9'
-                  e.currentTarget.style.color = '#f5f1eb'
-                  const img = e.currentTarget.querySelector('img')
-                  if (img) {
-                    img.style.filter = 'brightness(0) invert(1)'
-                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = theme.colors.tertiary
-                  e.currentTarget.style.opacity = '1'
-                  e.currentTarget.style.color = '#f5f1eb'
-                  const img = e.currentTarget.querySelector('img')
-                  if (img) {
-                    img.style.filter = 'brightness(0) invert(1)'
-                  }
                 }}
               >
-                <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>RSVP</span>
+                <span className="details-button-text font-poppins">RSVP</span>
                 <img
                   src="/assets/images/graphics/tennis.png"
                   alt="Tennis"
-                  className="w-5 h-5 object-contain transition-all duration-200"
-                  style={{ filter: 'brightness(0) invert(1)' }}
+                  className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
                 />
               </button>
             </div>
@@ -271,15 +240,13 @@ const DetailsSection = () => {
             <div className="details-subsection text-center">
               <h2
                 ref={giftHeadingRef}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase whitespace-nowrap"
-                style={{ color: theme.colors.primary }}
+                className="details-gift-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase whitespace-nowrap"
               >
                 GIFT REGISTRY
               </h2>
               <p
                 ref={giftTextRef}
-                className="font-poppins mb-6 max-w-2xl mx-auto"
-                style={{ color: theme.colors.primary, fontSize: '1rem' }}
+                className="details-text-primary font-poppins mb-6 max-w-2xl mx-auto"
               >
                 The best part of celebrating this milestone is having you there! If you'd like to give a gift, feel free to choose from my registry or add to my Future Fund instead. I appreciate the support as I "turn pro" and head into adulthood!
               </p>
@@ -288,42 +255,23 @@ const DetailsSection = () => {
                 <button
                   ref={giftButtonRef}
                   onClick={openGiftModal}
-                  className="inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
+                  className="details-button inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
                   style={{
                     backgroundColor: theme.colors.tertiary,
-                    borderRadius: 0,
-                    color: '#f5f1eb',
-                    border: `0.5px solid ${theme.colors.primary}`,
-                    outline: `0.5px solid #f5f1eb`,
-                    outlineOffset: '-5px',
-                    fontFamily: "'Poppins', sans-serif",
-                    font: "normal normal 400 1rem 'Poppins', sans-serif"
+                    border: `0.5px solid ${theme.colors.primary}`
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = theme.colors.tertiary
-                    e.currentTarget.style.opacity = '0.9'
-                    e.currentTarget.style.color = '#f5f1eb'
-                    const img = e.currentTarget.querySelector('img')
-                    if (img) {
-                      img.style.filter = 'brightness(0) invert(1)'
-                    }
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = theme.colors.tertiary
-                    e.currentTarget.style.opacity = '1'
-                    e.currentTarget.style.color = '#f5f1eb'
-                    const img = e.currentTarget.querySelector('img')
-                    if (img) {
-                      img.style.filter = 'brightness(0) invert(1)'
-                    }
                   }}
                 >
-                  <span className="font-poppins" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 'normal' }}>Send Funds</span>
+                  <span className="details-button-text font-poppins">Send Funds</span>
                   <img
                     src="/assets/images/graphics/tennis.png"
                     alt="Tennis"
-                    className="w-5 h-5 object-contain transition-all duration-200"
-                    style={{ filter: 'brightness(0) invert(1)' }}
+                    className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
                   />
                 </button>
                 <a
@@ -331,13 +279,7 @@ const DetailsSection = () => {
                   href="https://www.myregistry.com/giftlist/IraAces18"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-poppins underline transition-all duration-200 hover:opacity-80"
-                  style={{ 
-                    color: theme.colors.tertiary,
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: '1rem',
-                    textDecoration: 'underline'
-                  }}
+                  className="details-gift-link details-gift-link-tertiary font-poppins underline transition-all duration-200 hover:opacity-80"
                 >
                   View My Gift Registry
                 </a>
