@@ -284,6 +284,10 @@
   .eighteen-image-mobile {
     object-position: right center !important;
   }
+  
+  .tennis-matches-image {
+    object-position: 70% center !important;
+  }
 }
 
 @media (min-width: 768px) {
