@@ -151,7 +151,7 @@ const LoveStory = () => {
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
-                  She's been serving brilliance since pre-school years – whether it's hitting the perfect note with her violin 🎻, smashing aces on the tennis court 💥, or solving math problems like a grand slam champ 🧠✨. Amanda is a true all-court player: born leader, Philippine team mathlete, and high school top seed (a.k.a. consistent Top 1!). Focused, passionate, and always ready to chase the next big win.
+                  She's been serving brilliance since pre-school years – whether it's hitting the perfect note with her violin 🎻, smashing aces on the tennis court 💥, or solving math problems like a grand slam champ 🧠✨. Amanda is a true all-court player: born leader, Philippine team mathlete, and high school top seed (consistent Top 1). Focused, passionate, and always ready to chase the next big win.
                 </p>
                 
                 <p 
@@ -165,7 +165,7 @@ const LoveStory = () => {
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
                   style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
-                  Today, we celebrate not just her milestones but the incredible person she has become, and the amazing that she will become.
+                  Today, we celebrate not just her milestones but the incredible person she has become, and the amazing lady that she will become.
                 </p>
                 
                 <p 

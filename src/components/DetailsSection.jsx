@@ -279,9 +279,24 @@ const DetailsSection = () => {
                   href="https://www.myregistry.com/giftlist/IraAces18"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="details-gift-link details-gift-link-tertiary font-poppins underline transition-all duration-200 hover:opacity-80"
+                  className="details-button inline-flex items-center justify-center space-x-3 py-3 px-8 transition-all duration-200 text-base font-medium font-poppins"
+                  style={{
+                    backgroundColor: theme.colors.tertiary,
+                    border: `0.5px solid ${theme.colors.primary}`
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = theme.colors.tertiary
+                  }}
                 >
-                  View My Gift Registry
+                  <span className="details-button-text font-poppins">View My Gift Registry</span>
+                  <img
+                    src="/assets/images/graphics/tennis.png"
+                    alt="Tennis"
+                    className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
+                  />
                 </a>
               </div>
             </div>

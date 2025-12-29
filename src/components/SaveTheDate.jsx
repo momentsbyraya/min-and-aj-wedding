@@ -171,9 +171,9 @@ const SaveTheDate = () => {
                position: 'absolute',
                top: '-10%',
                left: '-10%',
-               backgroundImage: 'url(/assets/images/prenup/prenup8.png)',
+               backgroundImage: 'url(/assets/images/prenup/prenup9.jpg)',
                backgroundSize: 'cover',
-               backgroundPosition: 'center',
+               backgroundPosition: '30% center',
                backgroundRepeat: 'no-repeat'
              }}
            ></div>
