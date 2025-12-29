@@ -234,8 +234,7 @@ const EighteenList = () => {
             </h2>
           </div>
           <h3 ref={tennisMatchesHeadingRef} className="eighteen-text-white mb-4">
-            <span className="eighteen-heading-number font-instrument-serif font-semibold">18</span>
-            <span className="eighteen-heading-text font-instrument-serif uppercase"> Tennis Matches</span>
+            <span className="eighteen-heading-text font-instrument-serif uppercase">Tennis Matches</span>
           </h3>
           {eighteenths.categories[0].description && (
             <div ref={tennisMatchesDescRef} className="eighteen-description font-poppins">
@@ -270,8 +269,7 @@ const EighteenList = () => {
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Title */}
           <h3 ref={matchesGridTitleRef} className="eighteen-text-white mb-8 text-center">
-            <span className="eighteen-heading-number font-instrument-serif font-semibold">18</span>
-            <span className="eighteen-heading-text font-instrument-serif uppercase"> Tennis Matches</span>
+            <span className="eighteen-heading-text font-instrument-serif uppercase">Tennis Matches</span>
           </h3>
           {/* Grid container for matches */}
           <div className="grid gap-4 justify-items-center matches-grid">
