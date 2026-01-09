@@ -210,7 +210,7 @@ const DetailsSection = () => {
                 ref={rsvpTextRef}
                 className="details-text-primary font-poppins mb-6 max-w-2xl mx-auto"
               >
-                Please confirm your participation in the upcoming match by <strong className="details-strong-text font-poppins">January 8, 2026</strong>. We look forward to seeing you on center court.
+                Please confirm your participation in the upcoming match by <strong className="details-strong-text font-poppins">January 14, 2026</strong>. We look forward to seeing you on center court.
               </p>
               <button
                 ref={rsvpButtonRef}
