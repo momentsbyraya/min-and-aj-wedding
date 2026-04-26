@@ -153,22 +153,23 @@ const DetailsSection = () => {
       <section
         ref={sectionRef}
         className="details-section relative w-full overflow-hidden"
+        style={{ background: 'linear-gradient(180deg, #fff6f2 0%, #f7d9dd 100%)' }}
       >
         {/* Content */}
         <div className="relative z-10">
-          <div className="details-content-wrapper max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="details-content-wrapper max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             {/* Header Section */}
             <div ref={headerRef} className="details-header-section text-center mb-12">
               {/* The in Ballet font */}
               <h1
-                className="details-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
+                className="details-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-my-soul mb-2"
               >
                 The
               </h1>
 
               {/* TOURNAMENT ENTRY */}
               <h2
-                className="details-tournament-entry text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-tebranos mb-4"
+                className="details-tournament-entry text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-rozha mb-4"
               >
                 TOURNAMENT ENTRY
               </h2>
@@ -177,19 +178,19 @@ const DetailsSection = () => {
               <div className="wine-glass-container flex items-center justify-center gap-3 mb-2">
                 <span
                   ref={forYourRef}
-                  className="details-text-primary text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
+                  className="details-text-primary text-2xl sm:text-3xl md:text-4xl font-my-soul capitalize"
                 >
                   Get
                 </span>
                 <img
                   ref={wineGlassRef}
-                  src="/assets/images/graphics/wine-glass.png"
+                  src="/images/graphics/wine-glass.png"
                   alt="Wine glass"
                   className="details-wine-glass-image wine-glass-image w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-auto object-contain"
                 />
                 <span
                   ref={informationRef}
-                  className="details-text-primary text-2xl sm:text-3xl md:text-4xl font-ballet capitalize"
+                  className="details-text-primary text-2xl sm:text-3xl md:text-4xl font-my-soul capitalize"
                 >
                   Set
                 </span>
@@ -199,18 +200,18 @@ const DetailsSection = () => {
             {/* Sections Container - Grid on lg screens */}
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16">
             {/* RSVP Section */}
-            <div className="details-subsection mb-12 lg:mb-0 text-center">
+            <div className="details-subsection mb-12 lg:mb-0 text-center bg-[#fff5f3]/85 border border-[#e28b91] p-6">
               <h2
                 ref={rsvpHeadingRef}
-                className="details-rsvp-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase"
+                className="details-rsvp-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rozha mb-4 uppercase"
               >
                 Game On!
               </h2>
               <p
                 ref={rsvpTextRef}
-                className="details-text-primary font-poppins mb-6 max-w-2xl mx-auto"
+                className="details-text-primary font-rozha mb-6 max-w-2xl mx-auto"
               >
-                Please confirm your participation in the upcoming match by <strong className="details-strong-text font-poppins">January 14, 2026</strong>. We look forward to seeing you on center court.
+                Please confirm your participation in the upcoming match by <strong className="details-strong-text font-poppins">June 10, 2026</strong>. We look forward to seeing you on center court.
               </p>
               <button
                 ref={rsvpButtonRef}
@@ -229,7 +230,7 @@ const DetailsSection = () => {
               >
                 <span className="details-button-text font-poppins">RSVP</span>
                 <img
-                  src="/assets/images/graphics/tennis.png"
+                  src="/images/graphics/tennis.png"
                   alt="Tennis"
                   className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
                 />
@@ -237,16 +238,16 @@ const DetailsSection = () => {
             </div>
 
             {/* Gift Registry Section */}
-            <div className="details-subsection text-center">
+            <div className="details-subsection text-center bg-[#fff5f3]/85 border border-[#e28b91] p-6">
               <h2
                 ref={giftHeadingRef}
-                className="details-gift-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-4 uppercase whitespace-nowrap"
+                className="details-gift-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rozha mb-4 uppercase whitespace-nowrap"
               >
                 GIFT REGISTRY
               </h2>
               <p
                 ref={giftTextRef}
-                className="details-text-primary font-poppins mb-6 max-w-2xl mx-auto"
+                className="details-text-primary font-rozha mb-6 max-w-2xl mx-auto"
               >
                 The best part of celebrating this milestone is having you there! If you'd like to give a gift, feel free to choose from my registry or add to my Future Fund instead. I appreciate the support as I "turn pro" and head into adulthood!
               </p>
@@ -269,7 +270,7 @@ const DetailsSection = () => {
                 >
                   <span className="details-button-text font-poppins">Send Funds</span>
                   <img
-                    src="/assets/images/graphics/tennis.png"
+                    src="/images/graphics/tennis.png"
                     alt="Tennis"
                     className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
                   />
@@ -293,7 +294,7 @@ const DetailsSection = () => {
                 >
                   <span className="details-button-text font-poppins">View My Gift Registry</span>
                   <img
-                    src="/assets/images/graphics/tennis.png"
+                    src="/images/graphics/tennis.png"
                     alt="Tennis"
                     className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
                   />

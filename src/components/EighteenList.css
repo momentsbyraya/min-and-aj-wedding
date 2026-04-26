@@ -1,7 +1,7 @@
 /* EighteenList Component Styles */
 
 .eighteen-section {
-  background-color: var(--primary-color, #065143);
+  background-color: var(--primary-color, #F5DBCE);
   position: relative;
 }
 
@@ -14,7 +14,7 @@
   bottom: 0;
   background-image: 
     linear-gradient(rgba(6, 81, 67, 0.5), rgba(6, 81, 67, 0.5)),
-    url(/assets/images/graphics/%28NEW%29%20Background%20for%20Eighteenths.png);
+    url(/images/graphics/%28NEW%29%20Background%20for%20Eighteenths.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -99,7 +99,7 @@
   font-size: clamp(0.875rem, 1.2vw, 1rem);
   line-height: 1.6;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--primary-color, #065143);
+  background-color: var(--primary-color, #F5DBCE);
   border: 0.5px solid #f5f1eb;
   outline: 0.5px solid #f5f1eb;
   outline-offset: -5px;
@@ -165,7 +165,7 @@
 
 
 .eighteen-match-card {
-  background-color: var(--primary-color, #065143);
+  background-color: var(--primary-color, #F5DBCE);
   border: 0.5px solid #f5f1eb;
   outline: 0.5px solid #f5f1eb;
   outline-offset: -5px;

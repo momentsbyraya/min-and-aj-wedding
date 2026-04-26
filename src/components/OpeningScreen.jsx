@@ -1,109 +1,49 @@
-import React, { useRef } from 'react'
-import { celebrant } from '../data'
+import React from 'react'
 
 function OpeningScreen({ onEnvelopeOpen }) {
-  const envelopeRef = useRef(null)
-  const openingSectionRef = useRef(null)
-
-  const handleEnvelopeClick = () => {
-    const envelope = envelopeRef.current
-    const openingSection = openingSectionRef.current
-    
-    if (envelope) {
-      envelope.classList.add('active')
-      // Letter translation: 0.3s delay + 0.8s duration = 1.1s total
-      // Wait 1 second after letter finishes translating
-      setTimeout(() => {
-        if (openingSection) {
-          openingSection.classList.add('zooming-out')
-          // After zoom and fadeout animation completes, reveal invitation
-          setTimeout(() => {
-            if (onEnvelopeOpen) {
-              onEnvelopeOpen()
-            }
-          }, 1500) // Animation duration
-        }
-      }, 2100) // 1.1s (letter animation) + 1000ms (1 second wait)
-    }
+  const handleOpen = () => {
+    if (onEnvelopeOpen) onEnvelopeOpen()
   }
 
   return (
-    <div 
-      ref={openingSectionRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
-    >
-      {/* Background matching dress code section */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          backgroundColor: 'white'
-        }}
+    <div className="fixed inset-0 z-[9999] bg-white">
+      <img
+        src="/images/graphics/opening.png"
+        alt="Opening"
+        style={{ width: '100vw', height: 'auto', display: 'block' }}
       />
-      <div 
-        className="absolute inset-0 z-10 opening-bg-pulse"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.3
-        }}
-      />
-      <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
-        {/* Click me text */}
-        <div className="mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-center click-me-container">
-          <h1 
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-antsvalley leading-tight"
-            style={{ color: '#1e3a5f', fontSize: 'clamp(3rem, 8vw, 96px)', marginLeft: '-1rem' }}
-          >
-            Click me!
-          </h1>
-        </div>
-        <div className="envelope" ref={envelopeRef}>
-          <button 
-            className="heart stamp-button" 
-            id="openEnvelope" 
-            aria-label="Open Envelope"
-            onClick={handleEnvelopeClick}
-          >
-            <img 
-              src="/assets/images/graphics/rg-stamp.png" 
-              alt="Stamp" 
-              className="stamp-image"
-            />
-          </button>
-          <div className="envelope-flap"></div>
-          <div className="envelope-folds">
-            <div className="envelope-left"></div>
-            <div className="envelope-right"></div>
-            <div className="envelope-bottom"></div>
-          </div>
-          {/* Letter that slides up when envelope opens */}
-          <div className="envelope-letter">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-bold">You are invited!</p>
-            <img 
-              src="/assets/images/graphics/cutlery-sketch.png" 
-              alt="Cutlery sketch" 
-              className="mt-4 w-20 sm:w-24 md:w-28 h-auto mx-auto"
-            />
-          </div>
-        </div>
-        {/* Debutant name and date below envelope */}
-        <div className="mt-12 sm:mt-16 md:mt-20 text-center couple-name-container">
-          <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-script leading-tight"
-            style={{ color: '#1e3a5f', fontSize: 'clamp(1.5rem, 4vw, 48px)' }}
-          >
-            {celebrant.debutant.name.full}
-          </h2>
-          <p 
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-script mt-1"
-            style={{ color: '#1e3a5f', fontSize: 'clamp(1rem, 2.5vw, 30px)' }}
-          >
-            {new Date(celebrant.debutant.debut.date).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}
+
+      <div className="opening-flower-wind-layer absolute inset-0 z-[5] overflow-hidden pointer-events-none">
+          <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="opening-flower-petal" style={{ top: '60%', animationDelay: '0s', animationDuration: '11s' }} />
+          <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="opening-flower-petal" style={{ top: '67%', animationDelay: '2.8s', animationDuration: '12.5s' }} />
+          <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="opening-flower-petal" style={{ top: '73%', animationDelay: '5.2s', animationDuration: '11.8s' }} />
+      </div>
+
+      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center justify-center px-4 text-center pointer-events-none z-10">
+        <div className="mb-4 sm:mb-6 md:mb-8">
+          <p className="font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase" style={{ color: '#E28B91' }}>
+            YOU ARE CORDIALLY
+          </p>
+          <p className="font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight" style={{ color: '#E28B91' }}>
+            Invited
           </p>
         </div>
-      </section>
+        <button
+          type="button"
+          onClick={handleOpen}
+          aria-label="Open invitation"
+          className="focus:outline-none p-0 m-0 border-0 bg-transparent leading-none pointer-events-auto"
+        >
+          <img
+            src="/images/graphics/envelope.png"
+            alt="Envelope"
+            style={{ width: '80vw', height: 'auto' }}
+          />
+        </button>
+        <p className="font-foglihten tracking-[0.3em] text-xs sm:text-sm md:text-base uppercase mt-3" style={{ color: '#E28B91' }}>
+          CLICK TO OPEN.
+        </p>
+      </div>
     </div>
   )
 }

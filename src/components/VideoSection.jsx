@@ -16,7 +16,7 @@ const VideoSection = ({ onPauseMusic, onResumeMusic }) => {
 
   const videos = [
     {
-      src: "/assets/videos/VID-20251127-WA0000.mp4",
+      src: "/videos/VID-20251127-WA0000.mp4",
       thumbnail: null, // Can add thumbnail later
       title: "Video 1"
     }
@@ -267,7 +267,7 @@ const VideoSection = ({ onPauseMusic, onResumeMusic }) => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
+            backgroundImage: 'url(/images/graphics/rose-gold-pupr-bg.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -278,7 +278,7 @@ const VideoSection = ({ onPauseMusic, onResumeMusic }) => {
         <div 
           className="absolute inset-0 opacity-30 z-10"
           style={{
-            backgroundImage: 'url(/assets/images/crumpled-paper.png)',
+            backgroundImage: 'url(/images/crumpled-paper.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -317,7 +317,7 @@ const VideoSection = ({ onPauseMusic, onResumeMusic }) => {
                     <div className="w-full bg-white shadow-2xl transition-transform duration-300 p-0 flex flex-col relative" style={{ overflow: 'visible' }}>
                       {/* Butterfly at top right of video container */}
                       <img 
-                        src="/assets/images/graphics/butterfly-half-left.png" 
+                        src="/images/graphics/butterfly-half-left.png" 
                         alt="Butterfly" 
                         className="absolute top-0 right-0 z-10"
                         style={{ 

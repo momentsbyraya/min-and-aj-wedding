@@ -62,10 +62,10 @@ const GiftRegistry = () => {
     }
   }, [])
   const gifts = [
-    { name: 'Perfume', image: '/assets/images/graphics/perfume.png' },
-    { name: 'Books', image: '/assets/images/graphics/books.png' },
-    { name: 'Accessories', image: '/assets/images/graphics/accessory.png' },
-    { name: 'Money', image: '/assets/images/graphics/money.png' }
+    { name: 'Perfume', image: '/images/graphics/perfume.png' },
+    { name: 'Books', image: '/images/graphics/books.png' },
+    { name: 'Accessories', image: '/images/graphics/accessory.png' },
+    { name: 'Money', image: '/images/graphics/money.png' }
   ]
 
   return (
@@ -74,7 +74,7 @@ const GiftRegistry = () => {
       <div 
         className="absolute inset-0 z-10"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/abstract-bg.png)',
+          backgroundImage: 'url(/images/graphics/abstract-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

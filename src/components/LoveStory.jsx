@@ -12,7 +12,7 @@ const LoveStory = () => {
   const contentRef = useRef(null)
   const imageContainerRef = useRef(null)
 
-  const image = '/assets/images/prenup/prenup1.jpg'
+  const image = '/images/prenup/prenup1.jpg'
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -107,7 +107,7 @@ const LoveStory = () => {
       ref={sectionRef}
       className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
       style={{ 
-        backgroundColor: '#065143'
+        backgroundColor: '#F5DBCE'
       }}
     >
       {/* Content */}

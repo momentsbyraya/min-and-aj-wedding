@@ -86,7 +86,7 @@ const DressCode = () => {
       <div 
         className="absolute inset-0 z-10"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/rose-gold-pupr-bg.png)',
+          backgroundImage: 'url(/images/graphics/rose-gold-pupr-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -137,7 +137,7 @@ const DressCode = () => {
                 <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden">
                   <img 
                     ref={image1Ref}
-                    src="/assets/images/dresscode/girls.png" 
+                    src="/images/dresscode/girls.png" 
                     alt="Female dress code" 
                     className="w-full h-full object-contain"
                   />
@@ -157,7 +157,7 @@ const DressCode = () => {
                 <div className="w-full max-w-[280px] aspect-[3/4] overflow-hidden">
                   <img 
                     ref={image2Ref}
-                    src="/assets/images/dresscode/boys.png" 
+                    src="/images/dresscode/boys.png" 
                     alt="Male dress code" 
                     className="w-full h-full object-contain"
                   />

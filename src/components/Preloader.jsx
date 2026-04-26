@@ -9,16 +9,16 @@ const Preloader = ({ onComplete }) => {
     // List of critical images to preload
     const criticalImages = [
       // Hero background image (most important)
-      '/assets/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg',
+      '/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg',
       // Graphics used in Hero section
-      '/assets/images/graphics/tennis-ball-white.png',
-      '/assets/images/graphics/tennis.png',
-      '/assets/images/graphics/sparkle.png',
+      '/images/graphics/tennis-ball-white.png',
+      '/images/graphics/tennis.png',
+      '/images/graphics/sparkle.png',
       // First few gallery images for better UX
-      '/assets/images/prenup/prenup1.jpg',
-      '/assets/images/prenup/prenup2.jpg',
-      '/assets/images/prenup/prenup3.jpg',
-      '/assets/images/prenup/prenup4.jpg',
+      '/images/prenup/prenup1.jpg',
+      '/images/prenup/prenup2.jpg',
+      '/images/prenup/prenup3.jpg',
+      '/images/prenup/prenup4.jpg',
     ]
 
     let loadedCount = 0
@@ -64,7 +64,7 @@ const Preloader = ({ onComplete }) => {
         // Ensure hero image is fully loaded and rendered
         // Create a temporary image element to ensure it's in browser cache
         const heroImg = new Image()
-        heroImg.src = '/assets/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
+        heroImg.src = '/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
         
         await new Promise((resolve) => {
           if (heroImg.complete) {

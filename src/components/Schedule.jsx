@@ -153,7 +153,7 @@ const Schedule = () => {
             <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex order-2 lg:order-1 schedule-image-mobile">
               <img 
                 ref={imageRef}
-                src="/assets/images/prenup/prenup6.jpg" 
+                src="/images/prenup/prenup6.jpg" 
                 alt="Prenup" 
                 className="w-full h-full object-cover flex-1"
                 style={{ 

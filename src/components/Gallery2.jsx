@@ -17,16 +17,16 @@ const Gallery2 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const images = [
-    "/assets/images/prenup/prenup1.jpg",
-    "/assets/images/prenup/prenup2.jpg",
-    "/assets/images/prenup/prenup3.jpg",
-    "/assets/images/prenup/prenup4.jpg",
-    "/assets/images/prenup/prenup5.jpg",
-    "/assets/images/prenup/prenup6.jpg",
-    "/assets/images/prenup/prenup7.jpg",
-    "/assets/images/prenup/Photo%20%238.jpg",
-    "/assets/images/prenup/Photo%20%239.jpg",
-    "/assets/images/prenup/Photo%20%2310.jpg"
+    "/images/prenup/prenup1.jpg",
+    "/images/prenup/prenup2.jpg",
+    "/images/prenup/prenup3.jpg",
+    "/images/prenup/prenup4.jpg",
+    "/images/prenup/prenup5.jpg",
+    "/images/prenup/prenup6.jpg",
+    "/images/prenup/prenup7.jpg",
+    "/images/prenup/Photo%20%238.jpg",
+    "/images/prenup/Photo%20%239.jpg",
+    "/images/prenup/Photo%20%2310.jpg"
   ]
 
   // Generate random transforms and animation directions for each image
@@ -235,7 +235,7 @@ const Gallery2 = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(/assets/images/graphics/rose-gold-bg.png)',
+            backgroundImage: 'url(/images/graphics/rose-gold-bg.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -246,7 +246,7 @@ const Gallery2 = () => {
         <div 
           className="absolute inset-0 opacity-30 z-10"
           style={{
-            backgroundImage: 'url(/assets/images/crumpled-paper.png)',
+            backgroundImage: 'url(/images/crumpled-paper.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'

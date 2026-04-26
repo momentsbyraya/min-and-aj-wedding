@@ -1,21 +1,21 @@
 {
   "venue": {
-    "name": "The Palms Country Club Alabang",
-    "address": "1410 Laguna Heights Dr",
-    "city": "Muntinlupa",
-    "state": "Metro Manila",
-    "zip": "1781",
+    "name": "DoubleTree by Hilton Ballroom",
+    "address": "DoubleTree by Hilton Dubai M Square Hotel & Residences, Sheikh Khalifa Bin Zayed St",
+    "city": "Al Mankhool",
+    "state": "Dubai",
+    "zip": "",
     "main": {
-      "time": "4:00 PM - 11:00 PM",
-      "details": "Please arrive 30 minutes early."
+      "time": "3:00 PM",
+      "details": "Please arrive 30 minutes early for guest entrance."
     },
     "reception": {
-      "time": "6:00 PM",
-      "details": "Casual/Semi-formal attire requested."
+      "time": "5:00 PM",
+      "details": "Reception dinner starts at 5:00 PM."
     },
-    "image": "/assets/images/venue/venue.jpg",
-    "googleMapsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8",
-    "directionsUrl": "https://maps.app.goo.gl/NkS7tyCJKUFBVtCu8",
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.2825807870727!2d121.034753!3d14.410867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d04cbc6776cb%3A0x35365ea3b69ee9e8!2sThe%20Palms%20Country%20Club%20by%20Filinvest!5e0!3m2!1sen!2sjp!4v1766763875731!5m2!1sen!2sjp"
+    "image": "/images/venue/venue.jpg",
+    "googleMapsUrl": "https://www.google.com/maps/dir//DoubleTree+by+Hilton+Dubai+M+Square+Hotel+%26+Residences,+Sheikh+Khalifa+Bin+Zayed+St+-+Al+Mankhool+-+Dubai/@25.2943581,55.3696635,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3e5f4325d680f131:0x68bba78259a0a95c!2m2!1d55.3008133!2d25.2506111?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D",
+    "directionsUrl": "https://www.google.com/maps/dir//DoubleTree+by+Hilton+Dubai+M+Square+Hotel+%26+Residences,+Sheikh+Khalifa+Bin+Zayed+St+-+Al+Mankhool+-+Dubai/@25.2943581,55.3696635,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3e5f4325d680f131:0x68bba78259a0a95c!2m2!1d55.3008133!2d25.2506111?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D",
+    "googleMapsEmbedUrl": "https://www.google.com/maps?q=DoubleTree+by+Hilton+Dubai+M+Square+Hotel+and+Residences&output=embed"
   }
 } 

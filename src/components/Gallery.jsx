@@ -9,13 +9,13 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Gallery = () => {
   const prenupImages = [
-    '/assets/images/prenup/prenup1.jpg',
-    '/assets/images/prenup/prenup2.jpg',
-    '/assets/images/prenup/prenup3.jpg',
-    '/assets/images/prenup/prenup4.jpg',
-    '/assets/images/prenup/prenup5.jpg',
-    '/assets/images/prenup/prenup6.jpg',
-    '/assets/images/prenup/prenup7.jpg'
+    '/images/prenup/prenup1.jpg',
+    '/images/prenup/prenup2.jpg',
+    '/images/prenup/prenup3.jpg',
+    '/images/prenup/prenup4.jpg',
+    '/images/prenup/prenup5.jpg',
+    '/images/prenup/prenup6.jpg',
+    '/images/prenup/prenup7.jpg'
   ]
 
   const sectionRef = useRef(null)
@@ -156,7 +156,7 @@ const Gallery = () => {
           <div className="flex justify-center mb-4">
             <img 
               ref={cameraRef}
-              src="/assets/images/graphics/camera.png" 
+              src="/images/graphics/camera.png" 
               alt="Camera" 
               className="gallery-camera-icon w-6 h-6 sm:w-8 sm:h-8 object-contain"
             />
@@ -166,7 +166,7 @@ const Gallery = () => {
           <div className="gallery-title-container flex items-center justify-center gap-3 mb-2">
             <img 
               ref={sparkleLeftRef}
-              src="/assets/images/graphics/sparkle.png" 
+              src="/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="gallery-sparkle w-6 h-6 sm:w-8 sm:h-8 object-contain"
             />
@@ -178,7 +178,7 @@ const Gallery = () => {
             </h2>
             <img 
               ref={sparkleRightRef}
-              src="/assets/images/graphics/sparkle.png" 
+              src="/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="gallery-sparkle w-6 h-6 sm:w-8 sm:h-8 object-contain"
             />

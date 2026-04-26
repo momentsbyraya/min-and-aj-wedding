@@ -133,7 +133,7 @@ const EighteenList2 = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: url(/assets/images/graphics/bg-textured.png);
+          background-image: url(/images/graphics/bg-textured.png);
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -385,7 +385,7 @@ const EighteenList2 = () => {
                   BE<br />THERE
                 </h3>
                 <img 
-                  src="/assets/images/graphics/tennis.png" 
+                  src="/images/graphics/tennis.png" 
                   alt="Tennis" 
                   className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto mb-8"
                   style={{ filter: 'brightness(0) invert(1)' }}
@@ -400,7 +400,7 @@ const EighteenList2 = () => {
                   Game · On
                 </p>
                 <img 
-                  src="/assets/images/graphics/sparkle.png" 
+                  src="/images/graphics/sparkle.png" 
                   alt="Sparkle" 
                   className="w-6 h-6 sm:w-8 sm:h-8 object-contain mx-auto mt-8"
                   style={{ filter: 'brightness(0) invert(1)' }}

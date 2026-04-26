@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   height: 60%;
-  background-color: var(--primary-color, #065143);
+  background-color: var(--primary-color, #F5DBCE);
   z-index: 0;
 }
 
@@ -49,7 +49,7 @@
 
 .gallery-scroll-container {
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-color, #065143) transparent;
+  scrollbar-color: var(--primary-color, #F5DBCE) transparent;
   cursor: grab;
 }
 

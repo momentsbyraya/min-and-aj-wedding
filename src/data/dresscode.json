@@ -1,7 +1,7 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "Come in your Semi-Formal Pastel Smashin' Chic Outfit. Strictly NO Pink and Red",
+    "description": "Formal attire. Ladies: Navy blue dress. Gentlemen: Black and white suit with bow tie.",
     "inspoUrl": "https://pin.it/5X56F3rYf"
   },
   "colorPalette": [
@@ -12,8 +12,8 @@
     },
     {
       "name": "color-2",
-      "hex": "#ffd4a3",
-      "label": "Pastel Orange"
+      "hex": "#f5dbce",
+      "label": "Peach"
     },
     {
       "name": "color-3",
@@ -22,8 +22,8 @@
     },
     {
       "name": "color-4",
-      "hex": "#c8e6c9",
-      "label": "Pastel Green"
+      "hex": "#1f3a6e",
+      "label": "Navy Blue"
     },
     {
       "name": "color-5",

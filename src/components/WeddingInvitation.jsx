@@ -3,22 +3,12 @@ import { gsap } from 'gsap'
 import { IoHeart } from 'react-icons/io5'
 import { theme } from '../data'
 import Hero from './Hero'
-import Calendar from './Calendar'
+import IntroSection from './IntroSection'
 import SaveTheDate from './SaveTheDate'
-import PhotoSection from './PhotoSection'
-import Schedule from './Schedule'
-import LoveStory from './LoveStory'
-import DressCode from './DressCode'
-import Gallery from './Gallery'
 import FAQ from './FAQ'
-import MapDirections from './MapDirections'
-import Venue from './Venue'
-import GiftRegistry from './GiftRegistry'
-import CTASection from './CTASection'
 import DetailsSection from './DetailsSection'
-import EighteenList from './EighteenList'
+import PhotoMosaicSection from './PhotoMosaicSection'
 import EnhancedLazySection from './EnhancedLazySection'
-import { images } from '../data'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
@@ -40,36 +30,34 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
           onResumeMusic={onResumeMusic}
           isMusicPlaying={isMusicPlaying}
         />
+
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="intro">
+          <IntroSection />
+        </EnhancedLazySection>
         
-        {/* Venue Section - After Hero */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="venue">
+        {/* Temporarily hidden due to missing dresscode/venue image assets */}
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="venue">
           <Venue />
-        </EnhancedLazySection>
-
-        {/* Schedule Section - After Venue */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
+        </EnhancedLazySection> */}
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
           <Schedule />
-        </EnhancedLazySection>
-
-        {/* Love Story Section - After Schedule */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="love-story">
+        </EnhancedLazySection> */}
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="love-story">
           <LoveStory />
-        </EnhancedLazySection>
-
-        {/* 18 List Section - After Love Story */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
+        </EnhancedLazySection> */}
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
           <EighteenList />
-        </EnhancedLazySection>
+        </EnhancedLazySection> */}
 
         {/* Details Section - Combined RSVP, DressCode, and Gift Registry - After EighteenList */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="details">
           <DetailsSection />
         </EnhancedLazySection>
 
-        {/* Gallery Section - After Details */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
+        {/* Gallery is also hidden while prenup image paths are being replaced */}
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
           <Gallery />
-        </EnhancedLazySection>
+        </EnhancedLazySection> */}
 
         {/* FAQ Section - After EighteenList */}
         <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
@@ -79,6 +67,10 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
         {/* Save the Date Section - After FAQ */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="save-the-date">
           <SaveTheDate />
+        </EnhancedLazySection>
+
+        <EnhancedLazySection animationClass="fade-scale" sectionName="photo-mosaic">
+          <PhotoMosaicSection />
         </EnhancedLazySection>
 
         

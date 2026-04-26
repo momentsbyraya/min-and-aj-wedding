@@ -21,7 +21,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
   const musicPlayerRef = useRef(null)
 
   // Main cover photo
-  const mainCoverPhoto = '/assets/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
+  const mainCoverPhoto = '/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
 
   // Format date from data file (YYYY-MM-DD to MM.DD.YYYY)
   const formatDate = (dateString) => {
@@ -142,14 +142,14 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
       {/* Tennis balls at top corners */}
       <div className="absolute top-8 left-8 z-20" ref={tennisBallLeftRef}>
         <img 
-          src="/assets/images/graphics/tennis-ball-white.png" 
+          src="/images/graphics/tennis-ball-white.png" 
           alt="Tennis ball" 
           className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain hero-tennis-ball"
         />
       </div>
       <div className="absolute top-8 right-8 z-20" ref={tennisBallRightRef}>
         <img 
-          src="/assets/images/graphics/tennis-ball-white.png" 
+          src="/images/graphics/tennis-ball-white.png" 
           alt="Tennis ball" 
           className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain hero-tennis-ball"
         />
@@ -162,7 +162,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
           <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-2 lg:gap-4 hero-title-container">
             <img 
               ref={sparkleLeftRef}
-              src="/assets/images/graphics/sparkle.png" 
+              src="/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain hero-sparkle"
             />
@@ -181,7 +181,7 @@ const Hero = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying = fals
             </h2>
             <img 
               ref={sparkleRightRef}
-              src="/assets/images/graphics/sparkle.png" 
+              src="/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 object-contain hero-sparkle"
             />

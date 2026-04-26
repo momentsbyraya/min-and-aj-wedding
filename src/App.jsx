@@ -9,7 +9,7 @@ import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showOpeningScreen, setShowOpeningScreen] = useState(false)
+  const [showOpeningScreen, setShowOpeningScreen] = useState(true)
   const [isPreloaderComplete, setIsPreloaderComplete] = useState(false)
   const [isMusicPlaying, setIsMusicPlaying] = useState(false)
   const audioRef = useRef(null)

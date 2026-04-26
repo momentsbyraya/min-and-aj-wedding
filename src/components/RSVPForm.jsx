@@ -78,7 +78,7 @@ const RSVPForm = () => {
     return (
       <div className="min-h-screen wedding-gradient flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl p-8 text-center card-shadow max-w-md w-full">
-          <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+          <CheckCircle className="w-16 h-16 text-[#E28B91] mx-auto mb-4" />
           <h2 className="text-2xl font-serif text-wedding-800 mb-4">
             Thank You!
           </h2>

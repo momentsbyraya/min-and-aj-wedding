@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=My+Soul&display=swap');
 
 /* Custom Font - Tebranos */
 @font-face {
   font-family: 'Tebranos';
-  src: url('/assets/fonts/Tebranos-WpAYG.otf') format('opentype');
+  src: url('/fonts/Tebranos-WpAYG.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,7 +19,7 @@
 /* Custom Font - Stylish Calligraphy */
 @font-face {
   font-family: 'Stylish Calligraphy';
-  src: url('/assets/fonts/StylishCalligraphyDemo-XPZZ.ttf') format('truetype');
+  src: url('/fonts/StylishCalligraphyDemo-XPZZ.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -131,7 +136,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #013718 !important;
+    background-color: #E9B7A3 !important;
   }
   
   footer a:hover,
@@ -322,6 +327,83 @@ body {
     font-weight: 400 !important;
     font-style: normal !important;
     letter-spacing: 0.02em;
+  }
+
+  .font-nanum,
+  .font-nanum * {
+    font-family: 'Nanum Myeongjo', serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  .font-foglihten,
+  h1.font-foglihten,
+  h1.font-foglihten span,
+  .font-foglihten * {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+    letter-spacing: 0.04em;
+  }
+
+  .font-pinyon,
+  .font-pinyon * {
+    font-family: 'Pinyon Script', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  .font-rozha,
+  .font-rozha * {
+    font-family: 'Rozha One', serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    letter-spacing: 0.01em;
+  }
+
+  .font-my-soul,
+  .font-my-soul * {
+    font-family: 'My Soul', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  .opening-flower-wind-layer {
+    min-height: 100vh;
+  }
+
+  .opening-flower-petal {
+    position: absolute;
+    left: -80px;
+    width: clamp(18px, 2.8vw, 34px);
+    height: auto;
+    object-fit: contain;
+    animation-name: openingFlowerBlow;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+    filter: drop-shadow(0 0 8px rgba(245, 219, 206, 0.55));
+  }
+
+  @keyframes openingFlowerBlow {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(0.95);
+      opacity: 0.1;
+    }
+    15% {
+      opacity: 1;
+    }
+    55% {
+      transform: translate3d(52vw, -8px, 0) rotate(120deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(110vw, 6px, 0) rotate(260deg) scale(0.95);
+      opacity: 0;
+    }
   }
   
   /* Prevent transform overflow issues */

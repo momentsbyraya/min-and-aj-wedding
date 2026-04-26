@@ -374,13 +374,12 @@ const Venue = () => {
                           {dresscodeImages.map((num) => (
                             <img 
                               key={num}
-                              src={`/assets/images/dresscode/dresscode-${num}.jpg`}
+                              src={`/images/dresscode/dresscode-${num}.jpg`}
                               alt={`Dress Code ${num}`}
                               className="venue-dresscode-image flex-shrink-0 object-contain"
                               onError={(e) => {
-                                if (e.target.src !== '/assets/images/dresscode/dresscode.png') {
-                                  e.target.src = '/assets/images/dresscode/dresscode.png'
-                                }
+                                e.currentTarget.onerror = null
+                                e.currentTarget.style.visibility = 'hidden'
                               }}
                             />
                           ))}
@@ -456,13 +455,12 @@ const Venue = () => {
                           {dresscodeImages.map((num) => (
                             <img 
                               key={num}
-                              src={`/assets/images/dresscode/dresscode-${num}.jpg`}
+                              src={`/images/dresscode/dresscode-${num}.jpg`}
                               alt={`Dress Code ${num}`}
                               className="venue-dresscode-image flex-shrink-0 object-contain"
                               onError={(e) => {
-                                if (e.target.src !== '/assets/images/dresscode/dresscode.png') {
-                                  e.target.src = '/assets/images/dresscode/dresscode.png'
-                                }
+                                e.currentTarget.onerror = null
+                                e.currentTarget.style.visibility = 'hidden'
                               }}
                             />
                           ))}
@@ -557,7 +555,7 @@ const Venue = () => {
             <div className="w-full mt-8 lg:mt-0 h-96 overflow-hidden venue-image-mobile">
               <img 
                 ref={imageRef}
-                src="/assets/images/prenup/prenup7.jpg" 
+                src="/images/prenup/prenup7.jpg" 
                 alt="Venue" 
                 className="venue-image w-full h-full object-cover"
               />

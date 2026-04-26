@@ -64,22 +64,22 @@ const SaveTheDate = () => {
           --stripe-unit: clamp(15px, 2.5vw, 40px);
           background: repeating-linear-gradient(
             90deg,
-            ${theme.colors.primary} 0,
-            ${theme.colors.primary} var(--stripe-unit),
-            #f0ede6 var(--stripe-unit),
-            #f0ede6 calc(var(--stripe-unit) * 2),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 2),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 3),
-            #f0ede6 calc(var(--stripe-unit) * 3),
-            #f0ede6 calc(var(--stripe-unit) * 4),
-            ${theme.colors.primary} calc(var(--stripe-unit) * 4),
-            ${theme.colors.primary} calc(var(--stripe-unit) * 5),
-            #f0ede6 calc(var(--stripe-unit) * 5),
-            #f0ede6 calc(var(--stripe-unit) * 6),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 6),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 7),
-            #f0ede6 calc(var(--stripe-unit) * 7),
-            #f0ede6 calc(var(--stripe-unit) * 8)
+            #f5dbce 0,
+            #f5dbce var(--stripe-unit),
+            #fff5f3 var(--stripe-unit),
+            #fff5f3 calc(var(--stripe-unit) * 2),
+            #f7c6ca calc(var(--stripe-unit) * 2),
+            #f7c6ca calc(var(--stripe-unit) * 3),
+            #fff5f3 calc(var(--stripe-unit) * 3),
+            #fff5f3 calc(var(--stripe-unit) * 4),
+            #f5dbce calc(var(--stripe-unit) * 4),
+            #f5dbce calc(var(--stripe-unit) * 5),
+            #fff5f3 calc(var(--stripe-unit) * 5),
+            #fff5f3 calc(var(--stripe-unit) * 6),
+            #f7c6ca calc(var(--stripe-unit) * 6),
+            #f7c6ca calc(var(--stripe-unit) * 7),
+            #fff5f3 calc(var(--stripe-unit) * 7),
+            #fff5f3 calc(var(--stripe-unit) * 8)
           );
         }
         @media (min-width: 1024px) {
@@ -156,8 +156,8 @@ const SaveTheDate = () => {
            className="relative w-full max-w-4xl mx-auto overflow-hidden save-date-container"
            style={{
              backgroundColor: '#f0ede6',
-             border: `0.5px solid ${theme.colors.primary}`,
-             outline: `0.5px solid ${theme.colors.primary}`,
+             border: '1px solid #e28b91',
+             outline: '1px solid #e28b91',
              outlineOffset: '-10px',
              borderRadius: 0,
              minHeight: '100%',
@@ -171,7 +171,7 @@ const SaveTheDate = () => {
                position: 'absolute',
                top: '-10%',
                left: '-10%',
-               backgroundImage: 'url(/assets/images/prenup/prenup9.jpg)',
+               backgroundImage: 'url(/images/prenup/prenup9.jpg)',
                backgroundSize: 'cover',
                backgroundPosition: '30% center',
                backgroundRepeat: 'no-repeat'
@@ -186,7 +186,7 @@ const SaveTheDate = () => {
                left: 0,
                right: 0,
                height: '40%',
-               background: 'linear-gradient(to top, rgba(76, 175, 80, 0.4), transparent)',
+               background: 'linear-gradient(to top, rgba(226, 139, 145, 0.45), transparent)',
                zIndex: 5
              }}
            ></div>
@@ -199,22 +199,22 @@ const SaveTheDate = () => {
                left: 0,
                right: 0,
                height: '40%',
-               background: 'linear-gradient(to bottom, rgba(76, 175, 80, 0.4), transparent)',
+               background: 'linear-gradient(to bottom, rgba(226, 139, 145, 0.45), transparent)',
                zIndex: 5
              }}
            ></div>
            
-           {/* Serve the Date text at top left */}
+          {/* Countdown heading */}
            <div 
              className="absolute top-0 left-0 flex flex-col items-start px-6 py-6"
              style={{
                zIndex: 10
              }}
            >
-             <h2 
-               className="font-ballet mb-2"
+            <h2
+              className="font-my-soul mb-2"
                style={{ 
-                 color: '#f5f1eb',
+                color: '#fff5f3',
                  fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                  lineHeight: '1',
                  textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)',
@@ -222,12 +222,12 @@ const SaveTheDate = () => {
                  marginTop: '3rem'
                }}
              >
-               Serve the Date
+              Countdown
              </h2>
              <div 
-               className="font-instrument-serif font-semibold"
+              className="font-rozha"
                style={{ 
-                 color: '#f5f1eb',
+                color: '#fff5f3',
                  fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                  marginLeft: '1rem'
                }}
@@ -275,14 +275,14 @@ const SaveTheDate = () => {
                  alignItems: 'center',
                  padding: '1rem'
                }}>
-                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#f5f1eb', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
+               <div className="font-rozha countdown-number" style={{ color: '#fff5f3', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
                    {countdown.days}
                  </div>
                </div>
-               <div className="font-medium font-poppins mt-2" style={{ color: '#f5f1eb', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Days</div>
+               <div className="font-rozha mt-2" style={{ color: '#fff5f3', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Days</div>
              </div>
              
-             <div className="font-instrument-serif font-semibold" style={{ color: '#f5f1eb', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+             <div className="font-rozha" style={{ color: '#fff5f3', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center flex flex-col items-center">
                <div className="counter-item" style={{

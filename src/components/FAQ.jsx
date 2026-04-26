@@ -60,7 +60,7 @@ const FAQ = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden"
-      style={{ backgroundColor: '#f0ede6', paddingTop: '4rem' }}
+      style={{ background: 'linear-gradient(180deg, #f7d9dd 0%, #fff5f3 100%)', paddingTop: '4rem' }}
     >
       
       {/* Content */}
@@ -69,7 +69,7 @@ const FAQ = () => {
         <div className="text-center mb-16 faq-title" style={{ padding: '0 2rem' }}>
           {/* FREQUENTLY */}
           <h2 
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-2"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-rozha mb-2"
             style={{ 
               color: theme.colors.primary,
               fontWeight: 900,
@@ -82,13 +82,13 @@ const FAQ = () => {
           {/* ASKED in Ballet font with sparkles */}
           <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '-1rem' }}>
             <img 
-              src="/assets/images/graphics/sparkle.png" 
+              src="/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
               style={{ alignSelf: 'center' }}
             />
             <h3 
-              className="text-5xl sm:text-6xl md:text-7xl font-ballet"
+              className="text-5xl sm:text-6xl md:text-7xl font-my-soul"
               style={{ 
                 color: theme.colors.primary, 
                 lineHeight: '1'
@@ -97,7 +97,7 @@ const FAQ = () => {
               Asked
             </h3>
             <img 
-              src="/assets/images/graphics/sparkle.png" 
+              src="/images/graphics/sparkle.png" 
               alt="Sparkle" 
               className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
               style={{ alignSelf: 'center' }}
@@ -106,7 +106,7 @@ const FAQ = () => {
           
           {/* QUESTIONS in Tebranos font */}
           <h3 
-            className="text-5xl sm:text-6xl md:text-7xl font-tebranos"
+            className="text-5xl sm:text-6xl md:text-7xl font-rozha"
             style={{ 
               color: theme.colors.primary, 
               marginTop: '-1rem',
@@ -145,8 +145,8 @@ const FAQ = () => {
             return (
               <div
                 key={index}
-                className="overflow-hidden transition-all duration-300 w-full"
-                style={{ backgroundColor: bgColor }}
+                className="overflow-hidden transition-all duration-300 w-full border border-[#e28b91]"
+                style={{ backgroundColor: bgColor, boxShadow: '0 6px 20px rgba(226, 139, 145, 0.12)' }}
               >
                 {/* Question Header */}
                 <button
@@ -162,7 +162,7 @@ const FAQ = () => {
                         e.currentTarget.style.backgroundColor = 'rgba(245, 241, 235, 0.1)'
                       } else {
                         // secondary - use primary overlay
-                        e.currentTarget.style.backgroundColor = 'rgba(6, 81, 67, 0.1)'
+                        e.currentTarget.style.backgroundColor = 'rgba(226, 139, 145, 0.15)'
                       }
                     }
                   }}

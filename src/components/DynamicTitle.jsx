@@ -12,7 +12,7 @@ const DynamicTitle = () => {
 
   return (
     <Helmet>
-      <title>Amanda Ira Turns 18</title>
+      <title>Abby Turns 18</title>
       <meta name="description" content={`${debutantName}'s 18th Birthday - Beautiful digital debut invitation for ${debutDate}`} />
       <meta property="og:title" content={`${debutantName}'s 18th Birthday`} />
       <meta property="og:description" content={`Join us for ${debutantName}'s special day on ${debutDate}`} />

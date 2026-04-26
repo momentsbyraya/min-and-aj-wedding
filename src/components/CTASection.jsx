@@ -82,7 +82,7 @@ const CTASection = () => {
         <div 
           className="absolute inset-0 z-10"
           style={{
-            backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+            backgroundImage: 'url(/images/graphics/bg-2.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -93,7 +93,7 @@ const CTASection = () => {
         <div 
           className="absolute inset-0 z-10"
           style={{
-            backgroundImage: 'url(/assets/images/graphics/butterflies-bg.png)',
+            backgroundImage: 'url(/images/graphics/butterflies-bg.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

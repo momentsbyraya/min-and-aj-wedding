@@ -257,7 +257,7 @@ const EighteenList = () => {
         <div className="eighteen-image-container w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
           <img 
             ref={tennisMatchesImageRef}
-            src="/assets/images/prenup/prenup2.jpg" 
+            src="/images/prenup/prenup2.jpg" 
             alt="18 Tennis Matches" 
             className="eighteen-image tennis-matches-image eighteen-image-left w-full h-full object-cover flex-1 eighteen-image-mobile"
           />
@@ -327,7 +327,7 @@ const EighteenList = () => {
         <div className="eighteen-image-container w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
           <img 
             ref={setsImageRef}
-            src="/assets/images/prenup/prenup6.jpg" 
+            src="/images/prenup/prenup6.jpg" 
             alt="18 Sets" 
             className="eighteen-image w-full h-full object-cover flex-1 eighteen-image-mobile sets-image"
           />
@@ -385,7 +385,7 @@ const EighteenList = () => {
           {/* Mobile-only duplicate image - above slices boxes */}
           <div className="eighteen-image-container-mobile lg:hidden w-full mt-8 h-96 overflow-hidden flex relative z-10">
             <img 
-              src="/assets/images/prenup/prenup4.jpg" 
+              src="/images/prenup/prenup4.jpg" 
               alt="18 Slices" 
               className="eighteen-image eighteen-image-slices w-full h-full object-cover flex-1"
               style={{ objectPosition: '60% center' }}
@@ -448,7 +448,7 @@ const EighteenList = () => {
         <div className="eighteen-image-container hidden lg:flex w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden relative z-10">
           <img 
             ref={slicesImageRef}
-            src="/assets/images/prenup/prenup4.jpg" 
+            src="/images/prenup/prenup4.jpg" 
             alt="18 Slices" 
             className="eighteen-image eighteen-image-slices w-full h-full object-cover flex-1 eighteen-image-mobile"
           />

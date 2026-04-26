@@ -1,7 +1,7 @@
 /* Venue Component Styles */
 
 .venue-section {
-  background-color: var(--primary-color, #065143);
+  background-color: var(--primary-color, #F5DBCE);
 }
 
 .venue-text-white {
@@ -196,7 +196,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(/assets/images/graphics/bg-textured.png);
+  background-image: url(/images/graphics/bg-textured.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -249,7 +249,7 @@
   margin-right: 0.5rem;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
-  background-color: var(--primary-color, #065143);
+  background-color: var(--primary-color, #F5DBCE);
   color: #f5f1eb;
   font-size: 0.75rem;
   font-family: 'Poppins', sans-serif;
@@ -264,6 +264,6 @@
   top: 50%;
   transform: translateY(-50%);
   border: 4px solid transparent;
-  border-left-color: var(--primary-color, #065143);
+  border-left-color: var(--primary-color, #F5DBCE);
 }
 

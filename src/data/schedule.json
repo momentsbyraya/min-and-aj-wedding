@@ -2,24 +2,31 @@
   "events": [
     {
       "id": 1,
-      "time": "4:00 PM",
-      "title": "Gates Open",
-      "description": "Gates open for guests",
-      "venue": "The Palms Country Club Alabang"
+      "time": "3:00 PM",
+      "title": "Guest Entrance",
+      "description": "Guest entrance and arrival",
+      "venue": "DoubleTree by Hilton Ballroom"
     },
     {
       "id": 2,
-      "time": "5:00 PM",
-      "title": "Start of Play",
-      "description": "The celebration begins",
-      "venue": "The Palms Country Club Alabang"
+      "time": "3:30 PM",
+      "title": "Program Starts",
+      "description": "Main program officially starts",
+      "venue": "DoubleTree by Hilton Ballroom"
     },
     {
       "id": 3,
-      "time": "11:00 PM",
-      "title": "Game, Set, Match.",
-      "description": "The celebration concludes",
-      "venue": "The Palms Country Club Alabang"
+      "time": "5:00 PM",
+      "title": "Reception Dinner",
+      "description": "Reception dinner begins",
+      "venue": "DoubleTree by Hilton Ballroom"
+    },
+    {
+      "id": 4,
+      "time": "8:00 PM onwards",
+      "title": "Party",
+      "description": "Party time",
+      "venue": "DoubleTree by Hilton Ballroom"
     }
   ]
 }

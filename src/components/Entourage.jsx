@@ -47,12 +47,12 @@ const Entourage = () => {
   }, [])
 
   const entourageImages = [
-    "/assets/images/entourage/1.png",
-    "/assets/images/entourage/2.png", 
-    "/assets/images/entourage/3.png",
-    "/assets/images/entourage/4.png",
-    "/assets/images/entourage/5.png",
-    "/assets/images/entourage/6.png"
+    "/images/entourage/1.png",
+    "/images/entourage/2.png", 
+    "/images/entourage/3.png",
+    "/images/entourage/4.png",
+    "/images/entourage/5.png",
+    "/images/entourage/6.png"
   ]
 
   return (
