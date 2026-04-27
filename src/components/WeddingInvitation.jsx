@@ -1,14 +1,7 @@
 import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
-import { IoHeart } from 'react-icons/io5'
-import { theme } from '../data'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
-import SaveTheDate from './SaveTheDate'
-import FAQ from './FAQ'
-import DetailsSection from './DetailsSection'
-import PhotoMosaicSection from './PhotoMosaicSection'
-import EnhancedLazySection from './EnhancedLazySection'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
@@ -22,88 +15,21 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
+      <div className="hero-falling-flower-layer fixed inset-0 z-[8] pointer-events-none overflow-hidden">
+        <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '8%', animationDelay: '0s', animationDuration: '8.5s', '--flower-size': 'clamp(12px, 1.9vw, 26px)' }} />
+        <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '24%', animationDelay: '1.8s', animationDuration: '9.3s', '--flower-size': 'clamp(16px, 2.5vw, 34px)' }} />
+        <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '46%', animationDelay: '0.9s', animationDuration: '8.8s', '--flower-size': 'clamp(20px, 3.2vw, 42px)' }} />
+        <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '67%', animationDelay: '2.4s', animationDuration: '9.8s', '--flower-size': 'clamp(14px, 2.1vw, 30px)' }} />
+        <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '84%', animationDelay: '1.2s', animationDuration: '8.9s', '--flower-size': 'clamp(18px, 2.8vw, 38px)' }} />
+      </div>
       <main className="main-container h-full section-container">
-        {/* Hero Section - First */}
         <Hero 
           onStartMusic={onStartMusic}
           onPauseMusic={onPauseMusic}
           onResumeMusic={onResumeMusic}
           isMusicPlaying={isMusicPlaying}
         />
-
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="intro">
-          <IntroSection />
-        </EnhancedLazySection>
-        
-        {/* Temporarily hidden due to missing dresscode/venue image assets */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="venue">
-          <Venue />
-        </EnhancedLazySection> */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
-          <Schedule />
-        </EnhancedLazySection> */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="love-story">
-          <LoveStory />
-        </EnhancedLazySection> */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="18-list">
-          <EighteenList />
-        </EnhancedLazySection> */}
-
-        {/* Details Section - Combined RSVP, DressCode, and Gift Registry - After EighteenList */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="details">
-          <DetailsSection />
-        </EnhancedLazySection>
-
-        {/* Gallery is also hidden while prenup image paths are being replaced */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
-          <Gallery />
-        </EnhancedLazySection> */}
-
-        {/* FAQ Section - After EighteenList */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
-          <FAQ />
-        </EnhancedLazySection>
-
-        {/* Save the Date Section - After FAQ */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="save-the-date">
-          <SaveTheDate />
-        </EnhancedLazySection>
-
-        <EnhancedLazySection animationClass="fade-scale" sectionName="photo-mosaic">
-          <PhotoMosaicSection />
-        </EnhancedLazySection>
-
-        
-        {/* Calendar Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
-          <Calendar />
-        </EnhancedLazySection> */}
-        
-        {/* Couple Image Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-image">
-          <PhotoSection 
-            imagePath={images.couple.couple3}
-            title=""
-            subtitle=""
-          />
-        </EnhancedLazySection> */}
-        
-        {/* Footer */}
-        <footer className="wedding-invitation-footer">
-          <a 
-            href="https://www.facebook.com/profile.php?id=61571540978411"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="wedding-invitation-footer-link"
-            style={{ color: theme.colors.primary }}
-          >
-            <span>Made with</span>
-            <IoHeart className="wedding-invitation-footer-heart" style={{ color: theme.colors.primary }} />
-            <span>|</span>
-            <span>Moments by Raya</span>
-          </a>
-        </footer>
-        
+        <IntroSection />
       </main>
     </div>
   )
