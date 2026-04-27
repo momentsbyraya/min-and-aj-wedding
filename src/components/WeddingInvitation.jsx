@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
+import Gallery from './Gallery'
+import DressCode from './DressCode'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
@@ -30,6 +32,8 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
           isMusicPlaying={isMusicPlaying}
         />
         <IntroSection />
+        <Gallery />
+        <DressCode />
       </main>
     </div>
   )

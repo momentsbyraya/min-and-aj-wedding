@@ -9,16 +9,16 @@ const Preloader = ({ onComplete }) => {
     // List of critical images to preload
     const criticalImages = [
       // Hero background image (most important)
-      '/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg',
+      '/images/prenup/DSC01333.jpg',
       // Graphics used in Hero section
       '/images/graphics/tennis-ball-white.png',
       '/images/graphics/tennis.png',
       '/images/graphics/sparkle.png',
       // First few gallery images for better UX
-      '/images/prenup/prenup1.jpg',
-      '/images/prenup/prenup2.jpg',
-      '/images/prenup/prenup3.jpg',
-      '/images/prenup/prenup4.jpg',
+      '/images/prenup/DSC01372.jpg',
+      '/images/prenup/DSC01288.jpg',
+      '/images/prenup/DSC01381.jpg',
+      '/images/prenup/DSC01394.jpg',
     ]
 
     let loadedCount = 0
@@ -64,7 +64,7 @@ const Preloader = ({ onComplete }) => {
         // Ensure hero image is fully loaded and rendered
         // Create a temporary image element to ensure it's in browser cache
         const heroImg = new Image()
-        heroImg.src = '/images/prenup/Main%20Cover%20-%20Amanda%20Ira.jpg'
+        heroImg.src = '/images/prenup/DSC01333.jpg'
         
         await new Promise((resolve) => {
           if (heroImg.complete) {

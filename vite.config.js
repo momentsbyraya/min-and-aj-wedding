@@ -34,9 +34,11 @@ function copyAssetsPlugin() {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), copyAssetsPlugin()],
+  logLevel: 'error',
   server: {
     port: 3000,
-    open: true
+    open: true,
+    hmr: false
   },
   build: {
     outDir: 'dist',
