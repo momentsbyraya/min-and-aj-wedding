@@ -10,10 +10,6 @@ const Preloader = ({ onComplete }) => {
     const criticalImages = [
       // Hero background image (most important)
       '/images/prenup/DSC01333.jpg',
-      // Graphics used in Hero section
-      '/images/graphics/tennis-ball-white.png',
-      '/images/graphics/tennis.png',
-      '/images/graphics/sparkle.png',
       // First few gallery images for better UX
       '/images/prenup/DSC01372.jpg',
       '/images/prenup/DSC01288.jpg',

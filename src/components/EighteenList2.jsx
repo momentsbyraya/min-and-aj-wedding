@@ -400,8 +400,8 @@ const EighteenList2 = () => {
                   Game · On
                 </p>
                 <img 
-                  src="/images/graphics/sparkle.png" 
-                  alt="Sparkle" 
+                  src="/images/graphics/flower.png" 
+                  alt="Decoration" 
                   className="w-6 h-6 sm:w-8 sm:h-8 object-contain mx-auto mt-8"
                   style={{ filter: 'brightness(0) invert(1)' }}
                 />

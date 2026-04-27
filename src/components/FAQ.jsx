@@ -82,8 +82,8 @@ const FAQ = () => {
           {/* ASKED in Ballet font with sparkles */}
           <div className="flex items-center justify-center gap-3 mb-2" style={{ marginTop: '-1rem' }}>
             <img 
-              src="/images/graphics/sparkle.png" 
-              alt="Sparkle" 
+              src="/images/graphics/flower.png" 
+              alt="Decoration" 
               className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
               style={{ alignSelf: 'center' }}
             />
@@ -97,8 +97,8 @@ const FAQ = () => {
               Asked
             </h3>
             <img 
-              src="/images/graphics/sparkle.png" 
-              alt="Sparkle" 
+              src="/images/graphics/flower.png" 
+              alt="Decoration" 
               className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
               style={{ alignSelf: 'center' }}
             />

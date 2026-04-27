@@ -2,17 +2,18 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
-import { schedule, celebrant, venues } from '../data'
+import { schedule, celebrant } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
 const Schedule = () => {
+  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
+  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
   const timelineRef = useRef(null)
   const lineRef = useRef(null)
   const headerRef = useRef(null)
-  const imageRef = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -70,49 +71,9 @@ const Schedule = () => {
       )
     })
 
-    // Image animation - responsive
-    if (imageRef.current) {
-      const mm = gsap.matchMedia()
-      
-      // Mobile: fade in
-      mm.add("(max-width: 1023px)", () => {
-        gsap.fromTo(imageRef.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: imageRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        )
-      })
-      
-      // Large screens: slide from left
-      mm.add("(min-width: 1024px)", () => {
-        gsap.fromTo(imageRef.current,
-          { opacity: 0, x: -100 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: imageRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        )
-      })
-    }
-
     // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      tl.kill()
     }
   }, [])
 
@@ -129,66 +90,29 @@ const Schedule = () => {
 
   return (
     <>
-      <style>{`
-        @media (max-width: 1023px) {
-          .schedule-image-mobile {
-            margin-left: calc(-1rem - 2rem) !important;
-            margin-right: calc(-1rem - 2rem) !important;
-            width: calc(100% + 6rem) !important;
-            min-height: 600px !important;
-          }
-        }
-      `}</style>
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
       style={{ backgroundColor: '#f5f1eb' }}
     >
+      <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(90, 140), height: randSize(78, 118), top: randPct(8, 22), left: randPct(6, 18) }} />
+      <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(75, 118), height: randSize(64, 102), top: randPct(66, 82), left: randPct(68, 84) }} />
       {/* Content */}
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-          {/* Flex Container - Side by side on lg screens */}
-          <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-8 lg:min-h-full">
-            {/* Left Side - Image (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex order-2 lg:order-1 schedule-image-mobile">
-              <img 
-                ref={imageRef}
-                src="/images/prenup/prenup6.jpg" 
-                alt="Prenup" 
-                className="w-full h-full object-cover flex-1"
-                style={{ 
-                  display: 'block',
-                  minHeight: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'center center'
-                }}
-              />
-            </div>
-
-            {/* Right Side - Text Content (50% on lg) */}
-            <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col order-1 lg:order-2">
+          <div className="w-full max-w-3xl mx-auto pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
               {/* Header Section */}
               <div ref={headerRef} className="text-center mb-12">
-                {/* Order in Ballet font */}
-                <h1
-                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                  style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
-                >
-                  Order
-                </h1>
-
-                {/* OF PLAY */}
-                <h2
-                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-4 uppercase"
-                  style={{
-                    color: theme.colors.primary,
-                    fontWeight: 900,
-                    lineHeight: '1',
-                    marginTop: '-0.4em',
-                    fontSize: 'clamp(3rem, 8vw, 8rem)'
-                  }}
-                >
-                  OF PLAY
+                <h2 className="leading-none mb-4">
+                  <span
+                    className="block font-halimun text-xl leading-none w-fit"
+                    style={{ color: '#E28B91', marginLeft: '20%', marginBottom: '-10px' }}
+                  >
+                    the
+                  </span>
+                  <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#c86f78' }}>
+                    schedule.
+                  </span>
                 </h2>
               </div>
 
@@ -226,7 +150,7 @@ const Schedule = () => {
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
                           className="timeline-time text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
-                          style={{ color: theme.colors.tertiary, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+                          style={{ color: '#E28B91', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>{timePeriod}</span>
                             </div>
@@ -248,7 +172,7 @@ const Schedule = () => {
                       <div className="flex-1 pl-4">
                         <div 
                           className="timeline-description font-poppins"
-                          style={{ color: theme.colors.primary, opacity: 0.8, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                          style={{ color: '#c86f78', opacity: 0.9, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                         >
                               {event.title}
                             </div>
@@ -265,13 +189,12 @@ const Schedule = () => {
             <div className="text-center">
                   <p 
                     className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
-                    style={{ color: theme.colors.primary, opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
+                    style={{ color: '#c86f78', opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
                   >
                     We look forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
                   </p>
             </div>
           </div>
-            </div>
           </div>
         </div>
       </div>

@@ -987,6 +987,11 @@ body {
 
 /* Hero top and bottom design - 3 images on screens 992px and above */
 @media (min-width: 992px) {
+  .hero-18-image {
+    width: 20vw !important;
+    max-width: 20vw !important;
+  }
+
   .hero-top-design-container {
     justify-content: space-between !important;
     align-items: flex-start !important;
@@ -1067,5 +1072,78 @@ body {
   .hero-details-container > div:last-child {
     display: none !important;
   }
+}
+
+/* Subtle floating pink blobs for section texture */
+.soft-blob {
+  position: absolute;
+  border-radius: 42% 58% 53% 47% / 44% 39% 61% 56%;
+  background: rgba(226, 139, 145, 0.3);
+  filter: blur(10px);
+  box-shadow: 0 0 24px rgba(226, 139, 145, 0.24);
+  pointer-events: none;
+  overflow: visible;
+  isolation: isolate;
+  animation: softBlobFloat 12s ease-in-out infinite;
+}
+
+.soft-blob::before {
+  content: '';
+  position: absolute;
+  width: 28%;
+  height: 28%;
+  top: -8%;
+  right: -6%;
+  border-radius: 58% 42% 54% 46% / 45% 57% 43% 55%;
+  background: rgba(255, 255, 255, 0.62);
+  filter: blur(8px);
+  opacity: 0.92;
+  transform: rotate(-10deg);
+  animation: softBlobInnerFloat 9s ease-in-out infinite;
+}
+
+.soft-blob--alt {
+  border-radius: 61% 39% 49% 51% / 52% 62% 38% 48%;
+  background: rgba(233, 183, 163, 0.26);
+  animation-duration: 16s;
+}
+
+.soft-blob--small {
+  filter: blur(8px);
+  animation-duration: 10s;
+}
+
+@keyframes softBlobFloat {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -10px, 0) scale(1.04); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes softBlobInnerFloat {
+  0% { transform: translate3d(0, 0, 0) rotate(-12deg) scale(1); }
+  50% { transform: translate3d(2px, -3px, 0) rotate(-6deg) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) rotate(-12deg) scale(1); }
+}
+
+@keyframes attendancePulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(226, 139, 145, 0.35), 0 0 10px rgba(226, 139, 145, 0.35);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 6px rgba(226, 139, 145, 0.12), 0 0 20px rgba(226, 139, 145, 0.52);
+  }
+}
+
+.attendance-confirm-button {
+  animation: attendancePulseGlow 2.3s ease-in-out infinite;
+  transform-origin: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.attendance-confirm-button:hover,
+.attendance-confirm-button:focus {
+  opacity: 0.96;
 }
 
