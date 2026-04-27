@@ -43,6 +43,7 @@ function App() {
 
   const startMusic = () => {
     if (audioRef.current) {
+      audioRef.current.loop = true
       audioRef.current.currentTime = 1 // Start at 1 second
       audioRef.current.play().catch(error => {
         console.error('Error playing audio:', error)
@@ -66,7 +67,7 @@ function App() {
 
   const handleEnvelopeOpen = () => {
     setShowOpeningScreen(false)
-    // Don't auto-start music - let user control it from Hero section
+    startMusic()
   }
 
   return (
