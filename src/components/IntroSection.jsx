@@ -156,18 +156,36 @@ const IntroSection = () => {
       </div>
 
       {isRsvpModalOpen && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-4">
-          <div className="relative w-full max-w-md rounded-2xl bg-[#FDECE4] p-8 text-center shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
+          <div className="relative w-screen h-screen bg-[#FDECE4] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 font-poppins text-xs uppercase tracking-[0.2em] text-[#C86F78]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#C86F78]"
             >
               Close
             </button>
-            <p className="font-rozha text-3xl uppercase tracking-[0.14em]" style={{ color: '#C86F78' }}>
-              TO BE ADDED
-            </p>
+            <iframe
+              src="https://forms.gle/XUtWtjrPjvpnBbVN6"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              marginHeight="0"
+              marginWidth="0"
+              title="RSVP Form"
+              className="mt-8 h-[calc(100vh-80px)] bg-white"
+              style={{ height: 'calc(100vh - 114px)' }}
+            >
+              Loading...
+            </iframe>
+            <a
+              href="https://www.facebook.com/profile.php?id=61571540978411"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 block text-center text-xs text-[#C86F78]"
+            >
+              Made with love by Moments by Raya
+            </a>
           </div>
         </div>
       )}

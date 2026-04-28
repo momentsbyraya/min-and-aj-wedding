@@ -9,7 +9,6 @@ import DressCode from './DressCode'
 import Gallery2 from './Gallery2'
 import CelebrantStory from './CelebrantStory'
 import CountdownSection from './CountdownSection'
-import Watermark from './Watermark'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
@@ -27,7 +26,6 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
-      <Watermark />
       <div className="hero-falling-flower-layer fixed inset-0 z-[8] pointer-events-none overflow-hidden">
         <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '8%', animationDelay: '0s', animationDuration: '8.5s', '--flower-size': 'clamp(12px, 1.9vw, 26px)' }} />
         <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '24%', animationDelay: '1.8s', animationDuration: '9.3s', '--flower-size': 'clamp(16px, 2.5vw, 34px)' }} />
@@ -64,11 +62,11 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div>
               <Venue />
             </div>
-            <section className="w-full">
+            <section className="w-full invitation-soft-bleed-photo">
               <img
-                src="/images/prenup/DSC01286.jpg"
+                src="/images/prenup/DSC01286.png"
                 alt="Prenup moment"
-                className="w-full h-auto object-cover block"
+                className="w-full h-auto object-cover block invitation-soft-bleed-photo-image"
               />
             </section>
             <div>
@@ -76,9 +74,9 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             </div>
             <section className="w-full">
               <img
-                src="/images/prenup/DSC01404.jpg"
+                src="/images/prenup/DSC01404.png"
                 alt="Prenup moment"
-                className="w-full h-auto object-cover block"
+                className="w-full h-auto object-cover block invitation-soft-bleed-photo-image"
               />
             </section>
             <div>
@@ -104,19 +102,15 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
               <CountdownSection />
             </div>
             <footer className="wedding-invitation-footer bg-[#F2C8B8]">
-              <div className="wedding-invitation-footer-link" style={{ color: '#ffffff' }}>
-                <span>Made with</span>
-                <span className="footer-heart wedding-invitation-footer-heart">❤</span>
-                <span>by</span>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61571540978411"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ color: '#ffffff', textDecoration: 'none' }}
-                >
-                  Moments by Raya
-                </a>
-              </div>
+              <a
+                href="https://www.facebook.com/profile.php?id=61571540978411"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit Moments by Raya page"
+                className="wedding-invitation-footer-link wedding-invitation-footer-link-hidden"
+              >
+                Made with love by Moments by Raya
+              </a>
             </footer>
           </div>
         </div>

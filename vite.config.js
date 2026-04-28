@@ -34,14 +34,22 @@ function copyAssetsPlugin() {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), copyAssetsPlugin()],
-  logLevel: 'error',
+  logLevel: 'info',
   server: {
-    port: 3000,
+    host: true,
+    port: 5173,
+    strictPort: false,
     open: true,
-    hmr: true,
+    hmr: {
+      protocol: 'ws'
+    },
     watch: {
       usePolling: true,
-      interval: 150
+      interval: 100,
+      awaitWriteFinish: {
+        stabilityThreshold: 120,
+        pollInterval: 100
+      }
     }
   },
   build: {

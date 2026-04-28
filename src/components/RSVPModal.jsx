@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { X } from 'lucide-react'
-import { theme, wedding } from '../data'
+import { theme } from '../data'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
@@ -62,7 +62,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
   return createPortal(
     <div 
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-0"
       style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       {/* Overlay */}
@@ -75,7 +75,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
       {/* Modal Content */}
       <div
         ref={contentRef}
-        className="relative bg-white shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        className="relative bg-white shadow-2xl w-screen h-screen max-w-none max-h-none overflow-hidden"
         style={{
           border: `0.5px solid ${theme.colors.primary}`,
           outline: `0.5px solid ${theme.colors.primary}`,
@@ -95,19 +95,28 @@ const RSVPModal = ({ isOpen, onClose }) => {
         </div>
         
         {/* Google Forms iframe */}
-        <div className="p-6">
+        <div className="p-6 h-[calc(100vh-97px)]">
           <iframe 
-            src={wedding.rsvp.formUrl} 
+            src="https://forms.gle/XUtWtjrPjvpnBbVN6"
             width="100%" 
-            height="600" 
+            height="100%" 
             frameBorder="0" 
             marginHeight="0" 
             marginWidth="0"
             title="RSVP Form"
             className="rounded-lg"
+            style={{ height: 'calc(100% - 34px)' }}
           >
             Loading…
           </iframe>
+          <a
+            href="https://www.facebook.com/profile.php?id=61571540978411"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 block text-center text-xs text-[#C86F78]"
+          >
+            Made with love by Moments by Raya
+          </a>
         </div>
       </div>
     </div>,
