@@ -70,11 +70,11 @@ const Gallery = () => {
         className="gallery-flower gallery-flower-bottom"
       />
       <div ref={gridRef} className="parent">
-        <div className="div1"><img src={prenupImages[0]} alt="Prenup 1" /></div>
-        <div className="div2"><img src={prenupImages[1]} alt="Prenup 2" /></div>
-        <div className="div3"><img src={prenupImages[2]} alt="Prenup 3" /></div>
-        <div className="div4"><img src={prenupImages[3]} alt="Prenup 4" /></div>
-        <div className="div5"><img src={prenupImages[4]} alt="Prenup 5" /></div>
+        <div className="div1 soft-edges"><img src={prenupImages[0]} alt="Prenup 1" /></div>
+        <div className="div2 soft-edges"><img src={prenupImages[1]} alt="Prenup 2" /></div>
+        <div className="div3 soft-edges"><img src={prenupImages[2]} alt="Prenup 3" /></div>
+        <div className="div4 soft-edges"><img src={prenupImages[3]} alt="Prenup 4" /></div>
+        <div className="div5 soft-edges"><img src={prenupImages[4]} alt="Prenup 5" /></div>
       </div>
       <img
         ref={bannerRef}

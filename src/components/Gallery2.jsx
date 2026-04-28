@@ -20,9 +20,7 @@ const Gallery2 = () => {
   ]
 
   useEffect(() => {
-    const galleryItems = gridRef.current?.querySelectorAll(
-      '.gallery2-div1, .gallery2-div2, .gallery2-div3, .gallery2-div4, .gallery2-div5, .gallery2-div6'
-    ) || []
+    const galleryItems = gridRef.current?.querySelectorAll('.gallery2-item') || []
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -55,12 +53,11 @@ const Gallery2 = () => {
       <div className="soft-blob soft-blob--alt" style={{ width: randSize(86, 136), height: randSize(74, 116), top: randPct(8, 22), left: randPct(6, 18) }} />
       <div className="soft-blob soft-blob--small" style={{ width: randSize(72, 112), height: randSize(60, 96), top: randPct(68, 84), left: randPct(68, 84) }} />
       <div ref={gridRef} className="gallery2-parent">
-        <div className="gallery2-div1"><img src={images[0]} alt="Prenup 1" /></div>
-        <div className="gallery2-div2"><img src={images[1]} alt="Prenup 2" /></div>
-        <div className="gallery2-div3"><img src={images[2]} alt="Prenup 3" /></div>
-        <div className="gallery2-div4"><img src={images[3]} alt="Prenup 4" /></div>
-        <div className="gallery2-div5"><img src={images[4]} alt="Prenup 5" /></div>
-        <div className="gallery2-div6"><img src={images[5]} alt="Prenup 6" /></div>
+        {images.map((image, index) => (
+          <div key={image} className="gallery2-item gallery2-soft-edges">
+            <img src={image} alt={`Prenup ${index + 1}`} />
+          </div>
+        ))}
       </div>
     </section>
   )

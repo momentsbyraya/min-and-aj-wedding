@@ -62,21 +62,21 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div>
               <Venue />
             </div>
-            <section className="w-full invitation-soft-bleed-photo">
+            <section className="w-full invitation-soft-edges invitation-soft-edges--location relative">
               <img
                 src="/images/prenup/DSC01286.png"
                 alt="Prenup moment"
-                className="w-full h-auto object-cover block invitation-soft-bleed-photo-image"
+                className="w-full h-auto object-cover block"
               />
             </section>
             <div>
               <Schedule />
             </div>
-            <section className="w-full">
+            <section className="w-full invitation-soft-edges invitation-soft-edges--location relative">
               <img
                 src="/images/prenup/DSC01404.png"
                 alt="Prenup moment"
-                className="w-full h-auto object-cover block invitation-soft-bleed-photo-image"
+                className="w-full h-auto object-cover block"
               />
             </section>
             <div>

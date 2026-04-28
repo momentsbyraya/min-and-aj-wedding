@@ -117,13 +117,33 @@ const CountdownSection = () => {
           </span>
         </h2>
 
-        <div ref={polaroidRef} className="mx-auto w-[260px] max-w-[78vw]" style={{ transform: 'rotate(-7deg)' }}>
-          <div className="bg-[#F9D7DB] pt-3 px-3 pb-10 shadow-[0_10px_24px_rgba(199,119,129,0.25)]">
+        <div ref={polaroidRef} className="mx-auto w-[260px] max-w-[78vw]">
+          <div
+            className="relative overflow-hidden"
+            style={{
+              borderRadius: '50%',
+              WebkitMaskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.65) 82%, rgba(0, 0, 0, 0) 100%)',
+              maskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.65) 82%, rgba(0, 0, 0, 0) 100%)',
+              WebkitMaskSize: '100% 100%',
+              maskSize: '100% 100%',
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat'
+            }}
+          >
             <img
               src="/images/prenup/DSC01381.jpg"
-              alt="Abby polaroid"
-              className="w-full aspect-square object-cover"
-              style={{ objectPosition: 'center 12%' }}
+              alt="Abby portrait"
+              className="w-full object-cover"
+              style={{ aspectRatio: '3 / 4', objectPosition: 'center 12%', transform: 'scale(1.02)' }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(circle at top left, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%), radial-gradient(circle at top right, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%), radial-gradient(circle at bottom left, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%), radial-gradient(circle at bottom right, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%)',
+                boxShadow:
+                  'inset 0 16px 20px -14px rgba(253,236,228,0.88), inset 0 -16px 20px -14px rgba(253,236,228,0.88), inset 16px 0 20px -14px rgba(253,236,228,0.88), inset -16px 0 20px -14px rgba(253,236,228,0.88), inset 0 0 22px rgba(253,236,228,0.72)'
+              }}
             />
           </div>
         </div>
