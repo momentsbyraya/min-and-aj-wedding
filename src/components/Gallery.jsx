@@ -5,7 +5,7 @@ import './Gallery.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Gallery = () => {
+const Gallery = ({ onImageClick }) => {
   const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
   const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
@@ -70,11 +70,11 @@ const Gallery = () => {
         className="gallery-flower gallery-flower-bottom"
       />
       <div ref={gridRef} className="parent">
-        <div className="div1 soft-edges"><img src={prenupImages[0]} alt="Prenup 1" /></div>
-        <div className="div2 soft-edges"><img src={prenupImages[1]} alt="Prenup 2" /></div>
-        <div className="div3 soft-edges"><img src={prenupImages[2]} alt="Prenup 3" /></div>
-        <div className="div4 soft-edges"><img src={prenupImages[3]} alt="Prenup 4" /></div>
-        <div className="div5 soft-edges"><img src={prenupImages[4]} alt="Prenup 5" /></div>
+        <div className="div1 soft-edges"><img src={prenupImages[0]} alt="Prenup 1" onClick={() => onImageClick?.(prenupImages[0])} className="cursor-pointer" /></div>
+        <div className="div2 soft-edges"><img src={prenupImages[1]} alt="Prenup 2" onClick={() => onImageClick?.(prenupImages[1])} className="cursor-pointer" /></div>
+        <div className="div3 soft-edges"><img src={prenupImages[2]} alt="Prenup 3" onClick={() => onImageClick?.(prenupImages[2])} className="cursor-pointer" /></div>
+        <div className="div4 soft-edges"><img src={prenupImages[3]} alt="Prenup 4" onClick={() => onImageClick?.(prenupImages[3])} className="cursor-pointer" /></div>
+        <div className="div5 soft-edges"><img src={prenupImages[4]} alt="Prenup 5" onClick={() => onImageClick?.(prenupImages[4])} className="cursor-pointer" /></div>
       </div>
       <img
         ref={bannerRef}

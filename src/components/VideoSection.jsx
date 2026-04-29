@@ -289,7 +289,7 @@ const VideoSection = ({ onPauseMusic, onResumeMusic }) => {
           {/* Title */}
           <div ref={titleRef} className="text-center mb-8">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-antsvalley" style={{ color: '#4b2259' }}>
-              Introducing...
+              Introducing
             </h2>
           </div>
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Mail } from 'lucide-react'
 import { celebrant } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -78,7 +79,16 @@ const IntroSection = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full px-4 sm:px-6 pt-48 pb-10 overflow-hidden" style={{ background: '#fdece4' }}>
+    <section
+      ref={sectionRef}
+      className="relative w-full px-4 sm:px-6 pt-48 md:pt-80 pb-10 overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/graphics/bg-3.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="soft-blob z-0" style={{ width: randSize(85, 135), height: randSize(75, 120), top: randPct(8, 22), left: randPct(66, 84) }} />
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(75, 120), height: randSize(65, 105), top: randPct(66, 84), left: randPct(8, 22) }} />
       <img
@@ -94,43 +104,43 @@ const IntroSection = () => {
         className="absolute bottom-[10%] left-[4%] w-24 opacity-25 blur-[3px] pointer-events-none z-0"
       />
       <img
-        src="/images/graphics/side-divider.png"
-        alt="Decorative divider"
-        className="absolute top-14 -left-8 h-auto pointer-events-none z-10 -scale-x-100 -rotate-45"
-        style={{ width: '40vw' }}
+        src="/images/graphics/flower-banner.png"
+        alt="Floral banner"
+        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: '900px' }}
       />
       <div className="max-w-sm mx-auto">
         <div className="overflow-hidden">
           <div className="px-5 py-5 text-center">
             <h2 ref={headingRef} className="leading-none mb-3">
-              <span className="block font-halimun text-5xl" style={{ color: '#E28B91' }}>
+              <span className="block font-halimun text-5xl" style={{ color: '#6F2D36' }}>
                 hello
               </span>
-              <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#c86f78' }}>
-                friends.
+              <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
+                friends
               </span>
             </h2>
-            <p ref={copyRef} className="font-poppins text-sm leading-snug" style={{ color: '#d7878e' }}>
+            <p ref={copyRef} className="font-poppins text-sm leading-snug" style={{ color: '#6F2D36' }}>
               I am so excited to celebrate my special day with you.
               Thank you for being part of my journey.
             </p>
             <div ref={calendarRef} className="mt-10 w-4/5 mx-auto">
-              <p className="font-rozha text-base tracking-[0.12em] uppercase" style={{ color: '#E28B91' }}>
+              <p className="font-rozha text-2xl tracking-[0.12em] uppercase" style={{ color: '#6F2D36' }}>
                 {monthLabel} {yearLabel}
               </p>
-              <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-rozha uppercase" style={{ color: '#E28B91' }}>
+              <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-rozha uppercase" style={{ color: '#6F2D36' }}>
                 {weekLabels.map((label, index) => (
                   <span key={`${label}-${index}`}>{label}</span>
                 ))}
               </div>
-              <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-rozha" style={{ color: '#E28B91' }}>
+              <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-rozha" style={{ color: '#6F2D36' }}>
                 {calendarCells.map((day, index) => {
                   const isSelected = day === selectedDay
                   return (
                     <div key={`${day ?? 'empty'}-${index}`} className="flex items-center justify-center">
                       {day ? (
                         <span
-                          className={`calendar-day-number flex h-8 w-8 items-center justify-center rounded-full ${isSelected ? 'bg-[#E28B91] text-white' : ''}`}
+                          className={`calendar-day-number flex h-8 w-8 items-center justify-center rounded-full ${isSelected ? 'bg-[#E7AEB5] text-[#6F2D36] border border-[#D98C96]' : ''}`}
                         >
                           {day}
                         </span>
@@ -145,9 +155,10 @@ const IntroSection = () => {
                 <button
                   type="button"
                   onClick={() => setIsRsvpModalOpen(true)}
-                  className="attendance-confirm-button inline-block px-5 py-2 rounded-full text-xs tracking-[0.24em] font-rozha bg-[#E28B91] text-white"
+                  className="attendance-confirm-button inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-base font-rozha bg-[#C96A72] text-white"
                 >
-                  Confirm Your Attendance
+                  <span className="uppercase" style={{ letterSpacing: '0.24em' }}>Respond</span>
+                  <Mail className="w-3.5 h-3.5" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -161,7 +172,7 @@ const IntroSection = () => {
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#C86F78]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#6F2D36]"
             >
               Close
             </button>
@@ -178,14 +189,6 @@ const IntroSection = () => {
             >
               Loading...
             </iframe>
-            <a
-              href="https://www.facebook.com/profile.php?id=61571540978411"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 block text-center text-xs text-[#C86F78]"
-            >
-              Made with love by Moments by Raya
-            </a>
           </div>
         </div>
       )}

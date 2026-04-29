@@ -112,7 +112,7 @@ const MapDirections = () => {
                     </React.Fragment>
                   ))}
                 </h3>
-                <p className="font-poppins" style={{ color: '#B76E79', fontSize: '14px' }}>
+                <p className="font-poppins" style={{ color: '#6F2D36', fontSize: '14px' }}>
                   {venues.main.address}, {venues.main.city}, {venues.main.state} {venues.main.zip}
                 </p>
               </div>

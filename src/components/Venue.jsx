@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ArrowRight } from 'lucide-react'
 import { venues as venuesData } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -64,12 +65,12 @@ const Venue = () => {
         <h2 ref={headingRef} className="leading-none mb-10">
           <span
             className="block font-halimun text-xl leading-none w-fit"
-            style={{ color: '#E28B91', marginLeft: '20%', marginBottom: '-10px' }}
+            style={{ color: '#6F2D36', marginLeft: '20%', marginBottom: '-10px' }}
           >
             the
           </span>
-          <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#c86f78' }}>
-            location.
+          <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
+            location
           </span>
         </h2>
 
@@ -81,8 +82,10 @@ const Venue = () => {
           />
         </div>
 
-        <p ref={venueNameRef} className="font-rozha text-base uppercase tracking-[0.08em] mb-5" style={{ color: '#E28B91' }}>
-          {venueData.name}
+        <p ref={venueNameRef} className="tracking-[0.08em] mb-5" style={{ color: '#6F2D36' }}>
+          <span className="font-rozha text-2xl">Double Tree</span>
+          <br />
+          <span className="font-poppins text-lg">by Hilton Ballroom</span>
         </p>
 
         <a
@@ -90,9 +93,10 @@ const Venue = () => {
           href={directionsUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-block px-5 py-2 rounded-full text-xs uppercase tracking-[0.15em] font-rozha bg-[#E28B91] text-white"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-base bg-[#E28B91] text-white"
         >
-          Get Direction
+          <span style={{ fontFamily: 'Poppins, sans-serif' }}>Get Direction</span>
+          <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </a>
       </div>
     </section>

@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 const Hero = () => {
   const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
   const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
-  const invitedRef = useRef(null)
   const eighteenRef = useRef(null)
   const birthdayRef = useRef(null)
 
@@ -12,16 +11,10 @@ const Hero = () => {
     const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
 
     tl.fromTo(
-      invitedRef.current,
-      { opacity: 0, y: 26 },
-      { opacity: 1, y: 0, duration: 0.75 }
+      eighteenRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.85 }
     )
-      .fromTo(
-        eighteenRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.85 },
-        '-=0.35'
-      )
       .fromTo(
         birthdayRef.current,
         { opacity: 0, y: 22 },
@@ -58,33 +51,22 @@ const Hero = () => {
         className="absolute bottom-0 right-0 h-auto z-20 pointer-events-none -scale-x-100"
         style={{ width: '100vw' }}
       />
-      <div className="absolute bottom-0 left-0 z-10 pointer-events-none" style={{ width: '80vw' }}>
+      <div className="absolute bottom-6 md:bottom-10 left-0 z-10 pointer-events-none" style={{ width: '80vw' }}>
         <div className="flex flex-col items-center justify-center w-full">
-          <p
-            ref={invitedRef}
-            className="font-rozha uppercase tracking-[0.15em] text-center mb-[-0.35em] leading-none"
-            style={{
-              color: '#FFFFFF',
-              fontSize: 'clamp(1.2rem, 3vw, 2.4rem)',
-              lineHeight: 1,
-              textShadow: '0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25)'
-            }}
-          >
-            YOU ARE INVITED TO
-          </p>
           <img
             ref={eighteenRef}
             src="/images/graphics/18.png"
             alt="18"
-            className="hero-18-image w-full h-auto block mx-auto"
+            className="hero-18-image w-full h-auto block mx-auto md:mx-0 md:self-start"
           />
           <p
             ref={birthdayRef}
-            className="font-rozha uppercase tracking-[0.2em] text-center mt-[-0.35em] leading-none"
+            className="font-rozha uppercase text-center mt-[-0.35em] leading-none md:hidden"
             style={{
-              color: '#E28B91',
+              color: '#6F2D36',
               fontSize: 'clamp(1.6rem, 4.4vw, 3.8rem)',
-              lineHeight: 1
+              lineHeight: 1,
+              letterSpacing: '0.3em'
             }}
           >
             BIRTHDAY

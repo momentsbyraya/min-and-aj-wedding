@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { gsap } from 'gsap'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
 import Gallery from './Gallery'
@@ -12,6 +13,32 @@ import CountdownSection from './CountdownSection'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
+  const prenupImages = useMemo(() => ([
+    '/images/prenup/DSC01333.jpg',
+    '/images/prenup/DSC01372.jpg',
+    '/images/prenup/DSC01288.jpg',
+    '/images/prenup/DSC01381.jpg',
+    '/images/prenup/DSC01394.jpg',
+    '/images/prenup/DSC01286.jpg',
+    '/images/prenup/DSC01404.jpg',
+    '/images/prenup/DSC01538.jpg',
+    '/images/prenup/DSC01459.jpg',
+    '/images/prenup/DSC01254.jpg',
+    '/images/prenup/DSC01234.jpg',
+    '/images/prenup/DSC01492.jpg',
+    '/images/prenup/DSC01482.jpg'
+  ]), [])
+  const [lightboxIndex, setLightboxIndex] = useState(-1)
+
+  const openLightbox = (src) => {
+    const index = prenupImages.indexOf(src)
+    if (index >= 0) setLightboxIndex(index)
+  }
+
+  const closeLightbox = () => setLightboxIndex(-1)
+  const showPrevImage = () => setLightboxIndex((prev) => (prev - 1 + prenupImages.length) % prenupImages.length)
+  const showNextImage = () => setLightboxIndex((prev) => (prev + 1) % prenupImages.length)
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Initial page load animation
@@ -23,6 +50,24 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
     return () => ctx.revert()
   }, [])
+
+  useEffect(() => {
+    if (lightboxIndex < 0) return undefined
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') closeLightbox()
+      if (event.key === 'ArrowLeft') showPrevImage()
+      if (event.key === 'ArrowRight') showNextImage()
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [lightboxIndex, prenupImages.length])
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
@@ -45,9 +90,6 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
         <div>
           <IntroSection />
         </div>
-        <div>
-          <Gallery />
-        </div>
         <div className="relative overflow-hidden">
           <div
             className="absolute inset-0 z-0 pointer-events-none"
@@ -60,30 +102,39 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
           />
           <div className="relative z-10">
             <div>
-              <Venue />
+              <Gallery onImageClick={openLightbox} />
             </div>
-            <section className="w-full invitation-soft-edges invitation-soft-edges--location relative">
-              <img
-                src="/images/prenup/DSC01286.png"
-                alt="Prenup moment"
-                className="w-full h-auto object-cover block"
-              />
-            </section>
-            <div>
-              <Schedule />
+            <div className="md:flex md:items-stretch">
+              <div className="w-full md:w-1/2">
+                <Venue />
+              </div>
+              <section className="w-full md:w-1/2 md:self-stretch md:flex invitation-soft-edges invitation-soft-edges--location relative">
+                <img
+                  src="/images/prenup/DSC01286.jpg"
+                  alt="Prenup moment"
+                  className="w-full h-full md:min-h-full object-cover block cursor-pointer"
+                  onClick={() => openLightbox('/images/prenup/DSC01286.jpg')}
+                />
+              </section>
             </div>
-            <section className="w-full invitation-soft-edges invitation-soft-edges--location relative">
-              <img
-                src="/images/prenup/DSC01404.png"
-                alt="Prenup moment"
-                className="w-full h-auto object-cover block"
-              />
-            </section>
+            <div className="md:flex md:items-stretch md:flex-row-reverse">
+              <div className="w-full md:w-1/2">
+                <Schedule />
+              </div>
+              <section className="w-full md:w-1/2 md:self-stretch md:flex invitation-soft-edges invitation-soft-edges--location relative">
+                <img
+                  src="/images/prenup/DSC01404.jpg"
+                  alt="Prenup moment"
+                  className="w-full h-full md:min-h-full object-cover block cursor-pointer"
+                  onClick={() => openLightbox('/images/prenup/DSC01404.jpg')}
+                />
+              </section>
+            </div>
             <div>
               <DressCode />
             </div>
             <div>
-              <Gallery2 />
+              <Gallery2 onImageClick={openLightbox} />
             </div>
             <div>
               <CelebrantStory />
@@ -115,6 +166,52 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
           </div>
         </div>
       </main>
+      {lightboxIndex >= 0 && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center p-4 sm:p-8"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Prenup image viewer"
+        >
+          <button
+            type="button"
+            className="absolute top-4 right-4 text-white p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors"
+            onClick={closeLightbox}
+            aria-label="Close image viewer"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <button
+            type="button"
+            className="absolute left-3 sm:left-6 text-white p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors"
+            onClick={(event) => {
+              event.stopPropagation()
+              showPrevImage()
+            }}
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-7 h-7" />
+          </button>
+          <img
+            src={prenupImages[lightboxIndex]}
+            alt={`Prenup preview ${lightboxIndex + 1}`}
+            className="max-h-[90vh] max-w-[92vw] object-contain"
+            onClick={(event) => event.stopPropagation()}
+          />
+          <button
+            type="button"
+            className="absolute right-3 sm:right-6 text-white p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors"
+            onClick={(event) => {
+              event.stopPropagation()
+              showNextImage()
+            }}
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-7 h-7" />
+          </button>
+        </div>
+      )}
     </div>
   )
 }

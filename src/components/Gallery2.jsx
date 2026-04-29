@@ -5,7 +5,7 @@ import './Gallery2.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Gallery2 = () => {
+const Gallery2 = ({ onImageClick }) => {
   const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
   const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
@@ -55,7 +55,7 @@ const Gallery2 = () => {
       <div ref={gridRef} className="gallery2-parent">
         {images.map((image, index) => (
           <div key={image} className="gallery2-item gallery2-soft-edges">
-            <img src={image} alt={`Prenup ${index + 1}`} />
+            <img src={image} alt={`Prenup ${index + 1}`} onClick={() => onImageClick?.(image)} className="cursor-pointer" />
           </div>
         ))}
       </div>

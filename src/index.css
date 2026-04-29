@@ -75,7 +75,7 @@ body {
   font-family: 'Elsie Swash Caps', cursive;
   font-weight: 400;
   line-height: 1.6;
-  color: #ad8369;
+  color: #8b6755;
   background-color: #f6f1ee; /* Calendar background color */
 }
 
@@ -172,7 +172,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #E9B7A3 !important;
+    background-color: #D99D86 !important;
   }
   
   footer a:hover,
@@ -553,6 +553,28 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  :root {
+    --envelope-y: 24vh;
+    --envelope-x: calc(var(--envelope-y) * 1.5);
+    --letter-x: calc(var(--envelope-x) * 0.83);
+    --letter-y: calc(var(--envelope-y) - 1rem - 10px);
+  }
+
+  .envelope {
+    transform: rotate(-5deg) scale(1) !important;
+  }
+
+  .stamp-image {
+    width: clamp(90px, 12vh, 130px);
+  }
+
+  .envelope-letter p {
+    font-size: 2rem !important;
+    transform: scale(1.1);
+  }
+}
+
 .cssletter {
   position: relative;
   width: 100%;
@@ -836,6 +858,24 @@ body {
   transform-origin: center;
 }
 
+.opening-invite-kicker {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+}
+
+.opening-invite-title {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+@media (min-width: 768px) {
+  .opening-invite-kicker {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  }
+
+  .opening-invite-title {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.75);
+  }
+}
+
 .hero-falling-flower {
   position: absolute;
   top: -12vh;
@@ -986,6 +1026,13 @@ body {
 }
 
 /* Hero top and bottom design - 3 images on screens 992px and above */
+@media (min-width: 768px) {
+  .hero-18-image {
+    width: 52vw !important;
+    max-width: 52vw !important;
+  }
+}
+
 @media (min-width: 992px) {
   .hero-18-image {
     width: 20vw !important;
@@ -1113,10 +1160,24 @@ body {
   animation-duration: 10s;
 }
 
+.intro-flower-banner {
+  transform-origin: top center;
+  animation: introFlowerBannerBreath 7s ease-in-out infinite;
+}
+
 @keyframes softBlobFloat {
   0% { transform: translate3d(0, 0, 0) scale(1); }
   50% { transform: translate3d(0, -10px, 0) scale(1.04); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes introFlowerBannerBreath {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.03);
+  }
 }
 
 @keyframes softBlobInnerFloat {

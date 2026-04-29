@@ -70,7 +70,8 @@ const DressCode = () => {
         src="/images/graphics/flower-banner.png"
         alt=""
         aria-hidden="true"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] opacity-80 pointer-events-none z-10"
+        className="absolute top-0 left-1/2 -translate-x-1/2 opacity-80 pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: 'none' }}
       />
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(72, 114), height: randSize(62, 98), top: randPct(8, 22), left: randPct(68, 84) }} />
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(88, 132), height: randSize(74, 114), top: randPct(66, 84), left: randPct(6, 20) }} />
@@ -87,13 +88,13 @@ const DressCode = () => {
         className="absolute bottom-[14%] right-[8%] w-20 opacity-25 blur-[3px] pointer-events-none z-0"
       />
       <div className="relative z-20 w-full max-w-md mx-auto px-4 text-center">
-        <h2 ref={headingRef} className="font-rozha text-5xl lowercase leading-none mb-1" style={{ color: '#c86f78' }}>
+        <h2 ref={headingRef} className="font-rozha text-5xl lowercase leading-none mb-1" style={{ color: '#6F2D36' }}>
           dresscode.
         </h2>
         <p
           ref={noteRef}
           className="font-halimun text-xl mb-6 leading-none w-fit"
-          style={{ color: '#E28B91', marginLeft: 'calc(70% - 12px)', marginTop: '-10px', marginBottom: '24px' }}
+          style={{ color: '#6F2D36', marginLeft: 'calc(70% - 12px)', marginTop: '-10px', marginBottom: '24px' }}
         >
           note
         </p>
@@ -114,7 +115,7 @@ const DressCode = () => {
           <span title="White" className="inline-block w-8 h-8 rounded-full border border-white/70" style={{ backgroundColor: '#ffffff' }} />
         </div>
 
-        <p ref={descriptionRef} className="font-poppins text-sm leading-relaxed mt-6" style={{ color: '#B76E79' }}>
+        <p ref={descriptionRef} className="font-poppins text-sm leading-relaxed mt-6" style={{ color: '#6F2D36' }}>
           {dresscode.mainDressCode.description}
         </p>
       </div>

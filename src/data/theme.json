@@ -10,29 +10,29 @@
   "text": {
     "primary": "text-white",
     "secondary": "text-gray-300",
-    "accent": "text-[#F5DBCE]",
+    "accent": "text-[#E6C1AE]",
     "muted": "text-gray-400",
     "dark": "text-wedding-800",
-    "theme": "text-[#ad8369]",
+    "theme": "text-[#8B6755]",
     "pause": "text-[#dcdcdc]",
     "custom": "text-[#44484d]"
   },
   "borders": {
     "primary": "border-gray-700",
     "secondary": "border-gray-600",
-    "accent": "border-[#F5DBCE]",
-    "theme": "border-[#ad8369]"
+    "accent": "border-[#E6C1AE]",
+    "theme": "border-[#8B6755]"
   },
   "buttons": {
-    "primary": "bg-[#F5DBCE] hover:bg-[#eac8b8]",
+    "primary": "bg-[#E6C1AE] hover:bg-[#d4ab94]",
     "secondary": "border border-gray-600 hover:border-gray-400",
     "text": "text-gray-300 hover:text-white",
-    "theme": "bg-[#ad8369] hover:bg-[#ad8369]/80"
+    "theme": "bg-[#8B6755] hover:bg-[#8B6755]/80"
   },
   "hover": {
     "primary": "hover:bg-wedding-700",
     "secondary": "hover:border-gray-400 hover:text-white",
-    "theme": "hover:bg-[#ad8369]/80"
+    "theme": "hover:bg-[#8B6755]/80"
   },
   "container": {
     "maxWidth": "max-w-[1300px]",
@@ -41,8 +41,8 @@
   },
   "calendar": {
     "weddingDate": "2026-06-20",
-    "highlightColor": "bg-[#F5DBCE]",
-    "heartColor": "text-[#F5DBCE]",
+    "highlightColor": "bg-[#E6C1AE]",
+    "heartColor": "text-[#E6C1AE]",
     "textColor": "text-gray-700",
     "headerColor": "text-gray-800",
     "dayNamesColor": "text-gray-600",
@@ -58,11 +58,11 @@
     "--muted-text": "#9ca3af",
     "--border-color": "#374151",
     "--custom-theme": "#dee5ed",
-    "--primary-color": "#F5DBCE"
+    "--primary-color": "#E6C1AE"
   },
   "colors": {
-    "primary": "#F5DBCE",
-    "tertiary": "#E9B7A3"
+    "primary": "#E6C1AE",
+    "tertiary": "#D99D86"
   }
 }
 

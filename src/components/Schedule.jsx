@@ -93,7 +93,12 @@ const Schedule = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
-      style={{ backgroundColor: '#f5f1eb' }}
+      style={{
+        backgroundImage: 'url(/images/graphics/bg-3.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(90, 140), height: randSize(78, 118), top: randPct(8, 22), left: randPct(6, 18) }} />
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(75, 118), height: randSize(64, 102), top: randPct(66, 82), left: randPct(68, 84) }} />
@@ -102,15 +107,15 @@ const Schedule = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
           <div className="w-full max-w-3xl mx-auto pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
               {/* Header Section */}
-              <div ref={headerRef} className="text-center mb-12">
-                <h2 className="leading-none mb-4">
+              <div ref={headerRef} className="mb-12 flex justify-end">
+                <h2 className="leading-none mb-4 text-right w-fit">
                   <span
                     className="block font-halimun text-xl leading-none w-fit"
-                    style={{ color: '#E28B91', marginLeft: '20%', marginBottom: '-10px' }}
+                    style={{ color: '#6F2D36', marginBottom: '-10px', marginLeft: 'auto' }}
                   >
                     the
                   </span>
-                  <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#c86f78' }}>
+                  <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
                     schedule.
                   </span>
                 </h2>
@@ -150,7 +155,7 @@ const Schedule = () => {
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
                           className="timeline-time text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
-                          style={{ color: '#E28B91', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+                          style={{ color: '#6F2D36', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>{timePeriod}</span>
                             </div>
@@ -172,7 +177,7 @@ const Schedule = () => {
                       <div className="flex-1 pl-4">
                         <div 
                           className="timeline-description font-poppins"
-                          style={{ color: '#c86f78', opacity: 0.9, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                          style={{ color: '#6F2D36', opacity: 0.9, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                         >
                               {event.title}
                             </div>
@@ -189,9 +194,9 @@ const Schedule = () => {
             <div className="text-center">
                   <p 
                     className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
-                    style={{ color: '#c86f78', opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
+                    style={{ color: '#6F2D36', opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
                   >
-                    We look forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
+                    Looking forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
                   </p>
             </div>
           </div>

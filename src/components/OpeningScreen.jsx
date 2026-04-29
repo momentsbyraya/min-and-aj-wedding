@@ -117,10 +117,20 @@ function OpeningScreen({ onEnvelopeOpen }) {
 
       <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center justify-center px-4 text-center pointer-events-none z-10">
         <div ref={introCopyRef} className="mb-4 sm:mb-6 md:mb-8">
-          <p className="font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase" style={{ color: '#E28B91' }}>
+          <p
+            className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
+            style={{
+              color: '#6F2D36'
+            }}
+          >
             YOU ARE CORDIALLY
           </p>
-          <p className="font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight" style={{ color: '#E28B91' }}>
+          <p
+            className="opening-invite-title font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
+            style={{
+              color: '#6F2D36'
+            }}
+          >
             Invited
           </p>
         </div>
@@ -134,7 +144,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <img
             src="/images/graphics/envelope.png"
             alt="Envelope"
-            style={{ width: '80vw', height: 'auto' }}
+            className="w-[80vw] h-auto md:w-auto md:h-[24vh]"
+            style={{ maxWidth: '520px' }}
           />
           <img
             src="/images/graphics/stamp.png"
@@ -149,8 +160,15 @@ function OpeningScreen({ onEnvelopeOpen }) {
             }}
           />
         </button>
-        <p ref={clickLabelRef} className="font-foglihten tracking-[0.3em] text-xs sm:text-sm md:text-base uppercase mt-3" style={{ color: '#E28B91' }}>
-          CLICK TO OPEN.
+        <p
+          ref={clickLabelRef}
+          className="font-foglihten tracking-[0.3em] text-xs sm:text-sm md:text-base uppercase mt-3"
+          style={{
+            color: '#6F2D36',
+            textShadow: '0 1px 3px rgba(0, 0, 0, 0.22)'
+          }}
+        >
+          CLICK TO OPEN
         </p>
       </div>
     </div>

@@ -109,14 +109,6 @@ const RSVPModal = ({ isOpen, onClose }) => {
           >
             Loading…
           </iframe>
-          <a
-            href="https://www.facebook.com/profile.php?id=61571540978411"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 block text-center text-xs text-[#C86F78]"
-          >
-            Made with love by Moments by Raya
-          </a>
         </div>
       </div>
     </div>,

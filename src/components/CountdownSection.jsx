@@ -94,7 +94,7 @@ const CountdownSection = () => {
           <span
             className="block font-halimun"
             style={{
-              color: '#E28B91',
+              color: '#6F2D36',
               fontSize: 'clamp(3.2rem, 13vw, 5.2rem)',
               transform: 'rotate(-5deg)',
               display: 'block',
@@ -106,7 +106,7 @@ const CountdownSection = () => {
           <span
             className="block font-halimun lowercase"
             style={{
-              color: '#E28B91',
+              color: '#6F2D36',
               fontSize: 'clamp(3.6rem, 15vw, 6rem)',
               transform: 'rotate(-7deg)',
               display: 'block',
@@ -151,41 +151,41 @@ const CountdownSection = () => {
         <div ref={statsRef} className="mt-12 flex items-start justify-center gap-4 sm:gap-6">
           <div className="countdown-stat-item text-center">
             <div className="w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full border-2 border-[#E28B91] bg-[#F9D7DB] flex items-center justify-center shadow-[0_6px_18px_rgba(199,119,129,0.2)]">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#c86f78' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#6F2D36' }}>
                 {countdown.days}
               </p>
             </div>
-            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#E28B91' }}>
+            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#6F2D36' }}>
               Days
             </p>
           </div>
           <div className="countdown-stat-item text-center">
             <div className="w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full border-2 border-[#E28B91] bg-[#F9D7DB] flex items-center justify-center shadow-[0_6px_18px_rgba(199,119,129,0.2)]">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#c86f78' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#6F2D36' }}>
                 {countdown.hours}
               </p>
             </div>
-            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#E28B91' }}>
+            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#6F2D36' }}>
               Hours
             </p>
           </div>
           <div className="countdown-stat-item text-center">
             <div className="w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full border-2 border-[#E28B91] bg-[#F9D7DB] flex items-center justify-center shadow-[0_6px_18px_rgba(199,119,129,0.2)]">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#c86f78' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#6F2D36' }}>
                 {countdown.minutes}
               </p>
             </div>
-            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#E28B91' }}>
+            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#6F2D36' }}>
               Minutes
             </p>
           </div>
           <div className="countdown-stat-item text-center">
             <div className="w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full border-2 border-[#E28B91] bg-[#F9D7DB] flex items-center justify-center shadow-[0_6px_18px_rgba(199,119,129,0.2)]">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#c86f78' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#6F2D36' }}>
                 {countdown.seconds}
               </p>
             </div>
-            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#E28B91' }}>
+            <p className="font-poppins text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2" style={{ color: '#6F2D36' }}>
               Seconds
             </p>
           </div>

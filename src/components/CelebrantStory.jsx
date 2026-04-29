@@ -64,28 +64,32 @@ const CelebrantStory = () => {
 
       <div className="relative z-20 w-full max-w-md mx-auto px-5 text-center">
         <h2 ref={headingRef} className="leading-none mb-8 inline-flex items-end justify-center gap-2 whitespace-nowrap">
-          <span className="inline-block font-rozha text-5xl lowercase" style={{ color: '#c86f78' }}>
+          <span className="inline-block font-rozha text-5xl lowercase" style={{ color: '#6F2D36' }}>
             about
           </span>
           <span
-            className="inline-block font-halimun text-xl leading-none lowercase"
-            style={{ color: '#E28B91', marginBottom: '-6px' }}
+            className="inline-block font-halimun text-xl leading-none"
+            style={{ color: '#6F2D36', marginBottom: '-6px' }}
           >
-            abby
+            Abby
           </span>
         </h2>
 
-        <p ref={paragraphRef} className="font-poppins text-sm leading-relaxed" style={{ color: '#B76E79' }}>
-          Abby is a precious gift ... a beautiful reminder of all that is good in this world.
+        <p ref={paragraphRef} className="font-poppins text-sm leading-relaxed" style={{ color: '#6F2D36' }}>
+          Abby is a precious gift ...
+          <br />
+          a beautiful reminder
+          <br />
+          of all that is good in this world.
           <br />
           <br />
-          Her laughter &amp; smile lights up even my hardest days. Abby may look fragile but she is so much more than
-          perfect - she&apos;s funny, kind and so brave facing new challenge with such courage.
+          Her laughter &amp; smile lights up even one&apos;s hardest days. She may look fragile, but she is so much
+          more than perfect - she&apos;s graciously funny, kind and so bold facing new challenges in life.
           <br />
           <br />
-          Every moment with her is a treasure. The world is brighter because
+          Every moment with her is a treasure. The world is brighter because Abby is in it ...
           <br />
-          Abby is in it and I am proud to call her my daughter.
+          So favored to have spent life &amp; time with her!
         </p>
 
         <div ref={imageRef} className="mt-6 flex justify-center">
