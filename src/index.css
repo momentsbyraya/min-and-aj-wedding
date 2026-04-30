@@ -1165,6 +1165,11 @@ body {
   animation: introFlowerBannerBreath 7s ease-in-out infinite;
 }
 
+.schedule-flower-banner-bottom {
+  transform-origin: center;
+  animation: scheduleFlowerBannerBreath 7s ease-in-out infinite;
+}
+
 @keyframes softBlobFloat {
   0% { transform: translate3d(0, 0, 0) scale(1); }
   50% { transform: translate3d(0, -10px, 0) scale(1.04); }
@@ -1177,6 +1182,15 @@ body {
   }
   50% {
     transform: translateX(-50%) scale(1.03);
+  }
+}
+
+@keyframes scheduleFlowerBannerBreath {
+  0%, 100% {
+    transform: translateX(-50%) rotate(180deg) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) rotate(180deg) scale(1.03);
   }
 }
 

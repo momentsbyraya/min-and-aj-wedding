@@ -89,7 +89,7 @@ const DressCode = () => {
       />
       <div className="relative z-20 w-full max-w-md mx-auto px-4 text-center">
         <h2 ref={headingRef} className="font-rozha text-5xl lowercase leading-none mb-1" style={{ color: '#6F2D36' }}>
-          dresscode.
+          dresscode
         </h2>
         <p
           ref={noteRef}

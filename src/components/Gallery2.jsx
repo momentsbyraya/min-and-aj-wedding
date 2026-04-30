@@ -16,7 +16,7 @@ const Gallery2 = ({ onImageClick }) => {
     '/images/prenup/DSC01254.jpg',
     '/images/prenup/DSC01234.jpg',
     '/images/prenup/DSC01492.jpg',
-    '/images/prenup/DSC01482.jpg'
+    '/images/prenup/DSC01381.jpg'
   ]
 
   useEffect(() => {

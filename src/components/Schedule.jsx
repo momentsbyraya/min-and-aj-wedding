@@ -92,7 +92,7 @@ const Schedule = () => {
     <>
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
+      className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
       style={{
         backgroundImage: 'url(/images/graphics/bg-3.png)',
         backgroundSize: 'cover',
@@ -102,21 +102,35 @@ const Schedule = () => {
     >
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(90, 140), height: randSize(78, 118), top: randPct(8, 22), left: randPct(6, 18) }} />
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(75, 118), height: randSize(64, 102), top: randPct(66, 82), left: randPct(68, 84) }} />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: '900px' }}
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: '900px' }}
+      />
       {/* Content */}
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
           <div className="w-full max-w-3xl mx-auto pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
               {/* Header Section */}
-              <div ref={headerRef} className="mb-12 flex justify-end">
-                <h2 className="leading-none mb-4 text-right w-fit">
+              <div ref={headerRef} className="mb-12 flex justify-center">
+                <h2 className="leading-none mb-4 text-center w-fit">
                   <span
                     className="block font-halimun text-xl leading-none w-fit"
-                    style={{ color: '#6F2D36', marginBottom: '-10px', marginLeft: 'auto' }}
+                    style={{ color: '#6F2D36', marginBottom: '-10px', marginRight: 'auto' }}
                   >
                     the
                   </span>
                   <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
-                    schedule.
+                    schedule
                   </span>
                 </h2>
               </div>

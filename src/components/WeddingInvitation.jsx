@@ -3,7 +3,6 @@ import { gsap } from 'gsap'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
-import Gallery from './Gallery'
 import Venue from './Venue'
 import Schedule from './Schedule'
 import DressCode from './DressCode'
@@ -71,7 +70,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
-      <div className="hero-falling-flower-layer fixed inset-0 z-[8] pointer-events-none overflow-hidden">
+      <div className="hero-falling-flower-layer fixed inset-0 z-[120] pointer-events-none overflow-hidden">
         <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '8%', animationDelay: '0s', animationDuration: '8.5s', '--flower-size': 'clamp(12px, 1.9vw, 26px)' }} />
         <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '24%', animationDelay: '1.8s', animationDuration: '9.3s', '--flower-size': 'clamp(16px, 2.5vw, 34px)' }} />
         <img src="/images/graphics/flower.png" alt="" aria-hidden="true" className="hero-falling-flower" style={{ left: '46%', animationDelay: '0.9s', animationDuration: '8.8s', '--flower-size': 'clamp(20px, 3.2vw, 42px)' }} />
@@ -101,14 +100,11 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             }}
           />
           <div className="relative z-10">
-            <div>
-              <Gallery onImageClick={openLightbox} />
-            </div>
             <div className="md:flex md:items-stretch">
               <div className="w-full md:w-1/2">
                 <Venue />
               </div>
-              <section className="w-full md:w-1/2 md:self-stretch md:flex invitation-soft-edges invitation-soft-edges--location relative">
+              <section className="w-[80vw] mx-auto pb-8 md:pb-0 md:mx-0 md:w-1/2 md:self-stretch md:flex invitation-soft-edges--location invitation-soft-edges--location-primary relative">
                 <img
                   src="/images/prenup/DSC01286.jpg"
                   alt="Prenup moment"
@@ -120,15 +116,13 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div className="md:flex md:items-stretch md:flex-row-reverse">
               <div className="w-full md:w-1/2">
                 <Schedule />
-              </div>
-              <section className="w-full md:w-1/2 md:self-stretch md:flex invitation-soft-edges invitation-soft-edges--location relative">
                 <img
                   src="/images/prenup/DSC01404.jpg"
                   alt="Prenup moment"
-                  className="w-full h-full md:min-h-full object-cover block cursor-pointer"
+                  className="w-full h-full md:min-h-full object-cover block cursor-pointer invitation-schedule-image"
                   onClick={() => openLightbox('/images/prenup/DSC01404.jpg')}
                 />
-              </section>
+              </div>
             </div>
             <div>
               <DressCode />

@@ -122,8 +122,8 @@ const CountdownSection = () => {
             className="relative overflow-hidden"
             style={{
               borderRadius: '50%',
-              WebkitMaskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.65) 82%, rgba(0, 0, 0, 0) 100%)',
-              maskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 1) 58%, rgba(0, 0, 0, 0.65) 82%, rgba(0, 0, 0, 0) 100%)',
+              WebkitMaskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0.78) 90%, rgba(0, 0, 0, 0) 100%)',
+              maskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0.78) 90%, rgba(0, 0, 0, 0) 100%)',
               WebkitMaskSize: '100% 100%',
               maskSize: '100% 100%',
               WebkitMaskRepeat: 'no-repeat',
@@ -131,7 +131,7 @@ const CountdownSection = () => {
             }}
           >
             <img
-              src="/images/prenup/DSC01381.jpg"
+              src="/images/prenup/DSC01482.jpg"
               alt="Abby portrait"
               className="w-full object-cover"
               style={{ aspectRatio: '3 / 4', objectPosition: 'center 12%', transform: 'scale(1.02)' }}
@@ -140,9 +140,9 @@ const CountdownSection = () => {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  'radial-gradient(circle at top left, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%), radial-gradient(circle at top right, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%), radial-gradient(circle at bottom left, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%), radial-gradient(circle at bottom right, rgba(253,236,228,0.78) 0, rgba(253,236,228,0.58) 16%, rgba(253,236,228,0) 52%)',
+                  'linear-gradient(to right, rgba(253,236,228,0.92) 0%, rgba(253,236,228,0.44) 7%, rgba(253,236,228,0) 15%), linear-gradient(to left, rgba(253,236,228,0.92) 0%, rgba(253,236,228,0.44) 7%, rgba(253,236,228,0) 15%), linear-gradient(to bottom, rgba(253,236,228,0.94) 0%, rgba(253,236,228,0.46) 8%, rgba(253,236,228,0) 17%), linear-gradient(to top, rgba(253,236,228,0.94) 0%, rgba(253,236,228,0.46) 8%, rgba(253,236,228,0) 17%), radial-gradient(circle at top left, rgba(253,236,228,1) 0, rgba(253,236,228,0.72) 10%, rgba(253,236,228,0) 26%), radial-gradient(circle at top right, rgba(253,236,228,1) 0, rgba(253,236,228,0.72) 10%, rgba(253,236,228,0) 26%), radial-gradient(circle at bottom left, rgba(253,236,228,1) 0, rgba(253,236,228,0.72) 10%, rgba(253,236,228,0) 26%), radial-gradient(circle at bottom right, rgba(253,236,228,1) 0, rgba(253,236,228,0.72) 10%, rgba(253,236,228,0) 26%)',
                 boxShadow:
-                  'inset 0 16px 20px -14px rgba(253,236,228,0.88), inset 0 -16px 20px -14px rgba(253,236,228,0.88), inset 16px 0 20px -14px rgba(253,236,228,0.88), inset -16px 0 20px -14px rgba(253,236,228,0.88), inset 0 0 22px rgba(253,236,228,0.72)'
+                  'inset 0 16px 20px -12px rgba(253,236,228,1), inset 0 -16px 20px -12px rgba(253,236,228,1), inset 14px 0 18px -12px rgba(253,236,228,0.98), inset -14px 0 18px -12px rgba(253,236,228,0.98), inset 0 0 12px rgba(253,236,228,0.3)'
               }}
             />
           </div>

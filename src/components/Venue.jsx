@@ -70,7 +70,7 @@ const Venue = () => {
             the
           </span>
           <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
-            location
+            venue
           </span>
         </h2>
 

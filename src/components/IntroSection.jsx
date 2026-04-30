@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Mail } from 'lucide-react'
 import { celebrant } from '../data'
+import Gallery from './Gallery'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -81,7 +82,7 @@ const IntroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full px-4 sm:px-6 pt-48 md:pt-80 pb-10 overflow-hidden"
+      className="relative w-full pt-48 md:pt-80 overflow-hidden"
       style={{
         backgroundImage: 'url(/images/graphics/bg-3.png)',
         backgroundSize: 'cover',
@@ -164,6 +165,9 @@ const IntroSection = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] mt-10">
+        <Gallery />
       </div>
 
       {isRsvpModalOpen && (
