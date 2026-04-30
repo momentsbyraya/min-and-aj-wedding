@@ -1035,8 +1035,9 @@ body {
 
 @media (min-width: 992px) {
   .hero-18-image {
-    width: 20vw !important;
-    max-width: 20vw !important;
+    width: 28vw !important;
+    max-width: 28vw !important;
+    transform: translateY(5vh) !important;
   }
 
   .hero-top-design-container {
@@ -1168,6 +1169,23 @@ body {
 .schedule-flower-banner-bottom {
   transform-origin: center;
   animation: scheduleFlowerBannerBreath 7s ease-in-out infinite;
+}
+
+/* Keep flower banners behind section text/content */
+.intro-flower-banner,
+.schedule-flower-banner-bottom,
+.gallery-flower-banner {
+  z-index: 1 !important;
+}
+
+@media (min-width: 992px) {
+  .intro-flower-banner {
+    top: -56px !important;
+  }
+
+  .schedule-flower-banner-bottom {
+    bottom: -56px !important;
+  }
 }
 
 @keyframes softBlobFloat {

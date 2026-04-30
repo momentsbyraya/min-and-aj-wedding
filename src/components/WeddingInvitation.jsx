@@ -113,15 +113,17 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
                 />
               </section>
             </div>
-            <div className="md:flex md:items-stretch md:flex-row-reverse">
+            <div className="md:flex md:items-stretch">
               <div className="w-full md:w-1/2">
-                <Schedule />
                 <img
                   src="/images/prenup/DSC01404.jpg"
                   alt="Prenup moment"
                   className="w-full h-full md:min-h-full object-cover block cursor-pointer invitation-schedule-image"
                   onClick={() => openLightbox('/images/prenup/DSC01404.jpg')}
                 />
+              </div>
+              <div className="w-full md:w-1/2">
+                <Schedule />
               </div>
             </div>
             <div>

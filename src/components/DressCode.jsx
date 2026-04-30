@@ -70,7 +70,7 @@ const DressCode = () => {
         src="/images/graphics/flower-banner.png"
         alt=""
         aria-hidden="true"
-        className="absolute top-0 left-1/2 -translate-x-1/2 opacity-80 pointer-events-none z-10"
+        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 opacity-80 pointer-events-none z-10"
         style={{ width: '100vw', maxWidth: 'none' }}
       />
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(72, 114), height: randSize(62, 98), top: randPct(8, 22), left: randPct(68, 84) }} />

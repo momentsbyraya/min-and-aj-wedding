@@ -125,13 +125,20 @@
 
 .gallery-flower-banner {
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleY(-1);
   bottom: 0;
   margin-bottom: -24px;
-  width: 100%;
+  width: 100vw;
   height: auto;
-  transform: scaleY(-1);
+  max-width: none;
   pointer-events: none;
   z-index: 3;
+}
+
+@media (min-width: 992px) {
+  .gallery-flower-banner {
+    bottom: -56px;
+  }
 }
 

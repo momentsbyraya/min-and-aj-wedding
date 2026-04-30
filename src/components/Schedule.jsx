@@ -107,14 +107,14 @@ const Schedule = () => {
         alt=""
         aria-hidden="true"
         className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: '900px' }}
+        style={{ width: '100vw', maxWidth: 'none' }}
       />
       <img
         src="/images/graphics/flower-banner.png"
         alt=""
         aria-hidden="true"
         className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: '900px' }}
+        style={{ width: '100vw', maxWidth: 'none' }}
       />
       {/* Content */}
       <div className="relative z-10">

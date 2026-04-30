@@ -51,13 +51,13 @@ const Hero = () => {
         className="absolute bottom-0 right-0 h-auto z-20 pointer-events-none -scale-x-100"
         style={{ width: '100vw' }}
       />
-      <div className="absolute bottom-6 md:bottom-10 left-0 z-10 pointer-events-none" style={{ width: '80vw' }}>
+      <div className="absolute bottom-6 md:bottom-10 left-0 z-30 pointer-events-none" style={{ width: '80vw' }}>
         <div className="flex flex-col items-center justify-center w-full">
           <img
             ref={eighteenRef}
             src="/images/graphics/18.png"
             alt="18"
-            className="hero-18-image w-full h-auto block mx-auto md:mx-0 md:self-start"
+            className="hero-18-image relative z-30 w-full h-auto block mx-auto md:mx-0 md:self-start"
           />
           <p
             ref={birthdayRef}
