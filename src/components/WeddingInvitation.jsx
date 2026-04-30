@@ -113,7 +113,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
                 />
               </section>
             </div>
-            <div className="md:flex md:items-stretch">
+            <div className="flex flex-col-reverse md:flex-row md:items-stretch">
               <div className="w-full md:w-1/2">
                 <img
                   src="/images/prenup/DSC01404.jpg"

@@ -39,7 +39,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
       <img
         src="/images/graphics/opening.png"
         alt="Opening"
-        style={{ width: '100vw', height: 'auto', display: 'block' }}
+        className="opening-screen-bg-image"
+        style={{ width: '100vw', height: '100vh', objectFit: 'cover', display: 'block' }}
       />
 
       <div className="opening-flower-wind-layer absolute inset-0 z-[5] overflow-hidden pointer-events-none">
@@ -144,8 +145,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <img
             src="/images/graphics/envelope.png"
             alt="Envelope"
-            className="w-[80vw] h-auto md:w-auto md:h-[24vh]"
-            style={{ maxWidth: '520px' }}
+            className="w-[80vw] h-auto max-w-[520px] md:w-auto md:h-[24vh] opening-envelope-image"
           />
           <img
             src="/images/graphics/stamp.png"

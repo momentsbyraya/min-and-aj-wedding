@@ -866,6 +866,20 @@ body {
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.24);
 }
 
+@media (min-width: 992px) {
+  .opening-screen-bg-image {
+    object-position: center 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  .opening-envelope-image {
+    width: auto !important;
+    height: 36vh !important;
+    max-width: 760px !important;
+  }
+}
+
 @media (min-width: 768px) {
   .opening-invite-kicker {
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
