@@ -1254,3 +1254,23 @@ body {
   opacity: 0.96;
 }
 
+.dresscode-soft-edges {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.dresscode-soft-edges img {
+  width: 100%;
+  display: block;
+  opacity: 0.94;
+  mask-image:
+    radial-gradient(ellipse at center, black 28%, transparent 72%),
+    linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+  -webkit-mask-image:
+    radial-gradient(ellipse at center, black 28%, transparent 72%),
+    linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+

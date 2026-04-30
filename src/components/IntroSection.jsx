@@ -3,7 +3,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Mail } from 'lucide-react'
 import { celebrant } from '../data'
-import Gallery from './Gallery'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -82,7 +81,7 @@ const IntroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-48 md:pt-80 overflow-hidden"
+      className="relative w-full pt-48 md:pt-80 pb-28 md:pb-36 overflow-hidden"
       style={{
         backgroundImage: 'url(/images/graphics/bg-3.png)',
         backgroundSize: 'cover',
@@ -108,6 +107,13 @@ const IntroSection = () => {
         src="/images/graphics/flower-banner.png"
         alt="Floral banner"
         className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 h-auto pointer-events-none z-10"
         style={{ width: '100vw', maxWidth: 'none' }}
       />
       <div className="relative z-20 max-w-sm mx-auto">
@@ -166,10 +172,6 @@ const IntroSection = () => {
           </div>
         </div>
       </div>
-      <div className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] mt-10">
-        <Gallery />
-      </div>
-
       {isRsvpModalOpen && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
           <div className="relative w-screen h-screen bg-[#FDECE4] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">

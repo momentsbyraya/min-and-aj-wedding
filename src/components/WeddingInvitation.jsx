@@ -6,25 +6,14 @@ import IntroSection from './IntroSection'
 import Venue from './Venue'
 import Schedule from './Schedule'
 import DressCode from './DressCode'
-import Gallery2 from './Gallery2'
 import CelebrantStory from './CelebrantStory'
 import CountdownSection from './CountdownSection'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
   const prenupImages = useMemo(() => ([
-    '/images/prenup/DSC01333.jpg',
-    '/images/prenup/DSC01372.jpg',
-    '/images/prenup/DSC01288.jpg',
-    '/images/prenup/DSC01381.jpg',
-    '/images/prenup/DSC01394.jpg',
     '/images/prenup/DSC01286.jpg',
     '/images/prenup/DSC01404.jpg',
-    '/images/prenup/DSC01538.jpg',
-    '/images/prenup/DSC01459.jpg',
-    '/images/prenup/DSC01254.jpg',
-    '/images/prenup/DSC01234.jpg',
-    '/images/prenup/DSC01492.jpg',
     '/images/prenup/DSC01482.jpg'
   ]), [])
   const [lightboxIndex, setLightboxIndex] = useState(-1)
@@ -100,51 +89,18 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             }}
           />
           <div className="relative z-10">
-            <div className="md:flex md:items-stretch">
-              <div className="w-full md:w-1/2">
-                <Venue />
-              </div>
-              <section className="w-[80vw] mx-auto pb-8 md:pb-0 md:mx-0 md:w-1/2 md:self-stretch md:flex invitation-soft-edges--location invitation-soft-edges--location-primary relative">
-                <img
-                  src="/images/prenup/DSC01286.jpg"
-                  alt="Prenup moment"
-                  className="w-full h-full md:min-h-full object-cover block cursor-pointer"
-                  onClick={() => openLightbox('/images/prenup/DSC01286.jpg')}
-                />
-              </section>
+            <div>
+              <Venue />
             </div>
-            <div className="flex flex-col-reverse md:flex-row md:items-stretch">
-              <div className="w-full md:w-1/2">
-                <img
-                  src="/images/prenup/DSC01404.jpg"
-                  alt="Prenup moment"
-                  className="w-full h-full md:min-h-full object-cover block cursor-pointer invitation-schedule-image"
-                  onClick={() => openLightbox('/images/prenup/DSC01404.jpg')}
-                />
-              </div>
-              <div className="w-full md:w-1/2">
-                <Schedule />
-              </div>
+            <div>
+              <Schedule />
             </div>
             <div>
               <DressCode />
             </div>
             <div>
-              <Gallery2 onImageClick={openLightbox} />
+              <CelebrantStory onImageClick={openLightbox} />
             </div>
-            <div>
-              <CelebrantStory />
-            </div>
-            <section className="w-full py-4 sm:py-6">
-              <div className="relative mx-auto w-[84%] max-w-md h-8 flex items-center justify-center">
-                <span className="absolute left-0 right-0 h-px bg-[#E7B6BA] opacity-80" />
-                <img
-                  src="/images/graphics/flower.png"
-                  alt="Floral divider"
-                  className="relative z-10 w-8 h-8 object-contain bg-transparent"
-                />
-              </div>
-            </section>
             <div>
               <CountdownSection />
             </div>

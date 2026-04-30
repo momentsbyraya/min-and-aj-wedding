@@ -82,10 +82,10 @@ const Venue = () => {
           />
         </div>
 
-        <p ref={venueNameRef} className="tracking-[0.08em] mb-5" style={{ color: '#6F2D36' }}>
-          <span className="font-rozha text-2xl">Double Tree</span>
+        <p ref={venueNameRef} className="font-poppins text-lg tracking-[0.04em] mb-5" style={{ color: '#6F2D36' }}>
+          Double Tree by Hilton -
           <br />
-          <span className="font-poppins text-lg">by Hilton Ballroom</span>
+          Menara Ballroom
         </p>
 
         <a
@@ -93,9 +93,9 @@ const Venue = () => {
           href={directionsUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-base bg-[#E28B91] text-white"
+          className="font-poppins inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-base bg-[#E28B91] text-white"
         >
-          <span style={{ fontFamily: 'Poppins, sans-serif' }}>Get Direction</span>
+          <span className="font-poppins">Get Direction</span>
           <ArrowRight className="w-4 h-4" aria-hidden="true" />
         </a>
       </div>

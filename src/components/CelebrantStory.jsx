@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const CelebrantStory = () => {
+const CelebrantStory = ({ onImageClick }) => {
   const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
   const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
@@ -46,7 +46,21 @@ const CelebrantStory = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative py-20 w-full overflow-hidden" style={{ backgroundColor: 'transparent' }}>
+    <section ref={sectionRef} className="relative pt-40 pb-20 w-full overflow-hidden" style={{ backgroundColor: 'transparent' }}>
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 opacity-80 pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 opacity-80 pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
       <div className="soft-blob z-0" style={{ width: randSize(90, 136), height: randSize(74, 114), top: randPct(8, 22), left: randPct(6, 20) }} />
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(76, 118), height: randSize(64, 100), top: randPct(66, 84), left: randPct(68, 84) }} />
       <img
@@ -62,7 +76,7 @@ const CelebrantStory = () => {
         className="absolute bottom-[12%] left-[8%] w-20 opacity-25 blur-[3px] pointer-events-none z-0"
       />
 
-      <div className="relative z-20 w-full max-w-md mx-auto px-5 text-center">
+      <div className="relative z-20 w-full max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
         <h2 ref={headingRef} className="leading-none mb-8 inline-flex items-end justify-center gap-2 whitespace-nowrap">
           <span className="inline-block font-rozha text-5xl lowercase" style={{ color: '#6F2D36' }}>
             about
@@ -98,6 +112,33 @@ const CelebrantStory = () => {
             alt="Our cheers"
             className="w-[120px] h-auto object-contain"
           />
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="dresscode-soft-edges relative">
+            <img
+              src="/images/prenup/DSC01286.jpg"
+              alt="Prenup look 1"
+              className="dresscode-image-fade w-full h-auto object-cover cursor-pointer"
+              onClick={() => onImageClick?.('/images/prenup/DSC01286.jpg')}
+            />
+          </div>
+          <div className="dresscode-soft-edges relative">
+            <img
+              src="/images/prenup/DSC01404.jpg"
+              alt="Prenup look 2"
+              className="dresscode-image-fade w-full h-auto object-cover cursor-pointer"
+              onClick={() => onImageClick?.('/images/prenup/DSC01404.jpg')}
+            />
+          </div>
+          <div className="dresscode-soft-edges relative">
+            <img
+              src="/images/prenup/DSC01482.jpg"
+              alt="Prenup look 3"
+              className="dresscode-image-fade w-full h-auto object-cover cursor-pointer"
+              onClick={() => onImageClick?.('/images/prenup/DSC01482.jpg')}
+            />
+          </div>
         </div>
       </div>
     </section>

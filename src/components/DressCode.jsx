@@ -11,11 +11,13 @@ const DressCode = () => {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const noteRef = useRef(null)
-  const imageRef = useRef(null)
+  const imageGroupRef = useRef(null)
   const swatchesRef = useRef(null)
   const descriptionRef = useRef(null)
 
   useEffect(() => {
+    const dresscodeImages = imageGroupRef.current?.querySelectorAll('.dresscode-image-fade') || []
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -37,9 +39,9 @@ const DressCode = () => {
         '-=0.3'
       )
       .fromTo(
-        imageRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
+        dresscodeImages,
+        { opacity: 0, y: 26 },
+        { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12 },
         '-=0.2'
       )
       .fromTo(
@@ -63,16 +65,9 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-36 pb-20 w-full overflow-hidden"
+      className="relative pt-36 pb-36 w-full overflow-hidden"
       style={{ backgroundColor: 'transparent' }}
     >
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 opacity-80 pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
-      />
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(72, 114), height: randSize(62, 98), top: randPct(8, 22), left: randPct(68, 84) }} />
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(88, 132), height: randSize(74, 114), top: randPct(66, 84), left: randPct(6, 20) }} />
       <img
@@ -87,7 +82,7 @@ const DressCode = () => {
         aria-hidden="true"
         className="absolute bottom-[14%] right-[8%] w-20 opacity-25 blur-[3px] pointer-events-none z-0"
       />
-      <div className="relative z-20 w-full max-w-md mx-auto px-4 text-center">
+      <div className="relative z-20 w-full max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
         <h2 ref={headingRef} className="font-rozha text-5xl lowercase leading-none mb-1" style={{ color: '#6F2D36' }}>
           dresscode
         </h2>
@@ -99,17 +94,17 @@ const DressCode = () => {
           note
         </p>
 
-        <div ref={imageRef} className="flex justify-center">
+        <div ref={imageGroupRef} className="mt-8 flex justify-center">
           <div className="w-full max-w-[220px] overflow-hidden">
             <img
               src="/images/dresscode/guests.png"
-              alt="Dress code"
-              className="w-full h-full object-contain"
+              alt="Dress code guide"
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>
 
-        <div ref={swatchesRef} className="flex items-center justify-center gap-2 flex-wrap">
+        <div ref={swatchesRef} className="mt-6 flex items-center justify-center gap-2 flex-wrap">
           <span title="Navy Blue" className="inline-block w-8 h-8 rounded-full border border-white/70" style={{ backgroundColor: '#1f3a6e' }} />
           <span title="Black" className="inline-block w-8 h-8 rounded-full border border-white/70" style={{ backgroundColor: '#000000' }} />
           <span title="White" className="inline-block w-8 h-8 rounded-full border border-white/70" style={{ backgroundColor: '#ffffff' }} />
