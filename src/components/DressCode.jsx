@@ -110,9 +110,11 @@ const DressCode = () => {
           <span title="White" className="inline-block w-8 h-8 rounded-full border border-white/70" style={{ backgroundColor: '#ffffff' }} />
         </div>
 
-        <p ref={descriptionRef} className="font-poppins text-sm leading-relaxed mt-6" style={{ color: '#6F2D36' }}>
-          {dresscode.mainDressCode.description}
-        </p>
+        <div ref={descriptionRef} className="font-poppins text-sm leading-relaxed mt-6 space-y-1" style={{ color: '#6F2D36' }}>
+          <p className="font-poppins font-semibold tracking-wide">FORMAL</p>
+          <p className="font-poppins">Gentlemen: Black and white suit with bow tie.</p>
+          <p className="font-poppins">Ladies: Navy blue dress.</p>
+        </div>
       </div>
     </section>
   )

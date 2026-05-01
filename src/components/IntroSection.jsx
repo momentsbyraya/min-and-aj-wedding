@@ -162,9 +162,9 @@ const IntroSection = () => {
                 <button
                   type="button"
                   onClick={() => setIsRsvpModalOpen(true)}
-                  className="attendance-confirm-button inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-base font-rozha bg-[#C96A72] text-white"
+                  className="attendance-confirm-button inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-[14px] font-poppins bg-[#C96A72] text-white whitespace-nowrap"
                 >
-                  <span className="uppercase" style={{ letterSpacing: '0.24em' }}>Respond</span>
+                  <span className="font-poppins">Confirm Your Attendance</span>
                   <Mail className="w-3.5 h-3.5" aria-hidden="true" />
                 </button>
               </div>

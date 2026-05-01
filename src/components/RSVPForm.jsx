@@ -270,6 +270,7 @@ const RSVPForm = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center space-x-2">
@@ -277,7 +278,7 @@ const RSVPForm = () => {
                       <span>Submitting...</span>
                     </div>
                   ) : (
-                    'Submit RSVP'
+                    'Confirm Your Attendance'
                   )}
                 </button>
               </div>
