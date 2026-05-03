@@ -1,0 +1,24 @@
+{
+  "debutant": {
+    "name": {
+      "first": "Yrenea",
+      "last": "Lachica",
+      "full": "Yrenea Seiglindy M. Lachica",
+      "nickname": "Yrenea"
+    },
+    "about": {
+      "headingName": "Yrenea",
+      "bioHtml": "Yrenea is the only daughter, lovingly spoiled by her mommy who is also her best friend, with a big brother in her world. She excels in school, though manual math is sometimes a little tricky for her. Naturally an extrovert, she becomes shy when she's not with her close friends. In her own quiet magic, she loves modeling, where she confidently shines like she belongs in a fairytale."
+    },
+    "debut": {
+      "date": "2026-06-07",
+      "time": "Program begins at 5:00 PM",
+      "dayOfWeek": "Sunday",
+      "month": "June",
+      "day": "7",
+      "year": "2026",
+      "location": "Doña Estelita, Ibayo, Balanga City"
+    },
+    "announcement": "Turning 18!"
+  }
+}

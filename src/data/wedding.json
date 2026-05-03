@@ -1,0 +1,38 @@
+{
+  "rsvp": {
+    "email": "rsvp@example.com",
+    "phone": "",
+    "website": "https://example.rsvp",
+    "formUrl": "https://forms.gle/BcPzk9y53GkJnJq79",
+    "message": "Please RSVP when you can so we can finalize seating, catering, and the program."
+  },
+  "theme": {
+    "primaryColor": "#F5DBCE",
+    "secondaryColor": "rose-400",
+    "accentColor": "gold-500",
+    "fontFamily": "serif",
+    "style": "elegant"
+  },
+  "photos": {
+    "hero": "/images/hero-couple.jpg",
+    "gallery": [
+      "/images/couple-1.jpg",
+      "/images/couple-2.jpg",
+      "/images/couple-3.jpg",
+      "/images/couple-4.jpg"
+    ],
+    "background": "/images/background-pattern.jpg"
+  },
+  "details": {
+    "hashtag": "#YreneaTurns18",
+    "website": "https://example.com",
+    "registry": "https://registry.example.com",
+    "message": "We're excited to celebrate Yrenea's special milestone with you!",
+    "covidInfo": "We're following local health guidelines. Please stay home if you're feeling unwell."
+  },
+  "social": {
+    "instagram": "@example",
+    "facebook": "ExampleDebut",
+    "twitter": "@example"
+  }
+}

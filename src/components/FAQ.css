@@ -1,0 +1,29 @@
+/* FAQ — layout aligned with kevin-and-rea-wedding FAQSection; colors for debut theme */
+.faq-section {
+  padding: 4rem 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background-color: #fce8ec;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-question {
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-answer-body {
+  font-family: 'Poppins', sans-serif;
+  color: #6f2d36;
+}
+
+.faq-answer-body * {
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-answer-body a {
+  color: #6f2d36;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

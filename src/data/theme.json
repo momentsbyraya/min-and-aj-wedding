@@ -1,0 +1,68 @@
+{
+  "backgrounds": {
+    "primary": "bg-gray-900",
+    "secondary": "bg-gray-800",
+    "accent": "bg-[#F5DBCE]",
+    "light": "bg-white/50",
+    "theme": "bg-[#dee5ed]",
+    "crumpledPaper": "bg-[url(\"/images/crumpled-paper.png\")] bg-cover bg-center bg-no-repeat"
+  },
+  "text": {
+    "primary": "text-white",
+    "secondary": "text-gray-300",
+    "accent": "text-[#E6C1AE]",
+    "muted": "text-gray-400",
+    "dark": "text-wedding-800",
+    "theme": "text-[#8B6755]",
+    "pause": "text-[#dcdcdc]",
+    "custom": "text-[#44484d]"
+  },
+  "borders": {
+    "primary": "border-gray-700",
+    "secondary": "border-gray-600",
+    "accent": "border-[#E6C1AE]",
+    "theme": "border-[#8B6755]"
+  },
+  "buttons": {
+    "primary": "bg-[#E6C1AE] hover:bg-[#d4ab94]",
+    "secondary": "border border-gray-600 hover:border-gray-400",
+    "text": "text-gray-300 hover:text-white",
+    "theme": "bg-[#8B6755] hover:bg-[#8B6755]/80"
+  },
+  "hover": {
+    "primary": "hover:bg-wedding-700",
+    "secondary": "hover:border-gray-400 hover:text-white",
+    "theme": "hover:bg-[#8B6755]/80"
+  },
+  "container": {
+    "maxWidth": "max-w-[1300px]",
+    "padding": "px-4 sm:px-6 lg:px-8",
+    "center": "mx-auto"
+  },
+  "calendar": {
+    "weddingDate": "2026-06-20",
+    "highlightColor": "bg-[#E6C1AE]",
+    "heartColor": "text-[#E6C1AE]",
+    "textColor": "text-gray-700",
+    "headerColor": "text-gray-800",
+    "dayNamesColor": "text-gray-600",
+    "background": "bg-[#f6f1ee]"
+  },
+  "cssVariables": {
+    "--primary-bg": "#111827",
+    "--secondary-bg": "#1f2937",
+    "--accent-bg": "#7c3aed",
+    "--primary-text": "#ffffff",
+    "--secondary-text": "#d1d5db",
+    "--accent-text": "#7c3aed",
+    "--muted-text": "#9ca3af",
+    "--border-color": "#374151",
+    "--custom-theme": "#dee5ed",
+    "--primary-color": "#E6C1AE"
+  },
+  "colors": {
+    "primary": "#E6C1AE",
+    "tertiary": "#D99D86"
+  }
+}
+

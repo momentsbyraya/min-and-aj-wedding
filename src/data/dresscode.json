@@ -1,0 +1,24 @@
+{
+  "mainDressCode": {
+    "title": "Dress Code",
+    "description": "Formal black and white attire. WHITE for girls / ladies; BLACK for boys / gentlemen.",
+    "inspoUrl": ""
+  },
+  "colorPalette": [
+    {
+      "name": "color-white",
+      "hex": "#ffffff",
+      "label": "White (ladies)"
+    },
+    {
+      "name": "color-black",
+      "hex": "#1a1a1a",
+      "label": "Black (gentlemen)"
+    },
+    {
+      "name": "color-soft",
+      "hex": "#f5f1eb",
+      "label": "Neutral accent"
+    }
+  ]
+}

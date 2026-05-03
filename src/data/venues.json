@@ -1,0 +1,21 @@
+{
+  "venue": {
+    "name": "Doña Estelita",
+    "address": "Ibayo, Balanga City",
+    "city": "Balanga City",
+    "state": "Bataan",
+    "zip": "",
+    "main": {
+      "time": "4:00 PM",
+      "details": "Guest gathering from 3:30 PM; pre-event activities at 4:00 PM; program begins at 5:00 PM."
+    },
+    "reception": {
+      "time": "After program",
+      "details": "Happy Hour (Disco Hour) follows the program."
+    },
+    "image": "/images/venue/venue.jpg",
+    "googleMapsUrl": "https://www.bing.com/maps/directions?v=2&pc=FACEBK&mid=8100&mkt=en-US&fbclid=IwY2xjawRMlK5leHRuA2FlbQIxMABicmlkETE5cTlvOTAwVU9DMEVQMVFhc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiFf9LRTolFl6k--FyTLLDbH6yCxDdnLE3Tm5MZTKe1Uh7tqSFuaQZ9Ehp5e_aem_3dmVDBAiYF7M0spjqL5egw&FORM=FBKPL1&style=r&rtp=%7Epos.14.68305778503418_120.53630828857422_Ibayo%252C%2520Balanga%2520City%252C%2520Central%2520Luzon%252C%2520Philippines_Ibayo%252C%2520Balanga%2520City%252C%2520Central%2520Luzon%252C%2520Philippines_&cp=14.534405%7E120.591869&lvl=17.3",
+    "directionsUrl": "https://www.bing.com/maps/directions?v=2&pc=FACEBK&mid=8100&mkt=en-US&fbclid=IwY2xjawRMlK5leHRuA2FlbQIxMABicmlkETE5cTlvOTAwVU9DMEVQMVFhc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiFf9LRTolFl6k--FyTLLDbH6yCxDdnLE3Tm5MZTKe1Uh7tqSFuaQZ9Ehp5e_aem_3dmVDBAiYF7M0spjqL5egw&FORM=FBKPL1&style=r&rtp=%7Epos.14.68305778503418_120.53630828857422_Ibayo%252C%2520Balanga%2520City%252C%2520Central%2520Luzon%252C%2520Philippines_Ibayo%252C%2520Balanga%2520City%252C%2520Central%2520Luzon%252C%2520Philippines_&cp=14.534405%7E120.591869&lvl=17.3",
+    "googleMapsEmbedUrl": "https://www.google.com/maps?q=Do%C3%B1a+Estelita+Ibayo+Balanga+City+Bataan&output=embed"
+  }
+}

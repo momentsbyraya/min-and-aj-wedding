@@ -1,0 +1,18 @@
+{
+  "hero": "/images/hero-couple.jpg",
+  "couple": {
+    "couple1": "/images/couple-1.jpg",
+    "couple2": "/images/couple-2.jpg",
+    "couple3": "/images/couple-3.jpg",
+    "couple4": "/images/couple-4.jpg",
+    "couple5": "/images/couple-5.jpg",
+    "couple6": "/images/couple-6.jpg",
+    "couple7": "/images/couple-7.jpg",
+    "couple8": "/images/couple-8.jpg"
+  },
+  "venues": {
+    "church": "/images/church.jpg",
+    "reception": "/images/reception.jpg"
+  },
+  "favicon": "/images/favicon.png"
+} 

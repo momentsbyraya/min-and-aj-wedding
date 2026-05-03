@@ -1,0 +1,314 @@
+/* EighteenList Component Styles */
+
+.eighteen-section {
+  background-color: var(--primary-color, #F5DBCE);
+  position: relative;
+}
+
+.eighteen-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(6, 81, 67, 0.5), rgba(6, 81, 67, 0.5)),
+    url(/images/graphics/%28NEW%29%20Background%20for%20Eighteenths.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.eighteen-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eighteen-container-divider {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.eighteen-container-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background-color: rgba(245, 241, 235, 0.6);
+}
+
+.eighteen-text-white {
+  color: #f5f1eb;
+}
+
+.eighteen-title {
+  color: #f5f1eb;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+}
+
+.eighteen-title-main {
+  color: #f5f1eb;
+  font-weight: 900;
+  line-height: 1;
+  margin-top: -0.4em;
+  font-size: clamp(3rem, 8vw, 8rem);
+}
+
+.eighteen-title-border {
+  border-bottom: 1px solid #f5f1eb;
+}
+
+.eighteen-heading-number {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: 'Instrument Serif', serif;
+  color: #D4E157;
+}
+
+.eighteen-heading-number-sets {
+  color: #fec0ce;
+}
+
+.eighteen-heading-number-slices {
+  color: #ff8bb8;
+}
+
+.eighteen-heading-text {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  font-family: 'Instrument Serif', serif;
+  color: #D4E157;
+}
+
+.eighteen-heading-text-sets {
+  color: #fec0ce;
+}
+
+.eighteen-heading-text-slices {
+  color: #ff8bb8;
+}
+
+.eighteen-description {
+  color: #f5f1eb;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-color, #F5DBCE);
+  border: 0.5px solid #f5f1eb;
+  outline: 0.5px solid #f5f1eb;
+  outline-offset: -5px;
+  padding: 1.5rem;
+  border-radius: 0;
+}
+
+.eighteen-description-sets {
+  background-color: #fec0ce;
+  color: #b01a4f;
+  font-weight: 700;
+}
+
+.eighteen-description-slices {
+  background-color: var(--tertiary-color, #e7236a);
+  color: #f5f1eb;
+}
+
+.eighteen-description-paragraph {
+  font-family: 'Poppins', sans-serif;
+}
+
+.eighteen-description-paragraph-spaced {
+  margin-bottom: 1rem;
+}
+
+.eighteen-description-paragraph-tight {
+  margin-bottom: 0.5rem;
+}
+
+.eighteen-description-highlight {
+  font-family: 'Instrument Serif', serif !important;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+  font-weight: 700;
+}
+
+.eighteen-description-break {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .eighteen-description-break {
+    display: block;
+  }
+}
+
+.eighteen-image {
+  display: block;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .eighteen-image-container {
+    align-self: stretch;
+  }
+  
+  .eighteen-image-container .eighteen-image {
+    min-height: 0;
+    height: 100%;
+  }
+}
+
+
+.eighteen-match-card {
+  background-color: var(--primary-color, #F5DBCE);
+  border: 0.5px solid #f5f1eb;
+  outline: 0.5px solid #f5f1eb;
+  outline-offset: -5px;
+  border-radius: 0;
+  max-width: 200px;
+}
+
+.eighteen-match-number {
+  color: #f5f1eb;
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.eighteen-match-name {
+  color: #f5f1eb;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.eighteen-set-card {
+  background-color: #fec0ce;
+  border: 0.5px solid #f5f1eb;
+  outline: 0.5px solid #f5f1eb;
+  outline-offset: -5px;
+  border-radius: 0;
+  max-width: 200px;
+  width: 100%;
+  min-height: 120px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eighteen-set-name {
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #b01a4f;
+  font-weight: 600 !important;
+}
+
+.eighteen-slice-group {
+  border: 0.5px solid #f5f1eb;
+  outline: 0.5px solid #f5f1eb;
+  outline-offset: -5px;
+  border-radius: 0;
+}
+
+.eighteen-slice-name {
+  color: #f5f1eb;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Grid styles */
+.matches-grid {
+  grid-template-columns: repeat(2, minmax(0, 200px));
+  justify-items: stretch;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .matches-grid {
+    grid-template-columns: repeat(3, minmax(0, 200px));
+    justify-items: stretch;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .matches-grid {
+    grid-template-columns: repeat(5, minmax(0, 200px));
+    justify-items: stretch;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  
+  .matches-grid .eighteen-set-card:nth-last-child(-n+3) {
+    grid-column: span 1;
+  }
+  
+  .matches-grid .eighteen-set-card:nth-last-child(3) {
+    grid-column: 2 / 3;
+  }
+  
+  .matches-grid .eighteen-set-card:nth-last-child(2) {
+    grid-column: 3 / 4;
+  }
+  
+  .matches-grid .eighteen-set-card:nth-last-child(1) {
+    grid-column: 4 / 5;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .match-10-full-width {
+    grid-column: 1 / -1;
+    max-width: 100% !important;
+    width: 100%;
+  }
+}
+
+/* Image positioning */
+@media (max-width: 1023px) {
+  .eighteen-image-mobile {
+    object-position: right center !important;
+  }
+  
+  .tennis-matches-image {
+    object-position: 70% center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .tennis-matches-image {
+    object-position: center 25% !important;
+  }
+}
+
+.sets-image {
+  object-position: 50% center !important;
+}
+
+.eighteen-image-left {
+  object-position: left center;
+}
+
+.eighteen-image-slices {
+  object-position: 60% center;
+}
+
+.eighteen-slice-group {
+  background-color: var(--tertiary-color, #e7236a);
+}
+

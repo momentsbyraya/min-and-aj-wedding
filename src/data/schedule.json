@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "time": "3:30 PM",
+      "title": "Guest Gathering",
+      "description": "Guest gathering and arrivals",
+      "venue": "Doña Estelita"
+    },
+    {
+      "id": 2,
+      "time": "4:00 PM",
+      "title": "Pre-Event Activities",
+      "description": "Pre-event activities begin",
+      "venue": "Doña Estelita"
+    },
+    {
+      "id": 3,
+      "time": "5:00 PM",
+      "title": "Program Begins",
+      "description": "Main celebration program begins",
+      "venue": "Doña Estelita"
+    }
+  ]
+}

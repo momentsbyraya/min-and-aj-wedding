@@ -1,0 +1,105 @@
+/* DetailsSection Styles */
+
+.details-section {
+  background-color: #f5f1eb;
+  padding: 4rem 2rem;
+}
+
+.details-content-wrapper {
+  overflow: visible;
+}
+
+.details-header-section {
+  overflow: visible;
+}
+
+.details-title {
+  color: var(--primary-color, #F5DBCE);
+}
+
+.details-tournament-entry {
+  color: var(--primary-color, #F5DBCE);
+  font-weight: 900;
+  line-height: 1;
+  margin-top: -0.4em;
+  font-size: clamp(2.75rem, 7.5vw, 7rem);
+}
+
+.details-text-primary {
+  color: var(--primary-color, #F5DBCE);
+  font-size: 1rem;
+}
+
+.details-rsvp-heading,
+.details-gift-heading {
+  color: var(--primary-color, #F5DBCE);
+}
+
+.details-button {
+  border-radius: 0;
+  color: #f5f1eb;
+  border: 0.5px solid var(--primary-color, #F5DBCE);
+  outline: 0.5px solid #f5f1eb;
+  outline-offset: -5px;
+  font-family: 'Poppins', sans-serif;
+  font: normal normal 400 1rem 'Poppins', sans-serif;
+}
+
+.details-button:hover {
+  opacity: 0.9;
+}
+
+.details-button-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+}
+
+.details-button-icon {
+  filter: brightness(0) invert(1);
+}
+
+.details-gift-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.details-gift-link-tertiary {
+  color: var(--tertiary-color, #e7236a);
+}
+
+.details-strong-text {
+  font-family: 'Poppins', sans-serif;
+}
+
+.details-wine-glass-image {
+  display: block;
+  object-fit: contain;
+}
+
+.wine-glass-image {
+  object-fit: contain;
+}
+
+/* Wine glass responsive styles for large screens */
+@media (min-width: 1024px) {
+  .wine-glass-image {
+    height: auto !important;
+    width: 6rem !important;
+    max-width: 6rem !important;
+    max-height: none !important;
+    min-height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .wine-glass-container {
+    align-items: center !important;
+    overflow: visible !important;
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
