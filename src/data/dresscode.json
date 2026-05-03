@@ -1,7 +1,7 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "Formal attire. Ladies: Navy blue dress. Gentlemen: Black and white suit with bow tie.",
+    "description": "Formal attire. Ladies: Navy blue dress; Gentlemen: Black Suit & Bow Tie.",
     "inspoUrl": "https://pin.it/5X56F3rYf"
   },
   "colorPalette": [
@@ -22,7 +22,7 @@
     },
     {
       "name": "color-4",
-      "hex": "#1f3a6e",
+      "hex": "#323B60",
       "label": "Navy Blue"
     },
     {

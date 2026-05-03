@@ -875,8 +875,8 @@ body {
 @media (min-width: 992px) {
   .opening-envelope-image {
     width: auto !important;
-    height: 36vh !important;
-    max-width: 760px !important;
+    height: 31vh !important;
+    max-width: 580px !important;
   }
 }
 

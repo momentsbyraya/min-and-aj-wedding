@@ -117,7 +117,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
       </div>
 
       <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center justify-center px-4 text-center pointer-events-none z-10">
-        <div ref={introCopyRef} className="mb-4 sm:mb-6 md:mb-8">
+        <div ref={introCopyRef} className="mb-0 md:mb-1.5">
           <p
             className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
@@ -140,12 +140,12 @@ function OpeningScreen({ onEnvelopeOpen }) {
           type="button"
           onClick={handleOpen}
           aria-label="Open invitation"
-          className="focus:outline-none p-0 m-0 border-0 bg-transparent leading-none pointer-events-auto relative inline-block"
+          className="focus:outline-none p-0 m-0 border-0 bg-transparent leading-none pointer-events-auto relative inline-block -mt-2 sm:-mt-3 md:mt-0"
         >
           <img
             src="/images/graphics/envelope.png"
             alt="Envelope"
-            className="w-[80vw] h-auto max-w-[520px] md:w-auto md:h-[24vh] opening-envelope-image"
+            className="w-[74vw] h-auto max-w-[460px] md:w-auto md:h-[21vh] opening-envelope-image"
           />
           <img
             src="/images/graphics/stamp.png"

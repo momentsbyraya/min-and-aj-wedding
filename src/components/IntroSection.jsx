@@ -129,7 +129,7 @@ const IntroSection = () => {
             </h2>
             <p ref={copyRef} className="font-poppins text-sm leading-snug" style={{ color: '#6F2D36' }}>
               I am so excited to celebrate my special day with you.
-              Thank you for being part of my journey.
+              Thank you for being part of my journey!
             </p>
             <div ref={calendarRef} className="mt-10 w-4/5 mx-auto">
               <p className="font-rozha text-2xl tracking-[0.12em] uppercase" style={{ color: '#6F2D36' }}>
