@@ -98,7 +98,7 @@ const CelebrantStory = ({ onImageClick }) => {
           dangerouslySetInnerHTML={{ __html: about?.bioHtml ?? '' }}
         />
 
-        <div ref={imageRef} className="mt-6 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <img
             src="/images/graphics/wine.png"
             alt="Our cheers"
@@ -106,29 +106,13 @@ const CelebrantStory = ({ onImageClick }) => {
           />
         </div>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <div className="dresscode-soft-edges relative">
+        <div ref={imageRef} className="mt-8 flex justify-center px-2">
+          <div className="dresscode-soft-edges relative w-full max-w-[min(100%,420px)]">
             <img
-              src="/images/prenup/DSC01286.jpg"
-              alt="Prenup look 1"
-              className="dresscode-image-fade w-full h-auto object-cover cursor-pointer"
-              onClick={() => onImageClick?.('/images/prenup/DSC01286.jpg')}
-            />
-          </div>
-          <div className="dresscode-soft-edges relative">
-            <img
-              src="/images/prenup/DSC01404.jpg"
-              alt="Prenup look 2"
-              className="dresscode-image-fade w-full h-auto object-cover cursor-pointer"
-              onClick={() => onImageClick?.('/images/prenup/DSC01404.jpg')}
-            />
-          </div>
-          <div className="dresscode-soft-edges relative">
-            <img
-              src="/images/prenup/DSC01482.jpg"
-              alt="Prenup look 3"
-              className="dresscode-image-fade w-full h-auto object-cover cursor-pointer"
-              onClick={() => onImageClick?.('/images/prenup/DSC01482.jpg')}
+              src="/images/prenup/A7400780.jpg"
+              alt={celebrant.debutant.name?.full ?? celebrant.debutant.name?.first ?? 'Celebrant'}
+              className="dresscode-image-fade h-auto w-full cursor-pointer object-cover"
+              onClick={() => onImageClick?.('/images/prenup/A7400780.jpg')}
             />
           </div>
         </div>

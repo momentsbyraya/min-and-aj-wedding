@@ -1,9 +1,10 @@
 {
+  "sectionIntro": "My 18 Roses, Treasures, and Candles—see the full list below.",
   "categories": [
     {
-      "name": "Tennis Matches",
-      "title": "Tennis Matches",
-      "description": "I am putting a sporty spin on the traditional '18 Roses' and calling it, Tennis Matches.\n\nI invite you to take the court with me because you have been a key player in my life. Whether you've been my 'doubles partner' through thick and thin or the 'coach' who gave me the best advice, you've helped me win the sets that mattered most.\n\nHow it works: Instead of a racket, we'll share a dance and a rose to celebrate this milestone. No running required, just bring your best moves to the dance floor!\n\nSee you at the court-side celebration!",
+      "name": "Roses",
+      "title": "Roses",
+      "description": "For my 18 Roses, I have chosen gentlemen who mean a lot to me to join me for this celebration.\n\nWhen your group is called, we'll share a dance and present a rose to mark this milestone together.\n\nThank you for being part of my debut story—I can't wait to celebrate with you.",
       "matches": [
         {
           "number": 1,
@@ -87,9 +88,9 @@
       ]
     },
     {
-      "name": "Sets",
-      "title": "SETS",
-      "description": "Here's a tennis twist on the 18 Treasures… and for this special tournament, I am calling it 18 Sets.\n\nIn tennis, a set is a collection of wins, and you are someone who has played an important role in my growing-up years. I am asking you, my special 18 players, to gift me a set or a pair of something :)\n\nThe Playbook:\n\nThe Gift: It can be anything that comes in a set or a pair. Think a set of tennis balls, a pair of earrings, or even a pair of shoes!\n\nThe Play: When your name is called, you'll present your gift and share a short message about why you chose it for me.\n\nI can't wait to see what you've picked out for my 18th season!",
+      "name": "Treasures",
+      "title": "TREASURES",
+      "description": "For my 18 Treasures, you are each someone who has played an important role in my growing-up years. I am asking you to gift me something that comes in a set or a pair—something you have chosen with love and meaning.\n\nWhen your name is called, please present your gift and share a short message about why you picked it for me.\n\nI can't wait to see what you have prepared for my 18th birthday.",
       "names": [
         "Baba Villa-Ignacio",
         "Jam Vaughan",
@@ -112,9 +113,9 @@
       ]
     },
     {
-      "name": "Slices",
-      "title": "SLICES",
-      "description": "To my favorite crew,\n\nI am doing 18 Slices instead of candles. In tennis, a slice is a shot that changes the rhythm of the game, just like how your friendship has changed my world for the better. I have chosen each of you to share this moment because you have been right there with me through every win and every loss.\n\nThe Play: When called, please share a 'slice' of your favorite memory or a wish for my future.\n\nGet your slices ready, I'll see you at the baseline!",
+      "name": "Candles",
+      "title": "CANDLES",
+      "description": "For my 18 Candles, I have chosen each of you because your friendship has meant the world to me.\n\nWhen you are called, please light a candle with me and share a favorite memory or a wish for my future.\n\nThank you for being with me through every chapter—I'm so grateful to celebrate this moment with you.",
       "names": [
         "Maria Rosabelle C. Balon",
         "Zyescha Kiz C. Lim",
@@ -138,4 +139,3 @@
     }
   ]
 }
-

@@ -11,12 +11,12 @@ const Venue = () => {
   const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
-  const qrRef = useRef(null)
+  const venuePhotoRef = useRef(null)
   const venueNameRef = useRef(null)
   const buttonRef = useRef(null)
   const venueData = venuesData.venue
   const directionsUrl = venueData.googleMapsUrl || venueData.directionsUrl || '#'
-  const qrCodeUrl = '/images/qr/venue.png'
+  const venuePhotoUrl = '/images/venue/venue.png'
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -34,7 +34,7 @@ const Venue = () => {
       { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }
     )
       .fromTo(
-        qrRef.current,
+        venuePhotoRef.current,
         { opacity: 0, y: 28 },
         { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
         '-=0.3'
@@ -61,6 +61,19 @@ const Venue = () => {
     <section ref={sectionRef} className="relative py-20 w-full overflow-hidden" style={{ backgroundColor: 'transparent' }}>
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(90, 140), height: randSize(78, 118), top: randPct(8, 22), left: randPct(6, 18) }} />
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(75, 118), height: randSize(64, 102), top: randPct(66, 82), left: randPct(68, 84) }} />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt="Floral banner"
+        className="intro-flower-banner pointer-events-none absolute left-1/2 top-0 z-10 h-auto -translate-x-1/2"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="schedule-flower-banner-bottom pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto -translate-x-1/2 rotate-180"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
       <div className="relative z-20 w-full max-w-md mx-auto px-4 text-center">
         <h2 ref={headingRef} className="leading-none mb-10">
           <span
@@ -74,11 +87,11 @@ const Venue = () => {
           </span>
         </h2>
 
-        <div ref={qrRef} className="flex justify-center mb-6">
+        <div ref={venuePhotoRef} className="flex justify-center mb-6">
           <img
-            src={qrCodeUrl}
-            alt="QR code for venue directions"
-            className="w-[170px] h-[170px] object-contain"
+            src={venuePhotoUrl}
+            alt={venueData.name ? `Venue — ${venueData.name}` : 'Venue photo'}
+            className="w-full max-w-[300px] h-auto object-contain"
           />
         </div>
 

@@ -7,7 +7,7 @@
     "message": "Please RSVP when you can so we can finalize seating, catering, and the program."
   },
   "theme": {
-    "primaryColor": "#F5DBCE",
+    "primaryColor": "#F2C4D4",
     "secondaryColor": "rose-400",
     "accentColor": "gold-500",
     "fontFamily": "serif",
@@ -29,6 +29,16 @@
     "registry": "https://registry.example.com",
     "message": "We're excited to celebrate Yrenea's special milestone with you!",
     "covidInfo": "We're following local health guidelines. Please stay home if you're feeling unwell."
+  },
+  "giftSection": {
+    "eyebrow": "Wish list",
+    "titleLead": "gift",
+    "titleRest": "ideas",
+    "intro": "Your presence is the greatest gift—truly. If you'd love to spoil me anyway, here's a shortcut to wishes and ideas.",
+    "ctaLabel": "View registry",
+    "ctaUrl": "https://drive.google.com/file/d/1vF0bqH27T2pDpwfREUmcih9inFXfslHy/view?usp=sharing",
+    "backgroundImage": "/images/prenup/A7401414.jpg",
+    "bottomImage": "/images/gift/gcash%20no.jpg"
   },
   "social": {
     "instagram": "@example",

@@ -1,463 +1,343 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { theme, eighteenths } from '../data'
-import './EighteenList.css'
+import { eighteenths } from '../data'
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
-const EighteenList = () => {
-  const sectionRef = useRef(null)
-  const titleTheRef = useRef(null)
-  const titleEighteenthsRef = useRef(null)
-  const tennisMatchesHeadingRef = useRef(null)
-  const tennisMatchesDescRef = useRef(null)
-  const tennisMatchesImageRef = useRef(null)
-  const matchesGridTitleRef = useRef(null)
-  const setsHeadingRef = useRef(null)
-  const setsDescRef = useRef(null)
-  const setsImageRef = useRef(null)
-  const setsGridTitleRef = useRef(null)
-  const slicesHeadingRef = useRef(null)
-  const slicesDescRef = useRef(null)
-  const slicesImageRef = useRef(null)
-  const slicesGridTitleRef = useRef(null)
+const capitalizeWords = (str) =>
+  str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase())
+
+const scrollTriggerScroller = (scrollerElement) =>
+  scrollerElement
+    ? { scroller: scrollerElement, invalidateOnRefresh: true }
+    : { invalidateOnRefresh: true }
+
+const CategorySection = ({ category, showDivider = true, scrollerElement }) => {
+  const containerRef = useRef(null)
+  const titleRef = useRef(null)
+  const namesRef = useRef(null)
+
+  const getNames = () => {
+    if (category.matches) {
+      return category.matches.flatMap((match) => match.names)
+    }
+    return category.names || []
+  }
+
+  const names = getNames()
+  const titleBase = (category.title || category.name || '').trim()
+  let displayTitle = ''
+  if (titleBase) {
+    const t = titleBase.trim()
+    const rest = t.replace(/^18\s*/i, '').trim()
+    if (/^18$/i.test(t) && !rest) {
+      displayTitle = '18'
+    } else if (rest) {
+      displayTitle = `18 ${capitalizeWords(rest)}`
+    } else {
+      displayTitle = `18 ${capitalizeWords(t)}`
+    }
+  }
+
+  const isRosesCategory = Boolean(category.matches?.length)
 
   useEffect(() => {
-    // Scroll-triggered animations
+    if (!containerRef.current) return undefined
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 50%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
+        trigger: containerRef.current,
+        start: 'top 70%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse',
+        ...scrollTriggerScroller(scrollerElement)
       }
     })
 
-    // Animate title "The" - slide down
-    if (titleTheRef.current) {
-      tl.fromTo(titleTheRef.current,
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }
-      )
-    }
-    
-    // Animate title "EIGHTEENTH'S" - slide down
-    if (titleEighteenthsRef.current) {
-      tl.fromTo(titleEighteenthsRef.current,
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.4"
+    if (titleRef.current) {
+      tl.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
       )
     }
 
-    // Animate "18 Tennis Matches" heading - slide from left
-    if (tennisMatchesHeadingRef.current) {
-      tl.fromTo(tennisMatchesHeadingRef.current,
-        { opacity: 0, x: -50 },
-        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
+    if (namesRef.current?.children?.length) {
+      tl.fromTo(
+        namesRef.current.children,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+          stagger: 0.1
+        },
+        '-=0.2'
       )
     }
 
-    // Animate description - slide from right
-    if (tennisMatchesDescRef.current) {
-      tl.fromTo(tennisMatchesDescRef.current,
-        { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate image - slide from right
-    if (tennisMatchesImageRef.current) {
-      tl.fromTo(tennisMatchesImageRef.current,
-        { opacity: 0, x: 100 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate matches grid title - slide down
-    if (matchesGridTitleRef.current) {
-      tl.fromTo(matchesGridTitleRef.current,
-        { opacity: 0, y: -30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate match cards with stagger
-    tl.fromTo(".match-card",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.1
-      },
-      "-=0.2"
-    )
-
-    // Animate SETS heading - slide from left
-    if (setsHeadingRef.current) {
-      tl.fromTo(setsHeadingRef.current,
-        { opacity: 0, x: -50 },
-        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SETS description - slide from right
-    if (setsDescRef.current) {
-      tl.fromTo(setsDescRef.current,
-        { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SETS image - slide from left
-    if (setsImageRef.current) {
-      tl.fromTo(setsImageRef.current,
-        { opacity: 0, x: -100 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SETS grid title - slide down
-    if (setsGridTitleRef.current) {
-      tl.fromTo(setsGridTitleRef.current,
-        { opacity: 0, y: -30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SETS names with stagger
-    tl.fromTo(".set-card",
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.5,
-        ease: "back.out(1.7)",
-        stagger: 0.08
-      },
-      "-=0.2"
-    )
-
-    // Animate SLICES heading - slide from left
-    if (slicesHeadingRef.current) {
-      tl.fromTo(slicesHeadingRef.current,
-        { opacity: 0, x: -50 },
-        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SLICES description - slide from right
-    if (slicesDescRef.current) {
-      tl.fromTo(slicesDescRef.current,
-        { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SLICES image - slide from right
-    if (slicesImageRef.current) {
-      tl.fromTo(slicesImageRef.current,
-        { opacity: 0, x: 100 },
-        { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SLICES grid title - slide down
-    if (slicesGridTitleRef.current) {
-      tl.fromTo(slicesGridTitleRef.current,
-        { opacity: 0, y: -30 },
-        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
-        "-=0.2"
-      )
-    }
-
-    // Animate SLICES name groups - slide up
-    tl.fromTo(".slice-group",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.15
-      },
-      "-=0.2"
-    )
-
-    // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      tl.kill()
     }
-  }, [])
+  }, [scrollerElement])
+
+  return (
+    <div
+      className={`flex flex-col items-center eighteenths-category ${isRosesCategory ? 'eighteenths-roses' : ''}`}
+      ref={containerRef}
+      style={{ overflow: 'visible' }}
+    >
+      <h3
+        className={`text-xl sm:text-2xl mb-6 ${isRosesCategory ? 'pt-10 sm:pt-14 md:pt-16' : ''}`}
+        style={{ color: '#6F2D36', width: '100%', overflow: 'visible' }}
+      >
+        <div ref={titleRef} style={{ display: 'block', textAlign: 'center', width: '100%' }}>
+          <span
+            className="font-halimun"
+            style={{
+              color: '#6F2D36',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              letterSpacing: '0.06em',
+              display: 'block'
+            }}
+          >
+            {displayTitle}
+          </span>
+        </div>
+      </h3>
+      <div
+        ref={namesRef}
+        className="w-full overflow-visible"
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
+      >
+        {names.map((name, index) => (
+          <div
+            key={index}
+            className="font-poppins max-w-none text-[11px] sm:text-xs"
+            style={{
+              color: '#6F2D36',
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
+              whiteSpace: 'nowrap',
+              lineHeight: 1.35
+            }}
+          >
+            {name}
+          </div>
+        ))}
+      </div>
+      {showDivider && (
+        <div className="mt-10 sm:mt-12 flex w-full justify-center px-4" aria-hidden>
+          <div className="flex w-full max-w-[min(92vw,280px)] items-center gap-3 sm:max-w-[300px] sm:gap-4">
+            <div
+              className="h-[1px] flex-1 rounded-full bg-gradient-to-r from-transparent via-[#6F2D36]/35 to-[#6F2D36]/25"
+              style={{ minWidth: '2.5rem' }}
+            />
+            <svg
+              className="shrink-0 text-[#E28B91]/92"
+              width={20}
+              height={18}
+              viewBox="0 0 24 22"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden
+            >
+              <path fill="currentColor" d="M12 20.35c-.15 0-.31-.05-.42-.16C6.4 15.2 3 12.1 3 8.25 3 5.6 5.1 3.5 7.75 3.5c1.53 0 2.95.75 3.75 1.95.8-1.2 2.22-1.95 3.75-1.95C17.9 3.5 20 5.6 20 8.25c0 3.85-3.4 6.95-8.58 11.94a.65.65 0 0 1-.42.16Z" />
+            </svg>
+            <div
+              className="h-[1px] flex-1 rounded-full bg-gradient-to-l from-transparent via-[#6F2D36]/35 to-[#6F2D36]/25"
+              style={{ minWidth: '2.5rem' }}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const EighteenList = ({ scrollerElement } = {}) => {
+  const displayCategories = eighteenths.categories.filter(
+    (cat) => (cat.names && cat.names.length > 0) || (cat.matches && cat.matches.length > 0)
+  )
 
   return (
     <>
-    <section
-      ref={sectionRef}
-      className="eighteen-section relative w-full overflow-hidden"
-    >
-      {/* Container 1 - Paragraph with title and photo */}
-      <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-8 pt-16 pb-8">
-        {/* Paragraph with title */}
-        <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
-          {/* Title Group */}
-          <div className="eighteen-title-border pb-8 mb-8">
-            {/* The in Ballet font */}
-            <h1
-              ref={titleTheRef}
-              className="eighteen-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-            >
-              The
-            </h1>
+      <style>{`
+        @media (min-width: 768px) {
+          .eighteenths-section {
+            padding-top: clamp(2rem, 5vw, 3.5rem) !important;
+          }
+          .eighteenths-container {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 3rem !important;
+            padding-bottom: 9rem !important;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .eighteenths-roses {
+            grid-column: 1 / -1 !important;
+            justify-self: center !important;
+            max-width: 50% !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .eighteenths-flower-top,
+          .eighteenths-flower-bottom {
+            display: none !important;
+          }
+          .eighteenths-desktop-corner {
+            display: block !important;
+          }
+          .eighteenths-container {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+          .eighteenths-roses {
+            grid-column: auto !important;
+            justify-self: auto !important;
+            max-width: none !important;
+          }
+        }
+        @media (max-width: 1023px) {
+          .eighteenths-desktop-corner {
+            display: none !important;
+          }
+        }
+      `}</style>
+      <section
+        className="relative pb-36 sm:pb-44 lg:pb-52 w-full overflow-hidden eighteenths-section"
+        style={{ backgroundColor: 'transparent', paddingTop: 'clamp(2rem, 6vw, 4rem)' }}
+      >
+        <img
+          className="eighteenths-flower-top"
+          src="/images/graphics/flower-banner.png"
+          alt=""
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'auto',
+            height: 'auto',
+            maxWidth: 'min(100%, 720px)',
+            objectFit: 'contain',
+            zIndex: 16
+          }}
+        />
 
-            {/* EIGHTEENTH'S */}
-            <h2
-              ref={titleEighteenthsRef}
-              className="eighteen-title-main text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
-            >
-              EIGHTEENTH'S
-            </h2>
-          </div>
-          <h3 ref={tennisMatchesHeadingRef} className="eighteen-text-white mb-4">
-            <span className="eighteen-heading-text font-instrument-serif uppercase">Tennis Matches</span>
-          </h3>
-          {eighteenths.categories[0].description && (
-            <div ref={tennisMatchesDescRef} className="eighteen-description font-poppins">
-              {eighteenths.categories[0].description.split('\n').map((paragraph, index) => {
-                const text = paragraph.trim();
-                let highlightedText = text.replace(/18 Tennis Matches\./g, '<strong><span class="eighteen-description-highlight">18 Tennis Matches.</span></strong>');
-                highlightedText = highlightedText.replace(/traditional '18 Roses'/g, 'traditional<br class="eighteen-description-break">\'18 Roses\'');
-                return (
-                  <p 
-                    key={index} 
-                    className={`eighteen-description-paragraph font-poppins ${text ? 'eighteen-description-paragraph-spaced' : 'eighteen-description-paragraph-tight'}`}
-                    dangerouslySetInnerHTML={{ __html: highlightedText }}
-                  />
-                );
-              })}
-            </div>
-          )}
-        </div>
-        {/* Photo */}
-        <div className="eighteen-image-container w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
-          <img 
-            ref={tennisMatchesImageRef}
-            src="/images/prenup/prenup2.jpg" 
-            alt="18 Tennis Matches" 
-            className="eighteen-image tennis-matches-image eighteen-image-left w-full h-full object-cover flex-1 eighteen-image-mobile"
-          />
-        </div>
-      </div>
+        <img
+          className="eighteenths-flower-bottom"
+          src="/images/graphics/flower-banner.png"
+          alt=""
+          aria-hidden
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: '50%',
+            transform: 'translateX(-50%) scaleY(-1)',
+            width: 'auto',
+            height: 'auto',
+            maxWidth: 'min(100%, 720px)',
+            objectFit: 'contain',
+            zIndex: 16
+          }}
+        />
 
-      {/* Container 2 - Matches */}
-      <div className="relative z-20 px-8 py-8">
-        <div className="max-w-4xl mx-auto relative z-10">
-          {/* Title */}
-          <h3 ref={matchesGridTitleRef} className="eighteen-text-white mb-8 text-center">
-            <span className="eighteen-heading-text font-instrument-serif uppercase">Tennis Matches</span>
-          </h3>
-          {/* Grid container for matches */}
-          <div className="grid gap-4 justify-items-center matches-grid">
-            {eighteenths.categories[0]?.matches && eighteenths.categories[0].matches.map((match, matchIndex) => (
-              <div 
-                key={matchIndex} 
-                className={`eighteen-match-card match-card text-center py-6 px-3 w-full ${match.number === 10 ? 'match-10-full-width' : ''}`}
-              >
-                <h3 
-                  className="eighteen-match-number text-2xl sm:text-3xl md:text-4xl font-instrument-serif font-semibold mb-4"
-                >
-                  MATCH {match.number}
-                </h3>
-                <div className="flex flex-col items-center">
-                  {match.names.map((name, nameIndex) => (
-                    <div 
-                      key={nameIndex} 
-                      className="eighteen-match-name font-poppins"
-                    >
-                      {name}
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <img
+          className="eighteenths-desktop-corner"
+          src="/images/graphics/flower-left.png"
+          alt=""
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: 'auto',
+            height: 'auto',
+            maxWidth: 'clamp(72px, 12vw, 160px)',
+            objectFit: 'contain',
+            zIndex: 16,
+            display: 'none',
+            opacity: 0.95
+          }}
+        />
+
+        <img
+          className="eighteenths-desktop-corner"
+          src="/images/graphics/flower-right.png"
+          alt=""
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            width: 'auto',
+            height: 'auto',
+            maxWidth: 'clamp(72px, 12vw, 160px)',
+            objectFit: 'contain',
+            zIndex: 16,
+            display: 'none',
+            transform: 'scaleX(-1)',
+            transformOrigin: 'center'
+          }}
+        />
+
+        <img
+          className="eighteenths-desktop-corner"
+          src="/images/graphics/flower-left.png"
+          alt=""
+          aria-hidden
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: 'auto',
+            height: 'auto',
+            maxWidth: 'clamp(72px, 12vw, 160px)',
+            objectFit: 'contain',
+            zIndex: 16,
+            display: 'none',
+            transform: 'scaleY(-1)',
+            transformOrigin: 'center'
+          }}
+        />
+
+        <img
+          className="eighteenths-desktop-corner"
+          src="/images/graphics/flower-right.png"
+          alt=""
+          aria-hidden
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            width: 'auto',
+            height: 'auto',
+            maxWidth: 'clamp(72px, 12vw, 160px)',
+            objectFit: 'contain',
+            zIndex: 16,
+            display: 'none',
+            transform: 'rotate(180deg)',
+            transformOrigin: 'center'
+          }}
+        />
+
+        <div className="relative z-20 w-full px-8">
+          <div className="eighteenths-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem' }}>
+            {displayCategories.map((category, index) => (
+              <CategorySection
+                key={index}
+                category={category}
+                showDivider={index < displayCategories.length - 1}
+                scrollerElement={scrollerElement}
+              />
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Container 3 - SETS */}
-      <div className="eighteen-container-divider relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-8 pt-16 pb-8">
-        {/* Paragraph with title */}
-        <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
-          <h3 ref={setsHeadingRef} className="eighteen-text-white mb-4">
-            <span className="eighteen-heading-number eighteen-heading-number-sets font-instrument-serif font-semibold">18</span>
-            <span className="eighteen-heading-text eighteen-heading-text-sets font-instrument-serif uppercase"> {eighteenths.categories[1]?.title || 'SETS'}</span>
-          </h3>
-          {eighteenths.categories[1]?.description && (
-            <div ref={setsDescRef} className="eighteen-description eighteen-description-sets font-poppins">
-              {eighteenths.categories[1].description.split('\n').map((paragraph, index) => {
-                const text = paragraph.trim();
-                let highlightedText = text.replace(/18 Sets\./g, '<strong><span class="eighteen-description-highlight">18 Sets.</span></strong>');
-                return (
-                  <p 
-                    key={index} 
-                    className={`eighteen-description-paragraph font-poppins ${text ? 'eighteen-description-paragraph-spaced' : 'eighteen-description-paragraph-tight'}`}
-                    dangerouslySetInnerHTML={{ __html: highlightedText }}
-                  />
-                );
-              })}
-            </div>
-          )}
-        </div>
-        {/* Photo */}
-        <div className="eighteen-image-container w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative z-10">
-          <img 
-            ref={setsImageRef}
-            src="/images/prenup/prenup6.jpg" 
-            alt="18 Sets" 
-            className="eighteen-image w-full h-full object-cover flex-1 eighteen-image-mobile sets-image"
-          />
-        </div>
-      </div>
-
-      {/* Container 4 - SETS Names Grid */}
-      <div className="relative z-20 px-8 py-8">
-        <div className="max-w-4xl mx-auto relative z-10">
-          {/* Title */}
-          <h3 ref={setsGridTitleRef} className="eighteen-text-white mb-8 text-center">
-            <span className="eighteen-heading-number eighteen-heading-number-sets font-instrument-serif font-semibold">18</span>
-            <span className="eighteen-heading-text eighteen-heading-text-sets font-instrument-serif uppercase"> {eighteenths.categories[1]?.title || 'SETS'}</span>
-          </h3>
-          {/* Grid container for SETS names */}
-          <div className="grid gap-4 justify-items-center matches-grid">
-            {eighteenths.categories[1]?.names && eighteenths.categories[1].names.map((name, nameIndex) => (
-              <div 
-                key={nameIndex} 
-                className="eighteen-set-card set-card text-center py-6 px-3 w-full"
-              >
-                <div className="eighteen-set-name font-poppins">
-                  {name}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Container 5 - SLICES */}
-      <div className="eighteen-container-divider relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-8 pt-16 pb-8">
-        {/* First child: Category title, paragraph, and boxes */}
-        <div className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pb-8 lg:pb-16 lg:flex lg:flex-col text-center lg:text-left relative z-10">
-          <h3 ref={slicesHeadingRef} className="eighteen-text-white mb-4">
-            <span className="eighteen-heading-number eighteen-heading-number-slices font-instrument-serif font-semibold">18</span>
-            <span className="eighteen-heading-text eighteen-heading-text-slices font-instrument-serif uppercase"> {eighteenths.categories[2]?.title || 'SLICES'}</span>
-          </h3>
-          {eighteenths.categories[2]?.description && (
-            <div ref={slicesDescRef} className="eighteen-description eighteen-description-slices font-poppins">
-              {eighteenths.categories[2].description.split('\n').map((paragraph, index) => {
-                const text = paragraph.trim();
-                let highlightedText = text.replace(/18 Slices/g, '<strong><span class="eighteen-description-highlight">18 Slices</span></strong>');
-                return (
-                  <p 
-                    key={index} 
-                    className={`eighteen-description-paragraph font-poppins ${text ? 'eighteen-description-paragraph-spaced' : 'eighteen-description-paragraph-tight'}`}
-                    dangerouslySetInnerHTML={{ __html: highlightedText }}
-                  />
-                );
-              })}
-            </div>
-          )}
-          
-          {/* Mobile-only duplicate image - above slices boxes */}
-          <div className="eighteen-image-container-mobile lg:hidden w-full mt-8 h-96 overflow-hidden flex relative z-10">
-            <img 
-              src="/images/prenup/prenup4.jpg" 
-              alt="18 Slices" 
-              className="eighteen-image eighteen-image-slices w-full h-full object-cover flex-1"
-              style={{ objectPosition: '60% center' }}
-            />
-          </div>
-          
-          {/* SLICES Names Grid */}
-          <div className="mt-8">
-            <div className="max-w-4xl mx-auto relative z-10">
-              {/* Title */}
-              <h3 ref={slicesGridTitleRef} className="eighteen-text-white mb-8 text-center">
-                <span className="eighteen-heading-number eighteen-heading-number-slices font-instrument-serif font-semibold">18</span>
-                <span className="eighteen-heading-text eighteen-heading-text-slices font-instrument-serif uppercase"> {eighteenths.categories[2]?.title || 'SLICES'}</span>
-              </h3>
-              {/* Two groups container - stack on mobile, side by side on tablet+ */}
-              <div className="flex flex-col md:flex-row gap-4">
-                {eighteenths.categories[2]?.names && (() => {
-                  const names = eighteenths.categories[2].names;
-                  const midPoint = Math.ceil(names.length / 2);
-                  const group1 = names.slice(0, midPoint);
-                  const group2 = names.slice(midPoint);
-                  
-                  return (
-                    <>
-                      {/* Group 1 */}
-                      <div className="eighteen-slice-group slice-group flex-1 py-6 px-4">
-                        <div className="flex flex-col items-center">
-                          {group1.map((name, nameIndex) => (
-                            <div 
-                              key={nameIndex} 
-                              className="eighteen-slice-name font-poppins text-center"
-                            >
-                              {name}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      {/* Group 2 */}
-                      <div className="eighteen-slice-group slice-group flex-1 py-6 px-4">
-                        <div className="flex flex-col items-center">
-                          {group2.map((name, nameIndex) => (
-                            <div 
-                              key={nameIndex} 
-                              className="eighteen-slice-name font-poppins text-center"
-                            >
-                              {name}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </>
-                  );
-                })()}
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Second child: Image */}
-        <div className="eighteen-image-container hidden lg:flex w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden relative z-10">
-          <img 
-            ref={slicesImageRef}
-            src="/images/prenup/prenup4.jpg" 
-            alt="18 Slices" 
-            className="eighteen-image eighteen-image-slices w-full h-full object-cover flex-1 eighteen-image-mobile"
-          />
-        </div>
-      </div>
-    </section>
+      </section>
     </>
   )
 }
 
 export default EighteenList
-

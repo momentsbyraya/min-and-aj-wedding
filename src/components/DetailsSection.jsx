@@ -153,7 +153,7 @@ const DetailsSection = () => {
       <section
         ref={sectionRef}
         className="details-section relative w-full overflow-hidden"
-        style={{ background: 'linear-gradient(180deg, #fff6f2 0%, #f7d9dd 100%)' }}
+        style={{ background: 'linear-gradient(180deg, #FEF3F8 0%, #F0C9D4 100%)' }}
       >
         {/* Content */}
         <div className="relative z-10">
@@ -200,7 +200,7 @@ const DetailsSection = () => {
             {/* Sections Container - Grid on lg screens */}
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16">
             {/* RSVP Section */}
-            <div className="details-subsection mb-12 lg:mb-0 text-center bg-[#fff5f3]/85 border border-[#e28b91] p-6">
+            <div className="details-subsection mb-12 lg:mb-0 text-center bg-[#FEF3F8]/85 border border-[#e28b91] p-6">
               <h2
                 ref={rsvpHeadingRef}
                 className="details-rsvp-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rozha mb-4 uppercase"
@@ -238,7 +238,7 @@ const DetailsSection = () => {
             </div>
 
             {/* Gift Registry Section */}
-            <div className="details-subsection text-center bg-[#fff5f3]/85 border border-[#e28b91] p-6">
+            <div className="details-subsection text-center bg-[#FEF3F8]/85 border border-[#e28b91] p-6">
               <h2
                 ref={giftHeadingRef}
                 className="details-gift-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rozha mb-4 uppercase whitespace-nowrap"

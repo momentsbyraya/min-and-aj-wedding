@@ -154,7 +154,7 @@ const EighteenList2 = () => {
       className="relative w-full overflow-hidden eighteen-bg-texture"
       style={{ 
         backgroundColor: theme.colors.primary,
-        border: '2px solid #f0ede6'
+        border: '2px solid #f4eef3'
       }}
     >
       {/* Content */}
@@ -163,15 +163,15 @@ const EighteenList2 = () => {
         <div className="max-w-6xl mx-auto px-8 md:px-16">
           <div 
             style={{
-              borderLeft: '2px solid #f5f1eb',
-              borderRight: '2px solid #f5f1eb'
+              borderLeft: '2px solid #f7f2f6',
+              borderRight: '2px solid #f7f2f6'
             }}
           >
             {/* Section Title */}
             <div 
               className="text-center eighteen-title"
               style={{
-                borderBottom: '2px solid #f5f1eb',
+                borderBottom: '2px solid #f7f2f6',
                 paddingTop: '3rem',
                 paddingBottom: '3rem'
               }}
@@ -180,7 +180,7 @@ const EighteenList2 = () => {
               <h1
                 ref={titleTheRef}
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                style={{ color: '#f5f1eb' }}
+                style={{ color: '#f7f2f6' }}
               >
                 The
               </h1>
@@ -190,7 +190,7 @@ const EighteenList2 = () => {
                 ref={titleEighteenthsRef}
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
                 style={{
-                  color: '#f5f1eb',
+                  color: '#f7f2f6',
                   fontWeight: 900,
                   lineHeight: '1',
                   marginTop: '-0.4em'
@@ -202,11 +202,11 @@ const EighteenList2 = () => {
             
             <div className="grid grid-cols-2" style={{ alignItems: 'stretch', gap: 0 }}>
             {/* Tennis Matches - Full Row */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
+            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
                 style={{ 
-                  color: '#f5f1eb',
+                  color: '#f7f2f6',
                   fontWeight: 900,
                   lineHeight: '1',
                   fontFamily: "'Tebranos', cursive !important"
@@ -218,7 +218,7 @@ const EighteenList2 = () => {
                 <div 
                   className="text-center font-poppins eighteen-description"
                   style={{ 
-                    color: '#f5f1eb', 
+                    color: '#f7f2f6', 
                     fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
                     lineHeight: '1.6',
                     opacity: 0.9,
@@ -235,14 +235,14 @@ const EighteenList2 = () => {
             </div>
 
             {/* Matches - Full Row */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem' }}>
               <div className="eighteenth-names-1 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {eighteenths.categories[1].matches && eighteenths.categories[1].matches.map((match, matchIndex) => (
                   <div key={matchIndex} style={{ marginBottom: '0.5rem' }}>
                     <h3 
                       className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-instrument-serif font-semibold mb-3 text-center"
                       style={{ 
-                        color: '#f5f1eb',
+                        color: '#f7f2f6',
                         lineHeight: '1',
                         fontFamily: "'Instrument Serif', serif",
                         fontSize: 'clamp(1.5rem, 3vw, 2.5rem)'
@@ -251,7 +251,7 @@ const EighteenList2 = () => {
                       MATCH {match.number}
                     </h3>
                     {match.names.map((name, nameIndex) => (
-                      <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
+                      <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#f7f2f6', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
                         {name}
                       </div>
                     ))}
@@ -261,7 +261,7 @@ const EighteenList2 = () => {
             </div>
 
             {/* Sets - White BG First (Full Row) */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: '#f0ede6' }}>
+            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem', backgroundColor: '#f4eef3' }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
                 style={{ 
@@ -294,11 +294,11 @@ const EighteenList2 = () => {
             </div>
 
             {/* Sets - Names (Full Row) */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem' }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
                 style={{ 
-                  color: '#f5f1eb',
+                  color: '#f7f2f6',
                   fontWeight: 900,
                   lineHeight: '1',
                   fontFamily: "'Tebranos', cursive !important"
@@ -308,7 +308,7 @@ const EighteenList2 = () => {
               </h3>
               <div className="eighteenth-names-2 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[2].names.map((name, index) => (
-                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0.8 }}>
+                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f7f2f6', fontSize: '14px', opacity: 0.8 }}>
                     {name.toUpperCase()}
                   </div>
                 ))}
@@ -316,11 +316,11 @@ const EighteenList2 = () => {
             </div>
 
             {/* Slices - Pink BG First (Full Row) */}
-            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
+            <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
                 style={{ 
-                  color: '#f5f1eb',
+                  color: '#f7f2f6',
                   fontWeight: 900,
                   lineHeight: '1',
                   fontFamily: "'Tebranos', cursive !important"
@@ -332,7 +332,7 @@ const EighteenList2 = () => {
                 <div 
                   className="text-center font-poppins eighteen-description"
                   style={{ 
-                    color: '#f5f1eb', 
+                    color: '#f7f2f6', 
                     fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
                     lineHeight: '1.6',
                     opacity: 0.9,
@@ -349,11 +349,11 @@ const EighteenList2 = () => {
             </div>
 
             {/* Slices Names (Full Row) */}
-            <div ref={beThereCardRef} className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f5f1eb', padding: '1.5rem' }}>
+            <div ref={beThereCardRef} className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem' }}>
               <h3 
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
                 style={{ 
-                  color: '#f5f1eb',
+                  color: '#f7f2f6',
                   fontWeight: 900,
                   lineHeight: '1',
                   fontFamily: "'Tebranos', cursive !important"
@@ -363,7 +363,7 @@ const EighteenList2 = () => {
               </h3>
               <div className="eighteenth-names-5 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[5]?.names?.map((name, index) => (
-                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f5f1eb', fontSize: '14px', opacity: 0 }}>
+                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f7f2f6', fontSize: '14px', opacity: 0 }}>
                     {name.toUpperCase()}
                   </div>
                 ))}
@@ -371,12 +371,12 @@ const EighteenList2 = () => {
             </div>
 
             {/* Duplicate of BE THERE Card - Full Row */}
-            <div className="col-span-2 flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f5f1eb', paddingTop: '3rem', paddingBottom: '3rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
+            <div className="col-span-2 flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f7f2f6', paddingTop: '3rem', paddingBottom: '3rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
               <div className="text-center">
                 <h3 
                   className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8"
                   style={{ 
-                    color: '#f5f1eb',
+                    color: '#f7f2f6',
                     fontWeight: 900,
                     lineHeight: '1',
                     fontFamily: "'Tebranos', cursive !important"
@@ -393,7 +393,7 @@ const EighteenList2 = () => {
                 <p 
                   className="text-base sm:text-lg md:text-xl font-poppins uppercase mb-8"
                   style={{ 
-                    color: '#f5f1eb',
+                    color: '#f7f2f6',
                     letterSpacing: '0.1em'
                   }}
                 >

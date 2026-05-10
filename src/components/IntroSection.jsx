@@ -81,12 +81,14 @@ const IntroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-48 md:pt-80 pb-28 md:pb-36 overflow-hidden"
+      className="relative w-full pt-24 md:pt-44 pb-28 md:pb-36 overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/graphics/bg-3.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundColor: '#F9E8F0',
+        backgroundImage:
+          'linear-gradient(180deg, rgba(253, 244, 248, 0.96) 0%, rgba(252, 235, 243, 0.97) 45%, rgba(248, 228, 238, 0.98) 100%), url(/images/graphics/bg-3.png)',
+        backgroundSize: 'cover, cover',
+        backgroundPosition: 'center, center',
+        backgroundRepeat: 'no-repeat, no-repeat'
       }}
     >
       <div className="soft-blob z-0" style={{ width: randSize(85, 135), height: randSize(75, 120), top: randPct(8, 22), left: randPct(66, 84) }} />
@@ -174,7 +176,7 @@ const IntroSection = () => {
       </div>
       {isRsvpModalOpen && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
-          <div className="relative w-screen h-screen bg-[#FDECE4] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+          <div className="relative w-screen h-screen bg-[#FDF2F7] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
@@ -182,19 +184,14 @@ const IntroSection = () => {
             >
               Close
             </button>
-            <iframe
-              src="https://forms.gle/XUtWtjrPjvpnBbVN6"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
-              title="RSVP Form"
-              className="mt-8 h-[calc(100vh-80px)] bg-white"
-              style={{ height: 'calc(100vh - 114px)' }}
-            >
-              Loading...
-            </iframe>
+            <div className="mt-8 flex h-[calc(100vh-114px)] items-center justify-center px-6">
+              <p
+                className="font-poppins text-center text-sm tracking-[0.22em] text-[#6F2D36]/55 sm:text-base"
+                aria-label="RSVP form coming soon"
+              >
+                TO BE ADDED
+              </p>
+            </div>
           </div>
         </div>
       )}

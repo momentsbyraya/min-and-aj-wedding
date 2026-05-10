@@ -2,20 +2,19 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
+import EighteenIntroSection from './EighteenIntroSection'
 import Venue from './Venue'
 import Schedule from './Schedule'
+import OurGiftSection from './OurGiftSection'
 import DressCode from './DressCode'
+import Gallery from './Gallery'
 import CelebrantStory from './CelebrantStory'
 import FAQ from './FAQ'
 import CountdownSection from './CountdownSection'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
-  const prenupImages = useMemo(() => ([
-    '/images/prenup/DSC01286.jpg',
-    '/images/prenup/DSC01404.jpg',
-    '/images/prenup/DSC01482.jpg'
-  ]), [])
+  const prenupImages = useMemo(() => ['/images/prenup/A7400780.jpg'], [])
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
   const openLightbox = (src) => {
@@ -66,6 +65,9 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
         <div>
           <IntroSection />
         </div>
+        <div>
+          <EighteenIntroSection />
+        </div>
         <div className="relative overflow-hidden">
           <div
             className="absolute inset-0 z-0 pointer-events-none"
@@ -84,7 +86,13 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
               <Schedule />
             </div>
             <div>
+              <OurGiftSection />
+            </div>
+            <div>
               <DressCode />
+            </div>
+            <div>
+              <Gallery />
             </div>
             <div>
               <CelebrantStory onImageClick={openLightbox} />
@@ -95,13 +103,13 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div>
               <CountdownSection />
             </div>
-            <footer className="wedding-invitation-footer bg-[#F2C8B8]">
+            <footer className="wedding-invitation-footer bg-[#E8A9BC]">
               <a
                 href="https://www.facebook.com/profile.php?id=61571540978411"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit Moments by Raya page"
-                className="wedding-invitation-footer-link wedding-invitation-footer-link-hidden"
+                className="wedding-invitation-footer-link text-[#6F2D36] hover:text-white"
               >
                 Made with love by Moments by Raya
               </a>

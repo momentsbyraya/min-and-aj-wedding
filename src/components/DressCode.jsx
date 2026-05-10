@@ -72,6 +72,19 @@ const DressCode = () => {
       <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(72, 114), height: randSize(62, 98), top: randPct(8, 22), left: randPct(68, 84) }} />
       <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(88, 132), height: randSize(74, 114), top: randPct(66, 84), left: randPct(6, 20) }} />
       <img
+        src="/images/graphics/flower-banner.png"
+        alt="Floral banner"
+        className="intro-flower-banner pointer-events-none absolute left-1/2 top-0 z-10 h-auto -translate-x-1/2"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="schedule-flower-banner-bottom pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto -translate-x-1/2 rotate-180"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
+      <img
         src="/images/graphics/flower.png"
         alt=""
         aria-hidden="true"
@@ -84,9 +97,17 @@ const DressCode = () => {
         className="absolute bottom-[14%] right-[8%] w-20 opacity-25 blur-[3px] pointer-events-none z-0"
       />
       <div className="relative z-20 w-full max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
-        <h2 ref={headingRef} className="font-rozha text-5xl lowercase leading-none mb-1" style={{ color: '#6F2D36' }}>
-          dresscode
-        </h2>
+        <div ref={headingRef} className="flex flex-col items-center">
+          <img
+            src="/images/graphics/shoe%20sin%20pillow.png"
+            alt=""
+            aria-hidden="true"
+            className="mx-auto mb-2 h-auto max-h-28 sm:max-h-32 w-auto max-w-[8rem] sm:max-w-[9.5rem] object-contain pointer-events-none select-none opacity-95"
+          />
+          <h2 className="font-rozha text-5xl lowercase leading-none mb-1" style={{ color: '#6F2D36' }}>
+            dresscode
+          </h2>
+        </div>
         <p
           ref={noteRef}
           className="font-halimun text-xl mb-6 leading-none w-fit"
@@ -116,9 +137,24 @@ const DressCode = () => {
           ))}
         </div>
 
-        <div ref={descriptionRef} className="font-poppins text-sm leading-relaxed mt-6 space-y-1" style={{ color: '#6F2D36' }}>
-          <p className="font-poppins font-semibold tracking-wide">{mainDressCode.title}</p>
-          <p className="font-poppins">{mainDressCode.description}</p>
+        <div ref={descriptionRef} className="mt-8 flex flex-col items-center gap-4 text-center">
+          <p
+            className="font-my-soul leading-none"
+            style={{
+              color: '#D97B9C',
+              fontSize: 'clamp(2.35rem, 7vw, 3.75rem)'
+            }}
+          >
+            {mainDressCode.title}
+          </p>
+          <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#6F2D36' }}>
+            {mainDressCode.description.split('\n').map((line, i) => (
+              <React.Fragment key={i}>
+                {i > 0 ? <br /> : null}
+                {line}
+              </React.Fragment>
+            ))}
+          </p>
         </div>
       </div>
     </section>

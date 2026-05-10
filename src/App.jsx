@@ -5,6 +5,7 @@ import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
 import OpeningScreen from './components/OpeningScreen'
 import Preloader from './components/Preloader'
+import Watermark from './components/Watermark'
 import { audio } from './data'
 
 function App() {
@@ -93,6 +94,7 @@ function App() {
           <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
         </>
       )}
+      {isPreloaderComplete ? <Watermark /> : null}
     </div>
   )
 }

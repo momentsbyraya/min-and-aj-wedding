@@ -10,7 +10,7 @@ const photos = [
 
 const PhotoMosaicSection = () => {
   return (
-    <section className="w-full py-14 px-4 sm:px-6" style={{ background: 'linear-gradient(180deg, #fff5f3 0%, #f7d9dd 100%)' }}>
+    <section className="w-full py-14 px-4 sm:px-6" style={{ background: 'linear-gradient(180deg, #FEF3F8 0%, #F0C9D4 100%)' }}>
       <div className="max-w-5xl mx-auto">
         <h2
           className="font-my-soul text-center mb-8"

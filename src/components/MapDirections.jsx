@@ -119,7 +119,7 @@ const MapDirections = () => {
               
               <div ref={receptionPhotoRef} className="relative mb-4 flex justify-center">
                 <div className="w-full h-50 sm:h-fit bg-white shadow-2xl hover:scale-105 transition-transform duration-300">
-                  <div className="w-full h-40 sm:h-64 bg-cover border-l-8 border-r-8 border-t-8 border-white" style={{backgroundImage: `url(${venues.main.image || '/images/venue/venue.jpg'})`, backgroundPosition: 'top'}}></div>
+                  <div className="w-full h-40 sm:h-64 bg-cover border-l-8 border-r-8 border-t-8 border-white" style={{backgroundImage: `url(${venues.main.image || '/images/venue/venue.png'})`, backgroundPosition: 'top'}}></div>
                   <div className="p-3 text-center">
                     <div className="text-right text-sm sm:text-base text-gray-600 font-handwritten">{venues.main.name}</div>
                   </div>
@@ -164,7 +164,7 @@ const MapDirections = () => {
         {/* Photo Section */}
         <div className="mt-8">
           <PhotoSection 
-            imagePath={venues.main.image || '/images/venue/venue.jpg'}
+            imagePath={venues.main.image || '/images/venue/venue.png'}
             title=""
             subtitle=""
             inline={true}

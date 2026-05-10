@@ -1,0 +1,23 @@
+{
+  "altDefault": "Gallery",
+  "bannerImage": "/images/graphics/palace.png",
+  "files": [
+    "A7400771.jpeg",
+    "A7400792.jpg",
+    "A7400778.jpg",
+    "A7400801.jpg",
+    "A7400819.jpg",
+    "A7400944.jpg",
+    "A7400958.jpg",
+    "A7401201.jpg",
+    "A7401400.jpg",
+    "A7401418.jpg",
+    "A7401464.jpg",
+    "A7401509.jpg"
+  ],
+  "tileObjectPosition": {
+    "A7400771.jpeg": "center 40%",
+    "A7400801.jpg": "center 40%",
+    "A7400944.jpg": "center 40%"
+  }
+}

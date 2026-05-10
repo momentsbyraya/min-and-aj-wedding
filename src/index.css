@@ -81,7 +81,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #8b6755;
-  background-color: #f6f1ee; /* Calendar background color */
+  background-color: #faf6f9; /* Page background — soft pink */
 }
 
 @layer base {
@@ -177,7 +177,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #D99D86 !important;
+    background-color: #C47A8F !important;
   }
   
   footer a:hover,
@@ -207,7 +207,13 @@ body {
     font-family: 'Elsie Swash Caps', cursive !important;
     font-weight: 400 !important;
   }
-  
+
+  /* Hero headline copy — Playfair serif (overrides utility-layer * reset) */
+  .hero-invitation-serif,
+  .hero-invitation-serif * {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  }
+
   /* Cookie font - must come after global rule */
   .font-cookie,
   h1.font-cookie,
@@ -368,6 +374,26 @@ body {
     font-weight: 400 !important;
     font-style: normal !important;
     letter-spacing: 0.02em;
+  }
+
+  /* Eighteenths modal / section main title (Kayleen-style gradient, pink palette) */
+  .eighteenths-title-gradient {
+    background: linear-gradient(
+      110deg,
+      #fff9f8 0%,
+      #fde8ef 22%,
+      #f5b8c9 50%,
+      #fff5f8 88%,
+      #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Eighteen hero: lighter label (overrides .font-rozha 400!important) */
+  .eighteen-intro-rozha-label.font-rozha {
+    font-weight: 300 !important;
   }
 
   .font-nanum,
@@ -533,7 +559,7 @@ body {
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #f5f0e8;
+  --envelope-bg: #faf4f8;
   --envelope-shadow: #d4c5b0;
   --heart-bg: darkred;
   --heart-text: white;
@@ -928,15 +954,17 @@ body {
 /* Watermark for client approval */
 .watermark-approval {
   position: fixed;
-  font-size: 3rem;
+  font-size: clamp(1rem, 3.75vw, 2.125rem);
   font-weight: bold;
   color: rgba(0, 0, 0, 0.1);
   z-index: 99999;
   pointer-events: none;
   white-space: nowrap;
+  max-width: 95vw;
+  text-align: center;
   user-select: none;
   font-family: 'Poppins', sans-serif !important;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
@@ -958,8 +986,8 @@ body {
 
 @media (max-width: 768px) {
   .watermark-approval {
-    font-size: 1.5rem;
-    letter-spacing: 0.1em;
+    font-size: clamp(0.85rem, 4.75vw, 1.35rem);
+    letter-spacing: 0.05em;
   }
 }
 
@@ -1171,7 +1199,7 @@ body {
 
 .soft-blob--alt {
   border-radius: 61% 39% 49% 51% / 52% 62% 38% 48%;
-  background: rgba(233, 183, 163, 0.26);
+  background: rgba(232, 170, 190, 0.28);
   animation-duration: 16s;
 }
 

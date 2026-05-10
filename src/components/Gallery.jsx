@@ -1,90 +1,384 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useMemo, useRef, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import './Gallery.css'
+import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi'
+import { galleryPrenups, theme } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Gallery = ({ onImageClick }) => {
-  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
-  const sectionRef = useRef(null)
-  const gridRef = useRef(null)
-  const bannerRef = useRef(null)
-  const prenupImages = [
-    '/images/prenup/DSC01333.jpg',
-    '/images/prenup/DSC01372.jpg',
-    '/images/prenup/DSC01288.jpg',
-    '/images/prenup/DSC01381.jpg',
-    '/images/prenup/DSC01394.jpg'
-  ]
+const prenupUrl = (file) => `/images/prenup/${file}`
 
-  useEffect(() => {
-    const galleryItems = gridRef.current?.querySelectorAll('.div1, .div2, .div3, .div4, .div5') || []
+const Gallery = () => {
+  const galleryImages = useMemo(
+    () => galleryPrenups.files.map(prenupUrl),
+    []
+  )
+  const altDefault = galleryPrenups.altDefault ?? 'Gallery'
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 72%',
-        end: 'bottom 35%',
-        toggleActions: 'play none none reverse'
-      }
-    })
-
-    tl.fromTo(
-      galleryItems,
-      { opacity: 0, y: 26 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.65,
-        ease: 'power2.out',
-        stagger: 0.12
-      }
-    ).fromTo(
-      bannerRef.current,
-      { opacity: 0, y: 18 },
-      { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' },
-      '-=0.2'
-    )
-
-    return () => {
-      tl.kill()
+  const tileObjectPosition = useMemo(() => {
+    const raw = galleryPrenups.tileObjectPosition ?? {}
+    const out = {}
+    for (const [file, pos] of Object.entries(raw)) {
+      out[prenupUrl(file)] = pos
     }
+    return out
   }, [])
 
-  return (
-    <section ref={sectionRef} className="gallery-section">
-      <div className="soft-blob soft-blob--small" style={{ width: randSize(78, 122), height: randSize(66, 110), top: randPct(8, 20), left: randPct(6, 18) }} />
-      <div className="soft-blob soft-blob--alt" style={{ width: randSize(95, 145), height: randSize(80, 122), top: randPct(66, 82), left: randPct(66, 84) }} />
-      <img
-        src="/images/graphics/flower.png"
-        alt=""
-        aria-hidden="true"
-        className="gallery-flower gallery-flower-top"
-      />
-      <img
-        src="/images/graphics/flower-1.png"
-        alt=""
-        aria-hidden="true"
-        className="gallery-flower gallery-flower-bottom"
-      />
-      <div ref={gridRef} className="parent">
-        <div className="div1 soft-edges"><img src={prenupImages[0]} alt="Prenup 1" onClick={() => onImageClick?.(prenupImages[0])} className="cursor-pointer" /></div>
-        <div className="div2 soft-edges"><img src={prenupImages[1]} alt="Prenup 2" onClick={() => onImageClick?.(prenupImages[1])} className="cursor-pointer" /></div>
-        <div className="div3 soft-edges"><img src={prenupImages[2]} alt="Prenup 3" onClick={() => onImageClick?.(prenupImages[2])} className="cursor-pointer" /></div>
-        <div className="div4 soft-edges"><img src={prenupImages[3]} alt="Prenup 4" onClick={() => onImageClick?.(prenupImages[3])} className="cursor-pointer" /></div>
-        <div className="div5 soft-edges"><img src={prenupImages[4]} alt="Prenup 5" onClick={() => onImageClick?.(prenupImages[4])} className="cursor-pointer" /></div>
+  const bannerImage = galleryPrenups.bannerImage ?? '/images/graphics/palace.png'
+  const galleryBlushBg = '#F9E8F0'
+
+  const titleRef = useRef(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const overlayRef = useRef(null)
+  const contentRef = useRef(null)
+  const imageRefs = useRef([])
+
+  const gridColumnPattern = [
+    'span 3',
+    'span 1',
+    'span 2',
+    'span 2',
+    'span 1',
+    'span 3',
+    'span 1',
+    'span 2',
+    'span 2',
+    'span 1'
+  ]
+
+  const gridColumnForIndex = (index) => {
+    if (galleryImages.length === 4 && index === 3) return 'span 3'
+    return gridColumnPattern[index % gridColumnPattern.length]
+  }
+
+  const compactTileClass =
+    'max-h-[150px] cursor-pointer overflow-hidden md:max-h-[260px] lg:max-h-[300px]'
+
+  useEffect(() => {
+    if (titleRef.current) {
+      ScrollTrigger.create({
+        trigger: titleRef.current,
+        start: 'top 80%',
+        animation: gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+        ),
+        toggleActions: 'play none none reverse'
+      })
+    }
+
+    imageRefs.current.forEach((ref, index) => {
+      if (!ref) return
+
+      const isFromLeft = index % 2 === 0
+      const xValue = isFromLeft ? -100 : 100
+
+      gsap.set(ref, {
+        opacity: 0,
+        x: xValue,
+        force3D: true
+      })
+
+      ScrollTrigger.create({
+        trigger: ref,
+        start: 'top 85%',
+        animation: gsap.to(ref, {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          force3D: true
+        }),
+        toggleActions: 'play none none reverse'
+      })
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => {
+        const t = trigger.vars?.trigger
+        if (t === titleRef.current || imageRefs.current.includes(t)) {
+          trigger.kill()
+        }
+      })
+    }
+  }, [galleryImages.length])
+
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index)
+    setIsModalOpen(true)
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
+  }
+
+  const closeModal = () => setIsModalOpen(false)
+
+  useEffect(() => {
+    if (!isModalOpen) return
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setIsModalOpen(false)
+      else if (e.key === 'ArrowLeft') {
+        setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
+      } else if (e.key === 'ArrowRight') {
+        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [isModalOpen, galleryImages.length])
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden'
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+      if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`
+
+      if (overlayRef.current && contentRef.current) {
+        gsap.set([overlayRef.current, contentRef.current], { opacity: 0 })
+        gsap.set(contentRef.current, { scale: 0.9 })
+
+        gsap.to(overlayRef.current, { opacity: 1, duration: 0.3, ease: 'power2.out' })
+        gsap.to(contentRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          ease: 'power2.out'
+        })
+      }
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+  }, [isModalOpen])
+
+  const galleryCount = galleryImages.length
+  const mainGallery = galleryCount > 2 ? galleryImages.slice(0, -2) : []
+  const tailPair = galleryCount >= 2 ? galleryImages.slice(-2) : galleryImages
+
+  const renderGridTile = (image, index, gridColumn) => {
+    const isFullWidthRow = gridColumn === 'span 3'
+    const objectPosition = tileObjectPosition[image]
+    return (
+      <div
+        ref={(el) => {
+          imageRefs.current[index] = el
+        }}
+        className={
+          isFullWidthRow
+            ? 'min-h-[11rem] max-h-[220px] cursor-pointer overflow-hidden sm:min-h-[13rem] sm:max-h-[260px] md:min-h-[17rem] md:max-h-[400px] lg:min-h-[18rem] lg:max-h-[440px]'
+            : compactTileClass
+        }
+        style={{
+          gridColumn,
+          height: '100%',
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)'
+        }}
+        onClick={() => handleImageClick(index)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            handleImageClick(index)
+          }
+        }}
+        aria-label={`Open gallery image ${index + 1}`}
+      >
+        <img
+          src={image}
+          alt={`${altDefault} — preview ${index + 1}`}
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          draggable="false"
+          style={{
+            height: '100%',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            objectPosition: objectPosition ?? 'center'
+          }}
+          loading="lazy"
+        />
       </div>
-      <img
-        ref={bannerRef}
-        src="/images/graphics/flower-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="gallery-flower-banner"
-      />
-    </section>
+    )
+  }
+
+  if (galleryCount === 0) return null
+
+  return (
+    <div id="gallery" className="relative">
+      <div
+        className="relative z-20 !py-8 sm:!py-10"
+        style={{
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          marginRight: 'calc(-50vw + 50%)',
+          backgroundColor: galleryBlushBg,
+          backgroundImage: `url(${bannerImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div
+          className={`relative z-10 w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}
+        >
+          <h3 ref={titleRef} className="relative inline-block w-full py-3 text-center">
+            <span
+              className="font-rozha inline-block px-6 text-4xl lowercase leading-none sm:text-5xl md:text-6xl lg:text-[3.35rem]"
+              style={{
+                color: '#6F2D36',
+                filter: 'drop-shadow(0 1px 2px rgba(255, 250, 252, 0.85))'
+              }}
+            >
+              gallery
+            </span>
+          </h3>
+        </div>
+      </div>
+
+      <div className="w-full py-8 sm:py-12 md:py-16" style={{ backgroundColor: galleryBlushBg }}>
+        <div className={`${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
+          <div className="grid auto-rows-auto grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+            {galleryCount === 1 && renderGridTile(galleryImages[0], 0, gridColumnForIndex(0))}
+
+            {galleryCount >= 2 &&
+              mainGallery.map((image, index) => (
+                <React.Fragment key={image}>{renderGridTile(image, index, gridColumnForIndex(index))}</React.Fragment>
+              ))}
+
+            {galleryCount >= 2 && (
+              <div className="col-span-3 flex min-w-0 flex-row gap-2 sm:gap-3 md:gap-4">
+                {tailPair.map((image, i) => {
+                  const index = galleryCount - 2 + i
+                  const objectPosition = tileObjectPosition[image]
+                  const flexGrow = i === 0 ? 'flex-[2]' : 'flex-[3]'
+                  return (
+                    <div
+                      key={image}
+                      ref={(el) => {
+                        imageRefs.current[index] = el
+                      }}
+                      className={`min-w-0 ${flexGrow} ${compactTileClass}`}
+                      style={{
+                        height: '100%',
+                        willChange: 'transform',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)'
+                      }}
+                      onClick={() => handleImageClick(index)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          handleImageClick(index)
+                        }
+                      }}
+                      aria-label={`Open gallery image ${index + 1}`}
+                    >
+                      <img
+                        src={image}
+                        alt={`${altDefault} — preview ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                        draggable="false"
+                        style={{
+                          height: '100%',
+                          willChange: 'transform',
+                          backfaceVisibility: 'hidden',
+                          objectPosition: objectPosition ?? 'center'
+                        }}
+                        loading="lazy"
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {isModalOpen &&
+        createPortal(
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center" style={{ position: 'fixed' }}>
+            <div
+              ref={overlayRef}
+              className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+              onClick={closeModal}
+              aria-hidden
+            />
+
+            <button
+              type="button"
+              onClick={closeModal}
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/20 transition-colors duration-200 hover:bg-white/30"
+              aria-label="Close gallery"
+            >
+              <FiX className="h-6 w-6 text-white" />
+            </button>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                prevImage()
+              }}
+              className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 transition-colors duration-200 hover:bg-white/30"
+              aria-label="Previous image"
+            >
+              <FiChevronLeft className="h-6 w-6 text-white" />
+            </button>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                nextImage()
+              }}
+              className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 transition-colors duration-200 hover:bg-white/30"
+              aria-label="Next image"
+            >
+              <FiChevronRight className="h-6 w-6 text-white" />
+            </button>
+
+            <div
+              ref={contentRef}
+              className="relative z-10 flex max-h-[90vh] max-w-[90vw] items-center justify-center"
+              style={{ pointerEvents: 'none' }}
+            >
+              <img
+                src={galleryImages[currentImageIndex]}
+                alt={`${altDefault} — fullscreen ${currentImageIndex + 1}`}
+                className="max-h-[90vh] max-w-full object-contain"
+              />
+            </div>
+
+            <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
+              <span className="font-poppins text-sm text-white">
+                {currentImageIndex + 1} / {galleryImages.length}
+              </span>
+            </div>
+          </div>,
+          document.body
+        )}
+    </div>
   )
 }
 
-export default Gallery 
+export default Gallery

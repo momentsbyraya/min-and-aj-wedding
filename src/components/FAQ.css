@@ -4,9 +4,14 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background-color: #fce8ec;
+  background-color: #f9d9e6;
   position: relative;
   overflow: hidden;
+}
+
+.faq-section-title {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-weight: 600 !important;
 }
 
 .faq-question {

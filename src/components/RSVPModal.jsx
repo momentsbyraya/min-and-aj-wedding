@@ -94,21 +94,14 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        {/* Google Forms iframe */}
-        <div className="p-6 h-[calc(100vh-97px)]">
-          <iframe 
-            src="https://forms.gle/XUtWtjrPjvpnBbVN6"
-            width="100%" 
-            height="100%" 
-            frameBorder="0" 
-            marginHeight="0" 
-            marginWidth="0"
-            title="RSVP Form"
-            className="rounded-lg"
-            style={{ height: 'calc(100% - 34px)' }}
+        {/* Form embed placeholder — iframe TBD */}
+        <div className="flex h-[calc(100vh-97px)] items-center justify-center p-8">
+          <p
+            className="font-poppins text-center text-sm tracking-[0.22em] text-[#6F2D36]/55 sm:text-base"
+            aria-label="RSVP form coming soon"
           >
-            Loading…
-          </iframe>
+            TO BE ADDED
+          </p>
         </div>
       </div>
     </div>,

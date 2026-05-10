@@ -12,19 +12,19 @@ function OpeningScreen({ onEnvelopeOpen }) {
     tl.fromTo(
       introCopyRef.current,
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8 }
+      { opacity: 1, y: 0, duration: 0.82 }
     )
       .fromTo(
         envelopeButtonRef.current,
         { opacity: 0, y: 34 },
-        { opacity: 1, y: 0, duration: 0.9 },
-        '-=0.35'
+        { opacity: 1, y: 0, duration: 0.88 },
+        '-=0.52'
       )
       .fromTo(
         clickLabelRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.65 },
-        '-=0.3'
+        { opacity: 1, y: 0, duration: 0.62 },
+        '-=0.45'
       )
 
     return () => tl.kill()
@@ -121,7 +121,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
-              color: '#6F2D36'
+              color: '#ffffff',
+              textShadow: '0 2px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.45)'
             }}
           >
             YOU ARE CORDIALLY
@@ -129,7 +130,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-title font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
             style={{
-              color: '#6F2D36'
+              color: '#ffffff',
+              textShadow: '0 2px 18px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.45)'
             }}
           >
             Invited
