@@ -2,9 +2,6 @@ import React, { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 const Hero = () => {
-  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
-
   const crownRef = useRef(null)
   const inviteLineRef = useRef(null)
   const nameRef = useRef(null)
@@ -42,8 +39,6 @@ const Hero = () => {
       className="relative min-h-screen w-full overflow-hidden"
       aria-label="Invitation"
     >
-      <div className="soft-blob soft-blob--alt z-[2]" style={{ width: randSize(100, 150), height: randSize(80, 130), top: randPct(8, 22), left: randPct(6, 20) }} />
-      <div className="soft-blob soft-blob--small z-[2]" style={{ width: randSize(80, 125), height: randSize(70, 110), top: randPct(62, 78), left: randPct(68, 84) }} />
       <img
         src="/images/graphics/hero-bg.png"
         alt="Hero background"

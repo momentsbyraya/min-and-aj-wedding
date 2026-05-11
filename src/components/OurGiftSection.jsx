@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import GraphicLink from './GraphicLink'
 import { FiExternalLink } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -8,9 +9,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const BG = wedding.giftSection?.backgroundImage || '/images/prenup/A7401414.jpg'
 const DEFAULT_BOTTOM_IMG = '/images/gift/gcash%20no.jpg'
-
-const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
 
 const OurGiftSection = () => {
   const gs = wedding.giftSection ?? {}
@@ -98,43 +96,26 @@ const OurGiftSection = () => {
         />
       </div>
 
-      <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(85, 135), height: randSize(75, 120), top: randPct(8, 22), left: randPct(8, 22) }} />
-      <div className="soft-blob z-0" style={{ width: randSize(75, 120), height: randSize(65, 105), top: randPct(66, 84), left: randPct(66, 84) }} />
-      <img
-        src="/images/graphics/flower.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute left-[8%] top-[18%] z-0 w-16 opacity-35 blur-[2px]"
-      />
-      <img
-        src="/images/graphics/flower-2.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[10%] right-[4%] z-0 w-24 opacity-25 blur-[3px]"
-      />
-
       <div className="relative z-20 ml-auto mr-0 flex w-full max-w-lg justify-end px-5 sm:px-8">
         <div className="overflow-hidden">
           <div ref={contentRef} className="py-5 text-right">
-            {eyebrow ? (
-              <p
-                className="eighteen-intro-rozha-label font-rozha mb-2 text-lg tracking-[0.12em] uppercase sm:mb-2.5 sm:text-xl"
-                style={{ color: '#6F2D36' }}
-              >
-                {eyebrow}
-              </p>
-            ) : null}
-            <h2 className="mb-2 leading-none sm:mb-2.5">
-              <span className="block font-halimun text-[1.875rem] sm:text-[2.125rem] md:text-[2.375rem]" style={{ color: '#6F2D36' }}>
-                {titleLead}
-              </span>
-              <span
-                className="mt-1 block font-rozha text-[1.875rem] lowercase sm:text-[2.125rem] md:text-[2.375rem]"
-                style={{ color: '#6F2D36' }}
-              >
-                {titleRest}
-              </span>
-            </h2>
+            <div className="section-title-graphic mb-2 ml-auto mr-0 inline-block sm:mb-2.5">
+              <div className="section-title-graphic-inner section-title-graphic-inner--right">
+                {eyebrow ? (
+                  <p
+                    className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl"
+                    style={{ color: '#6F2D36' }}
+                  >
+                    {eyebrow.toLowerCase()}
+                  </p>
+                ) : null}
+                <h2 className="leading-tight">
+                  <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                    {`${titleLead} ${titleRest}`.trim().toLowerCase()}
+                  </span>
+                </h2>
+              </div>
+            </div>
             {intro ? (
               <p
                 className="ml-auto w-[60%] max-w-full pb-4 font-poppins text-xs leading-snug font-light sm:text-[0.8125rem]"
@@ -161,16 +142,18 @@ const OurGiftSection = () => {
         />
       ) : null}
 
-      <a
+      <GraphicLink
         ref={buttonRef}
         href={ctaHref}
         target="_blank"
         rel="noreferrer"
-        className="absolute bottom-[max(2rem,env(safe-area-inset-bottom))] right-5 z-30 inline-flex items-center justify-center gap-2 rounded-full bg-[#E28B91] px-6 py-2.5 font-poppins text-base text-white whitespace-nowrap transition-opacity hover:opacity-95 sm:right-8"
+        imageSrc="/images/graphics/button-container.png"
+        className="graphic-button--cta attendance-confirm-button absolute bottom-[max(2rem,env(safe-area-inset-bottom))] right-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:right-8"
+        contentClassName="font-beautyofthebeast lowercase"
       >
-        <span className="font-poppins">{ctaLabel}</span>
-        <FiExternalLink className="h-4 w-4 shrink-0" aria-hidden />
-      </a>
+        {ctaLabel}
+        <FiExternalLink className="h-5 w-5 shrink-0" aria-hidden />
+      </GraphicLink>
     </section>
   )
 }

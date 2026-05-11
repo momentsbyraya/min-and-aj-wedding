@@ -90,20 +90,12 @@ const CategorySection = ({ category, showDivider = true, scrollerElement }) => {
       style={{ overflow: 'visible' }}
     >
       <h3
-        className={`text-xl sm:text-2xl mb-6 ${isRosesCategory ? 'pt-10 sm:pt-14 md:pt-16' : ''}`}
-        style={{ color: '#6F2D36', width: '100%', overflow: 'visible' }}
+        className={`mb-6 flex w-full justify-center text-xl sm:text-2xl ${isRosesCategory ? 'pt-10 sm:pt-14 md:pt-16' : ''}`}
+        style={{ color: '#6F2D36', overflow: 'visible' }}
       >
-        <div ref={titleRef} style={{ display: 'block', textAlign: 'center', width: '100%' }}>
-          <span
-            className="font-halimun"
-            style={{
-              color: '#6F2D36',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              letterSpacing: '0.06em',
-              display: 'block'
-            }}
-          >
-            {displayTitle}
+        <div ref={titleRef} className="section-title-graphic inline-block text-center">
+          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+            {displayTitle ? displayTitle.toLowerCase() : ''}
           </span>
         </div>
       </h3>

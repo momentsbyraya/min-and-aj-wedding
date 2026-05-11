@@ -102,7 +102,7 @@ const GiftModal = ({ isOpen, onClose }) => {
       >
         {/* Header - Sticky */}
         <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200" style={{ borderRadius: 0 }}>
-          <h3 className="text-2xl sm:text-3xl font-poppins uppercase" style={{ color: theme.colors.primary, fontWeight: 700 }}>METHOD/S</h3>
+          <h3 className="font-rozha text-2xl uppercase tracking-[0.08em] sm:text-3xl" style={{ color: theme.colors.primary }}>METHOD/S</h3>
           <button
             onClick={handleClose}
             className="text-gray-500 hover:text-gray-800 transition-colors duration-200"

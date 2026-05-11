@@ -7,8 +7,6 @@ import { celebrant } from '../data'
 gsap.registerPlugin(ScrollTrigger)
 
 const CountdownSection = () => {
-  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const countdownArtRef = useRef(null)
@@ -91,35 +89,10 @@ const CountdownSection = () => {
 
   return (
     <section ref={sectionRef} className="relative py-20 w-full overflow-hidden" style={{ backgroundColor: 'transparent' }}>
-      <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(88, 132), height: randSize(74, 114), top: randPct(8, 20), left: randPct(8, 20) }} />
-      <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(72, 110), height: randSize(62, 98), top: randPct(68, 84), left: randPct(68, 84) }} />
-
       <div className="relative z-20 w-full max-w-md mx-auto px-5 text-center">
-        <h2 ref={headingRef} className="leading-none mb-16 sm:mb-20 flex flex-col items-center text-center">
-          <span
-            className="block font-halimun"
-            style={{
-              color: '#E28B91',
-              fontSize: 'clamp(3.2rem, 13vw, 5.2rem)',
-              transform: 'rotate(-5deg)',
-              display: 'block',
-              marginBottom: '-2px',
-              marginLeft: '-4rem'
-            }}
-          >
-            <span style={{ fontSize: '1.5em', lineHeight: 0.8, display: 'inline-block' }}>S</span>ee
-          </span>
-          <span
-            className="block font-halimun lowercase"
-            style={{
-              color: '#E28B91',
-              fontSize: 'clamp(3.6rem, 15vw, 6rem)',
-              transform: 'rotate(-7deg)',
-              display: 'block',
-              marginTop: '4px'
-            }}
-          >
-            you!
+        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-16 sm:mb-20">
+          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+            See you!
           </span>
         </h2>
 

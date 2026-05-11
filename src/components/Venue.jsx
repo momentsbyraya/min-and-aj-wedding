@@ -3,12 +3,11 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowRight } from 'react-icons/fi'
 import { venues as venuesData } from '../data'
+import GraphicLink from './GraphicLink'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Venue = () => {
-  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const venuePhotoRef = useRef(null)
@@ -58,9 +57,19 @@ const Venue = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative py-20 w-full overflow-hidden" style={{ backgroundColor: 'transparent' }}>
-      <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(90, 140), height: randSize(78, 118), top: randPct(8, 22), left: randPct(6, 18) }} />
-      <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(75, 118), height: randSize(64, 102), top: randPct(66, 82), left: randPct(68, 84) }} />
+    <section
+      ref={sectionRef}
+      className="relative py-20 w-full overflow-hidden"
+      style={{ backgroundColor: '#F9E8F0' }}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/graphics/palace-2.png)',
+          opacity: 0.6
+        }}
+        aria-hidden="true"
+      />
       <img
         src="/images/graphics/flower-banner.png"
         alt="Floral banner"
@@ -75,52 +84,60 @@ const Venue = () => {
         style={{ width: '100vw', maxWidth: 'none' }}
       />
       <div className="relative z-20 w-full max-w-md mx-auto px-4 text-center">
-        <h2 ref={headingRef} className="leading-none mb-10">
-          <span
-            className="block font-halimun text-xl leading-none w-fit"
-            style={{ color: '#6F2D36', marginLeft: '20%', marginBottom: '-10px' }}
-          >
-            the
-          </span>
-          <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
-            venue
+        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-10">
+          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+            The Venue
           </span>
         </h2>
 
-        <div ref={venuePhotoRef} className="flex justify-center mb-6">
-          <img
-            src={venuePhotoUrl}
-            alt={venueData.name ? `Venue — ${venueData.name}` : 'Venue photo'}
-            className="w-full max-w-[300px] h-auto object-contain"
-          />
+        <div style={{ filter: 'drop-shadow(0 10px 28px rgba(55, 30, 40, 0.12))' }}>
+          <div className="intro-content-soft-panel">
+            <div className="px-6 py-8 text-center sm:px-9 sm:py-10 md:px-10 md:py-12">
+              <div ref={venuePhotoRef} className="mb-5 flex justify-center md:mb-6">
+                <img
+                  src={venuePhotoUrl}
+                  alt={venueData.name ? `Venue — ${venueData.name}` : 'Venue photo'}
+                  className="h-auto w-full max-w-[300px] object-contain"
+                />
+              </div>
+
+              <div ref={venueNameRef} className="text-center" style={{ color: '#6F2D36' }}>
+                {venueData.name ? (
+                  <p className="font-beautyofthebeast text-xl capitalize leading-tight tracking-[0.02em] sm:text-2xl">
+                    {venueData.name}
+                  </p>
+                ) : null}
+                {venueData.main?.time || venueData.address ? (
+                  <div className="mt-3 space-y-1 font-poppins">
+                    {venueData.main?.time ? (
+                      <p className="text-base tracking-[0.04em] opacity-90">({venueData.main.time})</p>
+                    ) : null}
+                    {venueData.address ? (
+                      <p className="text-sm tracking-[0.04em] opacity-90">
+                        {venueData.address}, {venueData.state}
+                      </p>
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <p ref={venueNameRef} className="font-poppins text-lg tracking-[0.04em] mb-5" style={{ color: '#6F2D36' }}>
-          {venueData.name}
-          {venueData.main?.time ? (
-            <>
-              <br />
-              <span className="text-base tracking-normal opacity-90">({venueData.main.time})</span>
-            </>
-          ) : null}
-          {venueData.address ? (
-            <>
-              <br />
-              <span className="text-sm tracking-normal opacity-90">{venueData.address}, {venueData.state}</span>
-            </>
-          ) : null}
-        </p>
-
-        <a
-          ref={buttonRef}
-          href={directionsUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="font-poppins inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-base bg-[#E28B91] text-white"
-        >
-          <span className="font-poppins">Get Direction</span>
-          <FiArrowRight className="w-4 h-4" aria-hidden="true" />
-        </a>
+        <div className="mt-6 flex w-full justify-center">
+          <GraphicLink
+            ref={buttonRef}
+            href={directionsUrl}
+            target="_blank"
+            rel="noreferrer"
+            imageSrc="/images/graphics/button-container.png"
+            className="graphic-button--cta attendance-confirm-button mx-auto shrink-0"
+            contentClassName="font-beautyofthebeast lowercase"
+          >
+            get direction
+            <FiArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
+          </GraphicLink>
+        </div>
       </div>
     </section>
   )

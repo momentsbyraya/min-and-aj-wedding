@@ -11,7 +11,6 @@ const GiftRegistry = () => {
   const titleRef = useRef(null)
   const descriptionRef = useRef(null)
   const giftsRef = useRef(null)
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
 
   useEffect(() => {
     // Scroll-triggered slide-up animation
@@ -70,8 +69,6 @@ const GiftRegistry = () => {
 
   return (
     <section ref={sectionRef} className="relative py-20 w-full overflow-hidden">
-      <div className="soft-blob soft-blob--alt z-0" style={{ width: '120px', height: '100px', top: randPct(8, 22), left: randPct(66, 84) }} />
-      <div className="soft-blob soft-blob--small z-0" style={{ width: '94px', height: '80px', top: randPct(66, 84), left: randPct(6, 20) }} />
       {/* Abstract Background - Same as Counter with rotation/zoom */}
       <div 
         className="absolute inset-0 z-10"

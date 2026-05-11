@@ -8,8 +8,6 @@ import { schedule, celebrant } from '../data'
 gsap.registerPlugin(ScrollTrigger)
 
 const Schedule = () => {
-  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
   const timelineRef = useRef(null)
   const lineRef = useRef(null)
@@ -93,15 +91,16 @@ const Schedule = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
-      style={{
-        backgroundImage: 'url(/images/graphics/bg-3.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      style={{ backgroundColor: '#F9E8F0' }}
     >
-      <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(90, 140), height: randSize(78, 118), top: randPct(8, 22), left: randPct(6, 18) }} />
-      <div className="soft-blob soft-blob--small z-0" style={{ width: randSize(75, 118), height: randSize(64, 102), top: randPct(66, 82), left: randPct(68, 84) }} />
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-right bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/graphics/palace-3.png)',
+          opacity: 0.3
+        }}
+        aria-hidden="true"
+      />
       <img
         src="/images/graphics/flower-banner.png"
         alt=""
@@ -122,15 +121,9 @@ const Schedule = () => {
           <div className="w-full max-w-3xl mx-auto pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
               {/* Header Section */}
               <div ref={headerRef} className="mb-12 flex justify-center">
-                <h2 className="leading-none mb-4 text-center w-fit">
-                  <span
-                    className="block font-halimun text-xl leading-none w-fit"
-                    style={{ color: '#6F2D36', marginBottom: '-10px', marginRight: 'auto' }}
-                  >
-                    the
-                  </span>
-                  <span className="block font-rozha text-5xl lowercase mt-1" style={{ color: '#6F2D36' }}>
-                    schedule
+                <h2 className="section-title-graphic section-title-graphic--center mb-4 text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                    The schedule
                   </span>
                 </h2>
               </div>
@@ -176,16 +169,16 @@ const Schedule = () => {
                           </div>
                       
                       {/* Circle - Centered */}
-                      <div 
-                        className="timeline-dot absolute w-4 h-4 rounded-full border-2 z-10"
-                          style={{ 
-                            backgroundColor: theme.colors.primary,
-                            borderColor: theme.colors.primary,
+                      <div
+                        className="timeline-dot absolute z-10 h-4 w-4 rounded-full border-2"
+                        style={{
+                          backgroundColor: theme.colors.primary,
+                          borderColor: '#D98C96',
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)'
                         }}
-                      ></div>
+                      />
                       
                       {/* Description on the right - Poppins font */}
                       <div className="flex-1 pl-4">

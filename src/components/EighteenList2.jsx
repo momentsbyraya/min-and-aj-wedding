@@ -8,8 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const EighteenList2 = () => {
   const sectionRef = useRef(null)
-  const titleTheRef = useRef(null)
-  const titleEighteenthsRef = useRef(null)
+  const titleHeroRef = useRef(null)
   const beThereCardRef = useRef(null)
 
   useEffect(() => {
@@ -23,19 +22,11 @@ const EighteenList2 = () => {
       }
     })
 
-    // Animate title text elements
-    if (titleTheRef.current) {
-      tl.fromTo(titleTheRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-      )
-    }
-    
-    if (titleEighteenthsRef.current) {
-      tl.fromTo(titleEighteenthsRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-        "-=0.3"
+    if (titleHeroRef.current) {
+      tl.fromTo(
+        titleHeroRef.current,
+        { opacity: 0, y: 36 },
+        { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }
       )
     }
 
@@ -176,44 +167,23 @@ const EighteenList2 = () => {
                 paddingBottom: '3rem'
               }}
             >
-              {/* The in Ballet font */}
-              <h1
-                ref={titleTheRef}
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                style={{ color: '#f7f2f6' }}
-              >
-                The
+              <h1 ref={titleHeroRef} className="section-title-graphic section-title-graphic--display section-title-graphic--center mb-6 text-center">
+                <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                  The eighteenth&apos;s
+                </span>
               </h1>
-
-              {/* EIGHTEENTH'S */}
-              <h2
-                ref={titleEighteenthsRef}
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos"
-                style={{
-                  color: '#f7f2f6',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  marginTop: '-0.4em'
-                }}
-              >
-                EIGHTEENTH'S
-              </h2>
             </div>
             
             <div className="grid grid-cols-2" style={{ alignItems: 'stretch', gap: 0 }}>
             {/* Tennis Matches - Full Row */}
             <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f7f2f6',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                {eighteenths.categories[0].name.toUpperCase()}
-              </h3>
+              <div className="mb-3 flex w-full justify-center">
+                <h3 className="section-title-graphic section-title-graphic--wide section-title-graphic--center inline-block text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                    {eighteenths.categories[0].name.toLowerCase()}
+                  </span>
+                </h3>
+              </div>
               {eighteenths.categories[0].description && (
                 <div 
                   className="text-center font-poppins eighteen-description"
@@ -239,17 +209,13 @@ const EighteenList2 = () => {
               <div className="eighteenth-names-1 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {eighteenths.categories[1].matches && eighteenths.categories[1].matches.map((match, matchIndex) => (
                   <div key={matchIndex} style={{ marginBottom: '0.5rem' }}>
-                    <h3 
-                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-instrument-serif font-semibold mb-3 text-center"
-                      style={{ 
-                        color: '#f7f2f6',
-                        lineHeight: '1',
-                        fontFamily: "'Instrument Serif', serif",
-                        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)'
-                      }}
-                    >
-                      MATCH {match.number}
-                    </h3>
+                    <div className="mb-3 flex w-full justify-center">
+                      <h3 className="section-title-graphic section-title-graphic--wide section-title-graphic--center inline-block text-center">
+                        <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                          {`match ${match.number}`}
+                        </span>
+                      </h3>
+                    </div>
                     {match.names.map((name, nameIndex) => (
                       <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#f7f2f6', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
                         {name}
@@ -262,17 +228,13 @@ const EighteenList2 = () => {
 
             {/* Sets - White BG First (Full Row) */}
             <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem', backgroundColor: '#f4eef3' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: theme.colors.primary,
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                {eighteenths.categories[3].title || eighteenths.categories[3].name.toUpperCase()}
-              </h3>
+              <div className="mb-3 flex w-full justify-center">
+                <h3 className="section-title-graphic section-title-graphic--wide section-title-graphic--center inline-block text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                    {(eighteenths.categories[3].title || eighteenths.categories[3].name).toLowerCase()}
+                  </span>
+                </h3>
+              </div>
               {eighteenths.categories[3].description && (
                 <div 
                   className="text-center font-poppins eighteen-description"
@@ -295,17 +257,13 @@ const EighteenList2 = () => {
 
             {/* Sets - Names (Full Row) */}
             <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f7f2f6',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                SETS
-              </h3>
+              <div className="mb-3 flex w-full justify-center">
+                <h3 className="section-title-graphic section-title-graphic--wide section-title-graphic--center inline-block text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                    sets
+                  </span>
+                </h3>
+              </div>
               <div className="eighteenth-names-2 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[2].names.map((name, index) => (
                   <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f7f2f6', fontSize: '14px', opacity: 0.8 }}>
@@ -317,17 +275,13 @@ const EighteenList2 = () => {
 
             {/* Slices - Pink BG First (Full Row) */}
             <div className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem', backgroundColor: theme.colors.tertiary }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f7f2f6',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                {eighteenths.categories[4].title || eighteenths.categories[4].name.toUpperCase()}
-              </h3>
+              <div className="mb-3 flex w-full justify-center">
+                <h3 className="section-title-graphic section-title-graphic--wide section-title-graphic--center inline-block text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                    {(eighteenths.categories[4].title || eighteenths.categories[4].name).toLowerCase()}
+                  </span>
+                </h3>
+              </div>
               {eighteenths.categories[4].description && (
                 <div 
                   className="text-center font-poppins eighteen-description"
@@ -350,17 +304,13 @@ const EighteenList2 = () => {
 
             {/* Slices Names (Full Row) */}
             <div ref={beThereCardRef} className="col-span-2 flex flex-col h-full" style={{ borderBottom: '2px solid #f7f2f6', padding: '1.5rem' }}>
-              <h3 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-tebranos mb-3 text-center"
-                style={{ 
-                  color: '#f7f2f6',
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  fontFamily: "'Tebranos', cursive !important"
-                }}
-              >
-                SLICES
-              </h3>
+              <div className="mb-3 flex w-full justify-center">
+                <h3 className="section-title-graphic section-title-graphic--wide section-title-graphic--center inline-block text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                    slices
+                  </span>
+                </h3>
+              </div>
               <div className="eighteenth-names-5 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[5]?.names?.map((name, index) => (
                   <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#f7f2f6', fontSize: '14px', opacity: 0 }}>
@@ -373,16 +323,10 @@ const EighteenList2 = () => {
             {/* Duplicate of BE THERE Card - Full Row */}
             <div className="col-span-2 flex flex-col h-full items-center justify-center" style={{ borderBottom: '2px solid #f7f2f6', paddingTop: '3rem', paddingBottom: '3rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}>
               <div className="text-center">
-                <h3 
-                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8"
-                  style={{ 
-                    color: '#f7f2f6',
-                    fontWeight: 900,
-                    lineHeight: '1',
-                    fontFamily: "'Tebranos', cursive !important"
-                  }}
-                >
-                  BE<br />THERE
+                <h3 className="section-title-graphic section-title-graphic--display section-title-graphic--center mx-auto mb-8 inline-block text-center">
+                  <span className="section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize">
+                    be there
+                  </span>
                 </h3>
                 <img 
                   src="/images/graphics/tennis.png" 

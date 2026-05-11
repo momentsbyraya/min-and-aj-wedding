@@ -63,13 +63,13 @@ const FAQ = ({ id = 'faq' }) => {
   return (
     <div id={id} data-section="faq" className="relative z-20 faq-section">
       <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 py-12">
-        <h2
-          ref={faqTitleRef}
-          className="faq-section-title font-serif leading-none mb-12 text-center w-full px-6 font-semibold text-4xl sm:text-5xl tracking-normal"
-          style={{ color: '#6F2D36' }}
-        >
-          FAQ
-        </h2>
+        <div className="mb-12 flex w-full justify-center px-6">
+          <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">
+            <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast uppercase tracking-[0.12em]">
+              FAQ
+            </span>
+          </h2>
+        </div>
         {faqItems && faqItems.faqData && (
           <div className="faq-items-stack space-y-6 max-w-[600px] mx-auto">
             {faqItems.faqData.map((item, index) => {

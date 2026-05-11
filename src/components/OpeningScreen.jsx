@@ -37,10 +37,11 @@ function OpeningScreen({ onEnvelopeOpen }) {
   return (
     <div className="fixed inset-0 z-[9999] bg-white">
       <img
-        src="/images/graphics/opening.png"
-        alt="Opening"
+        src="/images/graphics/palace-1.png"
+        alt=""
         className="opening-screen-bg-image"
-        style={{ width: '100vw', height: '100vh', objectFit: 'cover', display: 'block' }}
+        style={{ width: '100vw', height: '100vh', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+        aria-hidden
       />
 
       <div className="opening-flower-wind-layer absolute inset-0 z-[5] overflow-hidden pointer-events-none">

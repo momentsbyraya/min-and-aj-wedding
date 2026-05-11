@@ -47,8 +47,9 @@ export default {
       fontFamily: {
         'serif': ['Playfair Display', 'serif'],
         'sans': ['Inter', 'sans-serif'],
-        'script': ['Great Vibes', 'cursive'],
+        'script': ['Cormorant SC', 'Great Vibes', 'cursive'],
         'poppins': ['Poppins', 'sans-serif'],
+        'title': ['Cormorant SC', 'Cinzel', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',

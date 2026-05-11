@@ -7,8 +7,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const CelebrantStory = ({ onImageClick }) => {
   const about = celebrant.debutant.about
-  const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-  const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const paragraphRef = useRef(null)
@@ -63,31 +61,11 @@ const CelebrantStory = ({ onImageClick }) => {
         className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 opacity-80 pointer-events-none z-10"
         style={{ width: '100vw', maxWidth: 'none' }}
       />
-      <div className="soft-blob z-0" style={{ width: randSize(90, 136), height: randSize(74, 114), top: randPct(8, 22), left: randPct(6, 20) }} />
-      <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(76, 118), height: randSize(64, 100), top: randPct(66, 84), left: randPct(68, 84) }} />
-      <img
-        src="/images/graphics/flower.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute top-[14%] right-[8%] w-14 opacity-30 blur-[2px] pointer-events-none z-0"
-      />
-      <img
-        src="/images/graphics/flower-2.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute bottom-[12%] left-[8%] w-20 opacity-25 blur-[3px] pointer-events-none z-0"
-      />
 
       <div className="relative z-20 w-full max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
-        <h2 ref={headingRef} className="leading-none mb-8 inline-flex items-end justify-center gap-2 whitespace-nowrap">
-          <span className="inline-block font-rozha text-5xl lowercase" style={{ color: '#6F2D36' }}>
-            about
-          </span>
-          <span
-            className="inline-block font-halimun text-xl leading-none"
-            style={{ color: '#6F2D36', marginBottom: '-6px' }}
-          >
-            {about?.headingName ?? celebrant.debutant.name.first}
+        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-8 text-center">
+          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+            about {about?.headingName ?? celebrant.debutant.name.first}
           </span>
         </h2>
 
@@ -106,12 +84,16 @@ const CelebrantStory = ({ onImageClick }) => {
           />
         </div>
 
-        <div ref={imageRef} className="mt-8 flex justify-center px-2">
-          <div className="dresscode-soft-edges relative w-full max-w-[min(100%,420px)]">
+        <div
+          ref={imageRef}
+          className="mt-8 flex justify-center px-2"
+          style={{ filter: 'drop-shadow(0 12px 28px rgba(55, 30, 40, 0.12))' }}
+        >
+          <div className="soft-edges celebrant-story-photo-frame relative aspect-[3/4] w-full max-w-[min(100%,420px)]">
             <img
               src="/images/prenup/A7400780.jpg"
               alt={celebrant.debutant.name?.full ?? celebrant.debutant.name?.first ?? 'Celebrant'}
-              className="dresscode-image-fade h-auto w-full cursor-pointer object-cover"
+              className="absolute inset-0 h-full w-full cursor-pointer object-cover"
               onClick={() => onImageClick?.('/images/prenup/A7400780.jpg')}
             />
           </div>

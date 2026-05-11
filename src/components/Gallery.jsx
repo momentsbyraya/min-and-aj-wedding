@@ -149,7 +149,7 @@ const Gallery = () => {
 
         gsap.to(overlayRef.current, { opacity: 1, duration: 0.3, ease: 'power2.out' })
         gsap.to(contentRef.current, {
-          opacity: 1,
+        opacity: 1,
           scale: 1,
           duration: 0.4,
           ease: 'power2.out'
@@ -201,19 +201,21 @@ const Gallery = () => {
         }}
         aria-label={`Open gallery image ${index + 1}`}
       >
-        <img
-          src={image}
-          alt={`${altDefault} — preview ${index + 1}`}
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-          draggable="false"
-          style={{
-            height: '100%',
-            willChange: 'transform',
-            backfaceVisibility: 'hidden',
-            objectPosition: objectPosition ?? 'center'
-          }}
-          loading="lazy"
-        />
+        <div className="soft-edges h-full min-h-0 w-full min-w-0">
+          <img
+            src={image}
+            alt={`${altDefault} — preview ${index + 1}`}
+            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            draggable="false"
+            style={{
+              height: '100%',
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              objectPosition: objectPosition ?? 'center'
+            }}
+            loading="lazy"
+          />
+        </div>
       </div>
     )
   }
@@ -238,15 +240,11 @@ const Gallery = () => {
         <div
           className={`relative z-10 w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}
         >
-          <h3 ref={titleRef} className="relative inline-block w-full py-3 text-center">
-            <span
-              className="font-rozha inline-block px-6 text-4xl lowercase leading-none sm:text-5xl md:text-6xl lg:text-[3.35rem]"
-              style={{
-                color: '#6F2D36',
-                filter: 'drop-shadow(0 1px 2px rgba(255, 250, 252, 0.85))'
-              }}
-            >
-              gallery
+          <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">
+            <span className="section-title-graphic section-title-graphic--center">
+              <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                Gallery
+              </span>
             </span>
           </h3>
         </div>
@@ -292,19 +290,21 @@ const Gallery = () => {
                       }}
                       aria-label={`Open gallery image ${index + 1}`}
                     >
-                      <img
-                        src={image}
-                        alt={`${altDefault} — preview ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                        draggable="false"
-                        style={{
-                          height: '100%',
-                          willChange: 'transform',
-                          backfaceVisibility: 'hidden',
-                          objectPosition: objectPosition ?? 'center'
-                        }}
-                        loading="lazy"
-                      />
+                      <div className="soft-edges h-full min-h-0 w-full min-w-0">
+                        <img
+                          src={image}
+                          alt={`${altDefault} — preview ${index + 1}`}
+                          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                          draggable="false"
+                          style={{
+                            height: '100%',
+                            willChange: 'transform',
+                            backfaceVisibility: 'hidden',
+                            objectPosition: objectPosition ?? 'center'
+                          }}
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   )
                 })}
@@ -381,4 +381,4 @@ const Gallery = () => {
   )
 }
 
-export default Gallery
+export default Gallery 

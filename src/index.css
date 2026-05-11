@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
@@ -56,6 +57,15 @@
 @font-face {
   font-family: 'SenjaSantuy';
   src: url('/fonts/SenjaSantuy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font — Beauty of the Beast (file: Beautyofthebeast.ttf) */
+@font-face {
+  font-family: 'Beauty of the Beast';
+  src: url('/fonts/Beautyofthebeast.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -208,10 +218,12 @@ body {
     font-weight: 400 !important;
   }
 
-  /* Hero headline copy — Playfair serif (overrides utility-layer * reset) */
+  /* Hero headline copy — section title face (overrides utility-layer * reset) */
   .hero-invitation-serif,
   .hero-invitation-serif * {
-    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    font-family: 'Cormorant SC', 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.08em;
   }
 
   /* Cookie font - must come after global rule */
@@ -253,15 +265,15 @@ body {
     letter-spacing: 0.02em;
   }
   
-  /* Ants Valley font - must come after global rule */
+  /* Ants Valley → section titles use Cormorant SC */
   .font-antsvalley,
   h1.font-antsvalley,
   h1.font-antsvalley span,
   .font-antsvalley * {
-    font-family: 'Ants Valley', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Cormorant SC', 'Ants Valley', cursive !important;
+    font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
   
   /* Carattere font - must come after global rule */
@@ -333,25 +345,26 @@ body {
     letter-spacing: 0.02em;
   }
   
-  /* Tebranos font - must come after global rule */
+  /* Tebranos → section titles use Cormorant SC */
   .font-tebranos,
   h1.font-tebranos,
   h1.font-tebranos span,
   .font-tebranos * {
-    font-family: 'Tebranos', cursive !important;
-    font-weight: normal !important;
+    font-family: 'Cormorant SC', 'Tebranos', cursive !important;
+    font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
   
-  /* Instrument Serif font - must come after global rule */
+  /* Instrument Serif → subsection titles align with Cormorant SC */
   .font-instrument-serif,
   h1.font-instrument-serif,
   h1.font-instrument-serif span,
   .font-instrument-serif * {
-    font-family: 'Instrument Serif', serif !important;
+    font-family: 'Cormorant SC', 'Instrument Serif', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
+    letter-spacing: 0.04em;
   }
   
   /* Stylish Calligraphy font - must come after global rule */
@@ -365,15 +378,15 @@ body {
     letter-spacing: 0.02em;
   }
   
-  /* Ballet font - must come after global rule */
+  /* Ballet → section titles use Cormorant SC */
   .font-ballet,
   h1.font-ballet,
   h1.font-ballet span,
   .font-ballet * {
-    font-family: 'Ballet', cursive !important;
+    font-family: 'Cormorant SC', 'Ballet', cursive !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
 
   /* Eighteenths modal / section main title (Kayleen-style gradient, pink palette) */
@@ -391,7 +404,7 @@ body {
     background-clip: text;
   }
 
-  /* Eighteen hero: lighter label (overrides .font-rozha 400!important) */
+  /* Eighteen / gift eyebrow — Cormorant SC light */
   .eighteen-intro-rozha-label.font-rozha {
     font-weight: 300 !important;
   }
@@ -407,10 +420,10 @@ body {
   h1.font-foglihten,
   h1.font-foglihten span,
   .font-foglihten * {
-    font-family: 'Foglihten', 'Cinzel', serif !important;
-    font-weight: 500 !important;
+    font-family: 'Cormorant SC', 'Foglihten', 'Cinzel', serif !important;
+    font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
   }
 
   .font-pinyon,
@@ -422,24 +435,35 @@ body {
 
   .font-rozha,
   .font-rozha * {
-    font-family: 'Foglihten', 'Playfair Display', serif !important;
+    font-family: 'Cormorant SC', 'Foglihten', 'Cinzel', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.04em;
   }
 
   .font-my-soul,
   .font-my-soul * {
-    font-family: 'Great Vibes', cursive !important;
+    font-family: 'Cormorant SC', 'Great Vibes', cursive !important;
     font-weight: 400 !important;
     font-style: normal !important;
+    letter-spacing: 0.04em;
   }
 
   .font-halimun,
   .font-halimun * {
-    font-family: 'Halimun', 'Great Vibes', cursive !important;
+    font-family: 'Cormorant SC', 'Halimun', 'Great Vibes', cursive !important;
     font-weight: 400 !important;
     font-style: normal !important;
+    letter-spacing: 0.04em;
+  }
+
+  /* Venue title + CTA / graphic buttons — local display font */
+  .font-beautyofthebeast,
+  .font-beautyofthebeast * {
+    font-family: 'Beauty of the Beast', 'Cormorant SC', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    letter-spacing: 0.06em;
   }
 
   .font-qaskin,
@@ -1268,18 +1292,18 @@ body {
 @keyframes attendancePulseGlow {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 0 rgba(226, 139, 145, 0.35), 0 0 10px rgba(226, 139, 145, 0.35);
+    filter: drop-shadow(0 0 8px rgba(226, 139, 145, 0.42)) drop-shadow(0 3px 10px rgba(226, 139, 145, 0.32));
   }
   50% {
     transform: scale(1.04);
-    box-shadow: 0 0 0 6px rgba(226, 139, 145, 0.12), 0 0 20px rgba(226, 139, 145, 0.52);
+    filter: drop-shadow(0 0 14px rgba(226, 139, 145, 0.55)) drop-shadow(0 5px 18px rgba(226, 139, 145, 0.45));
   }
 }
 
 .attendance-confirm-button {
   animation: attendancePulseGlow 2.3s ease-in-out infinite;
   transform-origin: center;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
 }
 
 .attendance-confirm-button:hover,
@@ -1287,22 +1311,160 @@ body {
   opacity: 0.96;
 }
 
-.dresscode-soft-edges {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
+/* Graphic “button”: div + bg image + inner text (see GraphicButton.jsx) */
+.graphic-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-image: var(--graphic-button-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
 }
 
-.dresscode-soft-edges img {
+.graphic-button:focus-visible {
+  outline: 2px solid #6f2d36;
+  outline-offset: 3px;
+}
+
+.graphic-button-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  color: #6f2d36;
+  text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* CTA — button-container.png; shared by intro + venue + gifts + programme */
+.graphic-button--cta {
+  width: fit-content;
+  max-width: min(100%, 21rem);
+  height: fit-content;
+  min-height: 0;
+  padding-top: clamp(1.85rem, 7.2vw, 2.65rem);
+  padding-bottom: clamp(1.25rem, 5vw, 1.7rem);
+  padding-inline: clamp(2.85rem, 11vw, 4.35rem);
+  background-size: 100% 100%;
+}
+
+.graphic-button--cta .graphic-button-content {
+  font-size: clamp(1.2rem, 4.2vw, 1.55rem);
+  gap: 0.5rem;
+}
+
+/* Section title framed like venue (title-container.png), non-interactive */
+.section-title-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: min(100%, 21rem);
+  height: fit-content;
+  min-height: 0;
+  background-image: url('/images/graphics/title-container.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  padding-top: clamp(2.55rem, 10vw, 3.75rem);
+  padding-bottom: clamp(1.95rem, 7.5vw, 2.75rem);
+  padding-inline: clamp(3.75rem, 14.5vw, 6rem);
+  cursor: default;
+}
+
+.section-title-graphic--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title-graphic--wide {
+  max-width: min(100%, min(92vw, 48rem));
+}
+
+.section-title-graphic--display {
+  max-width: min(100%, min(96vw, 56rem));
+  padding-top: clamp(2.2rem, 9vw, 3.4rem);
+  padding-bottom: clamp(1.75rem, 6.5vw, 2.5rem);
+  padding-inline: clamp(2.5rem, 10vw, 5rem);
+}
+
+.section-title-graphic-inner {
+  text-align: center;
+  color: #6f2d36;
+  text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
+  line-height: 1.2;
+}
+
+.section-title-graphic-inner--line {
+  font-size: clamp(1.85rem, 6.2vw, 2.65rem);
+}
+
+.section-title-graphic-inner--left {
+  text-align: left;
+}
+
+.section-title-graphic-inner--right {
+  text-align: right;
+}
+
+.section-title-graphic-inner--light {
+  color: #f7f2f6;
+  text-shadow: 0 1px 2px rgba(55, 30, 40, 0.22);
+}
+
+/* Soft-edge blend into section bg — same masks as wedding-rosetta `.soft-edges img` (Gallery / Paragraph) */
+.soft-edges {
+  position: relative;
+}
+
+.soft-edges img {
   width: 100%;
   display: block;
-  opacity: 0.94;
   mask-image:
-    radial-gradient(ellipse at center, black 28%, transparent 72%),
-    linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+    radial-gradient(ellipse at center, black 25%, transparent 65%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
   -webkit-mask-image:
-    radial-gradient(ellipse at center, black 28%, transparent 72%),
-    linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+    radial-gradient(ellipse at center, black 25%, transparent 65%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* Celebrant story: frame + aspect box; feather comes from `.soft-edges img` */
+.celebrant-story-photo-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.celebrant-story-photo-frame img {
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+}
+
+/* Intro blush card: same intersecting-mask recipe as rosetta gallery (taller box → stretched ellipse, same stop positions) */
+.intro-content-soft-panel {
+  position: relative;
+  overflow: hidden;
+  background: rgba(250, 228, 238, 0.94);
+  mask-image:
+    radial-gradient(ellipse 100% 88% at 50% 50%, black 25%, transparent 65%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 100% 88% at 50% 50%, black 25%, transparent 65%),
+    linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }

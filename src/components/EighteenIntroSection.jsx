@@ -3,6 +3,7 @@ import { FiArrowRight, FiX } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import EighteenList from './EighteenList'
+import GraphicButton from './GraphicButton'
 import { eighteenths } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -12,9 +13,6 @@ const INTRO_BG = '/images/prenup/A7400961.jpg'
 
 /** Eighteenths full-screen modal background (graphics). */
 const MODAL_PALACE_BG = '/images/graphics/palace.png'
-
-const randSize = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}px`
-const randPct = (min, max) => `${Math.floor(Math.random() * (max - min + 1)) + min}%`
 
 const EighteenIntroSection = () => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -131,53 +129,38 @@ const EighteenIntroSection = () => {
           }}
           aria-hidden
         />
-        <div className="soft-blob z-0" style={{ width: randSize(85, 135), height: randSize(75, 120), top: randPct(8, 22), left: randPct(66, 84) }} />
-        <div className="soft-blob soft-blob--alt z-0" style={{ width: randSize(75, 120), height: randSize(65, 105), top: randPct(66, 84), left: randPct(8, 22) }} />
-        <img
-          src="/images/graphics/flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-[18%] right-[8%] w-16 opacity-35 blur-[2px] pointer-events-none z-0"
-        />
-        <img
-          src="/images/graphics/flower-2.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-[10%] left-[4%] w-24 opacity-25 blur-[3px] pointer-events-none z-0"
-        />
         <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
           <div className="overflow-hidden">
             <div ref={contentRef} className="py-5 text-left">
-              <p
-                className="eighteen-intro-rozha-label font-rozha text-lg sm:text-xl tracking-[0.12em] uppercase mb-2 sm:mb-2.5"
-                style={{ color: '#6F2D36' }}
-              >
-                Programme
-              </p>
-              <h2 className="leading-none mb-2 sm:mb-2.5">
-                <span className="block font-halimun text-[1.875rem] sm:text-[2.125rem] md:text-[2.375rem]" style={{ color: '#6F2D36' }}>
-                  the
-                </span>
-                <span className="block font-rozha text-[1.875rem] sm:text-[2.125rem] md:text-[2.375rem] lowercase mt-1" style={{ color: '#6F2D36' }}>
-                  {"eighteenth's"}
-                </span>
-              </h2>
+              <div className="section-title-graphic mb-2 inline-block sm:mb-2.5">
+                <div className="section-title-graphic-inner section-title-graphic-inner--left">
+                  <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl" style={{ color: '#6F2D36' }}>
+                    Programme
+                  </p>
+                  <h2 className="leading-tight">
+                    <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                      The eighteenth&apos;s
+                    </span>
+                  </h2>
+                </div>
+              </div>
               <p className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4" style={{ color: '#6F2D36' }}>
                 {teaser}
               </p>
             </div>
           </div>
         </div>
-        <button
+        <GraphicButton
           ref={buttonRef}
-          type="button"
+          imageSrc="/images/graphics/button-container.png"
           onClick={() => setModalOpen(true)}
-          className="absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-5 z-30 inline-flex items-center justify-center gap-2 rounded-full bg-[#E28B91] px-6 py-2.5 font-poppins text-base text-white whitespace-nowrap transition-opacity hover:opacity-95 sm:left-8"
+          className="graphic-button--cta attendance-confirm-button absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:left-8"
+          contentClassName="font-beautyofthebeast lowercase"
           aria-haspopup="dialog"
         >
-          <span className="font-poppins">View full list</span>
-          <FiArrowRight className="h-4 w-4" aria-hidden="true" />
-        </button>
+          view full list
+          <FiArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
+        </GraphicButton>
       </section>
 
       {modalOpen && (
