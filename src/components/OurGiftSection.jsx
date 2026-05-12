@@ -99,22 +99,20 @@ const OurGiftSection = () => {
       <div className="relative z-20 ml-auto mr-0 flex w-full max-w-lg justify-end px-5 sm:px-8">
         <div className="overflow-hidden">
           <div ref={contentRef} className="py-5 text-right">
-            <div className="section-title-graphic mb-2 ml-auto mr-0 inline-block sm:mb-2.5">
-              <div className="section-title-graphic-inner section-title-graphic-inner--right">
-                {eyebrow ? (
-                  <p
-                    className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl"
-                    style={{ color: '#6F2D36' }}
-                  >
-                    {eyebrow.toLowerCase()}
-                  </p>
-                ) : null}
-                <h2 className="leading-tight">
-                  <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
-                    {`${titleLead} ${titleRest}`.trim().toLowerCase()}
-                  </span>
-                </h2>
-              </div>
+            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#6F2D36' }}>
+              {eyebrow ? (
+                <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
+                  {eyebrow.toLowerCase()}
+                </p>
+              ) : null}
+              <h2 className="leading-tight">
+                <span
+                  className="section-title-graphic-inner--line font-beautyofthebeast capitalize"
+                  style={{ textShadow: '0 1px 0 rgba(255, 250, 252, 0.35)' }}
+                >
+                  {`${titleLead} ${titleRest}`.trim().toLowerCase()}
+                </span>
+              </h2>
             </div>
             {intro ? (
               <p
@@ -149,10 +147,10 @@ const OurGiftSection = () => {
         rel="noreferrer"
         imageSrc="/images/graphics/button-container.png"
         className="graphic-button--cta attendance-confirm-button absolute bottom-[max(2rem,env(safe-area-inset-bottom))] right-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:right-8"
-        contentClassName="font-beautyofthebeast lowercase"
+        contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem]"
       >
         {ctaLabel}
-        <FiExternalLink className="h-5 w-5 shrink-0" aria-hidden />
+        <FiExternalLink className="h-4 w-4 shrink-0" aria-hidden />
       </GraphicLink>
     </section>
   )

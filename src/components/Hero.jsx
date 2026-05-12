@@ -45,12 +45,6 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover z-[1]"
       />
       <img
-        src="/images/graphics/flower-1.png"
-        alt="Flower decoration"
-        className="absolute top-0 left-0 h-auto z-20 pointer-events-none -scale-x-100"
-        style={{ width: '60vw' }}
-      />
-      <img
         src="/images/graphics/flower-2.png"
         alt="Flower decoration"
         className="absolute bottom-0 right-0 h-auto z-20 pointer-events-none -scale-x-100"

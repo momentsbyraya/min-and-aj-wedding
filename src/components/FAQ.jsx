@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { FiChevronDown } from 'react-icons/fi'
 import { faq as faqData } from '../data'
 import './FAQ.css'
 
@@ -17,6 +18,11 @@ const FAQ = ({ id = 'faq' }) => {
   const faqTitleRef = useRef(null)
   const faqItems = faqData
   const scrollTriggerInstance = useRef(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const toggleItem = (index) => {
+    setOpenIndex((prev) => (prev === index ? null : index))
+  }
 
   useEffect(() => {
     if (!faqRef.current || !faqTitleRef.current) return
@@ -36,7 +42,7 @@ const FAQ = ({ id = 'faq' }) => {
             const faqItemsContainer = faqRef.current.querySelector('.faq-items-stack')
             if (faqItemsContainer) {
               const items = Array.from(faqItemsContainer.children).filter(
-                (child) => child.tagName === 'DIV'
+                (child) => child.classList.contains('faq-item')
               )
               if (items.length > 0) {
                 gsap.set(items, { opacity: 0, y: 30 })
@@ -71,22 +77,42 @@ const FAQ = ({ id = 'faq' }) => {
           </h2>
         </div>
         {faqItems && faqItems.faqData && (
-          <div className="faq-items-stack space-y-6 max-w-[600px] mx-auto">
+          <div className="faq-items-stack max-w-[600px] mx-auto">
             {faqItems.faqData.map((item, index) => {
               const { text } = getFaqIconAndText(item.question)
+              const isOpen = openIndex === index
+              const headingId = `faq-heading-${index}`
+              const panelId = `faq-panel-${index}`
               return (
-                <div key={index}>
-                  <div className="mb-2">
-                    <p className="faq-question mb-2 text-base font-poppins font-semibold text-[#6F2D36] sm:text-lg">
-                      Q: {text}
-                    </p>
-                    <div className="faq-answer-body text-sm font-poppins font-normal sm:text-base">
-                      <span className="font-semibold">A: </span>
-                      <span dangerouslySetInnerHTML={{ __html: item.answer }} />
+                <div key={index} className="faq-item">
+                  <h3 className="faq-item-heading">
+                    <button
+                      type="button"
+                      id={headingId}
+                      className="faq-question-trigger faq-question font-poppins text-base text-left font-semibold sm:text-lg"
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() => toggleItem(index)}
+                    >
+                      <span className="faq-question-label font-poppins">Q: {text}</span>
+                      <FiChevronDown className={`faq-chevron shrink-0 ${isOpen ? 'faq-chevron--open' : ''}`} aria-hidden />
+                    </button>
+                  </h3>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={headingId}
+                    className={`faq-answer-panel ${isOpen ? 'faq-answer-panel--open' : ''}`}
+                  >
+                    <div className="faq-answer-panel-inner">
+                      <div className="faq-answer-body text-sm sm:text-base pb-1">
+                        <span className="font-semibold">A: </span>
+                        <span dangerouslySetInnerHTML={{ __html: item.answer }} />
+                      </div>
                     </div>
                   </div>
                   {index < faqItems.faqData.length - 1 && (
-                    <div className="mt-6 h-px bg-[#6f2d36]/20" aria-hidden />
+                    <div className="faq-item-divider" aria-hidden />
                   )}
                 </div>
               )

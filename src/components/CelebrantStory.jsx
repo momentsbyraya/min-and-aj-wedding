@@ -46,7 +46,15 @@ const CelebrantStory = ({ onImageClick }) => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative pt-40 pb-20 w-full overflow-hidden" style={{ backgroundColor: 'transparent' }}>
+    <section ref={sectionRef} className="relative w-full overflow-hidden pt-40 pb-20" style={{ backgroundColor: '#F9E8F0' }}>
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-left bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/graphics/palace.png)',
+          opacity: 0.35
+        }}
+        aria-hidden="true"
+      />
       <img
         src="/images/graphics/flower-banner.png"
         alt=""

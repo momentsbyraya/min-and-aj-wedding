@@ -13,7 +13,33 @@ const scrollTriggerScroller = (scrollerElement) =>
     ? { scroller: scrollerElement, invalidateOnRefresh: true }
     : { invalidateOnRefresh: true }
 
-const CategorySection = ({ category, showDivider = true, scrollerElement }) => {
+/** Shared plate art behind every category in the modal list. */
+const CATEGORY_PLATE_BG = '/images/graphics/plate-treasure.png'
+
+const plateBackgroundStyle = (url) => ({
+  backgroundImage: `url(${url})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center center',
+  backgroundRepeat: 'no-repeat'
+})
+
+/** Full-bleed strips between programme categories (URLs under /images/prenup/). */
+const EIGHTEENTH_INTERSTITIAL_IMAGES = [
+  '/images/prenup/A7400780.jpg',
+  '/images/prenup/A7400944.jpg',
+  '/images/prenup/A7400961.jpg'
+]
+
+const getCategoryPanel = (category) => {
+  const n = `${category.name || ''} ${category.title || ''}`.toLowerCase()
+  let variant = 'default'
+  if (n.includes('treasure')) variant = 'treasure'
+  else if (n.includes('rose')) variant = 'roses'
+  else if (n.includes('candle')) variant = 'candles'
+  return { variant, image: CATEGORY_PLATE_BG, fullBleed: true }
+}
+
+const CategorySection = ({ category, scrollerElement }) => {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const namesRef = useRef(null)
@@ -40,7 +66,7 @@ const CategorySection = ({ category, showDivider = true, scrollerElement }) => {
     }
   }
 
-  const isRosesCategory = Boolean(category.matches?.length)
+  const panel = getCategoryPanel(category)
 
   useEffect(() => {
     if (!containerRef.current) return undefined
@@ -83,17 +109,16 @@ const CategorySection = ({ category, showDivider = true, scrollerElement }) => {
     }
   }, [scrollerElement])
 
-  return (
-    <div
-      className={`flex flex-col items-center eighteenths-category ${isRosesCategory ? 'eighteenths-roses' : ''}`}
-      ref={containerRef}
-      style={{ overflow: 'visible' }}
-    >
+  const innerClass = `eighteenths-cat-inner w-full eighteenths-cat-inner--${panel.variant}`
+  const hasPlateBg = Boolean(panel.image)
+
+  const innerContent = (
+    <div className={innerClass} data-eighteenths-category={panel.variant}>
       <h3
-        className={`mb-6 flex w-full justify-center text-xl sm:text-2xl ${isRosesCategory ? 'pt-10 sm:pt-14 md:pt-16' : ''}`}
+        className="mb-6 flex w-full justify-center pt-10 text-2xl sm:pt-14 sm:text-3xl md:pt-16 md:text-[2.125rem] lg:text-4xl"
         style={{ color: '#6F2D36', overflow: 'visible' }}
       >
-        <div ref={titleRef} className="section-title-graphic inline-block text-center">
+        <div ref={titleRef} className="eighteenths-modal-title-wrap inline-block text-center">
           <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
             {displayTitle ? displayTitle.toLowerCase() : ''}
           </span>
@@ -120,29 +145,26 @@ const CategorySection = ({ category, showDivider = true, scrollerElement }) => {
           </div>
         ))}
       </div>
-      {showDivider && (
-        <div className="mt-10 sm:mt-12 flex w-full justify-center px-4" aria-hidden>
-          <div className="flex w-full max-w-[min(92vw,280px)] items-center gap-3 sm:max-w-[300px] sm:gap-4">
-            <div
-              className="h-[1px] flex-1 rounded-full bg-gradient-to-r from-transparent via-[#6F2D36]/35 to-[#6F2D36]/25"
-              style={{ minWidth: '2.5rem' }}
-            />
-            <svg
-              className="shrink-0 text-[#E28B91]/92"
-              width={20}
-              height={18}
-              viewBox="0 0 24 22"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden
-            >
-              <path fill="currentColor" d="M12 20.35c-.15 0-.31-.05-.42-.16C6.4 15.2 3 12.1 3 8.25 3 5.6 5.1 3.5 7.75 3.5c1.53 0 2.95.75 3.75 1.95.8-1.2 2.22-1.95 3.75-1.95C17.9 3.5 20 5.6 20 8.25c0 3.85-3.4 6.95-8.58 11.94a.65.65 0 0 1-.42.16Z" />
-            </svg>
-            <div
-              className="h-[1px] flex-1 rounded-full bg-gradient-to-l from-transparent via-[#6F2D36]/35 to-[#6F2D36]/25"
-              style={{ minWidth: '2.5rem' }}
-            />
-          </div>
+    </div>
+  )
+
+  return (
+    <div
+      className={`eighteenths-cat-shell flex flex-col items-center eighteenths-category eighteenths-cat--${panel.variant} ${panel.fullBleed ? 'eighteenths-cat-shell--bleed' : ''}`}
+      ref={containerRef}
+      style={{ overflow: 'visible' }}
+    >
+      {hasPlateBg ? (
+        <div className="eighteenths-cat-bg-wrap">
+          <div
+            className={`eighteenths-cat-plate eighteenths-cat-plate--${panel.variant}`}
+            style={plateBackgroundStyle(panel.image)}
+            aria-hidden
+          />
+          {innerContent}
         </div>
+      ) : (
+        innerContent
       )}
     </div>
   )
@@ -157,174 +179,110 @@ const EighteenList = ({ scrollerElement } = {}) => {
     <>
       <style>{`
         @media (min-width: 768px) {
-          .eighteenths-section {
-            padding-top: clamp(2rem, 5vw, 3.5rem) !important;
-          }
           .eighteenths-container {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 3rem !important;
-            padding-bottom: 9rem !important;
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
           }
         }
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .eighteenths-roses {
-            grid-column: 1 / -1 !important;
-            justify-self: center !important;
-            max-width: 50% !important;
-          }
+        .eighteenths-cat-shell {
+          position: relative;
         }
-        @media (min-width: 1024px) {
-          .eighteenths-flower-top,
-          .eighteenths-flower-bottom {
-            display: none !important;
-          }
-          .eighteenths-desktop-corner {
-            display: block !important;
-          }
-          .eighteenths-container {
-            grid-template-columns: repeat(3, 1fr) !important;
-          }
-          .eighteenths-roses {
-            grid-column: auto !important;
-            justify-self: auto !important;
-            max-width: none !important;
-          }
+        .eighteenths-cat-shell--bleed {
+          width: 100vw;
+          max-width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          margin-right: calc(-50vw + 50%);
         }
-        @media (max-width: 1023px) {
-          .eighteenths-desktop-corner {
-            display: none !important;
-          }
+        .eighteenths-cat-plate {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+          background-size: cover !important;
+          background-position: center center !important;
+          background-repeat: no-repeat !important;
+        }
+        .eighteenths-cat-inner {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: clamp(2rem, 6vw, 3.25rem);
+          padding-bottom: clamp(1rem, 4vw, 2rem);
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+        /* Plate + content: same padded box for every category (matches former roses layout) */
+        .eighteenths-cat-bg-wrap {
+          position: relative;
+          width: 100%;
+          box-sizing: border-box;
+          padding-top: clamp(17rem, 44vw, 30rem);
+          padding-bottom: clamp(12.5rem, 34vw, 22rem);
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+        .eighteenths-cat-bg-wrap .eighteenths-cat-inner {
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        /* Modal category titles: typography only — no title-container.png frame */
+        .eighteenths-modal-title-wrap {
+          background-image: none !important;
+          background: none;
+          box-sizing: border-box;
+          width: fit-content;
+          max-width: min(100%, 26rem);
+          margin-left: auto;
+          margin-right: auto;
+          padding: 0;
+          min-height: 0;
+        }
+        .eighteenths-modal-title-wrap .section-title-graphic-inner--line {
+          font-size: clamp(2.35rem, 7.5vw, 3.45rem) !important;
+        }
+
+        .eighteenths-interstitial {
+          line-height: 0;
+          display: block;
+          box-sizing: border-box;
+        }
+        .eighteenths-interstitial img {
+          width: 100%;
+          height: auto;
+          display: block;
         }
       `}</style>
-      <section
-        className="relative pb-36 sm:pb-44 lg:pb-52 w-full overflow-hidden eighteenths-section"
-        style={{ backgroundColor: 'transparent', paddingTop: 'clamp(2rem, 6vw, 4rem)' }}
-      >
-        <img
-          className="eighteenths-flower-top"
-          src="/images/graphics/flower-banner.png"
-          alt=""
-          aria-hidden
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 'auto',
-            height: 'auto',
-            maxWidth: 'min(100%, 720px)',
-            objectFit: 'contain',
-            zIndex: 16
-          }}
-        />
-
-        <img
-          className="eighteenths-flower-bottom"
-          src="/images/graphics/flower-banner.png"
-          alt=""
-          aria-hidden
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: '50%',
-            transform: 'translateX(-50%) scaleY(-1)',
-            width: 'auto',
-            height: 'auto',
-            maxWidth: 'min(100%, 720px)',
-            objectFit: 'contain',
-            zIndex: 16
-          }}
-        />
-
-        <img
-          className="eighteenths-desktop-corner"
-          src="/images/graphics/flower-left.png"
-          alt=""
-          aria-hidden
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: 'auto',
-            height: 'auto',
-            maxWidth: 'clamp(72px, 12vw, 160px)',
-            objectFit: 'contain',
-            zIndex: 16,
-            display: 'none',
-            opacity: 0.95
-          }}
-        />
-
-        <img
-          className="eighteenths-desktop-corner"
-          src="/images/graphics/flower-right.png"
-          alt=""
-          aria-hidden
-          style={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            width: 'auto',
-            height: 'auto',
-            maxWidth: 'clamp(72px, 12vw, 160px)',
-            objectFit: 'contain',
-            zIndex: 16,
-            display: 'none',
-            transform: 'scaleX(-1)',
-            transformOrigin: 'center'
-          }}
-        />
-
-        <img
-          className="eighteenths-desktop-corner"
-          src="/images/graphics/flower-left.png"
-          alt=""
-          aria-hidden
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: 'auto',
-            height: 'auto',
-            maxWidth: 'clamp(72px, 12vw, 160px)',
-            objectFit: 'contain',
-            zIndex: 16,
-            display: 'none',
-            transform: 'scaleY(-1)',
-            transformOrigin: 'center'
-          }}
-        />
-
-        <img
-          className="eighteenths-desktop-corner"
-          src="/images/graphics/flower-right.png"
-          alt=""
-          aria-hidden
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            width: 'auto',
-            height: 'auto',
-            maxWidth: 'clamp(72px, 12vw, 160px)',
-            objectFit: 'contain',
-            zIndex: 16,
-            display: 'none',
-            transform: 'rotate(180deg)',
-            transformOrigin: 'center'
-          }}
-        />
-
+      <section className="relative w-full overflow-hidden eighteenths-section bg-transparent">
         <div className="relative z-20 w-full px-8">
-          <div className="eighteenths-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem' }}>
-            {displayCategories.map((category, index) => (
-              <CategorySection
-                key={index}
-                category={category}
-                showDivider={index < displayCategories.length - 1}
-                scrollerElement={scrollerElement}
-              />
-            ))}
+          <div className="eighteenths-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 0 }}>
+            {displayCategories.flatMap((category, index) => {
+              const nodes = [
+                <CategorySection
+                  key={`eighteenth-cat-${category.name ?? index}`}
+                  category={category}
+                  scrollerElement={scrollerElement}
+                />
+              ]
+              if (index < displayCategories.length - 1) {
+                const src =
+                  EIGHTEENTH_INTERSTITIAL_IMAGES[index % EIGHTEENTH_INTERSTITIAL_IMAGES.length]
+                nodes.push(
+                  <div
+                    key={`eighteenth-between-${index}`}
+                    className="eighteenths-interstitial eighteenths-cat-shell--bleed"
+                    aria-hidden
+                  >
+                    <img src={src} alt="" loading="lazy" decoding="async" draggable={false} />
+                  </div>
+                )
+              }
+              return nodes
+            })}
           </div>
         </div>
       </section>

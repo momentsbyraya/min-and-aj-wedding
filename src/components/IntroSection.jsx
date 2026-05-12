@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMail } from 'react-icons/fi'
 import { celebrant } from '../data'
 import GraphicButton from './GraphicButton'
+import { RSVP_FORM_EMBED_SRC } from './RSVPModal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -160,13 +161,13 @@ const IntroSection = () => {
             >
               Close
             </button>
-            <div className="mt-8 flex h-[calc(100vh-114px)] items-center justify-center px-6">
-              <p
-                className="font-poppins text-center text-sm tracking-[0.22em] text-[#6F2D36]/55 sm:text-base"
-                aria-label="RSVP form coming soon"
-              >
-                TO BE ADDED
-              </p>
+            <div className="mt-8 h-[calc(100vh-114px)] w-full overflow-hidden bg-white">
+              <iframe
+                title="RSVP for the debut celebration of Yrenea"
+                src={RSVP_FORM_EMBED_SRC}
+                className="h-full w-full border-0"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

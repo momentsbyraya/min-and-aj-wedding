@@ -64,41 +64,27 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-36 pb-36 w-full overflow-hidden"
-      style={{ backgroundColor: 'transparent' }}
+      className="relative w-full overflow-hidden pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
+      style={{ backgroundColor: '#F9E8F0' }}
     >
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt="Floral banner"
-        className="intro-flower-banner pointer-events-none absolute left-1/2 top-0 z-10 h-auto -translate-x-1/2"
-        style={{ width: '100vw', maxWidth: 'none' }}
-      />
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt=""
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/images/graphics/palace-4.png)' }}
         aria-hidden="true"
-        className="schedule-flower-banner-bottom pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto -translate-x-1/2 rotate-180"
-        style={{ width: '100vw', maxWidth: 'none' }}
       />
-      <div className="relative z-20 w-full max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
+      <div className="relative z-20 mx-auto w-full max-w-md px-5 text-center sm:max-w-xl sm:px-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl">
         <div ref={headingRef} className="flex flex-col items-center">
-          <img
-            src="/images/graphics/shoe%20sin%20pillow.png"
-            alt=""
-            aria-hidden="true"
-            className="mx-auto mb-2 h-auto max-h-28 sm:max-h-32 w-auto max-w-[8rem] sm:max-w-[9.5rem] object-contain pointer-events-none select-none opacity-95"
-          />
           <h2 className="section-title-graphic section-title-graphic--center mx-auto mb-1">
             <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
               Dress code
             </span>
           </h2>
         </div>
-        <p ref={noteRef} className="font-halimun mx-auto mb-6 mt-2 max-w-sm text-center text-xl leading-none" style={{ color: '#6F2D36' }}>
+        <p ref={noteRef} className="font-halimun mx-auto mb-4 mt-1 max-w-sm text-center text-xl leading-none" style={{ color: '#6F2D36' }}>
           note
         </p>
 
-        <div ref={imageGroupRef} className="mt-8 flex justify-center">
+        <div ref={imageGroupRef} className="mt-5 flex justify-center">
           <div className="w-full max-w-[220px] overflow-hidden">
             <img
               src="/images/dresscode/guests.png"
@@ -108,7 +94,7 @@ const DressCode = () => {
           </div>
         </div>
 
-        <div ref={swatchesRef} className="mt-6 flex items-center justify-center gap-2 flex-wrap">
+        <div ref={swatchesRef} className="mt-4 flex flex-wrap items-center justify-center gap-2">
           {colorPalette.map((c) => (
             <span
               key={c.name}
@@ -119,7 +105,7 @@ const DressCode = () => {
           ))}
         </div>
 
-        <div ref={descriptionRef} className="mt-8 flex flex-col items-center gap-4 text-center">
+        <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
           <p
             className="font-my-soul leading-none"
             style={{

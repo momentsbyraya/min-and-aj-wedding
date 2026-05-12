@@ -117,8 +117,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           />
       </div>
 
-      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center justify-center px-4 text-center pointer-events-none z-10">
-        <div ref={introCopyRef} className="mb-0 md:mb-1.5">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 px-4 py-8 text-center pointer-events-none sm:gap-4">
+        <div ref={introCopyRef} className="mb-0">
           <p
             className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
@@ -143,7 +143,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           type="button"
           onClick={handleOpen}
           aria-label="Open invitation"
-          className="focus:outline-none p-0 m-0 border-0 bg-transparent leading-none pointer-events-auto relative inline-block -mt-2 sm:-mt-3 md:mt-0"
+          className="focus:outline-none m-0 inline-block border-0 bg-transparent p-0 leading-none pointer-events-auto relative"
         >
           <img
             src="/images/graphics/envelope.png"
@@ -165,10 +165,10 @@ function OpeningScreen({ onEnvelopeOpen }) {
         </button>
         <p
           ref={clickLabelRef}
-          className="font-foglihten tracking-[0.3em] text-xs sm:text-sm md:text-base uppercase mt-3"
+          className="font-foglihten mt-0 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
           style={{
-            color: '#6F2D36',
-            textShadow: '0 1px 3px rgba(0, 0, 0, 0.22)'
+            color: '#ffffff',
+            textShadow: '0 2px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.45)'
           }}
         >
           CLICK TO OPEN

@@ -14,6 +14,9 @@ const INTRO_BG = '/images/prenup/A7400961.jpg'
 /** Eighteenths full-screen modal background (graphics). */
 const MODAL_PALACE_BG = '/images/graphics/palace.png'
 
+const GUEST_LIST_DOC_URL =
+  'https://docs.google.com/document/d/1-F3S1yxmlfaOPt2HMYYFELjAE8-CXWSBtTFkyPWEMzk/edit?usp=drivesdk'
+
 const EighteenIntroSection = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [listScroller, setListScroller] = useState(null)
@@ -81,7 +84,7 @@ const EighteenIntroSection = () => {
     <>
       <section
         ref={sectionRef}
-        className="relative w-full pt-24 md:pt-44 pb-28 md:pb-36 overflow-hidden"
+        className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
         style={{ backgroundColor: '#F9E8F0' }}
       >
         <div
@@ -132,17 +135,18 @@ const EighteenIntroSection = () => {
         <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
           <div className="overflow-hidden">
             <div ref={contentRef} className="py-5 text-left">
-              <div className="section-title-graphic mb-2 inline-block sm:mb-2.5">
-                <div className="section-title-graphic-inner section-title-graphic-inner--left">
-                  <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl" style={{ color: '#6F2D36' }}>
-                    Programme
-                  </p>
-                  <h2 className="leading-tight">
-                    <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
-                      The eighteenth&apos;s
-                    </span>
-                  </h2>
-                </div>
+              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#6F2D36' }}>
+                <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
+                  Programme
+                </p>
+                <h2 className="leading-tight">
+                  <span
+                    className="section-title-graphic-inner--line font-beautyofthebeast capitalize"
+                    style={{ textShadow: '0 1px 0 rgba(255, 250, 252, 0.35)' }}
+                  >
+                    The eighteenth&apos;s
+                  </span>
+                </h2>
               </div>
               <p className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4" style={{ color: '#6F2D36' }}>
                 {teaser}
@@ -150,17 +154,30 @@ const EighteenIntroSection = () => {
             </div>
           </div>
         </div>
-        <GraphicButton
+        <div
           ref={buttonRef}
-          imageSrc="/images/graphics/button-container.png"
-          onClick={() => setModalOpen(true)}
-          className="graphic-button--cta attendance-confirm-button absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:left-8"
-          contentClassName="font-beautyofthebeast lowercase"
-          aria-haspopup="dialog"
+          className="absolute z-30 flex flex-col items-start justify-end gap-1.5 left-5 sm:left-8"
+          style={{ bottom: 'max(2rem, env(safe-area-inset-bottom))' }}
         >
-          view full list
-          <FiArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
-        </GraphicButton>
+          <GraphicButton
+            imageSrc="/images/graphics/button-container.png"
+            onClick={() => setModalOpen(true)}
+            className="graphic-button--cta attendance-confirm-button shrink-0 whitespace-nowrap transition-opacity hover:opacity-95"
+            contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem]"
+            aria-haspopup="dialog"
+          >
+            view full list
+            <FiArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+          </GraphicButton>
+          <a
+            href={GUEST_LIST_DOC_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-beautyofthebeast text-[0.8rem] lowercase tracking-[0.06em] text-[#6F2D36] underline decoration-[#6F2D36]/50 underline-offset-2 transition-opacity hover:opacity-90 sm:text-[0.85rem]"
+          >
+            View guest list
+          </a>
+        </div>
       </section>
 
       {modalOpen && (

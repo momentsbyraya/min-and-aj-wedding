@@ -54,7 +54,7 @@ const Gallery = () => {
   }
 
   const compactTileClass =
-    'max-h-[150px] cursor-pointer overflow-hidden md:max-h-[260px] lg:max-h-[300px]'
+    'gallery-tile max-h-[150px] cursor-pointer md:max-h-[260px] lg:max-h-[300px]'
 
   useEffect(() => {
     if (titleRef.current) {
@@ -170,18 +170,25 @@ const Gallery = () => {
   const mainGallery = galleryCount > 2 ? galleryImages.slice(0, -2) : []
   const tailPair = galleryCount >= 2 ? galleryImages.slice(-2) : galleryImages
 
+  const useOvalFrame = (index) =>
+    index === 1 ||
+    index === 4 ||
+    (galleryCount >= 3 && index === galleryCount - 3) ||
+    index === galleryCount - 2
+
   const renderGridTile = (image, index, gridColumn) => {
     const isFullWidthRow = gridColumn === 'span 3'
     const objectPosition = tileObjectPosition[image]
+    const ovalClass = useOvalFrame(index) ? ' gallery-tile--oval' : ''
     return (
       <div
         ref={(el) => {
           imageRefs.current[index] = el
         }}
         className={
-          isFullWidthRow
-            ? 'min-h-[11rem] max-h-[220px] cursor-pointer overflow-hidden sm:min-h-[13rem] sm:max-h-[260px] md:min-h-[17rem] md:max-h-[400px] lg:min-h-[18rem] lg:max-h-[440px]'
-            : compactTileClass
+          (isFullWidthRow
+            ? 'gallery-tile min-h-[11rem] max-h-[220px] cursor-pointer sm:min-h-[13rem] sm:max-h-[260px] md:min-h-[17rem] md:max-h-[400px] lg:min-h-[18rem] lg:max-h-[440px]'
+            : compactTileClass) + ovalClass
         }
         style={{
           gridColumn,
@@ -201,16 +208,12 @@ const Gallery = () => {
         }}
         aria-label={`Open gallery image ${index + 1}`}
       >
-        <div className="soft-edges h-full min-h-0 w-full min-w-0">
+        <div className="gallery-tile-inner h-full w-full">
           <img
             src={image}
             alt={`${altDefault} — preview ${index + 1}`}
-            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
             draggable="false"
             style={{
-              height: '100%',
-              willChange: 'transform',
-              backfaceVisibility: 'hidden',
               objectPosition: objectPosition ?? 'center'
             }}
             loading="lazy"
@@ -225,7 +228,7 @@ const Gallery = () => {
   return (
     <div id="gallery" className="relative">
       <div
-        className="relative z-20 !py-8 sm:!py-10"
+        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16"
         style={{
           width: '100vw',
           marginLeft: 'calc(-50vw + 50%)',
@@ -237,9 +240,7 @@ const Gallery = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        <div
-          className={`relative z-10 w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}
-        >
+        <div className={`mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
           <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">
             <span className="section-title-graphic section-title-graphic--center">
               <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
@@ -247,69 +248,64 @@ const Gallery = () => {
               </span>
             </span>
           </h3>
-        </div>
-      </div>
 
-      <div className="w-full py-8 sm:py-12 md:py-16" style={{ backgroundColor: galleryBlushBg }}>
-        <div className={`${theme.container.maxWidth} ${theme.container.center} ${theme.container.padding}`}>
-          <div className="grid auto-rows-auto grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-            {galleryCount === 1 && renderGridTile(galleryImages[0], 0, gridColumnForIndex(0))}
+          <div className="mt-6 sm:mt-8 md:mt-10">
+            <div className="grid auto-rows-auto grid-cols-3 gap-3 sm:gap-4 md:gap-5">
+              {galleryCount === 1 && renderGridTile(galleryImages[0], 0, gridColumnForIndex(0))}
 
-            {galleryCount >= 2 &&
-              mainGallery.map((image, index) => (
-                <React.Fragment key={image}>{renderGridTile(image, index, gridColumnForIndex(index))}</React.Fragment>
-              ))}
+              {galleryCount >= 2 &&
+                mainGallery.map((image, index) => (
+                  <React.Fragment key={image}>{renderGridTile(image, index, gridColumnForIndex(index))}</React.Fragment>
+                ))}
 
-            {galleryCount >= 2 && (
-              <div className="col-span-3 flex min-w-0 flex-row gap-2 sm:gap-3 md:gap-4">
-                {tailPair.map((image, i) => {
-                  const index = galleryCount - 2 + i
-                  const objectPosition = tileObjectPosition[image]
-                  const flexGrow = i === 0 ? 'flex-[2]' : 'flex-[3]'
-                  return (
-                    <div
-                      key={image}
-                      ref={(el) => {
-                        imageRefs.current[index] = el
-                      }}
-                      className={`min-w-0 ${flexGrow} ${compactTileClass}`}
-                      style={{
-                        height: '100%',
-                        willChange: 'transform',
-                        backfaceVisibility: 'hidden',
-                        transform: 'translateZ(0)'
-                      }}
-                      onClick={() => handleImageClick(index)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault()
-                          handleImageClick(index)
-                        }
-                      }}
-                      aria-label={`Open gallery image ${index + 1}`}
-                    >
-                      <div className="soft-edges h-full min-h-0 w-full min-w-0">
-                        <img
-                          src={image}
-                          alt={`${altDefault} — preview ${index + 1}`}
-                          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                          draggable="false"
-                          style={{
-                            height: '100%',
-                            willChange: 'transform',
-                            backfaceVisibility: 'hidden',
-                            objectPosition: objectPosition ?? 'center'
-                          }}
-                          loading="lazy"
-                        />
+              {galleryCount >= 2 && (
+                <div className="col-span-3 flex min-w-0 flex-row gap-3 sm:gap-4 md:gap-5">
+                  {tailPair.map((image, i) => {
+                    const index = galleryCount - 2 + i
+                    const objectPosition = tileObjectPosition[image]
+                    const flexGrow = i === 0 ? 'flex-[2]' : 'flex-[3]'
+                    const ovalClass = useOvalFrame(index) ? ' gallery-tile--oval' : ''
+                    return (
+                      <div
+                        key={image}
+                        ref={(el) => {
+                          imageRefs.current[index] = el
+                        }}
+                        className={`min-w-0 ${flexGrow} ${compactTileClass}${ovalClass}`}
+                        style={{
+                          height: '100%',
+                          willChange: 'transform',
+                          backfaceVisibility: 'hidden',
+                          transform: 'translateZ(0)'
+                        }}
+                        onClick={() => handleImageClick(index)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            handleImageClick(index)
+                          }
+                        }}
+                        aria-label={`Open gallery image ${index + 1}`}
+                      >
+                        <div className="gallery-tile-inner h-full w-full">
+                          <img
+                            src={image}
+                            alt={`${altDefault} — preview ${index + 1}`}
+                            draggable="false"
+                            style={{
+                              objectPosition: objectPosition ?? 'center'
+                            }}
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
-              </div>
-            )}
+                    )
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
