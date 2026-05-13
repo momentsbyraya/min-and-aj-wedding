@@ -23,11 +23,26 @@ const plateBackgroundStyle = (url) => ({
   backgroundRepeat: 'no-repeat'
 })
 
-/** Full-bleed strips between programme categories (URLs under /images/prenup/). */
+/**
+ * Full-bleed strips between programme categories (one unique image per gap).
+ * Keep length ≥ `eighteenths.categories.length - 1` so no image repeats between categories.
+ */
 const EIGHTEENTH_INTERSTITIAL_IMAGES = [
   '/images/prenup/A7400780.jpg',
+  '/images/prenup/A7401418.jpg',
+  '/images/prenup/A7400961.jpg',
+  '/images/prenup/A7401509.jpg',
+  '/images/prenup/A7400792.jpg',
+  '/images/prenup/A7401400.jpg',
+  '/images/prenup/A7400958.jpg',
+  '/images/prenup/A7401464.jpg',
   '/images/prenup/A7400944.jpg',
-  '/images/prenup/A7400961.jpg'
+  '/images/prenup/A7400819.jpg',
+  '/images/prenup/A7400801.jpg',
+  '/images/prenup/A7401201.jpg',
+  '/images/prenup/A7401414.jpg',
+  '/images/prenup/A7400778.jpg',
+  '/images/prenup/A7400771.jpeg'
 ]
 
 const getCategoryPanel = (category) => {
@@ -269,17 +284,23 @@ const EighteenList = ({ scrollerElement } = {}) => {
                 />
               ]
               if (index < displayCategories.length - 1) {
-                const src =
-                  EIGHTEENTH_INTERSTITIAL_IMAGES[index % EIGHTEENTH_INTERSTITIAL_IMAGES.length]
-                nodes.push(
-                  <div
-                    key={`eighteenth-between-${index}`}
-                    className="eighteenths-interstitial eighteenths-cat-shell--bleed"
-                    aria-hidden
-                  >
-                    <img src={src} alt="" loading="lazy" decoding="async" draggable={false} />
-                  </div>
-                )
+                const src = EIGHTEENTH_INTERSTITIAL_IMAGES[index]
+                if (import.meta.env.DEV && !src) {
+                  console.warn(
+                    `[EighteenList] Add more entries to EIGHTEENTH_INTERSTITIAL_IMAGES (gap index ${index}, need ${displayCategories.length - 1} images)`
+                  )
+                }
+                if (src) {
+                  nodes.push(
+                    <div
+                      key={`eighteenth-between-${index}`}
+                      className="eighteenths-interstitial eighteenths-cat-shell--bleed"
+                      aria-hidden
+                    >
+                      <img src={src} alt="" loading="lazy" decoding="async" draggable={false} />
+                    </div>
+                  )
+                }
               }
               return nodes
             })}

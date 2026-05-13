@@ -1,140 +1,179 @@
 {
-  "sectionIntro": "My 18 Roses, Treasures, and Candles—see the full list below.",
+  "sectionIntro": "My 18 Roses, Candles, Shots, Bills, Bags, Makeups, and Footwears—see the full list below.",
   "categories": [
     {
       "name": "Roses",
       "title": "Roses",
       "description": "For my 18 Roses, I have chosen gentlemen who mean a lot to me to join me for this celebration.\n\nWhen your group is called, we'll share a dance and present a rose to mark this milestone together.\n\nThank you for being part of my debut story—I can't wait to celebrate with you.",
-      "matches": [
-        {
-          "number": 1,
-          "names": [
-            "Aljustin Taluban",
-            "Dave Rodriguez",
-            "Enzo Lao",
-            "Will Arellano"
-          ]
-        },
-        {
-          "number": 2,
-          "names": [
-            "James Duran",
-            "Keith Inis",
-            "Rey Villanueva",
-            "Alejandro Panuncialman"
-          ]
-        },
-        {
-          "number": 3,
-          "names": [
-            "Kirk Crisostomo",
-            "Vitto Paquiz",
-            "Henrique Arevalo"
-          ]
-        },
-        {
-          "number": 4,
-          "names": [
-            "Thomas David",
-            "Euan Caampued",
-            "Victor Dacuno",
-            "Denn Hernandez"
-          ]
-        },
-        {
-          "number": 5,
-          "names": [
-            "Regin Torres",
-            "Marlon Santos",
-            "Dennis Basilio",
-            "Adel Aliño",
-            "Edmund Yen"
-          ]
-        },
-        {
-          "number": 6,
-          "names": [
-            "Jael Villanueva",
-            "LJ Panganiban",
-            "Miguel Balon",
-            "Paulo Balon"
-          ]
-        },
-        {
-          "number": 7,
-          "names": [
-            "Ezekiel Nitura",
-            "Amari Fiehl Arcillas"
-          ]
-        },
-        {
-          "number": 8,
-          "names": [
-            "Allan Ray Inis"
-          ]
-        },
-        {
-          "number": 9,
-          "names": [
-            "Robert Jose Inis"
-          ]
-        },
-        {
-          "number": 10,
-          "names": [
-            "Alvin August Panuncialman"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Treasures",
-      "title": "TREASURES",
-      "description": "For my 18 Treasures, you are each someone who has played an important role in my growing-up years. I am asking you to gift me something that comes in a set or a pair—something you have chosen with love and meaning.\n\nWhen your name is called, please present your gift and share a short message about why you picked it for me.\n\nI can't wait to see what you have prepared for my 18th birthday.",
       "names": [
-        "Baba Villa-Ignacio",
-        "Jam Vaughan",
-        "Luisa Vargas",
-        "Kate Inis-Rotter",
-        "Danielle Villena",
-        "Kate Santos",
-        "Crissie Torres",
-        "Treena Tabora",
-        "Arlyn Aliño",
-        "Jie Villanueva",
-        "Joanhie Casteñeda",
-        "Lerma Bernabe",
-        "Cielo Lazatin",
-        "Susan Valdez",
-        "Ruth Villena",
-        "Lola Bel Panuncialman",
-        "Amma Chit Inis",
-        "Ingrid Panuncialman"
+        "Ace Kian L. Mundo",
+        "Drake Luan Borlagdan",
+        "Rhein B. Astoveza",
+        "Rajender Sapico",
+        "Yubert Mendoza",
+        "Jan Raven Benitez",
+        "Nathan Ramiel",
+        "Khalil Oliveros",
+        "Angelo Theoden V. Damo",
+        "Kairu Gonzales",
+        "Franier Y. Diwa",
+        "Ceejay Flores",
+        "Jiro Solomon",
+        "Matthew Tolentino",
+        "Ruperto Z. Lachica",
+        "Davorein Leigh M. Lachica",
+        "Arnold R. Lachica",
+        "Dyne Lance A. Borlagdan"
       ]
     },
     {
       "name": "Candles",
-      "title": "CANDLES",
+      "title": "Candles",
       "description": "For my 18 Candles, I have chosen each of you because your friendship has meant the world to me.\n\nWhen you are called, please light a candle with me and share a favorite memory or a wish for my future.\n\nThank you for being with me through every chapter—I'm so grateful to celebrate this moment with you.",
       "names": [
-        "Maria Rosabelle C. Balon",
-        "Zyescha Kiz C. Lim",
-        "Roanne Louise R. Gante",
-        "Anika Cassandra D. Tanguanco",
-        "Josefa Louise D. Carreon",
-        "Ainsley Zorahayda V. Agustin Alonzo",
-        "Dana Kaitlyn P. Landicho",
-        "Lexie Naeema S. Lacap",
-        "Cenah Claraisse A. Paragoso",
-        "Ashira Andrea C. Cabili",
-        "Faith Elize C. Huidem",
-        "Angelyn C. Sow",
-        "Jensie D. Alvarez",
-        "Mary Luz Victoria M. Vargas",
-        "Maya Allegria R. Aliño",
-        "Joy Marjelaine B. Bantog",
-        "Ma. Elisha Lexan V. Cacnio",
-        "Kayanne Safeeya E. Bawar"
+        "Jeddylyn Lachica",
+        "Ayenne Borlagdan",
+        "Samantha Curativo",
+        "Rain Stephanie Signio",
+        "Cristal Visitacion",
+        "Ramilyn Veloria",
+        "Rhain Crome",
+        "Jorince Hyazen Corpuz",
+        "Jomalyn Field",
+        "Hailey Kaitlen G. Geron",
+        "Mary Gwen Abarquez",
+        "Nezter Gargoles",
+        "Cherrylyn Basilan",
+        "Corazon B. Alagao",
+        "Rosita R. Lachica",
+        "Nenita C. Morallo",
+        "Kristine Tejano Gonzales",
+        "Amanda N. Panlaqui"
+      ]
+    },
+    {
+      "name": "Shots",
+      "title": "Shots",
+      "description": "For my 18 Shots, thank you for standing with me as I toast to this new chapter.\n\nWhen your name is called, join me for a celebratory shot and a cheer to the years ahead.\n\nI'm grateful you're part of my debut night.",
+      "names": [
+        "Mjay Tolentino",
+        "Dustin Borlagdan",
+        "Jeddy Lachica",
+        "Joshua Dela Cruz",
+        "Levhy Arnaez",
+        "Daniel Lawrence Arnaez Borlagdan",
+        "Dijan Cuizon",
+        "Ylmas Brex Mendoza",
+        "Mark Reynan N. Panlaqui",
+        "Angelica Mae C. Ampatin",
+        "Michael Joe S. Ponte",
+        "Jared Apelo",
+        "Paulo Andrew P. Ponte",
+        "Carla Joyce Guanzon",
+        "Emar P. Olarte",
+        "Mandy Santos",
+        "Vince Keizer Santos",
+        "Joemari A. Flores"
+      ]
+    },
+    {
+      "name": "Bills",
+      "title": "Bills",
+      "description": "For my 18 Bills, thank you for your generosity and for blessing this milestone with me.\n\nYour presence and support mean more than words can say.",
+      "names": [
+        "Lany Vell Morales Maderazo",
+        "Janie Jose-Revillame",
+        "Sharon Diesta",
+        "Sheryl Montecalvo",
+        "Marivic Sapico Sagre-Lampong",
+        "Helen Grace Sapico",
+        "Ronel Lachica",
+        "Janice Bondoc",
+        "Doris P. Yalong",
+        "Juvy E. Dabu",
+        "Jasmin E. Martos",
+        "Noemi N. Panlaqui",
+        "Magdalena Yacas",
+        "Flordeliza Reyes",
+        "Brenda B. Astoveza",
+        "Robelyn R. Lachica",
+        "Orville M. Iglesia",
+        "Sally Morallo"
+      ]
+    },
+    {
+      "name": "Bags",
+      "title": "Bags",
+      "description": "For my 18 Bags, each of you holds a special place in my heart—thank you for walking this journey with me.\n\nI'm excited to share this celebration with you.",
+      "names": [
+        "Jeramie Claire P. Libunao",
+        "Venice Gaspar",
+        "Phoebe Ann Lashark",
+        "Joanna Marie Pardiñas",
+        "Jedidah Hannah A. Flores",
+        "Lee Franzen Sarabia",
+        "Crisdale Aguilar Pasion",
+        "Cyrille Jose-Ortiz",
+        "Grace A. Imbang",
+        "Heart B. Sabado",
+        "Renniel Abaja",
+        "Ivy De Leon",
+        "Daria Ann V. Moreno",
+        "Mhiyarie Anrie Sales",
+        "Ambher A. Arellano",
+        "Kayla Annika R. Manievo",
+        "Jana Len P. Calaje",
+        "Krisheigh Payumo"
+      ]
+    },
+    {
+      "name": "Makeups",
+      "title": "Makeups",
+      "description": "For my 18 Makeups, thank you for helping me shine on one of the most important nights of my life.\n\nYour talent and care mean the world to me.",
+      "names": [
+        "Kate Arnaez",
+        "Christell Sugale",
+        "Jhurelle Delos Santos",
+        "Kairra Barrios",
+        "Jasmin Dela Pena",
+        "Chescka Crisostomo",
+        "Danielle Collado",
+        "Samantha Laride",
+        "Laudiam M. Vasquez",
+        "Kelly Ann Mariano",
+        "Elaiza Coronado",
+        "Zandrhine Macapulay",
+        "Lady Jane C. Pasia",
+        "Maria Andrea Dadale",
+        "Erika Tolentino",
+        "Yosef Ej Barrosa",
+        "Thea Ann Garcia Alipalo",
+        "Harold Castuera"
+      ]
+    },
+    {
+      "name": "Footwears",
+      "title": "Footwears",
+      "description": "For my 18 Footwears, thank you for stepping into this celebration with me—literally and figuratively.\n\nI'm so glad you're part of my debut.",
+      "names": [
+        "Zandrhine Macapulay",
+        "Geanerie Borja Signio",
+        "Jeanette Lachica",
+        "Christine Lachica",
+        "Jucel Grampa",
+        "Danilo Torrejas",
+        "Angel Anne L. Panlaqui",
+        "Karen P. Palada",
+        "Mecaela Manzano",
+        "Jicel Sabareza",
+        "Kylene Jaime Sapnu",
+        "Marinella Galleta",
+        "Nicole Ann Lansang",
+        "Mareyan Flores",
+        "Alexis Vista Pablo",
+        "Ehleneah Mae Santos",
+        "Jarvey Eder Sunga",
+        "Kenneth Reyes Dela Cruz"
       ]
     }
   ]
