@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useMemo, useState } from 'react'
-import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi'
+import { FiChevronLeft, FiChevronRight, FiHeart, FiX } from 'react-icons/fi'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
 import EighteenIntroSection from './EighteenIntroSection'
@@ -96,15 +96,17 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div>
               <CountdownSection />
             </div>
-            <footer className="wedding-invitation-footer bg-[#48B5B1]">
+            <footer className="wedding-invitation-footer bg-black/30">
               <a
                 href="https://www.facebook.com/profile.php?id=61571540978411"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit Moments by Raya page"
-                className="wedding-invitation-footer-link text-[#0a3F3D] hover:text-white"
+                className="wedding-invitation-footer-link text-white hover:text-white inline-flex items-center gap-1.5"
               >
-                Made with love by Moments by Raya
+                <span>Made with</span>
+                <FiHeart className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>| Moments by Raya</span>
               </a>
             </footer>
           </div>

@@ -9,7 +9,6 @@ const DressCode = () => {
   const { mainDressCode, colorPalette } = dresscode
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
-  const noteRef = useRef(null)
   const imageGroupRef = useRef(null)
   const swatchesRef = useRef(null)
   const descriptionRef = useRef(null)
@@ -31,12 +30,6 @@ const DressCode = () => {
       { opacity: 0, y: 24 },
       { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }
     )
-      .fromTo(
-        noteRef.current,
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' },
-        '-=0.3'
-      )
       .fromTo(
         dresscodeImages,
         { opacity: 0, y: 26 },
@@ -64,13 +57,27 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
-      style={{ backgroundColor: '#E1F4F3' }}
+      className="relative w-full overflow-hidden pt-24 pb-44 sm:pt-28 sm:pb-52 md:pt-32 md:pb-60"
+      style={{ backgroundColor: '#27032f' }}
     >
-      <div
-        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/graphics/palace-4.png)' }}
+      <img
+        src="/images/graphics/fan%20flower%20-%201.png"
+        alt=""
         aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/lantern-1.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 left-1/2 h-auto pointer-events-none z-10"
+        style={{ width: '100vw', maxWidth: 'none', transform: 'translateX(-50%) scaleY(-1)' }}
       />
       <div className="relative z-20 mx-auto w-full max-w-md px-5 text-center sm:max-w-xl sm:px-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl">
         <div ref={headingRef} className="flex flex-col items-center">
@@ -80,10 +87,6 @@ const DressCode = () => {
             </span>
           </h2>
         </div>
-        <p ref={noteRef} className="font-halimun mx-auto mb-4 mt-1 max-w-sm text-center text-xl leading-none" style={{ color: '#0a3F3D' }}>
-          note
-        </p>
-
         <div ref={imageGroupRef} className="mt-5 flex justify-center">
           <div className="w-full max-w-[220px] overflow-hidden">
             <img
@@ -115,7 +118,7 @@ const DressCode = () => {
           >
             {mainDressCode.title}
           </p>
-          <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#0a3F3D' }}>
+          <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#ffffff' }}>
             {mainDressCode.description.split('\n').map((line, i) => (
               <React.Fragment key={i}>
                 {i > 0 ? <br /> : null}

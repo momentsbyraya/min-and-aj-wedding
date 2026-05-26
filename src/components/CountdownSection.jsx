@@ -115,7 +115,7 @@ const CountdownSection = () => {
         <div ref={statsRef} className="mt-12 flex items-start justify-center gap-4 sm:gap-6">
           <div className="countdown-stat-item text-center">
             <div className="countdown-stat-circle w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#9b4d5c' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#EFE9DC' }}>
                 {countdown.days}
               </p>
             </div>
@@ -125,7 +125,7 @@ const CountdownSection = () => {
           </div>
           <div className="countdown-stat-item text-center">
             <div className="countdown-stat-circle w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#9b4d5c' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#EFE9DC' }}>
                 {countdown.hours}
               </p>
             </div>
@@ -135,7 +135,7 @@ const CountdownSection = () => {
           </div>
           <div className="countdown-stat-item text-center">
             <div className="countdown-stat-circle w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#9b4d5c' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#EFE9DC' }}>
                 {countdown.minutes}
               </p>
             </div>
@@ -145,7 +145,7 @@ const CountdownSection = () => {
           </div>
           <div className="countdown-stat-item text-center">
             <div className="countdown-stat-circle w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] rounded-full">
-              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#9b4d5c' }}>
+              <p className="font-rozha text-[1.55rem] sm:text-[1.95rem] leading-none -mb-1" style={{ color: '#EFE9DC' }}>
                 {countdown.seconds}
               </p>
             </div>

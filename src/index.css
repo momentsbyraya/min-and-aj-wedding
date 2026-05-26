@@ -1461,25 +1461,17 @@ body {
   -webkit-mask-composite: source-in;
 }
 
-/* Countdown timer pills: blush pink + soft feathered edge (glow + inset highlight) */
+/* Countdown timer pills: black 30% center with gold border */
 .countdown-stat-circle {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(
-    circle at 32% 26%,
-    #F8FCFB 0%,
-    #E5F4F2 38%,
-    #D9F0EF 72%,
-    #CCEBEA 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #D4AF37;
   box-shadow:
-    0 0 22px rgba(220, 240, 238, 0.95),
-    0 8px 26px rgba(72, 181, 177, 0.3),
-    inset 0 2px 12px rgba(255, 255, 255, 0.58),
-    inset 0 -8px 18px rgba(72, 181, 177, 0.16);
+    0 0 12px rgba(212, 175, 55, 0.35),
+    inset 0 0 8px rgba(212, 175, 55, 0.18);
 }
 
 /* Celebrant story: frame + aspect box; feather comes from `.soft-edges img` */

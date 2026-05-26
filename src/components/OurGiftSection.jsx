@@ -63,35 +63,35 @@ const OurGiftSection = () => {
         aria-hidden
       />
 
-      {/* Mirrored overlays (pink wash anchors on the right, matching right-aligned copy) */}
+      {/* Mirrored overlays (teal wash anchors on the right, matching right-aligned copy) */}
       <div className="pointer-events-none absolute inset-0 z-[1]" style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }} aria-hidden>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#48B5B1]/90 via-[#C9E5E4]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a3F3D]/90 via-[#48B5B1]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(245, 202, 215, 0.55) 0%, rgba(253, 242, 246, 0.12) 48%, transparent 72%)'
+              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(10, 136, 133, 0.85) 0%, rgba(72, 181, 177, 0.45) 48%, transparent 78%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(232, 169, 188, 0.22) 0%, rgba(245, 202, 215, 0.18) 32%, transparent 58%), linear-gradient(180deg, rgba(249, 232, 240, 0.4) 0%, transparent 38%, transparent 62%, rgba(248, 228, 238, 0.25) 100%)'
+              'linear-gradient(115deg, rgba(10, 63, 61, 0.45) 0%, rgba(10, 136, 133, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(201, 229, 228, 0.65) 0%, transparent 38%, transparent 62%, rgba(170, 215, 213, 0.5) 100%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(245, 202, 215, 0.48) 0%, rgba(253, 242, 246, 0.12) 45%, transparent 62%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(232, 169, 188, 0.22) 0%, transparent 65%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(10, 136, 133, 0.75) 0%, rgba(225, 244, 243, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(10, 63, 61, 0.5) 0%, transparent 70%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(237, 194, 204, 0.36) 0%, rgba(250, 224, 233, 0.14) 22%, transparent 44%), linear-gradient(102deg, rgba(248, 228, 238, 0.22) 0%, transparent 48%)'
+              'linear-gradient(90deg, rgba(72, 181, 177, 0.6) 0%, rgba(201, 229, 228, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(170, 215, 213, 0.45) 0%, transparent 52%)'
           }}
         />
       </div>
@@ -99,7 +99,7 @@ const OurGiftSection = () => {
       <div className="relative z-20 ml-auto mr-0 flex w-full max-w-lg justify-end px-5 sm:px-8">
         <div className="overflow-hidden">
           <div ref={contentRef} className="py-5 text-right">
-            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#0a3F3D' }}>
+            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#ffffff', textShadow: '0 2px 14px rgba(8, 50, 48, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)' }}>
               {eyebrow ? (
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   {eyebrow.toLowerCase()}
@@ -108,7 +108,7 @@ const OurGiftSection = () => {
               <h2 className="leading-tight">
                 <span
                   className="section-title-graphic-inner--line font-beautyofthebeast capitalize"
-                  style={{ textShadow: '0 1px 0 rgba(255, 250, 252, 0.35)' }}
+                  style={{ textShadow: '0 2px 18px rgba(8, 50, 48, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5)' }}
                 >
                   {`${titleLead} ${titleRest}`.trim().toLowerCase()}
                 </span>
@@ -117,7 +117,7 @@ const OurGiftSection = () => {
             {intro ? (
               <p
                 className="ml-auto w-[60%] max-w-full pb-4 font-poppins text-xs leading-snug font-light sm:text-[0.8125rem]"
-                style={{ color: '#0a3F3D' }}
+                style={{ color: '#ffffff', textShadow: '0 2px 12px rgba(8, 50, 48, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)' }}
               >
                 {intro}
               </p>
@@ -147,10 +147,12 @@ const OurGiftSection = () => {
         rel="noreferrer"
         imageSrc="/images/graphics/button-container.png"
         className="graphic-button--cta attendance-confirm-button absolute bottom-[max(2rem,env(safe-area-inset-bottom))] right-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:right-8"
-        contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem]"
+        contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem] mb-2"
       >
-        {ctaLabel}
-        <FiExternalLink className="h-4 w-4 shrink-0" aria-hidden />
+        <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+          {ctaLabel}
+        </span>
+        <FiExternalLink className="h-4 w-4 shrink-0 text-[#D4AF37]" aria-hidden />
       </GraphicLink>
     </section>
   )

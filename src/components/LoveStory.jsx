@@ -94,7 +94,6 @@ const LoveStory = () => {
             margin-left: calc(-1rem - 2rem) !important;
             margin-right: calc(-1rem - 2rem) !important;
             width: calc(100% + 6rem) !important;
-            min-height: 600px !important;
           }
         }
         @media (min-width: 1024px) {
@@ -114,9 +113,9 @@ const LoveStory = () => {
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
           {/* Flex Container - Side by side on lg screens */}
-          <div className="flex flex-col lg:flex-row lg:items-stretch lg:gap-8 lg:min-h-full">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
             {/* Left Side - Text Content (50% on lg) */}
-            <div ref={contentRef} className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col text-center">
+            <div ref={contentRef} className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-2 lg:pt-16 lg:pb-4 lg:flex lg:flex-col text-center">
               {/* Our Debutant */}
               <h1 
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
@@ -139,7 +138,7 @@ const LoveStory = () => {
               </h2>
               
               {/* Paragraphs */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-6">
                 <p 
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
                   style={{ color: '#eef7f6', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
@@ -178,17 +177,12 @@ const LoveStory = () => {
             </div>
 
             {/* Right Side - Image (50% on lg) */}
-            <div ref={imageContainerRef} className="w-full lg:w-1/2 lg:mt-0 mt-8 h-96 lg:h-auto lg:flex-1 overflow-hidden flex relative lovestory-image-mobile">
-              {/* Single Image */}
-              <div 
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center center',
-                  backgroundRepeat: 'no-repeat',
-                  zIndex: 0
-                }}
+            <div ref={imageContainerRef} className="w-full lg:w-1/2 lg:mt-0 mt-8 overflow-hidden relative lovestory-image-mobile">
+              <img
+                src={image}
+                alt=""
+                aria-hidden="true"
+                className="block w-full h-auto"
               />
             </div>
           </div>

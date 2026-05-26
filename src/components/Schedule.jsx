@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
@@ -97,23 +97,33 @@ const Schedule = () => {
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-right bg-no-repeat"
         style={{
           backgroundImage: 'url(/images/graphics/palace-3.png)',
-          opacity: 0.3
+          opacity: 1
         }}
         aria-hidden="true"
       />
       <img
-        src="/images/graphics/flower-banner.png"
+        src="/images/graphics/fan%20flower%20-%201.png"
         alt=""
         aria-hidden="true"
-        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
+        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
       />
       <img
-        src="/images/graphics/flower-banner.png"
+        src="/images/graphics/lantern-1.png"
         alt=""
         aria-hidden="true"
-        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
+        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/flower-right.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 left-0 h-auto pointer-events-none z-10 -scale-x-100"
+      />
+      <img
+        src="/images/graphics/flower-right.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-10"
       />
       {/* Content */}
       <div className="relative z-10">
@@ -137,7 +147,7 @@ const Schedule = () => {
                 ref={lineRef}
                 className="absolute w-0.5"
                 style={{ 
-                  backgroundColor: theme.colors.primary, 
+                  backgroundColor: '#D4AF37', 
                   left: '50%',
                   transform: 'translateX(-50%)',
                   top: 0,
@@ -162,7 +172,7 @@ const Schedule = () => {
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
                           className="timeline-time text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
-                          style={{ color: '#0a3F3D', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+                          style={{ color: '#ffffff', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>{timePeriod}</span>
                             </div>
@@ -172,8 +182,8 @@ const Schedule = () => {
                       <div
                         className="timeline-dot absolute z-10 h-4 w-4 rounded-full border-2"
                         style={{
-                          backgroundColor: theme.colors.primary,
-                          borderColor: '#1F8A86',
+                          backgroundColor: '#D4AF37',
+                          borderColor: '#BF953F',
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)'
@@ -184,7 +194,7 @@ const Schedule = () => {
                       <div className="flex-1 pl-4">
                         <div 
                           className="timeline-description font-poppins"
-                          style={{ color: '#0a3F3D', opacity: 0.9, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                          style={{ color: '#EFE9DC', opacity: 0.95, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                         >
                               {event.title}
                             </div>
@@ -201,7 +211,7 @@ const Schedule = () => {
             <div className="text-center">
                   <p 
                     className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
-                    style={{ color: '#0a3F3D', opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
+                    style={{ color: '#EFE9DC', opacity: 0.95, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
                   >
                     Looking forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
                   </p>

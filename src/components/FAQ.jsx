@@ -68,6 +68,20 @@ const FAQ = ({ id = 'faq' }) => {
 
   return (
     <div id={id} data-section="faq" className="relative z-20 faq-section">
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-[5]"
+        style={{ width: '100vw', maxWidth: 'none' }}
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 left-1/2 h-auto pointer-events-none z-[5]"
+        style={{ width: '100vw', maxWidth: 'none', transform: 'translateX(-50%) rotate(180deg)' }}
+      />
       <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 py-12">
         <div className="mb-12 flex w-full justify-center px-6">
           <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">

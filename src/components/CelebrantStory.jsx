@@ -5,12 +5,15 @@ import { celebrant } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const ABOUT_BG = '/images/prenup/A7400780.jpg'
+
 const CelebrantStory = ({ onImageClick }) => {
   const about = celebrant.debutant.about
   const sectionRef = useRef(null)
-  const headingRef = useRef(null)
-  const paragraphRef = useRef(null)
-  const imageRef = useRef(null)
+  const contentRef = useRef(null)
+
+  const headingName = about?.headingName ?? celebrant.debutant.name.first
+  const bioHtml = about?.bioHtml ?? ''
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -23,86 +26,86 @@ const CelebrantStory = ({ onImageClick }) => {
     })
 
     tl.fromTo(
-      headingRef.current,
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 0.72, ease: 'power2.out' }
+      contentRef.current,
+      { opacity: 0, y: 22 },
+      { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }
     )
-      .fromTo(
-        paragraphRef.current,
-        { opacity: 0, y: 26 },
-        { opacity: 1, y: 0, duration: 0.82, ease: 'power2.out' },
-        '-=0.28'
-      )
-      .fromTo(
-        imageRef.current,
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.58, ease: 'power2.out' },
-        '-=0.22'
-      )
 
-    return () => {
-      tl.kill()
-    }
+    return () => tl.kill()
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden pt-40 pb-20" style={{ backgroundColor: '#E1F4F3' }}>
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
+      style={{ backgroundColor: '#E1F4F3' }}
+    >
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-left bg-no-repeat"
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat cursor-pointer"
         style={{
-          backgroundImage: 'url(/images/graphics/palace.png)',
-          opacity: 0.35
+          backgroundImage: `url(${ABOUT_BG})`,
+          backgroundPosition: '42% center'
         }}
-        aria-hidden="true"
+        onClick={() => onImageClick?.(ABOUT_BG)}
+        aria-hidden
       />
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 opacity-80 pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#80043A]/90 via-[#ed5c95]/65 to-transparent"
+        aria-hidden
       />
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 opacity-80 pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
+      <div
+        className="absolute inset-0 z-[2] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(226, 9, 100, 0.85) 0%, rgba(237, 92, 149, 0.45) 48%, transparent 78%)'
+        }}
+        aria-hidden
       />
-
-      <div className="relative z-20 w-full max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
-        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-8 text-center">
-          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
-            about {about?.headingName ?? celebrant.debutant.name.first}
-          </span>
-        </h2>
-
-        <p
-          ref={paragraphRef}
-          className="font-poppins text-sm leading-relaxed"
-          style={{ color: '#0a3F3D' }}
-          dangerouslySetInnerHTML={{ __html: about?.bioHtml ?? '' }}
-        />
-
-        <div className="mt-6 flex justify-center">
-          <img
-            src="/images/graphics/wine.png"
-            alt="Our cheers"
-            className="w-[120px] h-auto object-contain"
-          />
-        </div>
-
-        <div
-          ref={imageRef}
-          className="mt-8 flex justify-center px-2"
-          style={{ filter: 'drop-shadow(0 12px 28px rgba(10, 63, 61, 0.12))' }}
-        >
-          <div className="soft-edges celebrant-story-photo-frame relative aspect-[3/4] w-full max-w-[min(100%,420px)]">
-            <img
-              src="/images/prenup/A7400780.jpg"
-              alt={celebrant.debutant.name?.full ?? celebrant.debutant.name?.first ?? 'Celebrant'}
-              className="absolute inset-0 h-full w-full cursor-pointer object-cover"
-              onClick={() => onImageClick?.('/images/prenup/A7400780.jpg')}
+      <div
+        className="absolute inset-0 z-[3] pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(115deg, rgba(128, 4, 58, 0.45) 0%, rgba(226, 9, 100, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(245, 196, 218, 0.65) 0%, transparent 38%, transparent 62%, rgba(243, 152, 188, 0.5) 100%)'
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 z-[4] pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(226, 9, 100, 0.75) 0%, rgba(252, 227, 238, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(128, 4, 58, 0.5) 0%, transparent 70%)'
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 z-[5] pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(237, 92, 149, 0.6) 0%, rgba(245, 196, 218, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(243, 152, 188, 0.45) 0%, transparent 52%)'
+        }}
+        aria-hidden
+      />
+      <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
+        <div className="overflow-hidden">
+          <div ref={contentRef} className="py-5 text-left">
+            <h2
+              className="mb-2 leading-tight sm:mb-2.5"
+              style={{
+                color: '#ffffff',
+                textShadow: '0 2px 18px rgba(92, 2, 40, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5)'
+              }}
+            >
+              <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                About {headingName}
+              </span>
+            </h2>
+            <p
+              className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4"
+              style={{
+                color: '#ffffff',
+                textShadow: '0 2px 12px rgba(92, 2, 40, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)'
+              }}
+              dangerouslySetInnerHTML={{ __html: bioHtml }}
             />
           </div>
         </div>

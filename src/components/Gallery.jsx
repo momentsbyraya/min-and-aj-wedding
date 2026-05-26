@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useRef, useEffect, useState } from 'react'
+import React, { useMemo, useRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -25,8 +25,7 @@ const Gallery = () => {
     return out
   }, [])
 
-  const bannerImage = galleryPrenups.bannerImage ?? '/images/graphics/palace.png'
-  const galleryBlushBg = '#E1F4F3'
+  const galleryBlushBg = '#0a8885'
 
   const titleRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -228,16 +227,13 @@ const Gallery = () => {
   return (
     <div id="gallery" className="relative">
       <div
-        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16"
+        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16 bg-cover bg-center bg-no-repeat"
         style={{
           width: '100vw',
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           backgroundColor: galleryBlushBg,
-          backgroundImage: `url(${bannerImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundImage: "url('/images/graphics/palace-1.png')"
         }}
       >
         <div className={`mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
