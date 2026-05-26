@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+﻿import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMail } from 'react-icons/fi'
@@ -110,7 +110,7 @@ const CTASection = () => {
               <h2 ref={titleRef} className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-antsvalley mb-6" style={{ color: '#4b2259' }}>
                 respond
               </h2>
-              <p ref={textRef} className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#6F2D36', fontSize: '1rem' }}>
+              <p ref={textRef} className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#0a3F3D', fontSize: '1rem' }}>
                 Please let us know if you'll <br /> be joining us.
               </p>
 

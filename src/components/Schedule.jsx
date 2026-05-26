@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
@@ -91,7 +91,7 @@ const Schedule = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
-      style={{ backgroundColor: '#F9E8F0' }}
+      style={{ backgroundColor: '#E1F4F3' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-right bg-no-repeat"
@@ -112,7 +112,7 @@ const Schedule = () => {
         src="/images/graphics/flower-banner.png"
         alt=""
         aria-hidden="true"
-        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
+        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 h-auto pointer-events-none z-10"
         style={{ width: '100vw', maxWidth: 'none' }}
       />
       {/* Content */}
@@ -162,7 +162,7 @@ const Schedule = () => {
                       <div className="flex-1 text-right pr-4 relative">
                         <div 
                           className="timeline-time text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-instrument-serif font-semibold"
-                          style={{ color: '#6F2D36', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
+                          style={{ color: '#0a3F3D', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
                         >
                           {timeNumber} <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)' }}>{timePeriod}</span>
                             </div>
@@ -173,7 +173,7 @@ const Schedule = () => {
                         className="timeline-dot absolute z-10 h-4 w-4 rounded-full border-2"
                         style={{
                           backgroundColor: theme.colors.primary,
-                          borderColor: '#D98C96',
+                          borderColor: '#1F8A86',
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)'
@@ -184,7 +184,7 @@ const Schedule = () => {
                       <div className="flex-1 pl-4">
                         <div 
                           className="timeline-description font-poppins"
-                          style={{ color: '#6F2D36', opacity: 0.9, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                          style={{ color: '#0a3F3D', opacity: 0.9, fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                         >
                               {event.title}
                             </div>
@@ -201,7 +201,7 @@ const Schedule = () => {
             <div className="text-center">
                   <p 
                     className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
-                    style={{ color: '#6F2D36', opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
+                    style={{ color: '#0a3F3D', opacity: 0.9, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}
                   >
                     Looking forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
                   </p>

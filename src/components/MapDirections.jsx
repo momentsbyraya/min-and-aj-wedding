@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+﻿import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiNavigation2 } from 'react-icons/fi'
@@ -112,7 +112,7 @@ const MapDirections = () => {
                     </React.Fragment>
                   ))}
                 </h3>
-                <p className="font-poppins" style={{ color: '#6F2D36', fontSize: '14px' }}>
+                <p className="font-poppins" style={{ color: '#0a3F3D', fontSize: '14px' }}>
                   {venues.main.address}, {venues.main.city}, {venues.main.state} {venues.main.zip}
                 </p>
               </div>

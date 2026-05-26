@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import GraphicLink from './GraphicLink'
 import { FiExternalLink } from 'react-icons/fi'
 import { gsap } from 'gsap'
@@ -52,7 +52,7 @@ const OurGiftSection = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-28 md:pt-44 md:pb-36"
-      style={{ backgroundColor: '#F9E8F0' }}
+      style={{ backgroundColor: '#E1F4F3' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -65,7 +65,7 @@ const OurGiftSection = () => {
 
       {/* Mirrored overlays (pink wash anchors on the right, matching right-aligned copy) */}
       <div className="pointer-events-none absolute inset-0 z-[1]" style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }} aria-hidden>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#E8A9BC]/90 via-[#F5CAD7]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#48B5B1]/90 via-[#C9E5E4]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
@@ -99,7 +99,7 @@ const OurGiftSection = () => {
       <div className="relative z-20 ml-auto mr-0 flex w-full max-w-lg justify-end px-5 sm:px-8">
         <div className="overflow-hidden">
           <div ref={contentRef} className="py-5 text-right">
-            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#6F2D36' }}>
+            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#0a3F3D' }}>
               {eyebrow ? (
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   {eyebrow.toLowerCase()}
@@ -117,7 +117,7 @@ const OurGiftSection = () => {
             {intro ? (
               <p
                 className="ml-auto w-[60%] max-w-full pb-4 font-poppins text-xs leading-snug font-light sm:text-[0.8125rem]"
-                style={{ color: '#6F2D36' }}
+                style={{ color: '#0a3F3D' }}
               >
                 {intro}
               </p>

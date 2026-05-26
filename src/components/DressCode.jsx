@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { dresscode } from '../data'
@@ -65,7 +65,7 @@ const DressCode = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-32 md:pb-32"
-      style={{ backgroundColor: '#F9E8F0' }}
+      style={{ backgroundColor: '#E1F4F3' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -80,7 +80,7 @@ const DressCode = () => {
             </span>
           </h2>
         </div>
-        <p ref={noteRef} className="font-halimun mx-auto mb-4 mt-1 max-w-sm text-center text-xl leading-none" style={{ color: '#6F2D36' }}>
+        <p ref={noteRef} className="font-halimun mx-auto mb-4 mt-1 max-w-sm text-center text-xl leading-none" style={{ color: '#0a3F3D' }}>
           note
         </p>
 
@@ -115,7 +115,7 @@ const DressCode = () => {
           >
             {mainDressCode.title}
           </p>
-          <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#6F2D36' }}>
+          <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#0a3F3D' }}>
             {mainDressCode.description.split('\n').map((line, i) => (
               <React.Fragment key={i}>
                 {i > 0 ? <br /> : null}

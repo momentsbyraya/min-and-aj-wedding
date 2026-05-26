@@ -1,4 +1,4 @@
-.hero-section {
+﻿.hero-section {
   position: relative;
 }
 
@@ -21,7 +21,7 @@
   left: 0;
   right: 0;
   height: 40%;
-  background: linear-gradient(to top, rgba(245, 219, 206, 0.45), transparent);
+  background: linear-gradient(to top, rgba(218, 240, 238, 0.45), transparent);
   z-index: 1;
 }
 
@@ -76,6 +76,6 @@
 .hero-music-button {
   background-color: rgba(245, 241, 235, 0.2);
   backdrop-filter: blur(10px);
-  color: #f7f2f6;
+  color: #eef7f6;
 }
 

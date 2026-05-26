@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
@@ -91,7 +91,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #8b6755;
-  background-color: #faf6f9; /* Page background — soft pink */
+  background-color: #F0FAF9; /* Page background — soft pink */
 }
 
 @layer base {
@@ -153,7 +153,8 @@ body {
   }
   
   /* Poppins font */
-  .font-poppins {
+  .font-poppins,
+  .font-poppins * {
     font-family: 'Poppins', sans-serif !important;
   }
   
@@ -187,7 +188,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #C47A8F !important;
+    background-color: #076e6b !important;
   }
   
   footer a:hover,
@@ -393,10 +394,10 @@ body {
   .eighteenths-title-gradient {
     background: linear-gradient(
       110deg,
-      #fff9f8 0%,
-      #fde8ef 22%,
-      #f5b8c9 50%,
-      #fff5f8 88%,
+      #F6FBFA 0%,
+      #DDF1F0 22%,
+      #A8DBD9 50%,
+      #F4FAF9 88%,
       #ffffff 100%
     );
     -webkit-background-clip: text;
@@ -480,48 +481,6 @@ body {
     font-style: normal !important;
   }
 
-  .opening-flower-wind-layer {
-    min-height: 100vh;
-  }
-
-  .opening-flower-petal {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: clamp(26px, 4.2vw, 56px);
-    height: auto;
-    object-fit: contain;
-    animation-name: openingFlowerBlow;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    opacity: 0.95;
-    user-select: none;
-    pointer-events: none;
-    z-index: 0;
-    filter: drop-shadow(0 0 12px rgba(245, 219, 206, 0.75));
-  }
-
-  @keyframes openingFlowerBlow {
-    0% {
-      transform: translate3d(var(--start-x, 90vw), var(--start-y, 20vh), 0) rotate(0deg) scale(0.9);
-      opacity: 0;
-    }
-    15% {
-      opacity: 0.95;
-    }
-    55% {
-      transform: translate3d(
-        calc((var(--start-x, 90vw) + var(--end-x, 12vw)) / 2),
-        calc((var(--start-y, 20vh) + var(--end-y, 70vh)) / 2),
-        0
-      ) rotate(140deg) scale(1);
-      opacity: 0.95;
-    }
-    100% {
-      transform: translate3d(var(--end-x, 12vw), var(--end-y, 70vh), 0) rotate(260deg) scale(0.92);
-      opacity: 0;
-    }
-  }
   
   /* Prevent transform overflow issues */
   .transform-safe {
@@ -583,7 +542,7 @@ body {
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #faf4f8;
+  --envelope-bg: #F0FAF9;
   --envelope-shadow: #d4c5b0;
   --heart-bg: darkred;
   --heart-text: white;
@@ -945,36 +904,6 @@ body {
   }
 }
 
-.hero-falling-flower {
-  position: absolute;
-  top: -12vh;
-  width: var(--flower-size, clamp(20px, 3.2vw, 42px));
-  height: auto;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 6px rgba(245, 219, 206, 0.6));
-  animation-name: heroFlowerFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes heroFlowerFall {
-  0% {
-    transform: translate3d(0, -8vh, 0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.85;
-  }
-  50% {
-    transform: translate3d(18px, 48vh, 0) rotate(140deg);
-    opacity: 0.85;
-  }
-  100% {
-    transform: translate3d(-12px, 112vh, 0) rotate(300deg);
-    opacity: 0;
-  }
-}
-
 /* Watermark for client approval */
 .watermark-approval {
   position: fixed;
@@ -1197,9 +1126,9 @@ body {
 .soft-blob {
   position: absolute;
   border-radius: 42% 58% 53% 47% / 44% 39% 61% 56%;
-  background: rgba(226, 139, 145, 0.3);
+  background: rgba(42, 154, 150, 0.3);
   filter: blur(10px);
-  box-shadow: 0 0 24px rgba(226, 139, 145, 0.24);
+  box-shadow: 0 0 24px rgba(42, 154, 150, 0.24);
   pointer-events: none;
   overflow: visible;
   isolation: isolate;
@@ -1223,7 +1152,7 @@ body {
 
 .soft-blob--alt {
   border-radius: 61% 39% 49% 51% / 52% 62% 38% 48%;
-  background: rgba(232, 170, 190, 0.28);
+  background: rgba(72, 181, 177, 0.28);
   animation-duration: 16s;
 }
 
@@ -1234,12 +1163,10 @@ body {
 
 .intro-flower-banner {
   transform-origin: top center;
-  animation: introFlowerBannerBreath 7s ease-in-out infinite;
 }
 
 .schedule-flower-banner-bottom {
   transform-origin: center;
-  animation: scheduleFlowerBannerBreath 7s ease-in-out infinite;
 }
 
 /* Keep flower banners behind section text/content */
@@ -1247,6 +1174,56 @@ body {
 .schedule-flower-banner-bottom,
 .gallery-flower-banner {
   z-index: 1 !important;
+}
+
+/* Active calendar day: transparent center + gold gradient border */
+.calendar-day-active {
+  background-image:
+    linear-gradient(#0a8885, #0a8885),
+    linear-gradient(135deg, #BF953F, #FCF6BA, #AA771C);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  border: 2px solid transparent;
+  color: #ffffff;
+}
+
+/* Safari safety net: ensure gradient-text spans using Tailwind's
+   `bg-clip-text text-transparent` combo actually render the gradient
+   on iOS Safari (some builds need `-webkit-text-fill-color: transparent`). */
+.bg-clip-text.text-transparent,
+.text-transparent.bg-clip-text {
+  -webkit-text-fill-color: transparent;
+}
+
+/* Four corner accent images (intro/calendar section) */
+.intro-corner-accent {
+  width: clamp(120px, 28vw, 240px);
+  z-index: 1 !important;
+  user-select: none;
+}
+
+.intro-corner-accent--lantern,
+.intro-corner-accent--fan {
+  width: clamp(180px, 42vw, 360px);
+}
+
+.intro-corner-accent--flower-left {
+  width: 80vw;
+}
+
+.intro-corner-accent--flower-right {
+  width: 60vw;
+}
+
+@media (min-width: 768px) {
+  .intro-corner-accent {
+    width: clamp(180px, 22vw, 300px);
+  }
+
+  .intro-corner-accent--lantern,
+  .intro-corner-accent--fan {
+    width: clamp(260px, 32vw, 440px);
+  }
 }
 
 @media (min-width: 992px) {
@@ -1265,24 +1242,6 @@ body {
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
-@keyframes introFlowerBannerBreath {
-  0%, 100% {
-    transform: translateX(-50%) scale(1);
-  }
-  50% {
-    transform: translateX(-50%) scale(1.03);
-  }
-}
-
-@keyframes scheduleFlowerBannerBreath {
-  0%, 100% {
-    transform: translateX(-50%) rotate(180deg) scale(1);
-  }
-  50% {
-    transform: translateX(-50%) rotate(180deg) scale(1.03);
-  }
-}
-
 @keyframes softBlobInnerFloat {
   0% { transform: translate3d(0, 0, 0) rotate(-12deg) scale(1); }
   50% { transform: translate3d(2px, -3px, 0) rotate(-6deg) scale(1.06); }
@@ -1292,11 +1251,11 @@ body {
 @keyframes attendancePulseGlow {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 8px rgba(226, 139, 145, 0.42)) drop-shadow(0 3px 10px rgba(226, 139, 145, 0.32));
+    filter: drop-shadow(0 0 8px rgba(42, 154, 150, 0.42)) drop-shadow(0 3px 10px rgba(42, 154, 150, 0.32));
   }
   50% {
     transform: scale(1.04);
-    filter: drop-shadow(0 0 14px rgba(226, 139, 145, 0.55)) drop-shadow(0 5px 18px rgba(226, 139, 145, 0.45));
+    filter: drop-shadow(0 0 14px rgba(42, 154, 150, 0.55)) drop-shadow(0 5px 18px rgba(42, 154, 150, 0.45));
   }
 }
 
@@ -1329,7 +1288,7 @@ body {
 }
 
 .graphic-button:focus-visible {
-  outline: 2px solid #6f2d36;
+  outline: 2px solid #0a3F3D;
   outline-offset: 3px;
 }
 
@@ -1339,7 +1298,7 @@ body {
   justify-content: center;
   gap: 0.35rem;
   font-size: 0.8125rem;
-  color: #6f2d36;
+  color: #0a3F3D;
   text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
   white-space: nowrap;
   pointer-events: none;
@@ -1400,8 +1359,11 @@ body {
 
 .section-title-graphic-inner {
   text-align: center;
-  color: #6f2d36;
-  text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
+  background-image: linear-gradient(to right, #BF953F, #FCF6BA, #AA771C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   line-height: 1.2;
 }
 
@@ -1418,8 +1380,8 @@ body {
 }
 
 .section-title-graphic-inner--light {
-  color: #f7f2f6;
-  text-shadow: 0 1px 2px rgba(55, 30, 40, 0.22);
+  color: #eef7f6;
+  text-shadow: 0 1px 2px rgba(10, 63, 61, 0.22);
 }
 
 /* Gallery grid: golden frame overlay + inset photo (80% scale) */
@@ -1507,17 +1469,17 @@ body {
   justify-content: center;
   background: radial-gradient(
     circle at 32% 26%,
-    #fffafc 0%,
-    #fceef3 38%,
-    #f6dce8 72%,
-    #efd4e0 100%
+    #F8FCFB 0%,
+    #E5F4F2 38%,
+    #D9F0EF 72%,
+    #CCEBEA 100%
   );
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow:
-    0 0 22px rgba(252, 224, 234, 0.95),
-    0 8px 26px rgba(220, 150, 168, 0.3),
+    0 0 22px rgba(220, 240, 238, 0.95),
+    0 8px 26px rgba(72, 181, 177, 0.3),
     inset 0 2px 12px rgba(255, 255, 255, 0.58),
-    inset 0 -8px 18px rgba(226, 160, 176, 0.16);
+    inset 0 -8px 18px rgba(72, 181, 177, 0.16);
 }
 
 /* Celebrant story: frame + aspect box; feather comes from `.soft-edges img` */
@@ -1538,7 +1500,7 @@ body {
 .intro-content-soft-panel {
   position: relative;
   overflow: hidden;
-  background: rgba(250, 228, 238, 0.94);
+  background: rgba(220, 240, 238, 0.94);
   mask-image:
     radial-gradient(ellipse 100% 88% at 50% 50%, black 25%, transparent 65%),
     linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);

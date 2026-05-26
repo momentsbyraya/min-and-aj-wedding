@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react'
+﻿import React, { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 const Hero = () => {
@@ -91,7 +91,7 @@ const Hero = () => {
               ref={birthdayLineRef}
               className="uppercase leading-tight m-0 opacity-92"
               style={{
-                color: '#6F2D36',
+                color: '#0a3F3D',
                 fontSize: 'clamp(0.6875rem, 2.25vw, 1rem)',
                 letterSpacing: '0.1em'
               }}

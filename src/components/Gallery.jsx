@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState } from 'react'
+﻿import React, { useMemo, useRef, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -26,7 +26,7 @@ const Gallery = () => {
   }, [])
 
   const bannerImage = galleryPrenups.bannerImage ?? '/images/graphics/palace.png'
-  const galleryBlushBg = '#F9E8F0'
+  const galleryBlushBg = '#E1F4F3'
 
   const titleRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)

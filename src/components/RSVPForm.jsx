@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+﻿import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { Link, useNavigate } from 'react-router-dom'
 import { FiArrowLeft, FiMail, FiPhone, FiCheckCircle } from 'react-icons/fi'
@@ -78,7 +78,7 @@ const RSVPForm = () => {
     return (
       <div className="min-h-screen wedding-gradient flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl p-8 text-center card-shadow max-w-md w-full">
-          <FiCheckCircle className="w-16 h-16 text-[#E28B91] mx-auto mb-4" />
+          <FiCheckCircle className="w-16 h-16 text-[#2A9A96] mx-auto mb-4" />
           <h2 className="text-2xl font-serif text-wedding-800 mb-4">
             Thank You!
           </h2>
@@ -104,7 +104,7 @@ const RSVPForm = () => {
         >
           <Link
             to="/"
-            className="inline-flex items-center space-x-2 text-wedding-700 hover:text-rose-500 transition-colors duration-200 mb-6"
+            className="inline-flex items-center space-x-2 text-wedding-700 hover:text-[#0a8885] transition-colors duration-200 mb-6"
           >
             <FiArrowLeft className="w-5 h-5" />
             <span>Back to Invitation</span>
@@ -141,7 +141,7 @@ const RSVPForm = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors duration-200"
+                    className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-[#0a8885] focus:border-transparent transition-colors duration-200"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -158,7 +158,7 @@ const RSVPForm = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-[#0a8885] focus:border-transparent transition-colors duration-200"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -173,7 +173,7 @@ const RSVPForm = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-[#0a8885] focus:border-transparent transition-colors duration-200"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -194,7 +194,7 @@ const RSVPForm = () => {
                         checked={formData.attending === option}
                         onChange={handleInputChange}
                         required
-                        className="w-4 h-4 text-rose-500 border-wedding-300 focus:ring-rose-500"
+                        className="w-4 h-4 text-[#0a8885] border-wedding-300 focus:ring-[#0a8885]"
                       />
                       <span className="text-wedding-700">{option}</span>
                     </label>
@@ -216,7 +216,7 @@ const RSVPForm = () => {
                       name="numberOfGuests"
                       value={formData.numberOfGuests}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-[#0a8885] focus:border-transparent transition-colors duration-200"
                     >
                       {[1, 2, 3, 4, 5, 6].map(num => (
                         <option key={num} value={num}>{num} {num === 1 ? 'Guest' : 'Guests'}</option>
@@ -241,7 +241,7 @@ const RSVPForm = () => {
                       value={formData.dietaryRestrictions}
                       onChange={handleInputChange}
                       rows="3"
-                      className="w-full px-4 py-4 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors duration-200"
+                      className="w-full px-4 py-4 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-[#0a8885] focus:border-transparent transition-colors duration-200"
                       placeholder="Any dietary restrictions, allergies, or special requirements..."
                     />
                   </div>
@@ -259,7 +259,7 @@ const RSVPForm = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows="4"
-                  className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors duration-200"
+                  className="w-full px-4 py-3 border border-wedding-300 rounded-lg focus:ring-2 focus:ring-[#0a8885] focus:border-transparent transition-colors duration-200"
                   placeholder="Share your excitement, well wishes, or any other message..."
                 />
               </div>
@@ -269,7 +269,7 @@ const RSVPForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full bg-gradient-to-r from-[#0a8885] to-[#076e6b] hover:from-[#076e6b] hover:to-[#054C4A] text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   {isSubmitting ? (
@@ -296,19 +296,19 @@ const RSVPForm = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
               <div className="flex items-center space-x-2">
-                <FiMail className="w-4 h-4 text-rose-500" />
+                <FiMail className="w-4 h-4 text-[#0a8885]" />
                 <a 
                   href={`mailto:${wedding.rsvp.email}`}
-                  className="text-rose-600 hover:text-rose-700 underline"
+                  className="text-[#076e6b] hover:text-[#054C4A] underline"
                 >
                   {wedding.rsvp.email}
                 </a>
               </div>
               <div className="flex items-center space-x-2">
-                <FiPhone className="w-4 h-4 text-rose-500" />
+                <FiPhone className="w-4 h-4 text-[#0a8885]" />
                 <a 
                   href={`tel:${wedding.rsvp.phone}`}
-                  className="text-rose-600 hover:text-rose-700 underline"
+                  className="text-[#076e6b] hover:text-[#054C4A] underline"
                 >
                   {wedding.rsvp.phone}
                 </a>

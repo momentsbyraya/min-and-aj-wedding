@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+﻿import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMail } from 'react-icons/fi'
@@ -75,67 +75,70 @@ const IntroSection = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-28 pb-32 overflow-hidden md:pt-52 md:pb-44"
-      style={{
-        backgroundColor: '#F9E8F0',
-        backgroundImage: 'url(/images/graphics/palace-1.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      style={{ backgroundColor: '#0a8885' }}
     >
       <img
-        src="/images/graphics/flower-banner.png"
-        alt="Floral banner"
-        className="intro-flower-banner absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
-      />
-      <img
-        src="/images/graphics/flower-banner.png"
+        src="/images/graphics/fan%20flower%20-%201.png"
         alt=""
         aria-hidden="true"
-        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 rotate-180 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none' }}
+        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/lantern-1.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/flower-left.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/flower-right.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-10"
       />
       <div className="relative z-20 mx-auto max-w-sm px-5 sm:px-7">
         <p
           ref={copyRef}
           className="mb-6 text-center font-poppins text-sm leading-snug sm:mb-7"
-          style={{ color: '#6F2D36' }}
+          style={{ color: '#EFE9DC' }}
         >
           I am so excited to celebrate my special day with you.
           Thank you for being part of my journey!
         </p>
-        <div style={{ filter: 'drop-shadow(0 10px 28px rgba(55, 30, 40, 0.12))' }}>
-          <div className="intro-content-soft-panel">
-            <div className="px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
-              <div ref={calendarRef} className="w-4/5 mx-auto">
-                <p className="font-rozha text-2xl tracking-[0.12em] uppercase" style={{ color: '#6F2D36' }}>
-                  {monthLabel} {yearLabel}
-                </p>
-                <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-rozha uppercase" style={{ color: '#6F2D36' }}>
-                  {weekLabels.map((label, index) => (
-                    <span key={`${label}-${index}`}>{label}</span>
-                  ))}
-                </div>
-                <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-rozha" style={{ color: '#6F2D36' }}>
-                  {calendarCells.map((day, index) => {
-                    const isSelected = day === selectedDay
-                    return (
-                      <div key={`${day ?? 'empty'}-${index}`} className="flex items-center justify-center">
-                        {day ? (
-                          <span
-                            className={`calendar-day-number flex h-8 w-8 items-center justify-center rounded-full ${isSelected ? 'bg-[#E7AEB5] text-[#6F2D36] border border-[#D98C96]' : ''}`}
-                          >
-                            {day}
-                          </span>
-                        ) : (
-                          <span className="h-8 w-8" />
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
+        <div className="px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
+          <div ref={calendarRef} className="w-4/5 mx-auto">
+            <p className="font-rozha text-2xl tracking-[0.12em] uppercase">
+              <span className="bg-gradient-to-r from-[#E5C988] via-[#FFFEF2] to-[#E5C988] bg-clip-text text-transparent">
+                {monthLabel} {yearLabel}
+              </span>
+            </p>
+            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-rozha uppercase" style={{ color: '#ffffff' }}>
+              {weekLabels.map((label, index) => (
+                <span key={`${label}-${index}`}>{label}</span>
+              ))}
+            </div>
+            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-rozha" style={{ color: '#ffffff' }}>
+              {calendarCells.map((day, index) => {
+                const isSelected = day === selectedDay
+                return (
+                  <div key={`${day ?? 'empty'}-${index}`} className="flex items-center justify-center">
+                    {day ? (
+                      <span
+                        className={`calendar-day-number flex h-8 w-8 items-center justify-center rounded-full ${isSelected ? 'calendar-day-active' : ''}`}
+                      >
+                        {day}
+                      </span>
+                    ) : (
+                      <span className="h-8 w-8" />
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -144,20 +147,22 @@ const IntroSection = () => {
             imageSrc="/images/graphics/button-container.png"
             onClick={() => setIsRsvpModalOpen(true)}
             className="graphic-button--cta attendance-confirm-button shrink-0"
-            contentClassName="font-beautyofthebeast lowercase"
+            contentClassName="font-beautyofthebeast lowercase mb-2"
           >
-            respond
-            <FiMail className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+              respond
+            </span>
+            <FiMail className="h-5 w-5 shrink-0 text-[#D4AF37]" aria-hidden="true" />
           </GraphicButton>
         </div>
       </div>
       {isRsvpModalOpen && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
-          <div className="relative w-screen h-screen bg-[#FDF2F7] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+          <div className="relative w-screen h-screen bg-[#F0FAF9] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#6F2D36]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#0a3F3D]"
             >
               Close
             </button>

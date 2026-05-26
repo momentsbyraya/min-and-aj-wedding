@@ -1,8 +1,8 @@
-{
+﻿{
   "backgrounds": {
     "primary": "bg-gray-900",
     "secondary": "bg-gray-800",
-    "accent": "bg-[#F2C4D4]",
+    "accent": "bg-[#B6DEDC]",
     "light": "bg-white/50",
     "theme": "bg-[#dee5ed]",
     "crumpledPaper": "bg-[url(\"/images/crumpled-paper.png\")] bg-cover bg-center bg-no-repeat"
@@ -10,7 +10,7 @@
   "text": {
     "primary": "text-white",
     "secondary": "text-gray-300",
-    "accent": "text-[#E3B0C4]",
+    "accent": "text-[#0a8885]",
     "muted": "text-gray-400",
     "dark": "text-wedding-800",
     "theme": "text-[#8B6755]",
@@ -20,11 +20,11 @@
   "borders": {
     "primary": "border-gray-700",
     "secondary": "border-gray-600",
-    "accent": "border-[#E3B0C4]",
+    "accent": "border-[#0a8885]",
     "theme": "border-[#8B6755]"
   },
   "buttons": {
-    "primary": "bg-[#E3B0C4] hover:bg-[#C995A8]",
+    "primary": "bg-[#0a8885] hover:bg-[#0a7e7b]",
     "secondary": "border border-gray-600 hover:border-gray-400",
     "text": "text-gray-300 hover:text-white",
     "theme": "bg-[#8B6755] hover:bg-[#8B6755]/80"
@@ -41,12 +41,12 @@
   },
   "calendar": {
     "weddingDate": "2026-06-20",
-    "highlightColor": "bg-[#E3B0C4]",
-    "heartColor": "text-[#E3B0C4]",
+    "highlightColor": "bg-[#0a8885]",
+    "heartColor": "text-[#0a8885]",
     "textColor": "text-gray-700",
     "headerColor": "text-gray-800",
     "dayNamesColor": "text-gray-600",
-    "background": "bg-[#faf6f9]"
+    "background": "bg-[#F0FAF9]"
   },
   "cssVariables": {
     "--primary-bg": "#111827",
@@ -58,10 +58,10 @@
     "--muted-text": "#9ca3af",
     "--border-color": "#374151",
     "--custom-theme": "#dee5ed",
-    "--primary-color": "#E3B0C4"
+    "--primary-color": "#0a8885"
   },
   "colors": {
-    "primary": "#E3B0C4",
-    "tertiary": "#C47A8F"
+    "primary": "#0a8885",
+    "tertiary": "#076e6b"
   }
 }

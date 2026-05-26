@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { celebrant } from '../data'
@@ -46,7 +46,7 @@ const CelebrantStory = ({ onImageClick }) => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden pt-40 pb-20" style={{ backgroundColor: '#F9E8F0' }}>
+    <section ref={sectionRef} className="relative w-full overflow-hidden pt-40 pb-20" style={{ backgroundColor: '#E1F4F3' }}>
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-left bg-no-repeat"
         style={{
@@ -80,7 +80,7 @@ const CelebrantStory = ({ onImageClick }) => {
         <p
           ref={paragraphRef}
           className="font-poppins text-sm leading-relaxed"
-          style={{ color: '#6F2D36' }}
+          style={{ color: '#0a3F3D' }}
           dangerouslySetInnerHTML={{ __html: about?.bioHtml ?? '' }}
         />
 
@@ -95,7 +95,7 @@ const CelebrantStory = ({ onImageClick }) => {
         <div
           ref={imageRef}
           className="mt-8 flex justify-center px-2"
-          style={{ filter: 'drop-shadow(0 12px 28px rgba(55, 30, 40, 0.12))' }}
+          style={{ filter: 'drop-shadow(0 12px 28px rgba(10, 63, 61, 0.12))' }}
         >
           <div className="soft-edges celebrant-story-photo-frame relative aspect-[3/4] w-full max-w-[min(100%,420px)]">
             <img

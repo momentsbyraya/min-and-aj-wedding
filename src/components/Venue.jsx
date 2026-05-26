@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowRight } from 'react-icons/fi'
@@ -13,6 +13,7 @@ const Venue = () => {
   const venuePhotoRef = useRef(null)
   const venueNameRef = useRef(null)
   const buttonRef = useRef(null)
+  const fanBannerRef = useRef(null)
   const venueData = venuesData.venue
   const directionsUrl = venueData.googleMapsUrl || venueData.directionsUrl || '#'
   const venuePhotoUrl = '/images/venue/venue.png'
@@ -50,6 +51,17 @@ const Venue = () => {
         { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' },
         '-=0.2'
       )
+      .fromTo(
+        fanBannerRef.current,
+        { opacity: 0, y: '40%' },
+        {
+          opacity: 1,
+          y: '0%',
+          duration: 1,
+          ease: 'power3.out'
+        },
+        0
+      )
 
     return () => {
       tl.kill()
@@ -60,66 +72,53 @@ const Venue = () => {
     <section
       ref={sectionRef}
       className="relative py-20 w-full overflow-hidden"
-      style={{ backgroundColor: '#F9E8F0' }}
+      style={{ backgroundColor: '#0a8885' }}
     >
-      <div
-        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/images/graphics/palace-2.png)',
-          opacity: 0.6
-        }}
-        aria-hidden="true"
-      />
       <img
-        src="/images/graphics/flower-banner.png"
-        alt="Floral banner"
-        className="intro-flower-banner pointer-events-none absolute left-1/2 top-0 z-10 h-auto -translate-x-1/2"
-        style={{ width: '100vw', maxWidth: 'none' }}
-      />
-      <img
-        src="/images/graphics/flower-banner.png"
+        ref={fanBannerRef}
+        src="/images/graphics/fan-banner.png"
         alt=""
         aria-hidden="true"
-        className="schedule-flower-banner-bottom pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto -translate-x-1/2 rotate-180"
-        style={{ width: '100vw', maxWidth: 'none' }}
+        className="pointer-events-none absolute bottom-0 left-0 z-[5] h-auto"
+        style={{ width: '100vw' }}
       />
-      <div className="relative z-20 w-full max-w-md mx-auto px-4 text-center">
+      <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
         <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-10">
           <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
             The Venue
           </span>
         </h2>
 
-        <div style={{ filter: 'drop-shadow(0 10px 28px rgba(55, 30, 40, 0.12))' }}>
-          <div className="intro-content-soft-panel">
-            <div className="px-6 py-8 text-center sm:px-9 sm:py-10 md:px-10 md:py-12">
-              <div ref={venuePhotoRef} className="mb-5 flex justify-center md:mb-6">
-                <img
-                  src={venuePhotoUrl}
-                  alt={venueData.name ? `Venue — ${venueData.name}` : 'Venue photo'}
-                  className="h-auto w-full max-w-[300px] object-contain"
-                />
-              </div>
+        <div className="px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12">
+          <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
+            <div ref={venuePhotoRef} className="flex shrink-0 justify-center">
+              <img
+                src={venuePhotoUrl}
+                alt={venueData.name ? `Venue — ${venueData.name}` : 'Venue photo'}
+                className="h-auto w-[40vw] max-w-[260px] object-contain"
+              />
+            </div>
 
-              <div ref={venueNameRef} className="text-center" style={{ color: '#6F2D36' }}>
-                {venueData.name ? (
-                  <p className="font-beautyofthebeast text-xl capitalize leading-tight tracking-[0.02em] sm:text-2xl">
+            <div ref={venueNameRef} className="min-w-0 flex-1 text-left">
+              {venueData.name ? (
+                <p className="font-poppins text-lg capitalize leading-tight tracking-[0.02em] sm:text-xl md:text-2xl">
+                  <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
                     {venueData.name}
-                  </p>
-                ) : null}
-                {venueData.main?.time || venueData.address ? (
-                  <div className="mt-3 space-y-1 font-poppins">
-                    {venueData.main?.time ? (
-                      <p className="text-base tracking-[0.04em] opacity-90">({venueData.main.time})</p>
-                    ) : null}
-                    {venueData.address ? (
-                      <p className="text-sm tracking-[0.04em] opacity-90">
-                        {venueData.address}, {venueData.state}
-                      </p>
-                    ) : null}
-                  </div>
-                ) : null}
-              </div>
+                  </span>
+                </p>
+              ) : null}
+              {venueData.main?.time || venueData.address ? (
+                <div className="mt-3 space-y-1 font-poppins" style={{ color: '#EFE9DC' }}>
+                  {venueData.main?.time ? (
+                    <p className="text-sm tracking-[0.04em] opacity-90 sm:text-base">({venueData.main.time})</p>
+                  ) : null}
+                  {venueData.address ? (
+                    <p className="text-xs tracking-[0.04em] opacity-90 sm:text-sm">
+                      {venueData.address}, {venueData.state}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -132,10 +131,12 @@ const Venue = () => {
             rel="noreferrer"
             imageSrc="/images/graphics/button-container.png"
             className="graphic-button--cta attendance-confirm-button mx-auto shrink-0"
-            contentClassName="font-beautyofthebeast lowercase"
+            contentClassName="font-beautyofthebeast lowercase mb-2"
           >
-            get direction
-            <FiArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+              get direction
+            </span>
+            <FiArrowRight className="h-5 w-5 shrink-0 text-[#D4AF37]" aria-hidden="true" />
           </GraphicLink>
         </div>
       </div>

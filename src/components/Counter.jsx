@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
@@ -58,20 +58,20 @@ const Counter = ({ countdown }) => {
             90deg,
             ${theme.colors.primary} 0,
             ${theme.colors.primary} var(--stripe-unit),
-            #f4eef3 var(--stripe-unit),
-            #f4eef3 calc(var(--stripe-unit) * 2),
+            #EBF6F5 var(--stripe-unit),
+            #EBF6F5 calc(var(--stripe-unit) * 2),
             ${theme.colors.tertiary} calc(var(--stripe-unit) * 2),
             ${theme.colors.tertiary} calc(var(--stripe-unit) * 3),
-            #f4eef3 calc(var(--stripe-unit) * 3),
-            #f4eef3 calc(var(--stripe-unit) * 4),
+            #EBF6F5 calc(var(--stripe-unit) * 3),
+            #EBF6F5 calc(var(--stripe-unit) * 4),
             ${theme.colors.primary} calc(var(--stripe-unit) * 4),
             ${theme.colors.primary} calc(var(--stripe-unit) * 5),
-            #f4eef3 calc(var(--stripe-unit) * 5),
-            #f4eef3 calc(var(--stripe-unit) * 6),
+            #EBF6F5 calc(var(--stripe-unit) * 5),
+            #EBF6F5 calc(var(--stripe-unit) * 6),
             ${theme.colors.tertiary} calc(var(--stripe-unit) * 6),
             ${theme.colors.tertiary} calc(var(--stripe-unit) * 7),
-            #f4eef3 calc(var(--stripe-unit) * 7),
-            #f4eef3 calc(var(--stripe-unit) * 8)
+            #EBF6F5 calc(var(--stripe-unit) * 7),
+            #EBF6F5 calc(var(--stripe-unit) * 8)
           );
         }
         @media (min-width: 768px) and (max-width: 1023px) {
@@ -129,7 +129,7 @@ const Counter = ({ countdown }) => {
            ref={countdownRef}
            className="w-full max-w-4xl mx-auto px-8 sm:px-12 py-8 flex flex-col justify-center counter-inner-container"
            style={{
-             backgroundColor: '#f4eef3',
+             backgroundColor: '#EBF6F5',
              border: `0.5px solid ${theme.colors.primary}`,
              outline: `0.5px solid ${theme.colors.primary}`,
              outlineOffset: '-10px',

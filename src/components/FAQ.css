@@ -1,10 +1,10 @@
-/* FAQ — layout aligned with kevin-and-rea-wedding FAQSection; colors for debut theme */
+﻿/* FAQ — layout aligned with kevin-and-rea-wedding FAQSection; colors for debut theme */
 .faq-section {
   padding: 4rem 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background-color: #f9d9e6;
+  background-color: #D0EAE8;
   position: relative;
   overflow: hidden;
 }
@@ -20,7 +20,7 @@
 .faq-answer-body {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 400 !important;
-  color: #6f2d36;
+  color: #0a3F3D;
 }
 
 .faq-answer-body *,
@@ -36,7 +36,7 @@
 }
 
 .faq-answer-body a {
-  color: #6f2d36;
+  color: #0a3F3D;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -65,7 +65,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  color: #6f2d36;
+  color: #0a3F3D;
   text-align: left;
   border-radius: 0.25rem;
   transition: opacity 0.2s ease, background-color 0.2s ease;
@@ -76,7 +76,7 @@
 }
 
 .faq-question-trigger:focus-visible {
-  outline: 2px solid #6f2d36;
+  outline: 2px solid #0a3F3D;
   outline-offset: 2px;
 }
 
@@ -90,7 +90,7 @@
   height: 1.25rem;
   flex-shrink: 0;
   transition: transform 0.3s ease;
-  color: #6f2d36;
+  color: #0a3F3D;
 }
 
 .faq-chevron--open {

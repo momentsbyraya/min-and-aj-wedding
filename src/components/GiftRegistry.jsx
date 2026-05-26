@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
@@ -89,7 +89,7 @@ const GiftRegistry = () => {
             <h2 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-6" style={{ color: '#4b2259' }}>
               Gift Suggestions
             </h2>
-            <p ref={descriptionRef} className="max-w-3xl mx-auto mb-8 font-poppins" style={{ fontSize: '1rem', color: '#6F2D36' }}>
+            <p ref={descriptionRef} className="max-w-3xl mx-auto mb-8 font-poppins" style={{ fontSize: '1rem', color: '#0a3F3D' }}>
               Your presence is the greatest gift, but if you'd like to give something special, 
               I would appreciate:
             </p>

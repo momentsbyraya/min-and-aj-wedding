@@ -1,7 +1,7 @@
-/* DetailsSection Styles */
+﻿/* DetailsSection Styles */
 
 .details-section {
-  background-color: #f7f2f6;
+  background-color: #eef7f6;
   padding: 4rem 2rem;
 }
 
@@ -14,11 +14,11 @@
 }
 
 .details-title {
-  color: var(--primary-color, #F2C4D4);
+  color: var(--primary-color, #B6DEDC);
 }
 
 .details-tournament-entry {
-  color: var(--primary-color, #F2C4D4);
+  color: var(--primary-color, #B6DEDC);
   font-weight: 900;
   line-height: 1;
   margin-top: -0.4em;
@@ -26,20 +26,20 @@
 }
 
 .details-text-primary {
-  color: var(--primary-color, #F2C4D4);
+  color: var(--primary-color, #B6DEDC);
   font-size: 1rem;
 }
 
 .details-rsvp-heading,
 .details-gift-heading {
-  color: var(--primary-color, #F2C4D4);
+  color: var(--primary-color, #B6DEDC);
 }
 
 .details-button {
   border-radius: 0;
-  color: #f7f2f6;
-  border: 0.5px solid var(--primary-color, #F2C4D4);
-  outline: 0.5px solid #f7f2f6;
+  color: #eef7f6;
+  border: 0.5px solid var(--primary-color, #B6DEDC);
+  outline: 0.5px solid #eef7f6;
   outline-offset: -5px;
   font-family: 'Poppins', sans-serif;
   font: normal normal 400 1rem 'Poppins', sans-serif;
@@ -65,7 +65,7 @@
 }
 
 .details-gift-link-tertiary {
-  color: var(--tertiary-color, #e7236a);
+  color: var(--tertiary-color, #076e6b);
 }
 
 .details-strong-text {
