@@ -96,13 +96,13 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div>
               <CountdownSection />
             </div>
-            <footer className="wedding-invitation-footer bg-black/30">
+            <footer className="wedding-invitation-footer bg-[#e20964]">
               <a
                 href="https://www.facebook.com/profile.php?id=61571540978411"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit Moments by Raya page"
-                className="wedding-invitation-footer-link text-white hover:text-white inline-flex items-center gap-1.5"
+                className="wedding-invitation-footer-link text-[#EFE9DC] hover:text-[#EFE9DC] inline-flex items-center gap-1.5"
               >
                 <span>Made with</span>
                 <FiHeart className="h-4 w-4 shrink-0" aria-hidden="true" />

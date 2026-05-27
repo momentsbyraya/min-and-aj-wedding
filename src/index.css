@@ -91,7 +91,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #8b6755;
-  background-color: #F0FAF9; /* Page background — soft pink */
+  background-color: #fdf2f7; /* Page background — soft pink */
 }
 
 @layer base {
@@ -188,7 +188,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #076e6b !important;
+    background-color: #80043a !important;
   }
   
   footer a:hover,
@@ -542,7 +542,7 @@ body {
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #F0FAF9;
+  --envelope-bg: #fdf2f7;
   --envelope-shadow: #d4c5b0;
   --heart-bg: darkred;
   --heart-text: white;
@@ -1152,7 +1152,7 @@ body {
 
 .soft-blob--alt {
   border-radius: 61% 39% 49% 51% / 52% 62% 38% 48%;
-  background: rgba(72, 181, 177, 0.28);
+  background: rgba(237, 92, 149, 0.28);
   animation-duration: 16s;
 }
 
@@ -1179,7 +1179,7 @@ body {
 /* Active calendar day: transparent center + gold gradient border */
 .calendar-day-active {
   background-image:
-    linear-gradient(#0a8885, #0a8885),
+    linear-gradient(#e20964, #e20964),
     linear-gradient(135deg, #BF953F, #FCF6BA, #AA771C);
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
@@ -1251,11 +1251,11 @@ body {
 @keyframes attendancePulseGlow {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 8px rgba(42, 154, 150, 0.42)) drop-shadow(0 3px 10px rgba(42, 154, 150, 0.32));
+    filter: drop-shadow(0 1px 4px rgba(92, 2, 40, 0.18));
   }
   50% {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 14px rgba(42, 154, 150, 0.55)) drop-shadow(0 5px 18px rgba(42, 154, 150, 0.45));
+    transform: scale(1.025);
+    filter: drop-shadow(0 2px 8px rgba(92, 2, 40, 0.24));
   }
 }
 
@@ -1288,7 +1288,7 @@ body {
 }
 
 .graphic-button:focus-visible {
-  outline: 2px solid #0a3F3D;
+  outline: 2px solid #80043a;
   outline-offset: 3px;
 }
 
@@ -1298,7 +1298,7 @@ body {
   justify-content: center;
   gap: 0.35rem;
   font-size: 0.8125rem;
-  color: #0a3F3D;
+  color: #80043a;
   text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
   white-space: nowrap;
   pointer-events: none;
@@ -1380,8 +1380,8 @@ body {
 }
 
 .section-title-graphic-inner--light {
-  color: #eef7f6;
-  text-shadow: 0 1px 2px rgba(10, 63, 61, 0.22);
+  color: #fdf2f7;
+  text-shadow: 0 1px 2px rgba(128, 4, 58, 0.22);
 }
 
 /* Gallery grid: golden frame overlay + inset photo (80% scale) */
@@ -1501,5 +1501,36 @@ body {
     linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
+}
+
+@keyframes dresscodeSwatchGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter:
+      drop-shadow(0 0 3px rgba(255, 182, 211, 0.35))
+      drop-shadow(0 0 8px rgba(226, 9, 100, 0.25));
+  }
+  50% {
+    transform: scale(1.04);
+    filter:
+      drop-shadow(0 0 16px rgba(255, 220, 235, 0.95))
+      drop-shadow(0 0 34px rgba(226, 9, 100, 0.85))
+      drop-shadow(0 0 58px rgba(243, 152, 188, 0.55));
+  }
+}
+
+.dresscode-swatch-glow {
+  animation: dresscodeSwatchGlow 2.2s ease-in-out infinite;
+  transform-origin: center;
+  will-change: filter, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dresscode-swatch-glow {
+    animation: none;
+    filter:
+      drop-shadow(0 0 8px rgba(255, 182, 211, 0.6))
+      drop-shadow(0 0 18px rgba(226, 9, 100, 0.5));
+  }
 }
 

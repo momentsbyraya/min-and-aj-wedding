@@ -131,7 +131,7 @@ const CategorySection = ({ category, scrollerElement }) => {
     <div className={innerClass} data-eighteenths-category={panel.variant}>
       <h3
         className="mb-6 flex w-full justify-center pt-10 text-2xl sm:pt-14 sm:text-3xl md:pt-16 md:text-[2.125rem] lg:text-4xl"
-        style={{ color: '#0a3F3D', overflow: 'visible' }}
+        style={{ color: '#80043a', overflow: 'visible' }}
       >
         <div ref={titleRef} className="eighteenths-modal-title-wrap inline-block text-center">
           <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
@@ -149,7 +149,7 @@ const CategorySection = ({ category, scrollerElement }) => {
             key={index}
             className="font-poppins max-w-none text-[11px] sm:text-xs"
             style={{
-              color: '#0a3F3D',
+              color: '#80043a',
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
               whiteSpace: 'nowrap',

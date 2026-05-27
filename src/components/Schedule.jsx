@@ -91,7 +91,7 @@ const Schedule = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
-      style={{ backgroundColor: '#E1F4F3' }}
+      style={{ backgroundColor: '#fce3ee' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-right bg-no-repeat"
@@ -147,7 +147,7 @@ const Schedule = () => {
                 ref={lineRef}
                 className="absolute w-0.5"
                 style={{ 
-                  backgroundColor: '#D4AF37', 
+                  backgroundColor: '#e20964', 
                   left: '50%',
                   transform: 'translateX(-50%)',
                   top: 0,
@@ -182,8 +182,8 @@ const Schedule = () => {
                       <div
                         className="timeline-dot absolute z-10 h-4 w-4 rounded-full border-2"
                         style={{
-                          backgroundColor: '#D4AF37',
-                          borderColor: '#BF953F',
+                          backgroundColor: '#e20964',
+                          borderColor: '#80043a',
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)'

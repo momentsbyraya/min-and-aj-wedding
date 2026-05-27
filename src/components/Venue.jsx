@@ -72,7 +72,7 @@ const Venue = () => {
     <section
       ref={sectionRef}
       className="relative py-20 w-full overflow-hidden"
-      style={{ backgroundColor: '#0a8885' }}
+      style={{ backgroundColor: '#e20964' }}
     >
       <img
         ref={fanBannerRef}

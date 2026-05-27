@@ -4,10 +4,10 @@
     "phone": "",
     "website": "https://example.rsvp",
     "formUrl": "https://forms.gle/J58WkXLVY88nfiX1A",
-    "message": "Please RSVP when you can so we can finalize seating, catering, and the program."
+    "message": "Please RSVP on or before June 15 so we can finalize seating, catering, and the program."
   },
   "theme": {
-    "primaryColor": "#B6DEDC",
+    "primaryColor": "#e20964",
     "secondaryColor": "rose-400",
     "accentColor": "gold-500",
     "fontFamily": "serif",
@@ -24,17 +24,17 @@
     "background": "/images/background-pattern.jpg"
   },
   "details": {
-    "hashtag": "#YreneaTurns18",
+    "hashtag": "#ShanaraTurns18",
     "website": "https://example.com",
     "registry": "https://registry.example.com",
-    "message": "We're excited to celebrate Yrenea's special milestone with you!",
+    "message": "We're excited to celebrate Shanara's special milestone with you!",
     "covidInfo": "We're following local health guidelines. Please stay home if you're feeling unwell."
   },
   "giftSection": {
     "eyebrow": "Wish list",
     "titleLead": "gift",
     "titleRest": "ideas",
-    "intro": "Your presence is the greatest gift—truly. If you'd love to spoil me anyway, here's a shortcut to wishes and ideas.",
+    "intro": "Your presence is the greatest gift of all. However, if you wish to give something, any thoughtful token will be deeply appreciated.",
     "ctaLabel": "View registry",
     "ctaUrl": "https://drive.google.com/file/d/1vF0bqH27T2pDpwfREUmcih9inFXfslHy/view?usp=sharing",
     "backgroundImage": "/images/prenup/A7401414.jpg",

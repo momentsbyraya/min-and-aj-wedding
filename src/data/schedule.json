@@ -2,24 +2,31 @@
   "events": [
     {
       "id": 1,
-      "time": "3:30 PM",
+      "time": "4:00 PM",
       "title": "Guest Gathering",
       "description": "Guest gathering and arrivals",
-      "venue": "Doña Estelita"
+      "venue": "Villa Encarnacion Resort & Events Place"
     },
     {
       "id": 2,
-      "time": "4:00 PM",
-      "title": "Pre-Event Activities",
-      "description": "Pre-event activities begin",
-      "venue": "Doña Estelita"
+      "time": "4:30 PM",
+      "title": "Cocktail Hour",
+      "description": "Cocktail hour",
+      "venue": "Villa Encarnacion Resort & Events Place"
     },
     {
       "id": 3,
       "time": "5:00 PM",
       "title": "Program Begins",
       "description": "Main celebration program begins",
-      "venue": "Doña Estelita"
+      "venue": "Villa Encarnacion Resort & Events Place"
+    },
+    {
+      "id": 4,
+      "time": "10:00 PM",
+      "title": "After Party",
+      "description": "After party",
+      "venue": "Villa Encarnacion Resort & Events Place"
     }
   ]
 }

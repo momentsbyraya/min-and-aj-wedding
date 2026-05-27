@@ -82,7 +82,7 @@ const EighteenIntroSection = () => {
       <section
         ref={sectionRef}
         className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-        style={{ backgroundColor: '#E1F4F3' }}
+        style={{ backgroundColor: '#fce3ee' }}
       >
         <div
           className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -177,7 +177,7 @@ const EighteenIntroSection = () => {
       {modalOpen && (
         <div
           className="fixed inset-0 z-[195] flex min-h-0 flex-col"
-          style={{ backgroundColor: '#E1F4F3' }}
+          style={{ backgroundColor: '#fce3ee' }}
           role="dialog"
           aria-modal="true"
           aria-labelledby="eighteen-modal-title"
@@ -212,7 +212,7 @@ const EighteenIntroSection = () => {
           <button
             type="button"
             onClick={closeModal}
-            className="absolute z-20 rounded-full border border-[#0a3F3D]/18 bg-white/90 p-2.5 text-[#0a3F3D] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
+            className="absolute z-20 rounded-full border border-[#80043a]/18 bg-white/90 p-2.5 text-[#80043a] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
             style={{
               top: 'max(1rem, env(safe-area-inset-top))',
               right: 'max(1rem, env(safe-area-inset-right))'

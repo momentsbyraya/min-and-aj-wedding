@@ -60,6 +60,14 @@ const DressCode = () => {
       className="relative w-full overflow-hidden pt-24 pb-44 sm:pt-28 sm:pb-52 md:pt-32 md:pb-60"
       style={{ backgroundColor: '#27032f' }}
     >
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/graphics/purple-gem.png)',
+          opacity: 0.3
+        }}
+        aria-hidden="true"
+      />
       <img
         src="/images/graphics/fan%20flower%20-%201.png"
         alt=""
@@ -97,34 +105,53 @@ const DressCode = () => {
           </div>
         </div>
 
-        <div ref={swatchesRef} className="mt-4 flex flex-wrap items-center justify-center gap-2">
-          {colorPalette.map((c) => (
-            <span
-              key={c.name}
-              title={c.label}
-              className="inline-block w-8 h-8 rounded-full border border-white/70"
-              style={{ backgroundColor: c.hex }}
-            />
-          ))}
+        <div ref={swatchesRef} className="mt-4 flex justify-center">
+          <img
+            src="/images/dresscode/swatch.png"
+            alt={colorPalette.map((c) => c.label).join(', ')}
+            className="dresscode-swatch-glow w-full max-w-[240px] h-auto object-contain"
+          />
         </div>
 
         <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
           <p
             className="font-my-soul leading-none"
             style={{
-              color: '#D97B9C',
+              background: 'linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              WebkitTextFillColor: 'transparent',
               fontSize: 'clamp(2.35rem, 7vw, 3.75rem)'
             }}
           >
             {mainDressCode.title}
           </p>
           <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#ffffff' }}>
-            {mainDressCode.description.split('\n').map((line, i) => (
-              <React.Fragment key={i}>
-                {i > 0 ? <br /> : null}
-                {line}
-              </React.Fragment>
-            ))}
+            {mainDressCode.description.split('\n').map((line, i) => {
+              const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(line.trim())
+              return (
+                <React.Fragment key={i}>
+                  {i > 0 ? <br /> : null}
+                  {isAvoidLine ? (
+                    <span
+                      className="font-semibold"
+                      style={{
+                        background: 'linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%)',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent'
+                      }}
+                    >
+                      {line}
+                    </span>
+                  ) : (
+                    line
+                  )}
+                </React.Fragment>
+              )
+            })}
           </p>
         </div>
       </div>

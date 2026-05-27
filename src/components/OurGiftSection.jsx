@@ -52,7 +52,7 @@ const OurGiftSection = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-28 md:pt-44 md:pb-36"
-      style={{ backgroundColor: '#E1F4F3' }}
+      style={{ backgroundColor: '#fce3ee' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -63,35 +63,35 @@ const OurGiftSection = () => {
         aria-hidden
       />
 
-      {/* Mirrored overlays (teal wash anchors on the right, matching right-aligned copy) */}
+      {/* Mirrored overlays (fuchsia wash anchors on the right, matching right-aligned copy) */}
       <div className="pointer-events-none absolute inset-0 z-[1]" style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }} aria-hidden>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a3F3D]/90 via-[#48B5B1]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#80043a]/90 via-[#ed5c95]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(10, 136, 133, 0.85) 0%, rgba(72, 181, 177, 0.45) 48%, transparent 78%)'
+              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(226, 9, 100, 0.85) 0%, rgba(237, 92, 149, 0.45) 48%, transparent 78%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(10, 63, 61, 0.45) 0%, rgba(10, 136, 133, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(201, 229, 228, 0.65) 0%, transparent 38%, transparent 62%, rgba(170, 215, 213, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(128, 4, 58, 0.45) 0%, rgba(226, 9, 100, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(245, 196, 218, 0.65) 0%, transparent 38%, transparent 62%, rgba(243, 152, 188, 0.5) 100%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(10, 136, 133, 0.75) 0%, rgba(225, 244, 243, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(10, 63, 61, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(226, 9, 100, 0.75) 0%, rgba(252, 227, 238, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(128, 4, 58, 0.5) 0%, transparent 70%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(72, 181, 177, 0.6) 0%, rgba(201, 229, 228, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(170, 215, 213, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(237, 92, 149, 0.6) 0%, rgba(245, 196, 218, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(243, 152, 188, 0.45) 0%, transparent 52%)'
           }}
         />
       </div>

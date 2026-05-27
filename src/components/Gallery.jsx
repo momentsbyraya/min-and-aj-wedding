@@ -25,7 +25,7 @@ const Gallery = () => {
     return out
   }, [])
 
-  const galleryBlushBg = '#0a8885'
+  const galleryBlushBg = '#e20964'
 
   const titleRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)

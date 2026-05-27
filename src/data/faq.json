@@ -1,36 +1,24 @@
 {
   "faqData": [
     {
-      "question": "What is the dress code?",
-      "answer": "All guests are kindly requested to wear formal attire in BLACK & WHITE only.<br /><br />• For ladies: A WHITE formal dress, skirt, or trousers<br />• For gentlemen: BLACK formal attire (polo, long sleeves, or suit) with black shoes<br />• For 18 Roses participants: Strictly required to wear formal wear such as a tuxedo.<br /><br />Strictly no slippers, crocs, or overly casual footwear, as this is a formal event."
+      "question": "Do I need to confirm my attendance?",
+      "answer": "Yes, you can answer the RSVP through the link provided on or before June 15."
+    },
+    {
+      "question": "Can I bring a plus one?",
+      "answer": "Kindly please inform us beforehand. Only guests whose names are on the official list will be allowed to enter."
+    },
+    {
+      "question": "Is there a gift guide?",
+      "answer": "Your presence is the greatest gift of all. However, if you wish to give something, any thoughtful token will be deeply appreciated."
     },
     {
       "question": "What time should I arrive?",
-      "answer": "Please arrive at least 30–40 minutes before the program starts to avoid disruption and ensure you are properly seated."
+      "answer": "Please arrive 30 minutes before the program starts to allow time for seating and registration."
     },
     {
-      "question": "Can I bring a plus one / my child?",
-      "answer": "This celebration is limited to invited guests only unless otherwise stated, due to limited seating capacity. Thank you for your understanding."
-    },
-    {
-      "question": "Is RSVP required?",
-      "answer": "Yes, RSVP is highly required. Kindly confirm your attendance so the debutante can finalize the guest count for seating, catering, and program planning."
-    },
-    {
-      "question": "Is there parking available?",
-      "answer": "Yes, designated parking areas will be available at the venue for the convenience of all guests."
-    },
-    {
-      "question": "Is there a gift preference?",
-      "answer": "No gift is required—your presence is more than enough. However, suggested gift ideas are provided for guidance, but you are free to give any gift of your choice."
-    },
-    {
-      "question": "Is there a strict seating arrangement?",
-      "answer": "Yes. Each guest has an assigned seat. Kindly remain at your designated table and refrain from transferring seats."
-    },
-    {
-      "question": "Is there an after-party or additional activity?",
-      "answer": "Yes! There will be a Happy Hour (Disco Hour) after the program. Guests are welcome to join and enjoy 2 hours of dancing and celebration. Feel free to stay, have fun, and celebrate with us!"
+      "question": "Can I take photos and videos?",
+      "answer": "Absolutely yes! I would love to see how my night will look like on your point of view. However, please be mindful during formal parts of the program."
     }
   ]
 }

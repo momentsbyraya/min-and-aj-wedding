@@ -76,13 +76,18 @@ const FAQ = ({ id = 'faq' }) => {
         style={{ width: '100vw', maxWidth: 'none' }}
       />
       <img
-        src="/images/graphics/flower-banner.png"
+        src="/images/graphics/flower-right.png"
         alt=""
         aria-hidden="true"
-        className="absolute bottom-0 left-1/2 h-auto pointer-events-none z-[5]"
-        style={{ width: '100vw', maxWidth: 'none', transform: 'translateX(-50%) rotate(180deg)' }}
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 left-0 h-auto pointer-events-none z-[5] -scale-x-100"
       />
-      <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 py-12">
+      <img
+        src="/images/graphics/flower-right.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-[5]"
+      />
+      <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 py-24 sm:py-32 md:py-40">
         <div className="mb-12 flex w-full justify-center px-6">
           <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">
             <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast uppercase tracking-[0.12em]">

@@ -1,24 +1,39 @@
 ﻿{
   "mainDressCode": {
-    "title": "Formal",
-    "description": "For men, please wear black attire.\nFor women, please wear white",
+    "title": "Formal Attire — Jewel Tones",
+    "description": "I would love to see you wearing FORMAL ATTIRE in the shade of JEWEL TONES.\n\nGentlemen can wear black suits or long sleeves, while ladies may opt for cocktail or long dresses in the preferred color palette.\n\nAvoid wearing bright colors.",
     "inspoUrl": ""
   },
   "colorPalette": [
     {
-      "name": "color-white",
-      "hex": "#ffffff",
-      "label": "White (ladies)"
+      "name": "color-emerald",
+      "hex": "#046307",
+      "label": "Emerald"
+    },
+    {
+      "name": "color-ruby",
+      "hex": "#9B111E",
+      "label": "Ruby"
+    },
+    {
+      "name": "color-sapphire",
+      "hex": "#0F52BA",
+      "label": "Sapphire"
+    },
+    {
+      "name": "color-amethyst",
+      "hex": "#9966CC",
+      "label": "Amethyst"
+    },
+    {
+      "name": "color-garnet",
+      "hex": "#733635",
+      "label": "Garnet"
     },
     {
       "name": "color-black",
       "hex": "#1a1a1a",
       "label": "Black (gentlemen)"
-    },
-    {
-      "name": "color-soft",
-      "hex": "#eef7f6",
-      "label": "Neutral accent"
     }
   ]
 }

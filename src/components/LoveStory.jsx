@@ -106,7 +106,7 @@ const LoveStory = () => {
       ref={sectionRef}
       className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
       style={{ 
-        backgroundColor: '#B6DEDC'
+        backgroundColor: '#f398bc'
       }}
     >
       {/* Content */}
@@ -119,7 +119,7 @@ const LoveStory = () => {
               {/* Our Debutant */}
               <h1 
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                style={{ color: '#eef7f6', fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
+                style={{ color: '#fdf2f7', fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
               >
                 Our
               </h1>
@@ -127,7 +127,7 @@ const LoveStory = () => {
               <h2 
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8 uppercase"
                 style={{ 
-                  color: '#eef7f6', 
+                  color: '#fdf2f7', 
                   fontWeight: 900,
                   lineHeight: '1',
                   marginTop: '-0.4em',
@@ -141,35 +141,35 @@ const LoveStory = () => {
               <div className="space-y-6">
                 <p 
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#eef7f6', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                  style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
                   Game. Set. Match. Amanda Ira! 🎾
                 </p>
                 
                 <p 
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#eef7f6', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                  style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
                   She's been serving brilliance since pre-school years – whether it's hitting the perfect note with her violin 🎻, smashing aces on the tennis court 💥, or solving math problems like a grand slam champ 🧠✨. Amanda is a true all-court player: born leader, Philippine team mathlete, and high school top seed (consistent Top 1). Focused, passionate, and always ready to chase the next big win.
                 </p>
                 
                 <p 
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#eef7f6', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                  style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
                   Ira is the kind of person who turns every challenge into a win. Off the court, she's the ultimate team player — loving, responsible, obedient, and thoughtful daughter & big sis!
                 </p>
                 
                 <p 
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#eef7f6', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                  style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
                   Today, we celebrate not just her milestones but the incredible person she has become, and the amazing lady that she will become.
                 </p>
                 
                 <p 
                   className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#eef7f6', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
+                  style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
                 >
                   Prep up for this big day, and let's all enjoy as we celebrate Amanda! ❤️‍ 🙌
                 </p>

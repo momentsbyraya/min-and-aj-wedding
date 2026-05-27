@@ -91,7 +91,7 @@ const Hero = () => {
               ref={birthdayLineRef}
               className="uppercase leading-tight m-0 opacity-92"
               style={{
-                color: '#0a3F3D',
+                color: '#80043a',
                 fontSize: 'clamp(0.6875rem, 2.25vw, 1rem)',
                 letterSpacing: '0.1em'
               }}

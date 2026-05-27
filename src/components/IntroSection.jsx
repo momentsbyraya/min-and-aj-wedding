@@ -75,7 +75,7 @@ const IntroSection = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-28 pb-32 overflow-hidden md:pt-52 md:pb-44"
-      style={{ backgroundColor: '#0a8885' }}
+      style={{ backgroundColor: '#e20964' }}
     >
       <img
         src="/images/graphics/fan%20flower%20-%201.png"
@@ -158,11 +158,11 @@ const IntroSection = () => {
       </div>
       {isRsvpModalOpen && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
-          <div className="relative w-screen h-screen bg-[#F0FAF9] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+          <div className="relative w-screen h-screen bg-[#fdf2f7] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#0a3F3D]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#80043a]"
             >
               Close
             </button>

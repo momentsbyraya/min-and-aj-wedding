@@ -38,7 +38,7 @@ const CelebrantStory = ({ onImageClick }) => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-      style={{ backgroundColor: '#E1F4F3' }}
+      style={{ backgroundColor: '#fce3ee' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat cursor-pointer"
@@ -96,7 +96,7 @@ const CelebrantStory = ({ onImageClick }) => {
               }}
             >
               <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
-                About {headingName}
+                {headingName}
               </span>
             </h2>
             <p
