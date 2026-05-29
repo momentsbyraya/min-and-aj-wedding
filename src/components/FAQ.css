@@ -64,6 +64,54 @@
   display: inline-block;
 }
 
+.faq-question-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+}
+
+.faq-question-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.faq-question-chevron {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.faq-question-chevron--open {
+  transform: rotate(180deg);
+}
+
+.faq-answer-wrap {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+
+.faq-answer-wrap--open {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
 .faq-item-divider {
   height: 1px;
   margin-top: 0.5rem;

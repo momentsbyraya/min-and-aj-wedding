@@ -118,7 +118,7 @@ const Venue = () => {
               ) : null}
               {venueData.main?.time ? (
                 <div className="mt-3 font-poppins" style={{ color: '#EFE9DC' }}>
-                  <p className="text-sm tracking-[0.04em] opacity-90 sm:text-base">{venueData.main.time}</p>
+                  <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">{venueData.main.time} | Saturday</p>
                 </div>
               ) : null}
             </div>

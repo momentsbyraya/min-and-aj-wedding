@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { FiChevronDown } from 'react-icons/fi'
 import { faq as faqData } from '../data'
 import './FAQ.css'
 
@@ -17,6 +18,11 @@ const FAQ = ({ id = 'faq' }) => {
   const faqTitleRef = useRef(null)
   const faqItems = faqData
   const scrollTriggerInstance = useRef(null)
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const toggleAccordion = (index) => {
+    setOpenIndex((current) => (current === index ? null : index))
+  }
 
   useEffect(() => {
     if (!faqRef.current || !faqTitleRef.current) return
@@ -98,14 +104,38 @@ const FAQ = ({ id = 'faq' }) => {
           <div className="faq-items-stack max-w-[600px] mx-auto">
             {faqItems.faqData.map((item, index) => {
               const { text } = getFaqIconAndText(item.question)
+              const isOpen = openIndex === index
+              const panelId = `faq-panel-${index}`
+              const buttonId = `faq-trigger-${index}`
               return (
-                <div key={index} className="faq-item">
+                <div key={index} className={`faq-item ${isOpen ? 'faq-item--open' : ''}`}>
                   <h3 className="faq-question faq-item-heading font-poppins text-base font-semibold sm:text-lg">
-                    <span className="faq-question-label font-poppins">Q: {text}</span>
+                    <button
+                      type="button"
+                      id={buttonId}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() => toggleAccordion(index)}
+                      className="faq-question-button"
+                    >
+                      <span className="faq-question-label font-poppins">Q: {text}</span>
+                      <FiChevronDown
+                        className={`faq-question-chevron ${isOpen ? 'faq-question-chevron--open' : ''}`}
+                        aria-hidden="true"
+                      />
+                    </button>
                   </h3>
-                  <div className="faq-answer-body text-sm sm:text-base pb-1">
-                    <span className="font-semibold">A: </span>
-                    <span dangerouslySetInnerHTML={{ __html: item.answer }} />
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    aria-hidden={!isOpen}
+                    className={`faq-answer-wrap ${isOpen ? 'faq-answer-wrap--open' : ''}`}
+                  >
+                    <div className="faq-answer-body text-sm sm:text-base pb-1">
+                      <span className="font-semibold">A: </span>
+                      <span dangerouslySetInnerHTML={{ __html: item.answer }} />
+                    </div>
                   </div>
                   {index < faqItems.faqData.length - 1 && (
                     <div className="faq-item-divider" aria-hidden />

@@ -1,5 +1,5 @@
 {
-  "sectionIntro": "My 18 Royale Dances, Lights of Legacy, Jewels of Grace, Toasts of Elegance, and Golden Blessings—see the full list below.",
+  "sectionIntro": "My 18 Royale Dances, Lights of Legacy, Jewels of Grace, Golden Blessings, and Toasts of Elegance—see the full list below.",
   "categories": [
     {
       "name": "Roses",
@@ -77,31 +77,6 @@
       ]
     },
     {
-      "name": "Shots",
-      "title": "Toasts of Elegance",
-      "description": "For my 18 Toasts of Elegance, thank you for standing with me as I toast to this new chapter.\n\nWhen your name is called, join me for a celebratory shot and a cheer to the years ahead.\n\nI'm grateful you're part of my debut night.",
-      "names": [
-        "Princess Anne Sarmiento",
-        "Kirstine Valenzuela",
-        "Aprilyn Quiambao",
-        "Kyla Mae Ramos",
-        "Mary Grace Zosimo",
-        "Mara Shicel Ramos",
-        "Bea Samantha Yaya",
-        "Joven Abarro",
-        "Cherry Anne Dayao",
-        "Jhenina Mae Cura",
-        "Ashlee Nicole Abundia",
-        "Micah Villazorca",
-        "Adrian Bernaldo",
-        "Gerald Apolinario",
-        "Jareed Arkin Alejo",
-        "Bennedict Miguel",
-        "Darren Al Cacayuran",
-        "Rozelle Galicia"
-      ]
-    },
-    {
       "name": "Bills",
       "title": "Golden Blessings",
       "description": "For my 18 Golden Blessings, thank you for your generosity and for blessing this milestone with me.\n\nYour presence and support mean more than words can say.",
@@ -124,6 +99,31 @@
         "Anthony Del Rosario",
         "Jonathan Meneses",
         "Kennuel Adulfo"
+      ]
+    },
+    {
+      "name": "Shots",
+      "title": "Toasts of Elegance",
+      "description": "For my 18 Toasts of Elegance, thank you for standing with me as I toast to this new chapter.\n\nWhen your name is called, join me for a celebratory shot and a cheer to the years ahead.\n\nI'm grateful you're part of my debut night.",
+      "names": [
+        "Princess Anne Sarmiento",
+        "Kirstine Valenzuela",
+        "Aprilyn Quiambao",
+        "Kyla Mae Ramos",
+        "Mary Grace Zosimo",
+        "Mara Shicel Ramos",
+        "Bea Samantha Yaya",
+        "Joven Abarro",
+        "Cherry Anne Dayao",
+        "Jhenina Mae Cura",
+        "Ashlee Nicole Abundia",
+        "Micah Villazorca",
+        "Adrian Bernaldo",
+        "Gerald Apolinario",
+        "Jareed Arkin Alejo",
+        "Bennedict Miguel",
+        "Darren Al Cacayuran",
+        "Rozelle Galicia"
       ]
     }
   ]

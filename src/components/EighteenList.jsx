@@ -143,7 +143,7 @@ const SoftEdgeWash = ({ mirrored = false, palette }) => {
   )
 }
 
-const CategorySection = ({ category, index = 0, scrollerElement }) => {
+const CategorySection = ({ category, index = 0, scrollerElement, isLast = false }) => {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const namesRef = useRef(null)
@@ -158,8 +158,10 @@ const CategorySection = ({ category, index = 0, scrollerElement }) => {
   const names = getNames()
   const nameLabel = (category.name || '').trim()
   const titleLabel = (category.title || '').trim()
-  const displayPrimary = nameLabel ? `18 ${capitalizeWords(nameLabel)}` : ''
-  const displaySubtitle = titleLabel ? titleLabel.toUpperCase() : ''
+  const titleImageSrc = nameLabel ? `/images/graphics/${nameLabel.toLowerCase()}-title.png` : ''
+  const titleAltText = [nameLabel ? `18 ${capitalizeWords(nameLabel)}` : '', titleLabel]
+    .filter(Boolean)
+    .join(' — ')
 
   const bgImage = getCategoryPrenupBg(index)
   const palette = getCategoryPalette(index)
@@ -217,7 +219,7 @@ const CategorySection = ({ category, index = 0, scrollerElement }) => {
   return (
     <section
       ref={containerRef}
-      className="eighteenths-cat-shell relative w-full overflow-hidden"
+      className="eighteenths-cat-shell relative w-full"
       style={{ backgroundColor: palette.palest }}
     >
       <div
@@ -231,13 +233,15 @@ const CategorySection = ({ category, index = 0, scrollerElement }) => {
       <SoftEdgeWash mirrored={isRightAligned} palette={palette} />
 
       <div className={`relative z-20 w-full max-w-lg px-5 sm:px-8 ${isRightAligned ? 'ml-auto' : 'mr-auto'}`}>
-        <div className={`flex flex-col py-14 sm:py-20 ${contentSideClass}`}>
+        <div className={`flex flex-col py-24 sm:py-32 md:py-40 ${contentSideClass}`}>
           <div ref={titleRef} className="eighteenths-cat-title-wrap inline-block">
-            <span className="eighteenths-cat-title font-beautyofthebeast capitalize">
-              {displayPrimary ? displayPrimary.toLowerCase() : ''}
-            </span>
-            {displaySubtitle ? (
-              <span className="eighteenths-cat-subtitle">{displaySubtitle}</span>
+            {titleImageSrc ? (
+              <img
+                src={titleImageSrc}
+                alt={titleAltText}
+                className="eighteenths-cat-title-image"
+                loading="lazy"
+              />
             ) : null}
           </div>
 
@@ -263,6 +267,16 @@ const CategorySection = ({ category, index = 0, scrollerElement }) => {
           </div>
         </div>
       </div>
+
+      {!isLast ? (
+        <img
+          src="/images/graphics/gem-divider.png"
+          alt=""
+          aria-hidden="true"
+          className="eighteenths-cat-divider pointer-events-none absolute left-1/2 bottom-0"
+          style={{ zIndex: 100 }}
+        />
+      ) : null}
     </section>
   )
 }
@@ -289,25 +303,25 @@ const EighteenList = ({ scrollerElement } = {}) => {
         .eighteenths-cat-shell .text-right .eighteenths-cat-title-wrap { align-items: flex-end; }
         .eighteenths-cat-shell .text-left  .eighteenths-cat-title-wrap { align-items: flex-start; }
 
-        .eighteenths-cat-title {
+        .eighteenths-cat-title-image {
           display: block;
-          font-size: clamp(2.35rem, 7.5vw, 3.45rem);
-          line-height: 1;
-          color: #FFFFFF;
-          text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.45);
+          width: clamp(180px, 50vw, 320px);
+          height: auto;
+          object-fit: contain;
+          filter:
+            brightness(0)
+            invert(1)
+            drop-shadow(0.5px 0 0 #D4AF37)
+            drop-shadow(-0.5px 0 0 #D4AF37)
+            drop-shadow(0 0.5px 0 #D4AF37)
+            drop-shadow(0 -0.5px 0 #D4AF37);
         }
 
-        /* Serif subtitle stacked under the script "18 [Name]" title — matches Hero "YOU ARE INVITED" face */
-        .eighteenths-cat-subtitle {
-          display: block;
-          margin-top: 0.5em;
-          font-family: 'Cormorant SC', 'Playfair Display', Georgia, 'Times New Roman', serif !important;
-          font-weight: 400 !important;
-          letter-spacing: 0.16em;
-          font-size: clamp(0.95rem, 2.6vw, 1.25rem);
-          line-height: 1.1;
-          color: #FFFFFF;
-          text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.45);
+        .eighteenths-cat-divider {
+          width: 100vw;
+          max-width: 100vw;
+          height: auto;
+          transform: translate(-50%, 50%);
         }
       `}</style>
       <section className="relative w-full overflow-hidden eighteenths-section bg-transparent">
@@ -316,6 +330,7 @@ const EighteenList = ({ scrollerElement } = {}) => {
             key={`eighteenth-cat-${category.name ?? index}`}
             category={category}
             index={index}
+            isLast={index === displayCategories.length - 1}
             scrollerElement={scrollerElement}
           />
         ))}

@@ -74,7 +74,7 @@ const IntroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-28 pb-32 overflow-hidden md:pt-52 md:pb-44"
+      className="relative w-full pt-60 pb-32 overflow-hidden md:pt-96 md:pb-44"
       style={{ backgroundColor: '#e20964' }}
     >
       <img
@@ -111,18 +111,18 @@ const IntroSection = () => {
           Thank you for being part of my journey!
         </p>
         <div className="px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
-          <div ref={calendarRef} className="w-4/5 mx-auto">
+          <div ref={calendarRef} className="w-4/5 mx-auto origin-top scale-125 sm:scale-[1.35]">
             <p className="font-rozha text-2xl tracking-[0.12em] uppercase">
               <span className="bg-gradient-to-r from-[#E5C988] via-[#FFFEF2] to-[#E5C988] bg-clip-text text-transparent">
                 {monthLabel} {yearLabel}
               </span>
             </p>
-            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-rozha uppercase" style={{ color: '#ffffff' }}>
+            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#ffffff' }}>
               {weekLabels.map((label, index) => (
                 <span key={`${label}-${index}`}>{label}</span>
               ))}
             </div>
-            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-rozha" style={{ color: '#ffffff' }}>
+            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#ffffff' }}>
               {calendarCells.map((day, index) => {
                 const isSelected = day === selectedDay
                 return (

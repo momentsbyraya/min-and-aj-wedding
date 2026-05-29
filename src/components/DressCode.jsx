@@ -57,7 +57,7 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden pt-24 pb-44 sm:pt-28 sm:pb-52 md:pt-32 md:pb-60"
+      className="relative w-full overflow-hidden pt-24 pb-52 sm:pt-28 sm:pb-60 md:pt-32 md:pb-72"
       style={{ backgroundColor: '#27032f' }}
     >
       <div
@@ -84,8 +84,8 @@ const DressCode = () => {
         src="/images/graphics/flower-banner.png"
         alt=""
         aria-hidden="true"
-        className="absolute bottom-0 left-1/2 h-auto pointer-events-none z-10"
-        style={{ width: '100vw', maxWidth: 'none', transform: 'translateX(-50%) scaleY(-1)' }}
+        className="absolute bottom-0 right-0 h-auto pointer-events-none z-10"
+        style={{ width: '120vw', maxWidth: 'none', transform: 'scaleY(-1)' }}
       />
       <div className="relative z-20 mx-auto w-full max-w-md px-5 text-center sm:max-w-xl sm:px-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl">
         <div ref={headingRef} className="flex flex-col items-center">
@@ -116,25 +116,28 @@ const DressCode = () => {
         <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
           <p
             className="font-my-soul leading-none"
-            style={{
-              color: '#ffffff',
-              fontSize: 'clamp(2.35rem, 7vw, 3.75rem)'
-            }}
+            style={{ color: '#ffffff' }}
           >
-            {mainDressCode.title}
+            <span style={{ fontSize: 'clamp(1.75rem, 5.2vw, 2.85rem)' }}>
+              {mainDressCode.title}
+            </span>
+            <br />
+            <span style={{ fontSize: 'clamp(1.1rem, 3.4vw, 1.75rem)' }}>
+              {mainDressCode.subtitle}
+            </span>
           </p>
-          <p className="font-poppins text-xs sm:text-sm leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#ffffff' }}>
-            {mainDressCode.description.split('\n').map((line, i) => {
-              const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(line.trim())
+          <p className="font-poppins text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#ffffff' }}>
+            {mainDressCode.description.split('\n\n').map((paragraph, i) => {
+              const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(paragraph.trim())
               return (
                 <React.Fragment key={i}>
                   {i > 0 ? <br /> : null}
                   {isAvoidLine ? (
                     <span className="font-semibold" style={{ color: '#ffffff' }}>
-                      {line}
+                      {paragraph}
                     </span>
                   ) : (
-                    line
+                    paragraph
                   )}
                 </React.Fragment>
               )
