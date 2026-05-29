@@ -117,33 +117,20 @@ const DressCode = () => {
           <p
             className="font-my-soul leading-none"
             style={{
-              background: 'linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%)',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              color: 'transparent',
-              WebkitTextFillColor: 'transparent',
+              color: '#ffffff',
               fontSize: 'clamp(2.35rem, 7vw, 3.75rem)'
             }}
           >
             {mainDressCode.title}
           </p>
-          <p className="font-poppins text-sm sm:text-base leading-relaxed max-w-md" style={{ color: '#ffffff' }}>
+          <p className="font-poppins text-xs sm:text-sm leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#ffffff' }}>
             {mainDressCode.description.split('\n').map((line, i) => {
               const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(line.trim())
               return (
                 <React.Fragment key={i}>
                   {i > 0 ? <br /> : null}
                   {isAvoidLine ? (
-                    <span
-                      className="font-semibold"
-                      style={{
-                        background: 'linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%)',
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent'
-                      }}
-                    >
+                    <span className="font-semibold" style={{ color: '#ffffff' }}>
                       {line}
                     </span>
                   ) : (

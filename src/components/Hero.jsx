@@ -1,20 +1,36 @@
 ﻿import React, { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
+import { FiHeart } from 'react-icons/fi'
+import { celebrant, venues } from '../data'
 
 const Hero = () => {
   const crownRef = useRef(null)
   const inviteLineRef = useRef(null)
   const nameRef = useRef(null)
-  const birthdayLineRef = useRef(null)
+  const dividerRef = useRef(null)
   const debutLineRef = useRef(null)
+  const datetimeRef = useRef(null)
+
+  const debutInfo = celebrant?.debutant?.debut ?? {}
+  const debutTime = (debutInfo.time || '').trim()
+  const venueName = (venues?.venue?.name || '').trim()
+  let debutDateLabel = ''
+  if (debutInfo.date) {
+    const [year, month, day] = debutInfo.date.split('-').map(Number)
+    if (year && month && day) {
+      const d = new Date(year, month - 1, day)
+      debutDateLabel = d.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase()
+    }
+  }
 
   useLayoutEffect(() => {
     const steps = [
       crownRef.current,
       inviteLineRef.current,
       nameRef.current,
-      birthdayLineRef.current,
-      debutLineRef.current
+      dividerRef.current,
+      debutLineRef.current,
+      datetimeRef.current
     ].filter(Boolean)
 
     if (!steps.length) return undefined
@@ -28,8 +44,9 @@ const Hero = () => {
     tl.to(crownRef.current, { opacity: 1, y: 0, duration: 0.68 })
       .to(inviteLineRef.current, { opacity: 1, y: 0, duration: 0.62 }, overlap)
       .to(nameRef.current, { opacity: 1, y: 0, duration: 0.78 }, overlap)
-      .to(birthdayLineRef.current, { opacity: 1, y: 0, duration: 0.52 }, overlap)
+      .to(dividerRef.current, { opacity: 1, y: 0, duration: 0.52 }, overlap)
       .to(debutLineRef.current, { opacity: 1, y: 0, duration: 0.52 }, overlap)
+      .to(datetimeRef.current, { opacity: 1, y: 0, duration: 0.6 }, overlap)
 
     return () => tl.kill()
   }, [])
@@ -80,30 +97,66 @@ const Hero = () => {
             />
           </h1>
 
-          <div className="flex flex-col items-center text-center gap-1 mt-0 max-w-[min(100%,36rem)]">
-            <p
-              ref={birthdayLineRef}
-              className="uppercase leading-tight m-0 opacity-92"
-              style={{
-                color: '#ffd8ea',
-                fontSize: 'clamp(0.6875rem, 2.25vw, 1rem)',
-                letterSpacing: '0.1em'
-              }}
-            >
-              18TH BIRTHDAY
-            </p>
+          <div className="flex flex-col items-center text-center gap-2 mt-0 max-w-[min(100%,36rem)]">
+            <div ref={dividerRef} className="flex w-full items-center justify-center gap-3 opacity-95">
+              <span
+                className="block h-px flex-1 max-w-[5rem]"
+                style={{ backgroundColor: 'rgba(255, 232, 244, 0.7)' }}
+              />
+              <FiHeart
+                className="h-3 w-3 shrink-0 fill-current"
+                style={{ color: '#ffe9f2' }}
+                aria-hidden="true"
+              />
+              <span
+                className="block h-px flex-1 max-w-[5rem]"
+                style={{ backgroundColor: 'rgba(255, 232, 244, 0.7)' }}
+              />
+            </div>
             <p
               ref={debutLineRef}
-              className="uppercase leading-tight m-0 opacity-92"
+              className="font-foglihten uppercase leading-tight m-0 opacity-92"
               style={{
                 color: '#ffe9f2',
-                fontSize: 'clamp(0.875rem, 3.25vw, 1.35rem)',
-                letterSpacing: '0.1em'
+                fontSize: 'clamp(0.875rem, 3vw, 1.25rem)',
+                letterSpacing: '0.22em'
               }}
             >
-              DEBUT CELEBRATION
+              A DECADE AND EIGHT
             </p>
           </div>
+        </div>
+      </div>
+
+      <div
+        ref={datetimeRef}
+        className="absolute bottom-0 left-0 right-0 z-40 flex flex-col items-center text-center pb-6 sm:pb-8 md:pb-10 pointer-events-none"
+      >
+        <div className="flex flex-col items-center gap-1.5 px-4">
+          {debutDateLabel || debutTime ? (
+            <p
+              className="font-poppins uppercase leading-none m-0"
+              style={{
+                color: '#ffe9f2',
+                fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
+                letterSpacing: '0.18em'
+              }}
+            >
+              {[debutDateLabel, debutTime].filter(Boolean).join('  |  ')}
+            </p>
+          ) : null}
+          {venueName ? (
+            <p
+              className="font-poppins uppercase leading-tight m-0"
+              style={{
+                color: '#ffd8ea',
+                fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
+                letterSpacing: '0.18em'
+              }}
+            >
+              {venueName}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

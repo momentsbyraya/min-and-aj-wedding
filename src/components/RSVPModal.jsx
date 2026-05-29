@@ -4,9 +4,9 @@ import { gsap } from 'gsap'
 import { FiX } from 'react-icons/fi'
 import { theme } from '../data'
 
-/** Google Form “RSVP for the Debut Celebration of Yrenea” — embed URL (from forms.gle/J58WkXLVY88nfiX1A). */
+/** Google Form “RSVP for the Debut Celebration of Shanara” — embed URL (from forms.gle/ZkAo7kRBXdxQS9vF6). */
 export const RSVP_FORM_EMBED_SRC =
-  'https://docs.google.com/forms/d/e/1FAIpQLSeOn-TizdZHi6UVJ6NsGy93iZxkFagitOwZeUVC7hyV0HbAlg/viewform?embedded=true'
+  'https://docs.google.com/forms/d/e/1FAIpQLSfSn39o0vTU2jVxICCVNISOrUQhoF3QvkSvgx1vOIAadDeXdw/viewform?embedded=true'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
@@ -100,7 +100,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         
         <div className="h-[calc(100vh-97px)] w-full overflow-hidden bg-white">
           <iframe
-            title="RSVP for the debut celebration of Yrenea"
+            title="RSVP for the debut celebration of Shanara"
             src={RSVP_FORM_EMBED_SRC}
             className="h-full w-full border-0"
             loading="lazy"

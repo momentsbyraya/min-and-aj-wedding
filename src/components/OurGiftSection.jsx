@@ -115,7 +115,11 @@ const OurGiftSection = () => {
             {intro ? (
               <p
                 className="ml-auto w-[60%] max-w-full pb-4 font-poppins text-xs leading-snug font-light sm:text-[0.8125rem]"
-                style={{ color: '#ffffff', textShadow: '0 2px 12px rgba(8, 50, 48, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)' }}
+                style={{
+                  color: '#ffffff',
+                  textShadow: '0 2px 12px rgba(8, 50, 48, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)',
+                  whiteSpace: 'pre-line'
+                }}
               >
                 {intro}
               </p>

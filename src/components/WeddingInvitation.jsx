@@ -11,7 +11,6 @@ import Gallery from './Gallery'
 import CelebrantStory from './CelebrantStory'
 import FAQ from './FAQ'
 import CountdownSection from './CountdownSection'
-import Watermark from './Watermark'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
@@ -47,7 +46,6 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
-      <Watermark />
       <main className="main-container h-full section-container">
         <div>
           <Hero
@@ -56,6 +54,9 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             onResumeMusic={onResumeMusic}
             isMusicPlaying={isMusicPlaying}
           />
+        </div>
+        <div>
+          <CelebrantStory onImageClick={openLightbox} />
         </div>
         <div>
           <IntroSection />
@@ -88,9 +89,6 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             </div>
             <div>
               <Gallery />
-            </div>
-            <div>
-              <CelebrantStory onImageClick={openLightbox} />
             </div>
             <div>
               <FAQ />
