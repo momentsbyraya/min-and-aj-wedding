@@ -44,12 +44,6 @@ const Hero = () => {
         alt="Hero background"
         className="absolute inset-0 w-full h-full object-cover z-[1]"
       />
-      <img
-        src="/images/graphics/flower-2.png"
-        alt="Flower decoration"
-        className="absolute bottom-0 right-0 h-auto z-20 pointer-events-none -scale-x-100"
-        style={{ width: '100vw' }}
-      />
       <div className="absolute top-0 left-0 right-0 z-40 flex justify-end pt-8 sm:pt-12 md:pt-14 pl-5 sm:pl-8 pr-5 sm:pr-8 md:pr-12 lg:pr-16 pointer-events-none">
         <div className="hero-invitation-serif flex flex-col items-center text-center w-[min(88vw,28rem)] shrink-0">
           <header className="flex flex-col items-center text-center gap-2 sm:gap-2.5">
@@ -65,7 +59,7 @@ const Hero = () => {
               ref={inviteLineRef}
               className="uppercase max-w-[min(100%,36rem)] leading-none opacity-95"
               style={{
-                color: '#3a2924',
+                color: '#f4dcce',
                 fontSize: 'clamp(0.4375rem, 1.25vw, 0.5625rem)',
                 letterSpacing: '0.12em'
               }}
@@ -91,7 +85,7 @@ const Hero = () => {
               ref={birthdayLineRef}
               className="uppercase leading-tight m-0 opacity-92"
               style={{
-                color: '#80043a',
+                color: '#ffd8ea',
                 fontSize: 'clamp(0.6875rem, 2.25vw, 1rem)',
                 letterSpacing: '0.1em'
               }}
@@ -102,7 +96,7 @@ const Hero = () => {
               ref={debutLineRef}
               className="uppercase leading-tight m-0 opacity-92"
               style={{
-                color: '#B85567',
+                color: '#ffe9f2',
                 fontSize: 'clamp(0.875rem, 3.25vw, 1.35rem)',
                 letterSpacing: '0.1em'
               }}

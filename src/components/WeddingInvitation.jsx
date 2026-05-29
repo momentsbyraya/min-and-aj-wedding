@@ -11,10 +11,11 @@ import Gallery from './Gallery'
 import CelebrantStory from './CelebrantStory'
 import FAQ from './FAQ'
 import CountdownSection from './CountdownSection'
+import Watermark from './Watermark'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
-  const prenupImages = useMemo(() => ['/images/prenup/A7400780.jpg'], [])
+  const prenupImages = useMemo(() => ['/images/prenup/DSC06785.jpg'], [])
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
   const openLightbox = (src) => {
@@ -46,6 +47,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
+      <Watermark />
       <main className="main-container h-full section-container">
         <div>
           <Hero
@@ -61,7 +63,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
         <div>
           <EighteenIntroSection />
         </div>
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-x-clip">
           <div
             className="absolute inset-0 z-0 pointer-events-none"
             style={{
@@ -105,7 +107,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
                 className="wedding-invitation-footer-link text-[#EFE9DC] hover:text-[#EFE9DC] inline-flex items-center gap-1.5"
               >
                 <span>Made with</span>
-                <FiHeart className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <FiHeart className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />
                 <span>| Moments by Raya</span>
               </a>
             </footer>

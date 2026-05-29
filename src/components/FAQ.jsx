@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FiChevronDown } from 'react-icons/fi'
 import { faq as faqData } from '../data'
 import './FAQ.css'
 
@@ -18,11 +17,6 @@ const FAQ = ({ id = 'faq' }) => {
   const faqTitleRef = useRef(null)
   const faqItems = faqData
   const scrollTriggerInstance = useRef(null)
-  const [openIndex, setOpenIndex] = useState(null)
-
-  const toggleItem = (index) => {
-    setOpenIndex((prev) => (prev === index ? null : index))
-  }
 
   useEffect(() => {
     if (!faqRef.current || !faqTitleRef.current) return
@@ -69,17 +63,22 @@ const FAQ = ({ id = 'faq' }) => {
   return (
     <div id={id} data-section="faq" className="relative z-20 faq-section">
       <img
-        src="/images/graphics/flower-banner.png"
+        src="/images/graphics/fan%20flower%20-%201.png"
         alt=""
         aria-hidden="true"
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-[5]"
-        style={{ width: '100vw', maxWidth: 'none' }}
+        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-[5]"
       />
       <img
-        src="/images/graphics/flower-right.png"
+        src="/images/graphics/lantern-1.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 left-0 h-auto pointer-events-none z-[5] -scale-x-100"
+        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-[5]"
+      />
+      <img
+        src="/images/graphics/flower-left.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5]"
       />
       <img
         src="/images/graphics/flower-right.png"
@@ -99,36 +98,14 @@ const FAQ = ({ id = 'faq' }) => {
           <div className="faq-items-stack max-w-[600px] mx-auto">
             {faqItems.faqData.map((item, index) => {
               const { text } = getFaqIconAndText(item.question)
-              const isOpen = openIndex === index
-              const headingId = `faq-heading-${index}`
-              const panelId = `faq-panel-${index}`
               return (
                 <div key={index} className="faq-item">
-                  <h3 className="faq-item-heading">
-                    <button
-                      type="button"
-                      id={headingId}
-                      className="faq-question-trigger faq-question font-poppins text-base text-left font-semibold sm:text-lg"
-                      aria-expanded={isOpen}
-                      aria-controls={panelId}
-                      onClick={() => toggleItem(index)}
-                    >
-                      <span className="faq-question-label font-poppins">Q: {text}</span>
-                      <FiChevronDown className={`faq-chevron shrink-0 ${isOpen ? 'faq-chevron--open' : ''}`} aria-hidden />
-                    </button>
+                  <h3 className="faq-question faq-item-heading font-poppins text-base font-semibold sm:text-lg">
+                    <span className="faq-question-label font-poppins">Q: {text}</span>
                   </h3>
-                  <div
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={headingId}
-                    className={`faq-answer-panel ${isOpen ? 'faq-answer-panel--open' : ''}`}
-                  >
-                    <div className="faq-answer-panel-inner">
-                      <div className="faq-answer-body text-sm sm:text-base pb-1">
-                        <span className="font-semibold">A: </span>
-                        <span dangerouslySetInnerHTML={{ __html: item.answer }} />
-                      </div>
-                    </div>
+                  <div className="faq-answer-body text-sm sm:text-base pb-1">
+                    <span className="font-semibold">A: </span>
+                    <span dangerouslySetInnerHTML={{ __html: item.answer }} />
                   </div>
                   {index < faqItems.faqData.length - 1 && (
                     <div className="faq-item-divider" aria-hidden />

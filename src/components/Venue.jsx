@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowRight } from 'react-icons/fi'
@@ -16,7 +16,9 @@ const Venue = () => {
   const fanBannerRef = useRef(null)
   const venueData = venuesData.venue
   const directionsUrl = venueData.googleMapsUrl || venueData.directionsUrl || '#'
-  const venuePhotoUrl = '/images/venue/venue.png'
+  const venueEmbedUrl =
+    venueData.googleMapsEmbedUrl ||
+    `https://www.google.com/maps?q=${encodeURIComponent(venueData.name || venueData.address || '')}&output=embed`
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -71,7 +73,7 @@ const Venue = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden"
+      className="relative py-20 w-full overflow-x-clip"
       style={{ backgroundColor: '#e20964' }}
     >
       <img
@@ -79,8 +81,8 @@ const Venue = () => {
         src="/images/graphics/fan-banner.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 z-[5] h-auto"
-        style={{ width: '100vw' }}
+        className="pointer-events-none absolute bottom-0 left-1/2 z-[5] h-auto -translate-x-1/2"
+        style={{ width: '150vw', maxWidth: 'none' }}
       />
       <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
         <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-10">
@@ -89,41 +91,41 @@ const Venue = () => {
           </span>
         </h2>
 
-        <div className="px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12">
-          <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8">
-            <div ref={venuePhotoRef} className="flex shrink-0 justify-center">
-              <img
-                src={venuePhotoUrl}
-                alt={venueData.name ? `Venue — ${venueData.name}` : 'Venue photo'}
-                className="h-auto w-[40vw] max-w-[260px] object-contain"
-              />
+        <div className="px-4 pt-8 pb-3 sm:px-6 sm:pt-10 sm:pb-4 md:px-8 md:pt-12 md:pb-5">
+          <div className="flex flex-col items-center justify-center gap-6 sm:gap-8">
+            <div ref={venuePhotoRef} className="flex w-full justify-center">
+              <div
+                className="venue-map-frame h-[264px] w-full max-w-[576px] sm:h-[336px] md:h-[384px]"
+                style={{ willChange: 'transform', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
+              >
+                <iframe
+                  src={venueEmbedUrl}
+                  title={venueData.name ? `Google Map — ${venueData.name}` : 'Google Map location'}
+                  className="venue-map-frame__iframe h-full w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
-            <div ref={venueNameRef} className="min-w-0 flex-1 text-left">
+            <div ref={venueNameRef} className="w-full text-center">
               {venueData.name ? (
                 <p className="font-poppins text-lg capitalize leading-tight tracking-[0.02em] sm:text-xl md:text-2xl">
-                  <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#E5C988] via-[#FFFEF2] to-[#E5C988] bg-clip-text text-transparent">
                     {venueData.name}
                   </span>
                 </p>
               ) : null}
-              {venueData.main?.time || venueData.address ? (
-                <div className="mt-3 space-y-1 font-poppins" style={{ color: '#EFE9DC' }}>
-                  {venueData.main?.time ? (
-                    <p className="text-sm tracking-[0.04em] opacity-90 sm:text-base">({venueData.main.time})</p>
-                  ) : null}
-                  {venueData.address ? (
-                    <p className="text-xs tracking-[0.04em] opacity-90 sm:text-sm">
-                      {venueData.address}, {venueData.state}
-                    </p>
-                  ) : null}
+              {venueData.main?.time ? (
+                <div className="mt-3 font-poppins" style={{ color: '#EFE9DC' }}>
+                  <p className="text-sm tracking-[0.04em] opacity-90 sm:text-base">{venueData.main.time}</p>
                 </div>
               ) : null}
             </div>
           </div>
         </div>
 
-        <div className="mt-6 flex w-full justify-center">
+        <div className="mt-1 flex w-full justify-center sm:mt-2">
           <GraphicLink
             ref={buttonRef}
             href={directionsUrl}

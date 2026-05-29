@@ -5,7 +5,7 @@ import { celebrant } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ABOUT_BG = '/images/prenup/A7400780.jpg'
+const ABOUT_BG = '/images/prenup/DSC06812.jpg'
 
 const CelebrantStory = ({ onImageClick }) => {
   const about = celebrant.debutant.about
@@ -44,7 +44,7 @@ const CelebrantStory = ({ onImageClick }) => {
         className="absolute inset-0 z-0 bg-cover bg-no-repeat cursor-pointer"
         style={{
           backgroundImage: `url(${ABOUT_BG})`,
-          backgroundPosition: '42% center'
+          backgroundPosition: '18% center'
         }}
         onClick={() => onImageClick?.(ABOUT_BG)}
         aria-hidden

@@ -22,13 +22,13 @@ const Preloader = ({ onComplete }) => {
 
     // List of critical images to preload
     const criticalImages = [
-      // Hero background image (most important)
-      '/images/prenup/DSC01333.jpg',
-      // First few gallery images for better UX
-      '/images/prenup/DSC01372.jpg',
-      '/images/prenup/DSC01288.jpg',
-      '/images/prenup/DSC01381.jpg',
-      '/images/prenup/DSC01394.jpg',
+      // Hero / social thumbnail (most important)
+      '/images/prenup/DSC06785.jpg',
+      // First few above-the-fold prenup images for better UX
+      '/images/prenup/DSC06812.jpg',
+      '/images/prenup/DSC06982.jpg',
+      '/images/prenup/DSC07027.jpg',
+      '/images/prenup/DSC07371.jpg',
     ]
 
     let loadedCount = 0
@@ -74,7 +74,7 @@ const Preloader = ({ onComplete }) => {
         // Ensure hero image is fully loaded and rendered
         // Create a temporary image element to ensure it's in browser cache
         const heroImg = new Image()
-        heroImg.src = '/images/prenup/DSC01333.jpg'
+        heroImg.src = '/images/prenup/DSC06785.jpg'
         
         await new Promise((resolve) => {
           if (heroImg.complete) {

@@ -7,8 +7,7 @@ import { wedding } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const BG = wedding.giftSection?.backgroundImage || '/images/prenup/A7401414.jpg'
-const DEFAULT_BOTTOM_IMG = '/images/gift/gcash%20no.jpg'
+const BG = wedding.giftSection?.backgroundImage || '/images/prenup/DSC07027.jpg'
 
 const OurGiftSection = () => {
   const gs = wedding.giftSection ?? {}
@@ -18,7 +17,6 @@ const OurGiftSection = () => {
   const intro = (gs.intro ?? '').trim()
   const ctaLabel = (gs.ctaLabel ?? 'View registry').trim()
   const ctaHref = gs.ctaUrl || wedding.details?.registry || '#'
-  const bottomImg = gs.bottomImage || DEFAULT_BOTTOM_IMG
 
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
@@ -58,7 +56,7 @@ const OurGiftSection = () => {
         className="absolute inset-0 z-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: `url(${BG})`,
-          backgroundPosition: '58% center'
+          backgroundPosition: '68% center'
         }}
         aria-hidden
       />
@@ -125,20 +123,6 @@ const OurGiftSection = () => {
           </div>
         </div>
       </div>
-
-      {bottomImg ? (
-        <img
-          src={bottomImg}
-          alt=""
-          className="pointer-events-none absolute bottom-4 left-0 z-[12] h-auto w-[35%] max-w-[250px] select-none object-contain object-[left_bottom] sm:bottom-5"
-          style={{
-            paddingLeft: 'max(1rem, env(safe-area-inset-left))',
-            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))'
-          }}
-          draggable={false}
-          aria-hidden
-        />
-      ) : null}
 
       <GraphicLink
         ref={buttonRef}

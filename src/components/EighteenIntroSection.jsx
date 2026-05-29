@@ -9,7 +9,7 @@ import { eighteenths } from '../data'
 gsap.registerPlugin(ScrollTrigger)
 
 /** Prenup photo not referenced elsewhere on this invitation. */
-const INTRO_BG = '/images/prenup/A7400961.jpg'
+const INTRO_BG = '/images/prenup/DSC06982.jpg'
 
 /** Eighteenths full-screen modal background (graphics). */
 const MODAL_PALACE_BG = '/images/graphics/palace.png'

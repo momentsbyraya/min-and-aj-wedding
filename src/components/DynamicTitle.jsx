@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { celebrant } from '../data'
 
-const SOCIAL_THUMB_PATH = '/images/prenup/A7400778.jpg'
+const SOCIAL_THUMB_PATH = '/images/prenup/DSC06785.jpg'
 
 const DynamicTitle = () => {
   const debutantName = celebrant.debutant.name.full

@@ -11,10 +11,10 @@
 
 /* Poppins + weights — !important beats global `* { font-family … !important }` in index.css */
 .faq-question,
-.faq-question-trigger,
-.faq-question-trigger .faq-question-label {
+.faq-question .faq-question-label {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 600 !important;
+  color: #ffffff;
 }
 
 .faq-answer-body {
@@ -41,79 +41,31 @@
   text-underline-offset: 0.2em;
 }
 
-/* Accordion */
+/* Static Q/A layout */
 .faq-items-stack {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
 .faq-item-heading {
   margin: 0;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-.faq-question-trigger {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
-  margin: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: #ffffff;
   text-align: left;
-  border-radius: 0.25rem;
-  transition: opacity 0.2s ease, background-color 0.2s ease;
-}
-
-.faq-question-trigger:hover {
-  opacity: 0.92;
-}
-
-.faq-question-trigger:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
 }
 
 .faq-question-label {
-  flex: 1;
-  min-width: 0;
-}
-
-.faq-chevron {
-  width: 1.25rem;
-  height: 1.25rem;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-  color: #ffffff;
-}
-
-.faq-chevron--open {
-  transform: rotate(180deg);
-}
-
-.faq-answer-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-}
-
-.faq-answer-panel--open {
-  grid-template-rows: 1fr;
-}
-
-.faq-answer-panel-inner {
-  min-height: 0;
-  overflow: hidden;
+  display: inline-block;
 }
 
 .faq-item-divider {
   height: 1px;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   background-color: rgba(255, 255, 255, 0.3);
 }

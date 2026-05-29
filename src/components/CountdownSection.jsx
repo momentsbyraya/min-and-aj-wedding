@@ -6,6 +6,8 @@ import { celebrant } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const COUNTDOWN_PRENUP = '/images/prenup/DSC07504.jpg'
+
 const CountdownSection = () => {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
@@ -102,14 +104,26 @@ const CountdownSection = () => {
           </span>
         </h2>
 
-        <div ref={countdownArtRef} className="mx-auto w-full max-w-[min(320px,88vw)]">
-          <img
-            src="/images/graphics/countdown.png"
-            alt=""
-            aria-hidden
-            className="w-full h-auto object-contain select-none pointer-events-none"
-            draggable={false}
-          />
+        <div ref={countdownArtRef} className="mx-auto w-full max-w-md px-2 sm:px-4">
+          <div
+            className="gallery-tile gallery-tile--oval mx-auto w-[220px] sm:w-[260px] md:w-[280px]"
+            style={{
+              aspectRatio: '4 / 5',
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)'
+            }}
+          >
+            <div className="gallery-tile-inner h-full w-full">
+              <img
+                src={COUNTDOWN_PRENUP}
+                alt="Celebrant preview"
+                draggable={false}
+                loading="lazy"
+                style={{ objectPosition: 'center' }}
+              />
+            </div>
+          </div>
         </div>
 
         <div ref={statsRef} className="mt-12 flex items-start justify-center gap-4 sm:gap-6">

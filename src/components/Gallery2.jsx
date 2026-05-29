@@ -9,12 +9,12 @@ const Gallery2 = ({ onImageClick }) => {
   const sectionRef = useRef(null)
   const gridRef = useRef(null)
   const images = [
-    '/images/prenup/DSC01538.jpg',
-    '/images/prenup/DSC01459.jpg',
-    '/images/prenup/DSC01254.jpg',
-    '/images/prenup/DSC01234.jpg',
-    '/images/prenup/DSC01492.jpg',
-    '/images/prenup/DSC01381.jpg'
+    '/images/prenup/DSC06785.jpg',
+    '/images/prenup/DSC06812.jpg',
+    '/images/prenup/DSC06982.jpg',
+    '/images/prenup/DSC07027.jpg',
+    '/images/prenup/DSC07129.jpg',
+    '/images/prenup/DSC07234.jpg'
   ]
 
   useEffect(() => {

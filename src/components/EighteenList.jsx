@@ -13,11 +13,22 @@ const scrollTriggerScroller = (scrollerElement) =>
     ? { scroller: scrollerElement, invalidateOnRefresh: true }
     : { invalidateOnRefresh: true }
 
-/** Shared plate art behind every category in the modal list. */
-const CATEGORY_PLATE_BG = '/images/graphics/plate-treasure.png'
+/**
+ * Plate art behind every category in the modal list.
+ * One entourage graphic per category; cycles if there are more categories than images.
+ */
+const CATEGORY_PLATE_BGS = [
+  '/images/graphics/entourage-1.png',
+  '/images/graphics/entourage-2.png',
+  '/images/graphics/entourage-3.png',
+  '/images/graphics/entourage-4.png'
+]
+
+const getCategoryPlateBg = (index) =>
+  CATEGORY_PLATE_BGS[((index % CATEGORY_PLATE_BGS.length) + CATEGORY_PLATE_BGS.length) % CATEGORY_PLATE_BGS.length]
 
 const plateBackgroundStyle = (url) => ({
-  backgroundImage: `url(${url})`,
+  backgroundImage: `url("${url}")`,
   backgroundSize: 'cover',
   backgroundPosition: 'center center',
   backgroundRepeat: 'no-repeat'
@@ -28,33 +39,33 @@ const plateBackgroundStyle = (url) => ({
  * Keep length ≥ `eighteenths.categories.length - 1` so no image repeats between categories.
  */
 const EIGHTEENTH_INTERSTITIAL_IMAGES = [
-  '/images/prenup/A7400780.jpg',
-  '/images/prenup/A7401418.jpg',
-  '/images/prenup/A7400961.jpg',
-  '/images/prenup/A7401509.jpg',
-  '/images/prenup/A7400792.jpg',
-  '/images/prenup/A7401400.jpg',
-  '/images/prenup/A7400958.jpg',
-  '/images/prenup/A7401464.jpg',
-  '/images/prenup/A7400944.jpg',
-  '/images/prenup/A7400819.jpg',
-  '/images/prenup/A7400801.jpg',
-  '/images/prenup/A7401201.jpg',
-  '/images/prenup/A7401414.jpg',
-  '/images/prenup/A7400778.jpg',
-  '/images/prenup/A7400771.jpeg'
+  '/images/prenup/DSC07725.jpg',
+  '/images/prenup/DSC07907.jpg',
+  '/images/prenup/DSC07993.jpg',
+  '/images/prenup/DSC07675.jpg',
+  '/images/prenup/DSC07640.jpg',
+  '/images/prenup/DSC07504.jpg',
+  '/images/prenup/DSC07409.jpg',
+  '/images/prenup/DSC07371.jpg',
+  '/images/prenup/DSC07257.jpg',
+  '/images/prenup/DSC07234.jpg',
+  '/images/prenup/DSC07129.jpg',
+  '/images/prenup/DSC07027.jpg',
+  '/images/prenup/DSC06982.jpg',
+  '/images/prenup/DSC06812.jpg',
+  '/images/prenup/DSC06785.jpg'
 ]
 
-const getCategoryPanel = (category) => {
+const getCategoryPanel = (category, index = 0) => {
   const n = `${category.name || ''} ${category.title || ''}`.toLowerCase()
   let variant = 'default'
   if (n.includes('treasure')) variant = 'treasure'
   else if (n.includes('rose')) variant = 'roses'
   else if (n.includes('candle')) variant = 'candles'
-  return { variant, image: CATEGORY_PLATE_BG, fullBleed: true }
+  return { variant, image: getCategoryPlateBg(index), fullBleed: true }
 }
 
-const CategorySection = ({ category, scrollerElement }) => {
+const CategorySection = ({ category, index = 0, scrollerElement }) => {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const namesRef = useRef(null)
@@ -81,7 +92,7 @@ const CategorySection = ({ category, scrollerElement }) => {
     }
   }
 
-  const panel = getCategoryPanel(category)
+  const panel = getCategoryPanel(category, index)
 
   useEffect(() => {
     if (!containerRef.current) return undefined
@@ -124,6 +135,11 @@ const CategorySection = ({ category, scrollerElement }) => {
     }
   }, [scrollerElement])
 
+  const isLightCategory = index === 2 || index === 3
+  const nameColor = isLightCategory ? '#FFFFFF' : '#D6C9A8'
+  const titleClass = isLightCategory
+    ? 'section-title-graphic-inner section-title-graphic-inner--line eighteenths-cat-title--light font-beautyofthebeast capitalize'
+    : 'section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize'
   const innerClass = `eighteenths-cat-inner w-full eighteenths-cat-inner--${panel.variant}`
   const hasPlateBg = Boolean(panel.image)
 
@@ -134,26 +150,27 @@ const CategorySection = ({ category, scrollerElement }) => {
         style={{ color: '#80043a', overflow: 'visible' }}
       >
         <div ref={titleRef} className="eighteenths-modal-title-wrap inline-block text-center">
-          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+          <span className={titleClass}>
             {displayTitle ? displayTitle.toLowerCase() : ''}
           </span>
         </div>
       </h3>
       <div
         ref={namesRef}
-        className="w-full overflow-visible"
+        className="w-full max-w-full overflow-visible px-6 sm:px-10 md:px-14"
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
       >
-        {names.map((name, index) => (
+        {names.map((name, nameIndex) => (
           <div
-            key={index}
+            key={nameIndex}
             className="font-poppins max-w-none text-[11px] sm:text-xs"
             style={{
-              color: '#80043a',
+              color: nameColor,
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
               whiteSpace: 'nowrap',
-              lineHeight: 1.35
+              lineHeight: 1.35,
+              textShadow: '0 1px 4px rgba(0, 0, 0, 0.45)'
             }}
           >
             {name}
@@ -225,8 +242,8 @@ const EighteenList = ({ scrollerElement } = {}) => {
           align-items: center;
           padding-top: clamp(2rem, 6vw, 3.25rem);
           padding-bottom: clamp(1rem, 4vw, 2rem);
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
+          padding-left: clamp(1.25rem, 5vw, 2.5rem);
+          padding-right: clamp(1.25rem, 5vw, 2.5rem);
         }
         /* Plate + content: same padded box for every category (matches former roses layout) */
         .eighteenths-cat-bg-wrap {
@@ -235,14 +252,14 @@ const EighteenList = ({ scrollerElement } = {}) => {
           box-sizing: border-box;
           padding-top: clamp(17rem, 44vw, 30rem);
           padding-bottom: clamp(12.5rem, 34vw, 22rem);
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
+          padding-left: clamp(2rem, 8vw, 4rem);
+          padding-right: clamp(2rem, 8vw, 4rem);
         }
         .eighteenths-cat-bg-wrap .eighteenths-cat-inner {
           padding-top: 0 !important;
           padding-bottom: 0 !important;
-          padding-left: 0;
-          padding-right: 0;
+          padding-left: clamp(1rem, 4vw, 2rem);
+          padding-right: clamp(1rem, 4vw, 2rem);
         }
 
         /* Modal category titles: typography only — no title-container.png frame */
@@ -260,6 +277,13 @@ const EighteenList = ({ scrollerElement } = {}) => {
         .eighteenths-modal-title-wrap .section-title-graphic-inner--line {
           font-size: clamp(2.35rem, 7.5vw, 3.45rem) !important;
         }
+        /* Override the gold-gradient title for categories rendered on a darker plate */
+        .eighteenths-cat-title--light {
+          background-image: none !important;
+          -webkit-text-fill-color: #FFFFFF !important;
+          color: #FFFFFF !important;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+        }
 
         .eighteenths-interstitial {
           line-height: 0;
@@ -273,13 +297,14 @@ const EighteenList = ({ scrollerElement } = {}) => {
         }
       `}</style>
       <section className="relative w-full overflow-hidden eighteenths-section bg-transparent">
-        <div className="relative z-20 w-full px-8">
+        <div className="relative z-20 w-full px-6 sm:px-10 md:px-14">
           <div className="eighteenths-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 0 }}>
             {displayCategories.flatMap((category, index) => {
               const nodes = [
                 <CategorySection
                   key={`eighteenth-cat-${category.name ?? index}`}
                   category={category}
+                  index={index}
                   scrollerElement={scrollerElement}
                 />
               ]
