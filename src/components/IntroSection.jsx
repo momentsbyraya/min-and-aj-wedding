@@ -104,7 +104,7 @@ const IntroSection = () => {
       <div className="relative z-20 mx-auto max-w-sm px-5 sm:px-7">
         <p
           ref={copyRef}
-          className="mb-6 text-center font-poppins text-sm leading-snug sm:mb-7"
+          className="mb-6 text-center font-beautyofthebeast text-2xl leading-snug sm:mb-7 sm:text-3xl md:text-4xl"
           style={{ color: '#EFE9DC' }}
         >
           I am so excited to celebrate my special day with you.
