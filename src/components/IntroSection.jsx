@@ -24,6 +24,14 @@ const IntroSection = () => {
   const calendarCells = [...Array(firstDayOfMonth).fill(null), ...Array.from({ length: daysInMonth }, (_, i) => i + 1)]
 
   useEffect(() => {
+    if (!isRsvpModalOpen) return undefined
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isRsvpModalOpen])
+
+  useEffect(() => {
     const dayNumbers = calendarRef.current?.querySelectorAll('.calendar-day-number') || []
 
     const tl = gsap.timeline({
@@ -100,17 +108,11 @@ const IntroSection = () => {
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-10"
       />
-      <img
-        src="/images/graphics/flower-right.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-10"
-      />
       <div className="relative z-20 mx-auto max-w-sm px-5 sm:px-7">
         <p
           ref={copyRef}
           className="mb-6 text-center font-beautyofthebeast text-2xl leading-snug sm:mb-7 sm:text-3xl md:text-4xl"
-          style={{ color: '#6b5a70' }}
+          style={{ color: '#3f3348' }}
         >
           I am so excited to celebrate my special day with you.
           Thank you for being part of my journey!
@@ -118,16 +120,16 @@ const IntroSection = () => {
         <div className="intro-content-soft-panel px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
           <div ref={calendarRef} className="w-4/5 mx-auto origin-top scale-125 sm:scale-[1.35]">
             <p className="font-rozha text-2xl tracking-[0.12em] uppercase">
-              <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#5a4868] via-[#c9b4d4] to-[#3f3348] bg-clip-text text-transparent">
                 {monthLabel} {yearLabel}
               </span>
             </p>
-            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#6b5a70' }}>
+            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#3f3348' }}>
               {weekLabels.map((label, index) => (
                 <span key={`${label}-${index}`}>{label}</span>
               ))}
             </div>
-            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#6b5a70' }}>
+            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#3f3348' }}>
               {calendarCells.map((day, index) => {
                 const isSelected = day === selectedDay
                 return (
@@ -151,23 +153,28 @@ const IntroSection = () => {
           <GraphicButton
             imageSrc="/images/graphics/button-container.png"
             onClick={() => setIsRsvpModalOpen(true)}
-            className="graphic-button--cta attendance-confirm-button shrink-0"
-            contentClassName="font-beautyofthebeast lowercase mb-2"
+            className="graphic-button--cta graphic-button--cta-centered attendance-confirm-button shrink-0"
+            contentClassName="font-beautyofthebeast lowercase !mb-0 items-center"
           >
-            <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
+            <span style={{ color: '#3f3348' }}>
               respond
             </span>
-            <FiMail className="h-5 w-5 shrink-0 text-[#8a7399]" aria-hidden="true" />
+            <FiMail className="h-5 w-5 shrink-0 text-[#5a4868]" aria-hidden="true" />
           </GraphicButton>
         </div>
       </div>
       {isRsvpModalOpen && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
-          <div className="relative w-screen h-screen bg-[#fae8ce] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+        <div className="fixed inset-0 z-[120] flex items-end justify-center px-0">
+          <div
+            className="absolute inset-0 bg-black/65 modal-overlay-fade"
+            onClick={() => setIsRsvpModalOpen(false)}
+            aria-hidden
+          />
+          <div className="modal-slide-up-panel relative w-screen h-screen bg-[#fae8ce] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#6b5a70]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#3f3348]"
             >
               Close
             </button>

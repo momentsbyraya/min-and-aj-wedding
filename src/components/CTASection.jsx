@@ -110,7 +110,7 @@ const CTASection = () => {
               <h2 ref={titleRef} className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-antsvalley mb-6" style={{ color: '#4b2259' }}>
                 respond
               </h2>
-              <p ref={textRef} className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#6b5a70', fontSize: '1rem' }}>
+              <p ref={textRef} className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#3f3348', fontSize: '1rem' }}>
                 Please let us know if you'll <br /> be joining us.
               </p>
 

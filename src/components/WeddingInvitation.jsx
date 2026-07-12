@@ -11,6 +11,7 @@ import Gallery from './Gallery'
 import CelebrantStory from './CelebrantStory'
 import FAQ from './FAQ'
 import CountdownSection from './CountdownSection'
+import FallingPetals from './FallingPetals'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
@@ -46,6 +47,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
+      <FallingPetals />
       <main className="main-container h-full section-container">
         <div>
           <Hero
@@ -102,7 +104,7 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit Moments by Raya page"
-                className="wedding-invitation-footer-link text-[#6b5a70] hover:text-[#8a7399] inline-flex items-center gap-1.5"
+                className="wedding-invitation-footer-link text-[#3f3348] hover:text-[#5a4868] inline-flex items-center gap-1.5"
               >
                 <span>Made with</span>
                 <FiHeart className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />

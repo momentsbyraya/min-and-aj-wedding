@@ -73,7 +73,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
-              color: '#6b5a70',
+              color: '#3f3348',
               textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)'
             }}
           >
@@ -82,7 +82,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-title font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
             style={{
-              color: '#6b5a70',
+              color: '#3f3348',
               textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)'
             }}
           >
@@ -118,7 +118,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           ref={clickLabelRef}
           className="font-foglihten mt-0 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
           style={{
-            color: '#6b5a70',
+            color: '#3f3348',
             textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)'
           }}
         >

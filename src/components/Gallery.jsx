@@ -169,7 +169,8 @@ const Gallery = () => {
   const mainGallery = galleryCount > 2 ? galleryImages.slice(0, -2) : []
   const tailPair = galleryCount >= 2 ? galleryImages.slice(-2) : galleryImages
 
-  const useOvalFrame = () => true
+  /** Oval frame on 2 of every 5 tiles (e.g. indices 1 and 3). */
+  const useOvalFrame = (index) => index % 5 === 1 || index % 5 === 3
 
   const renderGridTile = (image, index, gridColumn) => {
     const isFullWidthRow = gridColumn === 'span 3'
@@ -223,13 +224,13 @@ const Gallery = () => {
   return (
     <div id="gallery" className="relative">
       <div
-        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16 bg-cover bg-center bg-no-repeat"
+        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16 bg-cover bg-left bg-no-repeat"
         style={{
           width: '100vw',
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           backgroundColor: galleryBlushBg,
-          backgroundImage: "url('/images/graphics/butterflies-bg.png')",
+          backgroundImage: "url('/images/graphics/hero-bg.png')",
           backgroundBlendMode: 'soft-light'
         }}
       >

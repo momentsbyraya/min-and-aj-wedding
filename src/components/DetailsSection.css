@@ -14,11 +14,11 @@
 }
 
 .details-title {
-  color: var(--ink-color, #6b5a70);
+  color: var(--ink-color, #3f3348);
 }
 
 .details-tournament-entry {
-  color: var(--ink-color, #6b5a70);
+  color: var(--ink-color, #3f3348);
   font-weight: 900;
   line-height: 1;
   margin-top: -0.4em;
@@ -26,18 +26,18 @@
 }
 
 .details-text-primary {
-  color: var(--ink-color, #6b5a70);
+  color: var(--ink-color, #3f3348);
   font-size: 1rem;
 }
 
 .details-rsvp-heading,
 .details-gift-heading {
-  color: var(--ink-color, #6b5a70);
+  color: var(--ink-color, #3f3348);
 }
 
 .details-button {
   border-radius: 0;
-  color: #6b5a70;
+  color: #3f3348;
   border: 0.5px solid var(--primary-color, #e5d7ed);
   outline: 0.5px solid #fae8ce;
   outline-offset: -5px;
@@ -65,7 +65,7 @@
 }
 
 .details-gift-link-tertiary {
-  color: var(--ink-color, #6b5a70);
+  color: var(--ink-color, #3f3348);
 }
 
 .details-strong-text {

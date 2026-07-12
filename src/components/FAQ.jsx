@@ -71,28 +71,16 @@ const FAQ = ({ id = 'faq' }) => {
       <div className="soft-blob absolute top-[18%] right-[8%] w-44 h-44 z-[1]" aria-hidden="true" />
       <div className="soft-blob soft-blob--alt soft-blob--small absolute bottom-[20%] left-[6%] w-32 h-32 z-[1]" aria-hidden="true" />
       <img
-        src="/images/graphics/bird-2.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-[5]"
-      />
-      <img
-        src="/images/graphics/lantern-1.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-[5]"
-      />
-      <img
-        src="/images/graphics/flower-right-2.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5] -scale-x-100"
-      />
-      <img
         src="/images/graphics/flower-right.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-[5]"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute top-0 right-0 h-auto pointer-events-none z-[5]"
+      />
+      <img
+        src="/images/graphics/flower-left.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5]"
       />
       <img
         src="/images/graphics/divider.png"

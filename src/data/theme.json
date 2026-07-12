@@ -1,4 +1,4 @@
-﻿{
+{
   "backgrounds": {
     "primary": "bg-gray-900",
     "secondary": "bg-gray-800",
@@ -10,10 +10,10 @@
   "text": {
     "primary": "text-white",
     "secondary": "text-gray-300",
-    "accent": "text-[#8a7399]",
+    "accent": "text-[#5a4868]",
     "muted": "text-gray-400",
     "dark": "text-wedding-800",
-    "theme": "text-[#6b5a70]",
+    "theme": "text-[#3f3348]",
     "pause": "text-[#dcdcdc]",
     "custom": "text-[#44484d]"
   },
@@ -21,18 +21,18 @@
     "primary": "border-gray-700",
     "secondary": "border-gray-600",
     "accent": "border-[#e5d7ed]",
-    "theme": "border-[#6b5a70]"
+    "theme": "border-[#3f3348]"
   },
   "buttons": {
     "primary": "bg-[#e5d7ed] hover:bg-[#d2e0ee]",
     "secondary": "border border-gray-600 hover:border-gray-400",
     "text": "text-gray-300 hover:text-white",
-    "theme": "bg-[#6b5a70] hover:bg-[#6b5a70]/80"
+    "theme": "bg-[#3f3348] hover:bg-[#3f3348]/80"
   },
   "hover": {
     "primary": "hover:bg-wedding-700",
     "secondary": "hover:border-gray-400 hover:text-white",
-    "theme": "hover:bg-[#6b5a70]/80"
+    "theme": "hover:bg-[#3f3348]/80"
   },
   "container": {
     "maxWidth": "max-w-[1300px]",
@@ -42,7 +42,7 @@
   "calendar": {
     "weddingDate": "2026-06-27",
     "highlightColor": "bg-[#e5d7ed]",
-    "heartColor": "text-[#8a7399]",
+    "heartColor": "text-[#5a4868]",
     "textColor": "text-gray-700",
     "headerColor": "text-gray-800",
     "dayNamesColor": "text-gray-600",
@@ -54,7 +54,7 @@
     "--accent-bg": "#e5d7ed",
     "--primary-text": "#ffffff",
     "--secondary-text": "#d1d5db",
-    "--accent-text": "#8a7399",
+    "--accent-text": "#5a4868",
     "--muted-text": "#9ca3af",
     "--border-color": "#374151",
     "--custom-theme": "#d2e0ee",
@@ -62,13 +62,13 @@
     "--secondary-color": "#f1d7d7",
     "--tertiary-color": "#d2e0ee",
     "--cream-color": "#fae8ce",
-    "--ink-color": "#6b5a70"
+    "--ink-color": "#3f3348"
   },
   "colors": {
     "primary": "#e5d7ed",
     "secondary": "#f1d7d7",
     "tertiary": "#d2e0ee",
     "cream": "#fae8ce",
-    "ink": "#6b5a70"
+    "ink": "#3f3348"
   }
 }

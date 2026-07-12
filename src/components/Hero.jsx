@@ -1,4 +1,4 @@
-﻿import React, { useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { FiHeart } from 'react-icons/fi'
 import { celebrant, venues } from '../data'
@@ -93,7 +93,7 @@ const Hero = () => {
               ref={inviteLineRef}
               className="uppercase max-w-[min(100%,36rem)] leading-none opacity-95"
               style={{
-                color: '#6b5a70',
+                color: '#3f3348',
                 fontSize: 'clamp(0.4375rem, 1.25vw, 0.5625rem)',
                 letterSpacing: '0.12em'
               }}
@@ -118,23 +118,23 @@ const Hero = () => {
             <div ref={dividerRef} className="flex w-full items-center justify-center gap-3 opacity-95">
               <span
                 className="block h-px flex-1 max-w-[5rem]"
-                style={{ backgroundColor: 'rgba(107, 90, 112, 0.35)' }}
+                style={{ backgroundColor: 'rgba(63, 51, 72, 0.35)' }}
               />
               <FiHeart
                 className="h-3 w-3 shrink-0 fill-current"
-                style={{ color: '#8a7399' }}
+                style={{ color: '#5a4868' }}
                 aria-hidden="true"
               />
               <span
                 className="block h-px flex-1 max-w-[5rem]"
-                style={{ backgroundColor: 'rgba(107, 90, 112, 0.35)' }}
+                style={{ backgroundColor: 'rgba(63, 51, 72, 0.35)' }}
               />
             </div>
             <p
               ref={debutLineRef}
               className="font-foglihten uppercase leading-tight m-0 opacity-92"
               style={{
-                color: '#6b5a70',
+                color: '#3f3348',
                 fontSize: 'clamp(0.875rem, 3vw, 1.25rem)',
                 letterSpacing: '0.22em'
               }}
@@ -154,7 +154,7 @@ const Hero = () => {
             <p
               className="font-poppins uppercase leading-none m-0"
               style={{
-                color: '#6b5a70',
+                color: '#3f3348',
                 fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
                 letterSpacing: '0.18em'
               }}
@@ -166,7 +166,7 @@ const Hero = () => {
             <p
               className="font-poppins uppercase leading-tight m-0"
               style={{
-                color: '#8a7399',
+                color: '#5a4868',
                 fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
                 letterSpacing: '0.18em'
               }}

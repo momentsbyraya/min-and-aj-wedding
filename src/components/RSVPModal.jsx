@@ -15,41 +15,32 @@ const RSVPModal = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
-      // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden'
-      
-      // Modal entrance animation
-      gsap.set([overlayRef.current, contentRef.current], { opacity: 0 })
-      gsap.set(contentRef.current, { scale: 0.8, y: 50 })
-      
-      gsap.to(overlayRef.current, { opacity: 1, duration: 0.3, ease: "power2.out" })
-      gsap.to(contentRef.current, { 
-        opacity: 1, 
-        scale: 1, 
-        y: 0, 
-        duration: 0.4, 
-        ease: "back.out(1.7)" 
+
+      gsap.set(overlayRef.current, { opacity: 0 })
+      gsap.set(contentRef.current, { y: '100%' })
+
+      gsap.to(overlayRef.current, { opacity: 1, duration: 0.35, ease: 'power2.out' })
+      gsap.to(contentRef.current, {
+        y: 0,
+        duration: 0.48,
+        ease: 'power3.out'
       })
     } else {
-      // Re-enable body scroll when modal is closed
       document.body.style.overflow = 'unset'
     }
 
-    // Cleanup function
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
 
   const handleClose = () => {
-    // Modal exit animation
-    gsap.to(overlayRef.current, { opacity: 0, duration: 0.2, ease: "power2.out" })
-    gsap.to(contentRef.current, { 
-      opacity: 0, 
-      scale: 0.8, 
-      y: 50, 
-      duration: 0.3, 
-      ease: "power2.out" 
+    gsap.to(overlayRef.current, { opacity: 0, duration: 0.25, ease: 'power2.out' })
+    gsap.to(contentRef.current, {
+      y: '100%',
+      duration: 0.38,
+      ease: 'power2.in'
     }).then(() => {
       onClose()
     })
@@ -66,7 +57,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
   return createPortal(
     <div 
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-0"
+      className="fixed inset-0 z-50 flex items-end justify-center p-0"
       style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       {/* Overlay */}

@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { dresscode } from '../data'
@@ -70,29 +70,22 @@ const DressCode = () => {
       />
       <div className="soft-blob absolute top-[20%] right-[10%] w-44 h-44 z-[1]" aria-hidden="true" />
       <img
-        src="/images/graphics/fan%20flower%20-%201.png"
+        src="/images/graphics/flower-top.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
+        className="pointer-events-none absolute top-0 left-1/2 z-10 h-auto w-[min(100vw,720px)] max-w-none -translate-x-1/2"
       />
       <img
-        src="/images/graphics/lantern-1.png"
+        src="/images/graphics/flower-bottom.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10"
-      />
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
-        style={{ width: '120vw', maxWidth: 'none' }}
+        className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto w-[min(100vw,720px)] max-w-none -translate-x-1/2"
       />
       <div className="relative z-20 mx-auto w-full max-w-md px-5 text-center sm:max-w-xl sm:px-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl">
         <div ref={headingRef} className="flex flex-col items-center">
           <h2 className="section-title-graphic section-title-graphic--center mx-auto mb-1">
             <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
-              Dress code
+              Dresscode
             </span>
           </h2>
         </div>
@@ -117,7 +110,7 @@ const DressCode = () => {
         <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
           <p
             className="font-my-soul leading-none"
-            style={{ color: '#6b5a70' }}
+            style={{ color: '#3f3348' }}
           >
             <span style={{ fontSize: 'clamp(1.75rem, 5.2vw, 2.85rem)' }}>
               {mainDressCode.title}
@@ -127,14 +120,14 @@ const DressCode = () => {
               {mainDressCode.subtitle}
             </span>
           </p>
-          <p className="font-poppins text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#6b5a70' }}>
+          <p className="font-poppins text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#3f3348' }}>
             {mainDressCode.description.split('\n\n').map((paragraph, i) => {
               const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(paragraph.trim())
               return (
                 <React.Fragment key={i}>
                   {i > 0 ? <br /> : null}
                   {isAvoidLine ? (
-                    <span className="font-semibold" style={{ color: '#8a7399' }}>
+                    <span className="font-semibold" style={{ color: '#5a4868' }}>
                       {paragraph}
                     </span>
                   ) : (

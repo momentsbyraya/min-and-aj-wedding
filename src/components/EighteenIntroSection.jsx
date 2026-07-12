@@ -108,7 +108,7 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[3] pointer-events-none"
           style={{
             background:
-              'linear-gradient(115deg, rgba(138, 115, 153, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(90, 72, 104, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
           }}
           aria-hidden
         />
@@ -116,7 +116,7 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[4] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(138, 115, 153, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(90, 72, 104, 0.5) 0%, transparent 70%)'
           }}
           aria-hidden
         />
@@ -131,7 +131,7 @@ const EighteenIntroSection = () => {
         <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
           <div className="overflow-hidden">
             <div ref={contentRef} className="py-5 text-left">
-              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#6b5a70', textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)' }}>
+              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#3f3348', textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)' }}>
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   Programme
                 </p>
@@ -146,7 +146,7 @@ const EighteenIntroSection = () => {
               </div>
               <p
                 className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4"
-                style={{ color: '#6b5a70', textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)' }}
+                style={{ color: '#3f3348', textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)' }}
               >
                 {teaser}
               </p>
@@ -161,21 +161,21 @@ const EighteenIntroSection = () => {
           <GraphicButton
             imageSrc="/images/graphics/button-container.png"
             onClick={() => setModalOpen(true)}
-            className="graphic-button--cta attendance-confirm-button shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 mb-6"
-            contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem] mb-2"
+            className="graphic-button--cta shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 mb-6"
+            contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem] !mb-2"
             aria-haspopup="dialog"
           >
-            <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
+            <span style={{ color: '#3f3348' }}>
               view full list
             </span>
-            <FiArrowRight className="h-4 w-4 shrink-0 text-[#8a7399]" aria-hidden="true" />
+            <FiArrowRight className="h-4 w-4 shrink-0 text-[#5a4868] -mb-1.5" aria-hidden="true" />
           </GraphicButton>
         </div>
       </section>
 
       {modalOpen && (
         <div
-          className="fixed inset-0 z-[195] flex min-h-0 flex-col"
+          className="fixed inset-0 z-[195] flex min-h-0 flex-col modal-slide-up-panel"
           style={{ backgroundColor: '#fae8ce' }}
           role="dialog"
           aria-modal="true"
@@ -211,7 +211,7 @@ const EighteenIntroSection = () => {
           <button
             type="button"
             onClick={closeModal}
-            className="absolute z-20 rounded-full border border-[#d2e0ee]/18 bg-white/90 p-2.5 text-[#6b5a70] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
+            className="absolute z-20 rounded-full border border-[#d2e0ee]/18 bg-white/90 p-2.5 text-[#3f3348] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
             style={{
               top: 'max(1rem, env(safe-area-inset-top))',
               right: 'max(1rem, env(safe-area-inset-right))'

@@ -106,7 +106,7 @@ const Schedule = () => {
         <div
           className="schedule-time font-instrument-serif font-semibold leading-none"
           style={{
-            color: '#6b5a70',
+            color: '#3f3348',
             fontSize: 'clamp(1.85rem, 6vw, 3.25rem)'
           }}
         >
@@ -120,7 +120,7 @@ const Schedule = () => {
         <div
           className="schedule-title font-poppins font-bold uppercase"
           style={{
-            color: '#6b5a70',
+            color: '#3f3348',
             letterSpacing: '0.08em',
             fontSize: 'clamp(0.75rem, 1.6vw, 0.95rem)'
           }}
@@ -131,7 +131,7 @@ const Schedule = () => {
           <div
             className="schedule-description font-poppins italic mt-1"
             style={{
-              color: '#8a7399',
+              color: '#5a4868',
               opacity: 0.9,
               fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)'
             }}
@@ -214,7 +214,7 @@ const Schedule = () => {
             <div ref={headerRef} className="mb-12 flex justify-center">
               <h2 className="section-title-graphic section-title-graphic--center mb-4 text-center">
                 <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
-                  The schedule
+                  Program
                 </span>
               </h2>
             </div>
@@ -223,7 +223,7 @@ const Schedule = () => {
               <div
                 ref={lineRef}
                 className="absolute top-0 bottom-0 w-px -translate-x-1/2"
-                style={{ left: '50%', backgroundColor: '#d2e0ee', opacity: 0.55 }}
+                style={{ left: '50%', backgroundColor: '#6b5a70', opacity: 0.85 }}
               />
 
               <div ref={eventsRef} className="space-y-16 sm:space-y-20 md:space-y-24">
@@ -253,7 +253,7 @@ const Schedule = () => {
                           top: '50%',
                           transform: 'translate(-50%, -50%)',
                           backgroundColor: '#e5d7ed',
-                          borderColor: '#d2e0ee'
+                          borderColor: '#6b5a70'
                         }}
                       />
                     </div>
@@ -267,7 +267,7 @@ const Schedule = () => {
                 <p
                   className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
                   style={{
-                    color: '#6b5a70',
+                    color: '#3f3348',
                     opacity: 0.95,
                     fontSize: 'clamp(0.75rem, 1vw, 1rem)'
                   }}

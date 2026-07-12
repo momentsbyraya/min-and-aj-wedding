@@ -44,7 +44,7 @@ const getCategoryPrenupBg = (index) =>
 const CATEGORY_PALETTES = [
   {
     // 0 — Lavender #e5d7ed
-    deep: '138, 115, 153',
+    deep: '90, 72, 104',
     mid: '229, 215, 237',
     light: '236, 226, 242',
     pale: '242, 235, 247',
@@ -153,11 +153,7 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
 
   const names = getNames()
   const nameLabel = (category.name || '').trim()
-  const titleLabel = (category.title || '').trim()
-  const titleImageSrc = nameLabel ? `/images/graphics/${nameLabel.toLowerCase()}-title.png` : ''
-  const titleAltText = [nameLabel ? `18 ${capitalizeWords(nameLabel)}` : '', titleLabel]
-    .filter(Boolean)
-    .join(' — ')
+  const titleText = nameLabel ? `18 ${capitalizeWords(nameLabel)}` : ''
 
   const bgImage = getCategoryPrenupBg(index)
   const palette = getCategoryPalette(index)
@@ -231,13 +227,19 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
       <div className={`relative z-20 w-full max-w-lg px-5 sm:px-8 ${isRightAligned ? 'ml-auto' : 'mr-auto'}`}>
         <div className={`flex flex-col py-24 sm:py-32 md:py-40 ${contentSideClass}`}>
           <div ref={titleRef} className="eighteenths-cat-title-wrap inline-block">
-            {titleImageSrc ? (
-              <img
-                src={titleImageSrc}
-                alt={titleAltText}
-                className="eighteenths-cat-title-image"
-                loading="lazy"
-              />
+            {titleText ? (
+              <h3 className="section-title-graphic section-title-graphic--eighteenths">
+                <span
+                  className={`section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize ${
+                    isRightAligned
+                      ? 'section-title-graphic-inner--right'
+                      : 'section-title-graphic-inner--left'
+                  }`}
+                  style={{ marginBottom: 0 }}
+                >
+                  {titleText.toLowerCase()}
+                </span>
+              </h3>
             ) : null}
           </div>
 
@@ -250,7 +252,7 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
                 key={nameIndex}
                 className="font-poppins text-[11px] sm:text-xs"
                 style={{
-                  color: '#6b5a70',
+                  color: '#3f3348',
                   textTransform: 'uppercase',
                   letterSpacing: '0.12em',
                   lineHeight: 1.4,
@@ -298,20 +300,6 @@ const EighteenList = ({ scrollerElement } = {}) => {
         }
         .eighteenths-cat-shell .text-right .eighteenths-cat-title-wrap { align-items: flex-end; }
         .eighteenths-cat-shell .text-left  .eighteenths-cat-title-wrap { align-items: flex-start; }
-
-        .eighteenths-cat-title-image {
-          display: block;
-          width: clamp(180px, 50vw, 320px);
-          height: auto;
-          object-fit: contain;
-          filter:
-            brightness(0)
-            invert(1)
-            drop-shadow(0.5px 0 0 #c9b4d4)
-            drop-shadow(-0.5px 0 0 #c9b4d4)
-            drop-shadow(0 0.5px 0 #c9b4d4)
-            drop-shadow(0 -0.5px 0 #c9b4d4);
-        }
 
         .eighteenths-cat-divider {
           width: 100vw;

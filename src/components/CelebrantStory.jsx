@@ -66,14 +66,14 @@ const CelebrantStory = ({ onImageClick }) => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(138, 115, 153, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(90, 72, 104, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(138, 115, 153, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(90, 72, 104, 0.5) 0%, transparent 70%)'
           }}
         />
         <div
@@ -90,7 +90,7 @@ const CelebrantStory = ({ onImageClick }) => {
             <h2
               className="mb-2 leading-tight sm:mb-2.5"
               style={{
-                color: '#6b5a70',
+                color: '#3f3348',
                 textShadow: '0 1px 4px rgba(250, 232, 206, 0.9)'
               }}
             >
@@ -101,7 +101,7 @@ const CelebrantStory = ({ onImageClick }) => {
             <p
               className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full ml-auto pb-4"
               style={{
-                color: '#6b5a70',
+                color: '#3f3348',
                 textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)'
               }}
               dangerouslySetInnerHTML={{ __html: bioHtml }}

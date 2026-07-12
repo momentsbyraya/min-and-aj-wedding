@@ -14,7 +14,7 @@ const PhotoMosaicSection = () => {
       <div className="max-w-5xl mx-auto">
         <h2
           className="font-my-soul text-center mb-8"
-          style={{ color: '#6b5a70', fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}
+          style={{ color: '#3f3348', fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}
         >
           Our Photo Moments
         </h2>

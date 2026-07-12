@@ -188,7 +188,7 @@ const EighteenList2 = () => {
                 <div 
                   className="text-center font-poppins eighteen-description"
                   style={{ 
-                    color: '#6b5a70', 
+                    color: '#3f3348', 
                     fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
                     lineHeight: '1.6',
                     opacity: 0.9,
@@ -217,7 +217,7 @@ const EighteenList2 = () => {
                       </h3>
                     </div>
                     {match.names.map((name, nameIndex) => (
-                      <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#6b5a70', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
+                      <div key={nameIndex} className="eighteenth-name font-poppins" style={{ color: '#3f3348', fontSize: '14px', opacity: 0.8, fontFamily: "'Poppins', sans-serif" }}>
                         {name}
                       </div>
                     ))}
@@ -266,7 +266,7 @@ const EighteenList2 = () => {
               </div>
               <div className="eighteenth-names-2 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[2].names.map((name, index) => (
-                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#6b5a70', fontSize: '14px', opacity: 0.8 }}>
+                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#3f3348', fontSize: '14px', opacity: 0.8 }}>
                     {name.toUpperCase()}
                   </div>
                 ))}
@@ -286,7 +286,7 @@ const EighteenList2 = () => {
                 <div 
                   className="text-center font-poppins eighteen-description"
                   style={{ 
-                    color: '#6b5a70', 
+                    color: '#3f3348', 
                     fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
                     lineHeight: '1.6',
                     opacity: 0.9,
@@ -313,7 +313,7 @@ const EighteenList2 = () => {
               </div>
               <div className="eighteenth-names-5 text-center" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                 {eighteenths.categories[5]?.names?.map((name, index) => (
-                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#6b5a70', fontSize: '14px', opacity: 0 }}>
+                  <div key={index} className="eighteenth-name font-poppins uppercase" style={{ color: '#3f3348', fontSize: '14px', opacity: 0 }}>
                     {name.toUpperCase()}
                   </div>
                 ))}
@@ -337,7 +337,7 @@ const EighteenList2 = () => {
                 <p 
                   className="text-base sm:text-lg md:text-xl font-poppins uppercase mb-8"
                   style={{ 
-                    color: '#6b5a70',
+                    color: '#3f3348',
                     letterSpacing: '0.1em'
                   }}
                 >
