@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { FiArrowRight, FiX } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -82,7 +82,7 @@ const EighteenIntroSection = () => {
       <section
         ref={sectionRef}
         className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-        style={{ backgroundColor: '#fce3ee' }}
+        style={{ backgroundColor: '#fae8ce' }}
       >
         <div
           className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -93,14 +93,14 @@ const EighteenIntroSection = () => {
           aria-hidden
         />
         <div
-          className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#4A148C]/90 via-[#BA68C8]/65 to-transparent"
+          className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#d2e0ee]/90 via-[#e5d7ed]/65 to-transparent"
           aria-hidden
         />
         <div
           className="absolute inset-0 z-[2] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(123, 31, 162, 0.85) 0%, rgba(186, 104, 200, 0.45) 48%, transparent 78%)'
+              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(229, 215, 237, 0.85) 0%, rgba(241, 215, 215, 0.45) 48%, transparent 78%)'
           }}
           aria-hidden
         />
@@ -108,16 +108,15 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[3] pointer-events-none"
           style={{
             background:
-              'linear-gradient(115deg, rgba(74, 20, 140, 0.45) 0%, rgba(123, 31, 162, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(225, 190, 231, 0.65) 0%, transparent 38%, transparent 62%, rgba(206, 147, 216, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(138, 115, 153, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
           }}
           aria-hidden
         />
-        {/* Narrow-band violet wash (mostly left column, fades before mid viewport) */}
         <div
           className="absolute inset-0 z-[4] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(123, 31, 162, 0.75) 0%, rgba(243, 229, 245, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(74, 20, 140, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(138, 115, 153, 0.5) 0%, transparent 70%)'
           }}
           aria-hidden
         />
@@ -125,21 +124,21 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[5] pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(186, 104, 200, 0.6) 0%, rgba(225, 190, 231, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(206, 147, 216, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(241, 215, 215, 0.6) 0%, rgba(250, 232, 206, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(210, 224, 238, 0.45) 0%, transparent 52%)'
           }}
           aria-hidden
         />
         <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
           <div className="overflow-hidden">
             <div ref={contentRef} className="py-5 text-left">
-              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#ffffff', textShadow: '0 2px 14px rgba(40, 8, 70, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)' }}>
+              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#6b5a70', textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)' }}>
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   Programme
                 </p>
                 <h2 className="leading-tight">
                   <span
                     className="section-title-graphic-inner--line font-beautyofthebeast capitalize"
-                    style={{ textShadow: '0 2px 18px rgba(40, 8, 70, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5)' }}
+                    style={{ textShadow: '0 1px 4px rgba(250, 232, 206, 0.9)' }}
                   >
                     The eighteenth&apos;s
                   </span>
@@ -147,7 +146,7 @@ const EighteenIntroSection = () => {
               </div>
               <p
                 className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4"
-                style={{ color: '#ffffff', textShadow: '0 2px 12px rgba(40, 8, 70, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)' }}
+                style={{ color: '#6b5a70', textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)' }}
               >
                 {teaser}
               </p>
@@ -166,10 +165,10 @@ const EighteenIntroSection = () => {
             contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem] mb-2"
             aria-haspopup="dialog"
           >
-            <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
               view full list
             </span>
-            <FiArrowRight className="h-4 w-4 shrink-0 text-[#D4AF37]" aria-hidden="true" />
+            <FiArrowRight className="h-4 w-4 shrink-0 text-[#8a7399]" aria-hidden="true" />
           </GraphicButton>
         </div>
       </section>
@@ -177,7 +176,7 @@ const EighteenIntroSection = () => {
       {modalOpen && (
         <div
           className="fixed inset-0 z-[195] flex min-h-0 flex-col"
-          style={{ backgroundColor: '#fce3ee' }}
+          style={{ backgroundColor: '#fae8ce' }}
           role="dialog"
           aria-modal="true"
           aria-labelledby="eighteen-modal-title"
@@ -212,7 +211,7 @@ const EighteenIntroSection = () => {
           <button
             type="button"
             onClick={closeModal}
-            className="absolute z-20 rounded-full border border-[#80043a]/18 bg-white/90 p-2.5 text-[#80043a] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
+            className="absolute z-20 rounded-full border border-[#d2e0ee]/18 bg-white/90 p-2.5 text-[#6b5a70] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
             style={{
               top: 'max(1rem, env(safe-area-inset-top))',
               right: 'max(1rem, env(safe-area-inset-right))'

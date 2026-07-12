@@ -25,7 +25,7 @@ const Gallery = () => {
     return out
   }, [])
 
-  const galleryBlushBg = '#e20964'
+  const galleryBlushBg = '#fae8ce'
 
   const titleRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -169,11 +169,7 @@ const Gallery = () => {
   const mainGallery = galleryCount > 2 ? galleryImages.slice(0, -2) : []
   const tailPair = galleryCount >= 2 ? galleryImages.slice(-2) : galleryImages
 
-  const useOvalFrame = (index) =>
-    index === 1 ||
-    index === 4 ||
-    (galleryCount >= 3 && index === galleryCount - 3) ||
-    index === galleryCount - 2
+  const useOvalFrame = () => true
 
   const renderGridTile = (image, index, gridColumn) => {
     const isFullWidthRow = gridColumn === 'span 3'
@@ -233,9 +229,23 @@ const Gallery = () => {
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           backgroundColor: galleryBlushBg,
-          backgroundImage: "url('/images/graphics/palace-1.png')"
+          backgroundImage: "url('/images/graphics/butterflies-bg.png')",
+          backgroundBlendMode: 'soft-light'
         }}
       >
+        <img
+          src="/images/graphics/fan%20flower%20-%203.png"
+          alt=""
+          aria-hidden="true"
+          className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-[5]"
+        />
+        <img
+          src="/images/graphics/flower-right-2.png"
+          alt=""
+          aria-hidden="true"
+          className="intro-corner-accent intro-corner-accent--flower-right absolute top-0 right-0 h-auto pointer-events-none z-[5]"
+        />
+        <div className="soft-blob soft-blob--alt absolute bottom-[8%] left-[12%] w-40 h-40 z-[1]" aria-hidden="true" />
         <div className={`mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
           <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">
             <span className="section-title-graphic section-title-graphic--center">

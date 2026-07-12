@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
 
 const Header = () => {
@@ -46,7 +46,7 @@ const Header = () => {
       {/* Decorative Elements */}
       <div className="flex justify-center items-center space-x-4 mb-8">
         <div className="w-16 h-px bg-gradient-to-r from-transparent to-wedding-400 header-decorative"></div>
-        <div className="w-3 h-3 rounded-full bg-[#ed5c95] floating-dot"></div>
+        <div className="w-3 h-3 rounded-full bg-[#e5d7ed] floating-dot"></div>
         <div className="w-16 h-px bg-gradient-to-l from-transparent to-wedding-400 header-decorative"></div>
       </div>
 

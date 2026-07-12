@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { eighteenths } from '../data'
@@ -39,57 +39,53 @@ const getCategoryPrenupBg = (index) =>
 
 /**
  * Color palettes for the soft-edge wash, one per category.
- * deep   → strongest anchor color (replaces #80043a wine)
- * mid    → main brand wash (replaces #e20964 fuchsia)
- * light  → secondary lighter wash (replaces #ed5c95)
- * pale   → outermost soft tint (replaces pinks/blushes)
- * palest → section base background behind the photo
+ * Built from pastel brand: #e5d7ed, #f1d7d7, #fae8ce, #d2e0ee
  */
 const CATEGORY_PALETTES = [
   {
-    // 0 — Roses (fuchsia, original)
-    deep: '128, 4, 58',
-    mid: '226, 9, 100',
-    light: '237, 92, 149',
-    pale: '245, 196, 218',
-    pale2: '243, 152, 188',
-    palest: '#fce3ee'
+    // 0 — Lavender #e5d7ed
+    deep: '138, 115, 153',
+    mid: '229, 215, 237',
+    light: '236, 226, 242',
+    pale: '242, 235, 247',
+    pale2: '229, 215, 237',
+    palest: '#e5d7ed'
   },
   {
-    // 1 — Candles (purple)
-    deep: '49, 10, 95',
-    mid: '124, 58, 237',
-    light: '167, 139, 250',
-    pale: '221, 214, 254',
-    pale2: '196, 181, 253',
-    palest: '#ede9fe'
+    // 1 — Blush #f1d7d7
+    deep: '154, 111, 111',
+    mid: '241, 215, 215',
+    light: '245, 226, 226',
+    pale: '248, 236, 236',
+    pale2: '241, 215, 215',
+    palest: '#f1d7d7'
   },
   {
-    // 2 — Treasures (bright orange)
-    deep: '154, 52, 18',
-    mid: '234, 88, 12',
-    light: '251, 146, 60',
-    pale: '254, 215, 170',
-    pale2: '253, 186, 116',
-    palest: '#ffedd5'
+    // 2 — Cream #fae8ce
+    deep: '168, 140, 96',
+    mid: '250, 232, 206',
+    light: '252, 239, 220',
+    pale: '253, 245, 232',
+    pale2: '250, 232, 206',
+    palest: '#fae8ce'
   },
   {
-    // 3 — Shots (red)
-    deep: '127, 29, 29',
-    mid: '220, 38, 38',
-    light: '248, 113, 113',
-    pale: '254, 202, 202',
-    pale2: '252, 165, 165',
-    palest: '#fee2e2'
+    // 3 — Powder blue #d2e0ee
+    deep: '107, 132, 153',
+    mid: '210, 224, 238',
+    light: '222, 232, 243',
+    pale: '232, 239, 247',
+    pale2: '210, 224, 238',
+    palest: '#d2e0ee'
   },
   {
-    // 4 — Bills (teal)
-    deep: '19, 78, 74',
-    mid: '13, 148, 136',
-    light: '45, 212, 191',
-    pale: '153, 246, 228',
-    pale2: '94, 234, 212',
-    palest: '#ccfbf1'
+    // 4 — Lavender ↔ blue blend
+    deep: '122, 120, 153',
+    mid: '220, 220, 238',
+    light: '229, 224, 237',
+    pale: '242, 235, 247',
+    pale2: '210, 224, 238',
+    palest: '#e5d7ed'
   }
 ]
 
@@ -254,11 +250,11 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
                 key={nameIndex}
                 className="font-poppins text-[11px] sm:text-xs"
                 style={{
-                  color: '#EFE9DC',
+                  color: '#6b5a70',
                   textTransform: 'uppercase',
                   letterSpacing: '0.12em',
                   lineHeight: 1.4,
-                  textShadow: '0 2px 12px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4)'
+                  textShadow: '0 1px 2px rgba(250, 232, 206, 0.85)'
                 }}
               >
                 {name}
@@ -311,10 +307,10 @@ const EighteenList = ({ scrollerElement } = {}) => {
           filter:
             brightness(0)
             invert(1)
-            drop-shadow(0.5px 0 0 #D4AF37)
-            drop-shadow(-0.5px 0 0 #D4AF37)
-            drop-shadow(0 0.5px 0 #D4AF37)
-            drop-shadow(0 -0.5px 0 #D4AF37);
+            drop-shadow(0.5px 0 0 #c9b4d4)
+            drop-shadow(-0.5px 0 0 #c9b4d4)
+            drop-shadow(0 0.5px 0 #c9b4d4)
+            drop-shadow(0 -0.5px 0 #c9b4d4);
         }
 
         .eighteenths-cat-divider {

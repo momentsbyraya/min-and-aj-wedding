@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { FiChevronLeft, FiChevronRight, FiHeart, FiX } from 'react-icons/fi'
 import Hero from './Hero'
 import IntroSection from './IntroSection'
@@ -68,10 +68,10 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
           <div
             className="absolute inset-0 z-0 pointer-events-none"
             style={{
-              backgroundImage: 'url(/images/graphics/bg-3.png)',
+              backgroundImage: 'url(/images/graphics/bg-textured.png)',
               backgroundSize: 'cover',
-              backgroundPosition: 'left center',
-              opacity: 0.5
+              backgroundPosition: 'center',
+              opacity: 0.4
             }}
           />
           <div className="relative z-10">
@@ -96,13 +96,13 @@ const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicP
             <div>
               <CountdownSection />
             </div>
-            <footer className="wedding-invitation-footer bg-[#e20964]">
+            <footer className="wedding-invitation-footer bg-[#fae8ce]">
               <a
                 href="https://www.facebook.com/profile.php?id=61571540978411"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Visit Moments by Raya page"
-                className="wedding-invitation-footer-link text-[#EFE9DC] hover:text-[#EFE9DC] inline-flex items-center gap-1.5"
+                className="wedding-invitation-footer-link text-[#6b5a70] hover:text-[#8a7399] inline-flex items-center gap-1.5"
               >
                 <span>Made with</span>
                 <FiHeart className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />

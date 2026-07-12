@@ -2,37 +2,37 @@
   "backgrounds": {
     "primary": "bg-gray-900",
     "secondary": "bg-gray-800",
-    "accent": "bg-[#f398bc]",
+    "accent": "bg-[#f1d7d7]",
     "light": "bg-white/50",
-    "theme": "bg-[#dee5ed]",
+    "theme": "bg-[#d2e0ee]",
     "crumpledPaper": "bg-[url(\"/images/crumpled-paper.png\")] bg-cover bg-center bg-no-repeat"
   },
   "text": {
     "primary": "text-white",
     "secondary": "text-gray-300",
-    "accent": "text-[#e20964]",
+    "accent": "text-[#8a7399]",
     "muted": "text-gray-400",
     "dark": "text-wedding-800",
-    "theme": "text-[#8B6755]",
+    "theme": "text-[#6b5a70]",
     "pause": "text-[#dcdcdc]",
     "custom": "text-[#44484d]"
   },
   "borders": {
     "primary": "border-gray-700",
     "secondary": "border-gray-600",
-    "accent": "border-[#e20964]",
-    "theme": "border-[#8B6755]"
+    "accent": "border-[#e5d7ed]",
+    "theme": "border-[#6b5a70]"
   },
   "buttons": {
-    "primary": "bg-[#e20964] hover:bg-[#c1084f]",
+    "primary": "bg-[#e5d7ed] hover:bg-[#d2e0ee]",
     "secondary": "border border-gray-600 hover:border-gray-400",
     "text": "text-gray-300 hover:text-white",
-    "theme": "bg-[#8B6755] hover:bg-[#8B6755]/80"
+    "theme": "bg-[#6b5a70] hover:bg-[#6b5a70]/80"
   },
   "hover": {
     "primary": "hover:bg-wedding-700",
     "secondary": "hover:border-gray-400 hover:text-white",
-    "theme": "hover:bg-[#8B6755]/80"
+    "theme": "hover:bg-[#6b5a70]/80"
   },
   "container": {
     "maxWidth": "max-w-[1300px]",
@@ -41,27 +41,34 @@
   },
   "calendar": {
     "weddingDate": "2026-06-27",
-    "highlightColor": "bg-[#e20964]",
-    "heartColor": "text-[#e20964]",
+    "highlightColor": "bg-[#e5d7ed]",
+    "heartColor": "text-[#8a7399]",
     "textColor": "text-gray-700",
     "headerColor": "text-gray-800",
     "dayNamesColor": "text-gray-600",
-    "background": "bg-[#fdf2f7]"
+    "background": "bg-[#fae8ce]"
   },
   "cssVariables": {
     "--primary-bg": "#111827",
     "--secondary-bg": "#1f2937",
-    "--accent-bg": "#7c3aed",
+    "--accent-bg": "#e5d7ed",
     "--primary-text": "#ffffff",
     "--secondary-text": "#d1d5db",
-    "--accent-text": "#7c3aed",
+    "--accent-text": "#8a7399",
     "--muted-text": "#9ca3af",
     "--border-color": "#374151",
-    "--custom-theme": "#dee5ed",
-    "--primary-color": "#e20964"
+    "--custom-theme": "#d2e0ee",
+    "--primary-color": "#e5d7ed",
+    "--secondary-color": "#f1d7d7",
+    "--tertiary-color": "#d2e0ee",
+    "--cream-color": "#fae8ce",
+    "--ink-color": "#6b5a70"
   },
   "colors": {
-    "primary": "#e20964",
-    "tertiary": "#80043a"
+    "primary": "#e5d7ed",
+    "secondary": "#f1d7d7",
+    "tertiary": "#d2e0ee",
+    "cream": "#fae8ce",
+    "ink": "#6b5a70"
   }
 }

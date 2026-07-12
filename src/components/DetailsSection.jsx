@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme } from '../data'
@@ -153,7 +153,7 @@ const DetailsSection = () => {
       <section
         ref={sectionRef}
         className="details-section relative w-full overflow-hidden"
-        style={{ background: 'linear-gradient(180deg, #fdf2f7 0%, #f5c4da 100%)' }}
+        style={{ background: 'linear-gradient(180deg, #fae8ce 0%, #f1d7d7 100%)' }}
       >
         {/* Content */}
         <div className="relative z-10">
@@ -200,7 +200,7 @@ const DetailsSection = () => {
             {/* Sections Container - Grid on lg screens */}
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16">
             {/* RSVP Section */}
-            <div className="details-subsection mb-12 lg:mb-0 text-center bg-[#fdf2f7]/85 border border-[#c1084f] p-6">
+            <div className="details-subsection mb-12 lg:mb-0 text-center bg-[#fae8ce]/85 border border-[#c9b4d4] p-6">
               <h2
                 ref={rsvpHeadingRef}
                 className="details-rsvp-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rozha mb-4 uppercase"
@@ -238,7 +238,7 @@ const DetailsSection = () => {
             </div>
 
             {/* Gift Registry Section */}
-            <div className="details-subsection text-center bg-[#fdf2f7]/85 border border-[#c1084f] p-6">
+            <div className="details-subsection text-center bg-[#fae8ce]/85 border border-[#c9b4d4] p-6">
               <h2
                 ref={giftHeadingRef}
                 className="details-gift-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rozha mb-4 uppercase whitespace-nowrap"

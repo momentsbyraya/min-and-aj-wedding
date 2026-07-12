@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
@@ -90,8 +90,8 @@ body {
   font-family: 'Elsie Swash Caps', cursive;
   font-weight: 400;
   line-height: 1.6;
-  color: #8b6755;
-  background-color: #fdf2f7; /* Page background — soft pink */
+  color: #6b5a70;
+  background-color: #fae8ce; /* Page background — pastel cream */
 }
 
 @layer base {
@@ -188,7 +188,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #80043a !important;
+    background-color: #6b5a70 !important;
   }
   
   footer a:hover,
@@ -542,7 +542,7 @@ body {
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #fdf2f7;
+  --envelope-bg: #fae8ce;
   --envelope-shadow: #d4c5b0;
   --heart-bg: darkred;
   --heart-text: white;
@@ -873,11 +873,11 @@ body {
 }
 
 .opening-invite-kicker {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  text-shadow: 0 1px 2px rgba(250, 232, 206, 0.85);
 }
 
 .opening-invite-title {
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.24);
+  text-shadow: 0 1px 3px rgba(250, 232, 206, 0.9);
 }
 
 @media (min-width: 992px) {
@@ -896,11 +896,11 @@ body {
 
 @media (min-width: 768px) {
   .opening-invite-kicker {
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 8px rgba(250, 232, 206, 0.95);
   }
 
   .opening-invite-title {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.75);
+    text-shadow: 0 0 10px rgba(250, 232, 206, 0.98);
   }
 }
 
@@ -1126,9 +1126,9 @@ body {
 .soft-blob {
   position: absolute;
   border-radius: 42% 58% 53% 47% / 44% 39% 61% 56%;
-  background: rgba(42, 154, 150, 0.3);
+  background: rgba(210, 224, 238, 0.35);
   filter: blur(10px);
-  box-shadow: 0 0 24px rgba(42, 154, 150, 0.24);
+  box-shadow: 0 0 24px rgba(210, 224, 238, 0.28);
   pointer-events: none;
   overflow: visible;
   isolation: isolate;
@@ -1152,7 +1152,7 @@ body {
 
 .soft-blob--alt {
   border-radius: 61% 39% 49% 51% / 52% 62% 38% 48%;
-  background: rgba(237, 92, 149, 0.28);
+  background: rgba(241, 215, 215, 0.4);
   animation-duration: 16s;
 }
 
@@ -1176,24 +1176,24 @@ body {
   z-index: 1 !important;
 }
 
-/* Active calendar day: transparent center + gold gradient border */
+/* Active calendar day: pastel fill + soft beige pearl border */
 .calendar-day-active {
   background-image:
-    linear-gradient(#e20964, #e20964),
-    linear-gradient(135deg, #BF953F, #FCF6BA, #AA771C);
+    linear-gradient(#e5d7ed, #e5d7ed),
+    linear-gradient(135deg, #d4c4a8, #fae8ce, #c9b89a);
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
   border: 2px solid transparent;
-  color: #ffffff;
+  color: #6b5a70;
 }
 
-/* Venue map embed with gold gradient border (no decorative frame image) */
+/* Venue map embed with soft beige pearl border */
 .venue-map-frame {
   position: relative;
   padding: 3px;
   border-radius: 8px;
-  background-image: linear-gradient(135deg, #BF953F, #FCF6BA, #AA771C);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  background-image: linear-gradient(135deg, #d4c4a8, #fae8ce, #c9b89a);
+  box-shadow: 0 6px 24px rgba(107, 90, 112, 0.12);
 }
 
 .venue-map-frame__iframe {
@@ -1267,11 +1267,11 @@ body {
 @keyframes attendancePulseGlow {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 1px 4px rgba(92, 2, 40, 0.18));
+    filter: drop-shadow(0 1px 4px rgba(107, 90, 112, 0.18));
   }
   50% {
     transform: scale(1.025);
-    filter: drop-shadow(0 2px 8px rgba(92, 2, 40, 0.24));
+    filter: drop-shadow(0 2px 8px rgba(107, 90, 112, 0.24));
   }
 }
 
@@ -1304,7 +1304,7 @@ body {
 }
 
 .graphic-button:focus-visible {
-  outline: 2px solid #80043a;
+  outline: 2px solid #d2e0ee;
   outline-offset: 3px;
 }
 
@@ -1314,7 +1314,7 @@ body {
   justify-content: center;
   gap: 0.35rem;
   font-size: 0.8125rem;
-  color: #80043a;
+  color: #6b5a70;
   text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
   white-space: nowrap;
   pointer-events: none;
@@ -1375,7 +1375,7 @@ body {
 
 .section-title-graphic-inner {
   text-align: center;
-  background-image: linear-gradient(to right, #BF953F, #FCF6BA, #AA771C);
+  background-image: linear-gradient(to right, #8a7399, #c9b4d4, #6b5a70);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1396,8 +1396,8 @@ body {
 }
 
 .section-title-graphic-inner--light {
-  color: #fdf2f7;
-  text-shadow: 0 1px 2px rgba(128, 4, 58, 0.22);
+  color: #6b5a70;
+  text-shadow: 0 1px 2px rgba(107, 90, 112, 0.18);
 }
 
 /* Gallery grid: golden frame overlay + inset photo (80% scale) */
@@ -1417,7 +1417,7 @@ body {
   height: 105%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  background-image: url('/images/graphics/golden%20frame.png');
+  background-image: url('/images/graphics/oval-frame.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -1477,17 +1477,17 @@ body {
   -webkit-mask-composite: source-in;
 }
 
-/* Countdown timer pills: black 30% center with gold border */
+/* Countdown timer pills: soft pastel center with beige pearl border */
 .countdown-stat-circle {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
-  border: 2px solid #D4AF37;
+  background: rgba(229, 215, 237, 0.55);
+  border: 2px solid #d4c4a8;
   box-shadow:
-    0 0 12px rgba(212, 175, 55, 0.35),
-    inset 0 0 8px rgba(212, 175, 55, 0.18);
+    0 0 12px rgba(210, 224, 238, 0.45),
+    inset 0 0 8px rgba(250, 232, 206, 0.35);
 }
 
 /* Celebrant story: frame + aspect box; feather comes from `.soft-edges img` */
@@ -1508,7 +1508,7 @@ body {
 .intro-content-soft-panel {
   position: relative;
   overflow: hidden;
-  background: rgba(220, 240, 238, 0.94);
+  background: rgba(229, 215, 237, 0.94);
   mask-image:
     radial-gradient(ellipse 100% 88% at 50% 50%, black 25%, transparent 65%),
     linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
@@ -1523,15 +1523,15 @@ body {
   0%, 100% {
     transform: scale(1);
     filter:
-      drop-shadow(0 0 3px rgba(255, 182, 211, 0.35))
-      drop-shadow(0 0 8px rgba(226, 9, 100, 0.25));
+      drop-shadow(0 0 3px rgba(229, 215, 237, 0.45))
+      drop-shadow(0 0 8px rgba(210, 224, 238, 0.35));
   }
   50% {
     transform: scale(1.04);
     filter:
-      drop-shadow(0 0 16px rgba(255, 220, 235, 0.95))
-      drop-shadow(0 0 34px rgba(226, 9, 100, 0.85))
-      drop-shadow(0 0 58px rgba(243, 152, 188, 0.55));
+      drop-shadow(0 0 16px rgba(250, 232, 206, 0.95))
+      drop-shadow(0 0 34px rgba(229, 215, 237, 0.75))
+      drop-shadow(0 0 58px rgba(241, 215, 215, 0.55));
   }
 }
 
@@ -1545,8 +1545,8 @@ body {
   .dresscode-swatch-glow {
     animation: none;
     filter:
-      drop-shadow(0 0 8px rgba(255, 182, 211, 0.6))
-      drop-shadow(0 0 18px rgba(226, 9, 100, 0.5));
+      drop-shadow(0 0 8px rgba(229, 215, 237, 0.6))
+      drop-shadow(0 0 18px rgba(210, 224, 238, 0.5));
   }
 }
 

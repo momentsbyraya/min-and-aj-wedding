@@ -106,9 +106,8 @@ const Schedule = () => {
         <div
           className="schedule-time font-instrument-serif font-semibold leading-none"
           style={{
-            color: '#EFE9DC',
-            fontSize: 'clamp(1.85rem, 6vw, 3.25rem)',
-            textShadow: '0 1px 4px rgba(0, 0, 0, 0.35)'
+            color: '#6b5a70',
+            fontSize: 'clamp(1.85rem, 6vw, 3.25rem)'
           }}
         >
           {timeNumber}{' '}
@@ -116,15 +115,14 @@ const Schedule = () => {
         </div>
         <div
           className="my-2 border-b border-dashed opacity-70"
-          style={{ borderColor: '#EFE9DC' }}
+          style={{ borderColor: '#c9b4d4' }}
         />
         <div
           className="schedule-title font-poppins font-bold uppercase"
           style={{
-            color: '#EFE9DC',
+            color: '#6b5a70',
             letterSpacing: '0.08em',
-            fontSize: 'clamp(0.75rem, 1.6vw, 0.95rem)',
-            textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
+            fontSize: 'clamp(0.75rem, 1.6vw, 0.95rem)'
           }}
         >
           {event.title}
@@ -133,10 +131,9 @@ const Schedule = () => {
           <div
             className="schedule-description font-poppins italic mt-1"
             style={{
-              color: '#EFE9DC',
-              opacity: 0.85,
-              fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)',
-              textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
+              color: '#8a7399',
+              opacity: 0.9,
+              fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)'
             }}
           >
             {event.description}
@@ -158,7 +155,6 @@ const Schedule = () => {
           className="schedule-sketch w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-90"
           loading="lazy"
           draggable={false}
-          style={{ filter: 'invert(1) brightness(1.05)' }}
         />
       </div>
     )
@@ -168,39 +164,48 @@ const Schedule = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
-      style={{ backgroundColor: '#134e4a' }}
+      style={{ backgroundColor: '#fae8ce' }}
     >
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-right bg-no-repeat"
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/graphics/palace-3.png)',
-          opacity: 0.3
+          backgroundImage: 'url(/images/graphics/butterflies-bg.png)',
+          opacity: 0.35
         }}
         aria-hidden="true"
       />
+      <div className="soft-blob soft-blob--small absolute top-[12%] left-[8%] w-40 h-40 z-[1]" aria-hidden="true" />
+      <div className="soft-blob soft-blob--alt absolute bottom-[18%] right-[6%] w-52 h-52 z-[1]" aria-hidden="true" />
       <img
-        src="/images/graphics/fan%20flower%20-%201.png"
+        src="/images/graphics/fan%20flower%20-%203.png"
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
       />
       <img
-        src="/images/graphics/lantern-1.png"
+        src="/images/graphics/bird-2.png"
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10"
       />
       <img
-        src="/images/graphics/flower-right.png"
+        src="/images/graphics/flower-left.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 left-0 h-auto pointer-events-none z-10 -scale-x-100"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-10"
       />
       <img
-        src="/images/graphics/flower-right.png"
+        src="/images/graphics/flower-right-2.png"
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/flower-banner.png"
+        alt=""
+        aria-hidden="true"
+        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-[5]"
+        style={{ width: '110vw', maxWidth: 'none' }}
       />
 
       <div className="relative z-10">
@@ -218,7 +223,7 @@ const Schedule = () => {
               <div
                 ref={lineRef}
                 className="absolute top-0 bottom-0 w-px -translate-x-1/2"
-                style={{ left: '50%', backgroundColor: '#80043a', opacity: 0.55 }}
+                style={{ left: '50%', backgroundColor: '#d2e0ee', opacity: 0.55 }}
               />
 
               <div ref={eventsRef} className="space-y-16 sm:space-y-20 md:space-y-24">
@@ -247,8 +252,8 @@ const Schedule = () => {
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)',
-                          backgroundColor: '#e20964',
-                          borderColor: '#80043a'
+                          backgroundColor: '#e5d7ed',
+                          borderColor: '#d2e0ee'
                         }}
                       />
                     </div>
@@ -262,10 +267,9 @@ const Schedule = () => {
                 <p
                   className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
                   style={{
-                    color: '#EFE9DC',
+                    color: '#6b5a70',
                     opacity: 0.95,
-                    fontSize: 'clamp(0.75rem, 1vw, 1rem)',
-                    textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
+                    fontSize: 'clamp(0.75rem, 1vw, 1rem)'
                   }}
                 >
                   Looking forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.

@@ -61,6 +61,23 @@ const Hero = () => {
         alt="Hero background"
         className="absolute inset-0 w-full h-full object-cover z-[1]"
       />
+      <div
+        className="pointer-events-none absolute inset-0 z-[2] bg-cover bg-center opacity-25"
+        style={{ backgroundImage: "url('/images/graphics/butterflies-bg.png')" }}
+        aria-hidden
+      />
+      <img
+        src="/images/graphics/fan%20flower%20-%201.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--fan absolute bottom-0 left-0 z-[3] h-auto pointer-events-none opacity-80"
+      />
+      <img
+        src="/images/graphics/flower-right-2.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[3] h-auto pointer-events-none opacity-80"
+      />
       <div className="absolute top-0 left-0 right-0 z-40 flex justify-end pt-8 sm:pt-12 md:pt-14 pl-5 sm:pl-8 pr-5 sm:pr-8 md:pr-12 lg:pr-16 pointer-events-none">
         <div className="hero-invitation-serif flex flex-col items-center text-center w-[min(88vw,28rem)] shrink-0">
           <header className="flex flex-col items-center text-center gap-2 sm:gap-2.5">
@@ -76,7 +93,7 @@ const Hero = () => {
               ref={inviteLineRef}
               className="uppercase max-w-[min(100%,36rem)] leading-none opacity-95"
               style={{
-                color: '#f4dcce',
+                color: '#6b5a70',
                 fontSize: 'clamp(0.4375rem, 1.25vw, 0.5625rem)',
                 letterSpacing: '0.12em'
               }}
@@ -91,7 +108,7 @@ const Hero = () => {
           >
             <img
               src="/images/graphics/name.png"
-              alt="Yrenea"
+              alt="Shanara"
               className="block w-full h-auto max-w-full object-contain mx-auto"
               draggable={false}
             />
@@ -101,23 +118,23 @@ const Hero = () => {
             <div ref={dividerRef} className="flex w-full items-center justify-center gap-3 opacity-95">
               <span
                 className="block h-px flex-1 max-w-[5rem]"
-                style={{ backgroundColor: 'rgba(255, 232, 244, 0.7)' }}
+                style={{ backgroundColor: 'rgba(107, 90, 112, 0.35)' }}
               />
               <FiHeart
                 className="h-3 w-3 shrink-0 fill-current"
-                style={{ color: '#ffe9f2' }}
+                style={{ color: '#8a7399' }}
                 aria-hidden="true"
               />
               <span
                 className="block h-px flex-1 max-w-[5rem]"
-                style={{ backgroundColor: 'rgba(255, 232, 244, 0.7)' }}
+                style={{ backgroundColor: 'rgba(107, 90, 112, 0.35)' }}
               />
             </div>
             <p
               ref={debutLineRef}
               className="font-foglihten uppercase leading-tight m-0 opacity-92"
               style={{
-                color: '#ffe9f2',
+                color: '#6b5a70',
                 fontSize: 'clamp(0.875rem, 3vw, 1.25rem)',
                 letterSpacing: '0.22em'
               }}
@@ -137,7 +154,7 @@ const Hero = () => {
             <p
               className="font-poppins uppercase leading-none m-0"
               style={{
-                color: '#ffe9f2',
+                color: '#6b5a70',
                 fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
                 letterSpacing: '0.18em'
               }}
@@ -149,7 +166,7 @@ const Hero = () => {
             <p
               className="font-poppins uppercase leading-tight m-0"
               style={{
-                color: '#ffd8ea',
+                color: '#8a7399',
                 fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
                 letterSpacing: '0.18em'
               }}

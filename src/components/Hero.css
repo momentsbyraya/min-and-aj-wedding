@@ -1,4 +1,4 @@
-﻿.hero-section {
+.hero-section {
   position: relative;
 }
 
@@ -76,6 +76,6 @@
 .hero-music-button {
   background-color: rgba(245, 241, 235, 0.2);
   backdrop-filter: blur(10px);
-  color: #fdf2f7;
+  color: #6b5a70;
 }
 

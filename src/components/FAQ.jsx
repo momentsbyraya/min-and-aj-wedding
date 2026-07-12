@@ -68,8 +68,10 @@ const FAQ = ({ id = 'faq' }) => {
 
   return (
     <div id={id} data-section="faq" className="relative z-20 faq-section">
+      <div className="soft-blob absolute top-[18%] right-[8%] w-44 h-44 z-[1]" aria-hidden="true" />
+      <div className="soft-blob soft-blob--alt soft-blob--small absolute bottom-[20%] left-[6%] w-32 h-32 z-[1]" aria-hidden="true" />
       <img
-        src="/images/graphics/fan%20flower%20-%201.png"
+        src="/images/graphics/bird-2.png"
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-[5]"
@@ -81,16 +83,22 @@ const FAQ = ({ id = 'faq' }) => {
         className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-[5]"
       />
       <img
-        src="/images/graphics/flower-left.png"
+        src="/images/graphics/flower-right-2.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5]"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5] -scale-x-100"
       />
       <img
         src="/images/graphics/flower-right.png"
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-[5]"
+      />
+      <img
+        src="/images/graphics/divider.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute top-4 left-1/2 z-[6] h-auto w-40 -translate-x-1/2 opacity-80 sm:w-52"
       />
       <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 py-24 sm:py-32 md:py-40">
         <div className="mb-12 flex w-full justify-center px-6">

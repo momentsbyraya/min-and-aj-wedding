@@ -43,14 +43,38 @@ function OpeningScreen({ onEnvelopeOpen }) {
         style={{ width: '100vw', height: '100vh', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
         aria-hidden
       />
+      <img
+        src="/images/graphics/fan%20flower%20-%201.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 z-[5] h-auto pointer-events-none"
+      />
+      <img
+        src="/images/graphics/bird-2.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 z-[5] h-auto pointer-events-none"
+      />
+      <img
+        src="/images/graphics/flower-left.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[5] h-auto pointer-events-none"
+      />
+      <img
+        src="/images/graphics/flower-right.png"
+        alt=""
+        aria-hidden="true"
+        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[5] h-auto pointer-events-none"
+      />
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 px-4 py-8 text-center pointer-events-none sm:gap-4">
         <div ref={introCopyRef} className="mb-0">
           <p
             className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
-              color: '#ffffff',
-              textShadow: '0 2px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.45)'
+              color: '#6b5a70',
+              textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)'
             }}
           >
             YOU ARE CORDIALLY
@@ -58,8 +82,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-title font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
             style={{
-              color: '#ffffff',
-              textShadow: '0 2px 18px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.45)'
+              color: '#6b5a70',
+              textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)'
             }}
           >
             Invited
@@ -94,8 +118,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           ref={clickLabelRef}
           className="font-foglihten mt-0 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
           style={{
-            color: '#ffffff',
-            textShadow: '0 2px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.45)'
+            color: '#6b5a70',
+            textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)'
           }}
         >
           CLICK TO OPEN

@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { celebrant } from '../data'
@@ -38,7 +38,7 @@ const CelebrantStory = ({ onImageClick }) => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-      style={{ backgroundColor: '#fce3ee' }}
+      style={{ backgroundColor: '#fae8ce' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat cursor-pointer"
@@ -54,33 +54,33 @@ const CelebrantStory = ({ onImageClick }) => {
         style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }}
         aria-hidden
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#80043A]/90 via-[#ed5c95]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#d2e0ee]/90 via-[#e5d7ed]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(226, 9, 100, 0.85) 0%, rgba(237, 92, 149, 0.45) 48%, transparent 78%)'
+              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(229, 215, 237, 0.85) 0%, rgba(241, 215, 215, 0.45) 48%, transparent 78%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(128, 4, 58, 0.45) 0%, rgba(226, 9, 100, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(245, 196, 218, 0.65) 0%, transparent 38%, transparent 62%, rgba(243, 152, 188, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(138, 115, 153, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(226, 9, 100, 0.75) 0%, rgba(252, 227, 238, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(128, 4, 58, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(138, 115, 153, 0.5) 0%, transparent 70%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(237, 92, 149, 0.6) 0%, rgba(245, 196, 218, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(243, 152, 188, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(241, 215, 215, 0.6) 0%, rgba(250, 232, 206, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(210, 224, 238, 0.45) 0%, transparent 52%)'
           }}
         />
       </div>
@@ -90,8 +90,8 @@ const CelebrantStory = ({ onImageClick }) => {
             <h2
               className="mb-2 leading-tight sm:mb-2.5"
               style={{
-                color: '#ffffff',
-                textShadow: '0 2px 18px rgba(92, 2, 40, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5)'
+                color: '#6b5a70',
+                textShadow: '0 1px 4px rgba(250, 232, 206, 0.9)'
               }}
             >
               <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
@@ -101,8 +101,8 @@ const CelebrantStory = ({ onImageClick }) => {
             <p
               className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full ml-auto pb-4"
               style={{
-                color: '#ffffff',
-                textShadow: '0 2px 12px rgba(92, 2, 40, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45)'
+                color: '#6b5a70',
+                textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)'
               }}
               dangerouslySetInnerHTML={{ __html: bioHtml }}
             />

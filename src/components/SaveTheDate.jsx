@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme, celebrant } from '../data'
@@ -64,22 +64,22 @@ const SaveTheDate = () => {
           --stripe-unit: clamp(15px, 2.5vw, 40px);
           background: repeating-linear-gradient(
             90deg,
-            #f398bc 0,
-            #f398bc var(--stripe-unit),
-            #fdf2f7 var(--stripe-unit),
-            #fdf2f7 calc(var(--stripe-unit) * 2),
-            #ed5c95 calc(var(--stripe-unit) * 2),
-            #ed5c95 calc(var(--stripe-unit) * 3),
-            #fdf2f7 calc(var(--stripe-unit) * 3),
-            #fdf2f7 calc(var(--stripe-unit) * 4),
-            #f398bc calc(var(--stripe-unit) * 4),
-            #f398bc calc(var(--stripe-unit) * 5),
-            #fdf2f7 calc(var(--stripe-unit) * 5),
-            #fdf2f7 calc(var(--stripe-unit) * 6),
-            #ed5c95 calc(var(--stripe-unit) * 6),
-            #ed5c95 calc(var(--stripe-unit) * 7),
-            #fdf2f7 calc(var(--stripe-unit) * 7),
-            #fdf2f7 calc(var(--stripe-unit) * 8)
+            #f1d7d7 0,
+            #f1d7d7 var(--stripe-unit),
+            #fae8ce var(--stripe-unit),
+            #fae8ce calc(var(--stripe-unit) * 2),
+            #e5d7ed calc(var(--stripe-unit) * 2),
+            #e5d7ed calc(var(--stripe-unit) * 3),
+            #fae8ce calc(var(--stripe-unit) * 3),
+            #fae8ce calc(var(--stripe-unit) * 4),
+            #d2e0ee calc(var(--stripe-unit) * 4),
+            #d2e0ee calc(var(--stripe-unit) * 5),
+            #fae8ce calc(var(--stripe-unit) * 5),
+            #fae8ce calc(var(--stripe-unit) * 6),
+            #e5d7ed calc(var(--stripe-unit) * 6),
+            #e5d7ed calc(var(--stripe-unit) * 7),
+            #fae8ce calc(var(--stripe-unit) * 7),
+            #fae8ce calc(var(--stripe-unit) * 8)
           );
         }
         @media (min-width: 1024px) {
@@ -155,9 +155,9 @@ const SaveTheDate = () => {
            ref={imageRef}
            className="relative w-full max-w-4xl mx-auto overflow-hidden save-date-container"
            style={{
-             backgroundColor: '#fdf2f7',
-             border: '1px solid #c1084f',
-             outline: '1px solid #c1084f',
+             backgroundColor: '#fae8ce',
+             border: '1px solid #c9b4d4',
+             outline: '1px solid #c9b4d4',
              outlineOffset: '-10px',
              borderRadius: 0,
              minHeight: '100%',
@@ -214,10 +214,10 @@ const SaveTheDate = () => {
             <h2
               className="font-my-soul mb-2"
                style={{ 
-                color: '#fdf2f7',
+                color: '#6b5a70',
                  fontSize: 'clamp(2.5rem, 6vw, 5rem)',
                  lineHeight: '1',
-                 textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)',
+                 textShadow: '0 1px 2px rgba(107, 90, 112, 0.15)',
                  whiteSpace: 'nowrap',
                  marginTop: '3rem'
                }}
@@ -227,7 +227,7 @@ const SaveTheDate = () => {
              <div 
               className="font-rozha"
                style={{ 
-                color: '#fdf2f7',
+                color: '#6b5a70',
                  fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
                  marginLeft: '1rem'
                }}
@@ -266,8 +266,8 @@ const SaveTheDate = () => {
                  height: 'clamp(60px, 12vw, 90px)',
                  borderRadius: '50%',
                  backgroundColor: theme.colors.tertiary,
-                 border: '0.5px solid #fdf2f7',
-                 outline: '0.5px solid #fdf2f7',
+                 border: '0.5px solid #fae8ce',
+                 outline: '0.5px solid #fae8ce',
                  outlineOffset: '-5px',
                  display: 'flex',
                  flexDirection: 'column',
@@ -275,14 +275,14 @@ const SaveTheDate = () => {
                  alignItems: 'center',
                  padding: '1rem'
                }}>
-               <div className="font-rozha countdown-number" style={{ color: '#fdf2f7', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
+               <div className="font-rozha countdown-number" style={{ color: '#6b5a70', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '0 1px 2px rgba(107, 90, 112, 0.15)' }}>
                    {countdown.days}
                  </div>
                </div>
-               <div className="font-rozha mt-2" style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Days</div>
+               <div className="font-rozha mt-2" style={{ color: '#6b5a70', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Days</div>
              </div>
              
-             <div className="font-rozha" style={{ color: '#fdf2f7', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+             <div className="font-rozha" style={{ color: '#6b5a70', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center flex flex-col items-center">
                <div className="counter-item" style={{
@@ -290,8 +290,8 @@ const SaveTheDate = () => {
                  height: 'clamp(60px, 12vw, 90px)',
                  borderRadius: '50%',
                  backgroundColor: theme.colors.tertiary,
-                 border: '0.5px solid #fdf2f7',
-                 outline: '0.5px solid #fdf2f7',
+                 border: '0.5px solid #fae8ce',
+                 outline: '0.5px solid #fae8ce',
                  outlineOffset: '-5px',
                  display: 'flex',
                  flexDirection: 'column',
@@ -299,14 +299,14 @@ const SaveTheDate = () => {
                  alignItems: 'center',
                  padding: '1rem'
                }}>
-                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#fdf2f7', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
+                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#6b5a70', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '0 1px 2px rgba(107, 90, 112, 0.15)' }}>
                    {countdown.hours}
                  </div>
                </div>
-               <div className="font-medium font-poppins mt-2" style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Hours</div>
+               <div className="font-medium font-poppins mt-2" style={{ color: '#6b5a70', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Hours</div>
              </div>
              
-             <div className="font-instrument-serif font-semibold" style={{ color: '#fdf2f7', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+             <div className="font-instrument-serif font-semibold" style={{ color: '#6b5a70', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center flex flex-col items-center">
                <div className="counter-item" style={{
@@ -314,8 +314,8 @@ const SaveTheDate = () => {
                  height: 'clamp(60px, 12vw, 90px)',
                  borderRadius: '50%',
                  backgroundColor: theme.colors.tertiary,
-                 border: '0.5px solid #fdf2f7',
-                 outline: '0.5px solid #fdf2f7',
+                 border: '0.5px solid #fae8ce',
+                 outline: '0.5px solid #fae8ce',
                  outlineOffset: '-5px',
                  display: 'flex',
                  flexDirection: 'column',
@@ -323,14 +323,14 @@ const SaveTheDate = () => {
                  alignItems: 'center',
                  padding: '1rem'
                }}>
-                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#fdf2f7', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
+                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#6b5a70', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '0 1px 2px rgba(107, 90, 112, 0.15)' }}>
                    {countdown.minutes}
                  </div>
                </div>
-               <div className="font-medium font-poppins mt-2" style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Minutes</div>
+               <div className="font-medium font-poppins mt-2" style={{ color: '#6b5a70', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Minutes</div>
              </div>
              
-             <div className="font-instrument-serif font-semibold" style={{ color: '#fdf2f7', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
+             <div className="font-instrument-serif font-semibold" style={{ color: '#6b5a70', fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>:</div>
              
              <div className="text-center flex flex-col items-center">
                <div className="counter-item" style={{
@@ -338,8 +338,8 @@ const SaveTheDate = () => {
                  height: 'clamp(60px, 12vw, 90px)',
                  borderRadius: '50%',
                  backgroundColor: theme.colors.tertiary,
-                 border: '0.5px solid #fdf2f7',
-                 outline: '0.5px solid #fdf2f7',
+                 border: '0.5px solid #fae8ce',
+                 outline: '0.5px solid #fae8ce',
                  outlineOffset: '-5px',
                  display: 'flex',
                  flexDirection: 'column',
@@ -347,11 +347,11 @@ const SaveTheDate = () => {
                  alignItems: 'center',
                  padding: '1rem'
                }}>
-                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#fdf2f7', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '2px 2px 8px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 0, 0, 0.2)' }}>
+                 <div className="font-instrument-serif font-semibold countdown-number" style={{ color: '#6b5a70', fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', textShadow: '0 1px 2px rgba(107, 90, 112, 0.15)' }}>
                    {countdown.seconds}
                  </div>
                </div>
-               <div className="font-medium font-poppins mt-2" style={{ color: '#fdf2f7', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Seconds</div>
+               <div className="font-medium font-poppins mt-2" style={{ color: '#6b5a70', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)' }}>Seconds</div>
              </div>
            </div>
          </div>

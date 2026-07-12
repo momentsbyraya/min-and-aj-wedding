@@ -58,16 +58,17 @@ const DressCode = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-52 sm:pt-28 sm:pb-60 md:pt-32 md:pb-72"
-      style={{ backgroundColor: '#27032f' }}
+      style={{ backgroundColor: '#f1d7d7' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/graphics/purple-gem.png)',
-          opacity: 0.3
+          backgroundImage: 'url(/images/graphics/rose-gold-pupr-bg.png)',
+          opacity: 0.45
         }}
         aria-hidden="true"
       />
+      <div className="soft-blob absolute top-[20%] right-[10%] w-44 h-44 z-[1]" aria-hidden="true" />
       <img
         src="/images/graphics/fan%20flower%20-%201.png"
         alt=""
@@ -84,8 +85,8 @@ const DressCode = () => {
         src="/images/graphics/flower-banner.png"
         alt=""
         aria-hidden="true"
-        className="absolute bottom-0 right-0 h-auto pointer-events-none z-10"
-        style={{ width: '120vw', maxWidth: 'none', transform: 'scaleY(-1)' }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-10"
+        style={{ width: '120vw', maxWidth: 'none' }}
       />
       <div className="relative z-20 mx-auto w-full max-w-md px-5 text-center sm:max-w-xl sm:px-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl">
         <div ref={headingRef} className="flex flex-col items-center">
@@ -116,7 +117,7 @@ const DressCode = () => {
         <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
           <p
             className="font-my-soul leading-none"
-            style={{ color: '#ffffff' }}
+            style={{ color: '#6b5a70' }}
           >
             <span style={{ fontSize: 'clamp(1.75rem, 5.2vw, 2.85rem)' }}>
               {mainDressCode.title}
@@ -126,14 +127,14 @@ const DressCode = () => {
               {mainDressCode.subtitle}
             </span>
           </p>
-          <p className="font-poppins text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#ffffff' }}>
+          <p className="font-poppins text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#6b5a70' }}>
             {mainDressCode.description.split('\n\n').map((paragraph, i) => {
               const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(paragraph.trim())
               return (
                 <React.Fragment key={i}>
                   {i > 0 ? <br /> : null}
                   {isAvoidLine ? (
-                    <span className="font-semibold" style={{ color: '#ffffff' }}>
+                    <span className="font-semibold" style={{ color: '#8a7399' }}>
                       {paragraph}
                     </span>
                   ) : (

@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 
 const photos = [
   '/images/prenup/DSC07371.jpg', // div1 (center tall)
@@ -10,11 +10,11 @@ const photos = [
 
 const PhotoMosaicSection = () => {
   return (
-    <section className="w-full py-14 px-4 sm:px-6" style={{ background: 'linear-gradient(180deg, #fdf2f7 0%, #f5c4da 100%)' }}>
+    <section className="w-full py-14 px-4 sm:px-6" style={{ background: 'linear-gradient(180deg, #fae8ce 0%, #f1d7d7 100%)' }}>
       <div className="max-w-5xl mx-auto">
         <h2
           className="font-my-soul text-center mb-8"
-          style={{ color: '#80043a', fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}
+          style={{ color: '#6b5a70', fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}
         >
           Our Photo Moments
         </h2>

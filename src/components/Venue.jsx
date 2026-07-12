@@ -74,8 +74,9 @@ const Venue = () => {
     <section
       ref={sectionRef}
       className="relative py-20 w-full overflow-x-clip"
-      style={{ backgroundColor: '#e20964' }}
+      style={{ backgroundColor: '#e5d7ed' }}
     >
+      <div className="soft-blob soft-blob--small absolute top-[10%] left-[6%] w-36 h-36 z-[1]" aria-hidden="true" />
       <img
         ref={fanBannerRef}
         src="/images/graphics/fan-banner.png"
@@ -83,6 +84,12 @@ const Venue = () => {
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 left-1/2 z-[5] h-auto -translate-x-1/2"
         style={{ width: '150vw', maxWidth: 'none' }}
+      />
+      <img
+        src="/images/graphics/location.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute top-8 right-6 z-[6] h-16 w-16 sm:h-20 sm:w-20 object-contain opacity-90"
       />
       <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
         <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-10">
@@ -111,13 +118,13 @@ const Venue = () => {
             <div ref={venueNameRef} className="w-full text-center">
               {venueData.name ? (
                 <p className="font-poppins text-lg capitalize leading-tight tracking-[0.02em] sm:text-xl md:text-2xl">
-                  <span className="bg-gradient-to-r from-[#E5C988] via-[#FFFEF2] to-[#E5C988] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
                     {venueData.name}
                   </span>
                 </p>
               ) : null}
               {venueData.main?.time ? (
-                <div className="mt-3 font-poppins" style={{ color: '#EFE9DC' }}>
+                <div className="mt-3 font-poppins" style={{ color: '#6b5a70' }}>
                   <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">{venueData.main.time} | Saturday</p>
                 </div>
               ) : null}
@@ -135,10 +142,10 @@ const Venue = () => {
             className="graphic-button--cta attendance-confirm-button mx-auto shrink-0"
             contentClassName="font-beautyofthebeast lowercase mb-2"
           >
-            <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
               get direction
             </span>
-            <FiArrowRight className="h-5 w-5 shrink-0 text-[#D4AF37]" aria-hidden="true" />
+            <FiArrowRight className="h-5 w-5 shrink-0 text-[#8a7399]" aria-hidden="true" />
           </GraphicLink>
         </div>
       </div>

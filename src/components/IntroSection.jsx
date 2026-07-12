@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMail } from 'react-icons/fi'
@@ -74,9 +74,14 @@ const IntroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-60 pb-32 overflow-hidden md:pt-96 md:pb-44"
-      style={{ backgroundColor: '#e20964' }}
+      className="relative w-full pt-60 pb-32 overflow-hidden bg-cover bg-center bg-no-repeat md:pt-96 md:pb-44"
+      style={{
+        backgroundColor: '#e5d7ed',
+        backgroundImage: 'url(/images/graphics/palace.png)'
+      }}
     >
+      <div className="soft-blob absolute top-[15%] right-[12%] w-48 h-48 z-[1]" aria-hidden="true" />
+      <div className="soft-blob soft-blob--alt soft-blob--small absolute bottom-[22%] left-[10%] w-36 h-36 z-[1]" aria-hidden="true" />
       <img
         src="/images/graphics/fan%20flower%20-%201.png"
         alt=""
@@ -84,10 +89,10 @@ const IntroSection = () => {
         className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
       />
       <img
-        src="/images/graphics/lantern-1.png"
+        src="/images/graphics/butterfly-half-left.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10"
+        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 h-auto pointer-events-none z-10 scale-x-[-1]"
       />
       <img
         src="/images/graphics/flower-left.png"
@@ -105,24 +110,24 @@ const IntroSection = () => {
         <p
           ref={copyRef}
           className="mb-6 text-center font-beautyofthebeast text-2xl leading-snug sm:mb-7 sm:text-3xl md:text-4xl"
-          style={{ color: '#EFE9DC' }}
+          style={{ color: '#6b5a70' }}
         >
           I am so excited to celebrate my special day with you.
           Thank you for being part of my journey!
         </p>
-        <div className="px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
+        <div className="intro-content-soft-panel px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
           <div ref={calendarRef} className="w-4/5 mx-auto origin-top scale-125 sm:scale-[1.35]">
             <p className="font-rozha text-2xl tracking-[0.12em] uppercase">
-              <span className="bg-gradient-to-r from-[#E5C988] via-[#FFFEF2] to-[#E5C988] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
                 {monthLabel} {yearLabel}
               </span>
             </p>
-            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#ffffff' }}>
+            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#6b5a70' }}>
               {weekLabels.map((label, index) => (
                 <span key={`${label}-${index}`}>{label}</span>
               ))}
             </div>
-            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#ffffff' }}>
+            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#6b5a70' }}>
               {calendarCells.map((day, index) => {
                 const isSelected = day === selectedDay
                 return (
@@ -149,20 +154,20 @@ const IntroSection = () => {
             className="graphic-button--cta attendance-confirm-button shrink-0"
             contentClassName="font-beautyofthebeast lowercase mb-2"
           >
-            <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#AA771C] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#8a7399] via-[#c9b4d4] to-[#6b5a70] bg-clip-text text-transparent">
               respond
             </span>
-            <FiMail className="h-5 w-5 shrink-0 text-[#D4AF37]" aria-hidden="true" />
+            <FiMail className="h-5 w-5 shrink-0 text-[#8a7399]" aria-hidden="true" />
           </GraphicButton>
         </div>
       </div>
       {isRsvpModalOpen && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/65 px-0">
-          <div className="relative w-screen h-screen bg-[#fdf2f7] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+          <div className="relative w-screen h-screen bg-[#fae8ce] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#80043a]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#6b5a70]"
             >
               Close
             </button>
