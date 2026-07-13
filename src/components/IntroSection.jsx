@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMail } from 'react-icons/fi'
 import { celebrant } from '../data'
 import GraphicButton from './GraphicButton'
-import { RSVP_FORM_EMBED_SRC } from './RSVPModal'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,7 +13,11 @@ const IntroSection = () => {
   const copyRef = useRef(null)
   const calendarRef = useRef(null)
   const buttonWrapRef = useRef(null)
-  const debutDate = new Date(celebrant.debutant.debut.date)
+  // Parse YYYY-MM-DD as local date (avoid UTC shift from Date('YYYY-MM-DD'))
+  const [y, m, d] = String(celebrant.debutant.debut.date || '')
+    .split('-')
+    .map(Number)
+  const debutDate = y && m && d ? new Date(y, m - 1, d) : new Date(celebrant.debutant.debut.date)
   const monthLabel = debutDate.toLocaleString('en-US', { month: 'long' })
   const yearLabel = debutDate.getFullYear()
   const selectedDay = debutDate.getDate()
@@ -119,10 +122,11 @@ const IntroSection = () => {
         </p>
         <div className="intro-content-soft-panel px-7 py-10 text-center sm:px-10 sm:py-12 md:px-12 md:py-14">
           <div ref={calendarRef} className="w-4/5 mx-auto origin-top scale-125 sm:scale-[1.35]">
-            <p className="font-rozha text-2xl tracking-[0.12em] uppercase">
-              <span className="bg-gradient-to-r from-[#5a4868] via-[#c9b4d4] to-[#3f3348] bg-clip-text text-transparent">
-                {monthLabel} {yearLabel}
-              </span>
+            <p
+              className="font-rozha text-2xl tracking-[0.12em] uppercase"
+              style={{ color: '#3f3348' }}
+            >
+              {monthLabel} {yearLabel}
             </p>
             <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#3f3348' }}>
               {weekLabels.map((label, index) => (
@@ -178,13 +182,13 @@ const IntroSection = () => {
             >
               Close
             </button>
-            <div className="mt-8 h-[calc(100vh-114px)] w-full overflow-hidden bg-white">
-              <iframe
-                title="RSVP for the debut celebration of Shanara"
-                src={RSVP_FORM_EMBED_SRC}
-                className="h-full w-full border-0"
-                loading="lazy"
-              />
+            <div className="mt-8 flex h-[calc(100vh-114px)] w-full items-center justify-center overflow-hidden bg-white px-6">
+              <p
+                className="font-beautyofthebeast text-center capitalize tracking-[0.04em]"
+                style={{ color: '#3f3348', fontSize: 'clamp(1.75rem, 6vw, 2.75rem)' }}
+              >
+                To be added
+              </p>
             </div>
           </div>
         </div>

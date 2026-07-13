@@ -7,7 +7,7 @@ import { wedding } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const BG = wedding.giftSection?.backgroundImage || '/images/prenup/DSC07027.jpg'
+const BG = wedding.giftSection?.backgroundImage || '/images/prenup/prenup-03.jpg'
 
 const OurGiftSection = () => {
   const gs = wedding.giftSection ?? {}
@@ -56,7 +56,7 @@ const OurGiftSection = () => {
         className="absolute inset-0 z-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: `url(${BG})`,
-          backgroundPosition: '68% center'
+          backgroundPosition: '88% center'
         }}
         aria-hidden
       />
@@ -135,7 +135,7 @@ const OurGiftSection = () => {
         rel="noreferrer"
         imageSrc="/images/graphics/button-container.png"
         className="graphic-button--cta absolute bottom-[max(2rem,env(safe-area-inset-bottom))] right-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:right-8"
-        contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem]"
+        contentClassName="font-beautyofthebeast lowercase !mb-0 -translate-y-2 !text-[0.9rem] sm:!text-[1rem]"
       >
         <span style={{ color: '#3f3348' }}>
           {ctaLabel}

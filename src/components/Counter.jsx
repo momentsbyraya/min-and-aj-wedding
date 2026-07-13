@@ -162,7 +162,7 @@ const Counter = ({ countdown }) => {
             {/* Timer Graphics in the center */}
             <div className="mx-8" style={{ display: 'flex', alignItems: 'flex-start' }}>
               <img 
-                src="/images/prenup/DSC07234.jpg" 
+                src="/images/prenup/prenup-05.jpg" 
                 alt="Prenup" 
                 className="timer-image w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover"
               />

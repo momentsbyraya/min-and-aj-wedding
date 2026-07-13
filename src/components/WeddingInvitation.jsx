@@ -15,7 +15,7 @@ import FallingPetals from './FallingPetals'
 import './WeddingInvitation.css'
 
 const WeddingInvitation = ({ onStartMusic, onPauseMusic, onResumeMusic, isMusicPlaying }) => {
-  const prenupImages = useMemo(() => ['/images/prenup/DSC06785.jpg'], [])
+  const prenupImages = useMemo(() => ['/images/prenup/prenup-01.jpg'], [])
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
   const openLightbox = (src) => {

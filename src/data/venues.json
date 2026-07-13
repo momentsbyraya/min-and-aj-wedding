@@ -1,21 +1,21 @@
 {
   "venue": {
-    "name": "Villa Encarnacion Resort & Events Place",
-    "address": "Villa Encarnacion Resort & Events Place",
-    "city": "",
-    "state": "",
+    "name": "Limay Multi Purpose Hall",
+    "address": "Limay Multi Purpose Hall",
+    "city": "Limay",
+    "state": "Bataan",
     "zip": "",
     "main": {
-      "time": "4:00 PM",
-      "details": "Guest gathering at 4:00 PM; cocktail hour at 4:30 PM; program begins at 5:00 PM; after party at 10:00 PM."
+      "time": "3:00 PM",
+      "details": "Guest gathering at 3:00 PM; cocktail hour at 3:30 PM; program begins at 4:00 PM; ends at 7:00 PM."
     },
     "reception": {
-      "time": "10:00 PM",
-      "details": "After party follows the program."
+      "time": "7:00 PM",
+      "details": "Celebration ends at 7:00 PM."
     },
     "image": "/images/venue/venue.png",
-    "googleMapsUrl": "https://maps.app.goo.gl/bB24j67nDR2rcD4N8?g_st=ic",
-    "directionsUrl": "https://maps.app.goo.gl/bB24j67nDR2rcD4N8?g_st=ic",
-    "googleMapsEmbedUrl": "https://www.google.com/maps?q=Villa+Encarnacion+Resort+%26+Events+Place&output=embed"
+    "googleMapsUrl": "https://maps.app.goo.gl/Juc4sWx4d4yyA4AZ9?g_st=ac",
+    "directionsUrl": "https://maps.app.goo.gl/Juc4sWx4d4yyA4AZ9?g_st=ac",
+    "googleMapsEmbedUrl": "https://www.google.com/maps?q=Limay+Multi+Purpose+Hall&output=embed"
   }
 }

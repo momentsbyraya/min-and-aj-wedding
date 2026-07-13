@@ -99,12 +99,27 @@ const DressCode = () => {
           </div>
         </div>
 
-        <div ref={swatchesRef} className="mt-4 flex justify-center">
-          <img
-            src="/images/dresscode/swatch.png"
-            alt={colorPalette.map((c) => c.label).join(', ')}
-            className="dresscode-swatch-glow w-full max-w-[240px] h-auto object-contain"
-          />
+        <div
+          ref={swatchesRef}
+          className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+          aria-label={colorPalette.map((c) => c.label).join(', ')}
+        >
+          {colorPalette.map((color) => (
+            <div key={color.name} className="flex flex-col items-center gap-1.5">
+              <span
+                className="block h-10 w-10 rounded-full border border-[#3f3348]/15 shadow-sm sm:h-12 sm:w-12"
+                style={{ backgroundColor: color.hex }}
+                title={color.label}
+                aria-hidden="true"
+              />
+              <span
+                className="font-poppins text-[9px] uppercase tracking-[0.12em] sm:text-[10px]"
+                style={{ color: '#5a4868' }}
+              >
+                {color.label}
+              </span>
+            </div>
+          ))}
         </div>
 
         <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
@@ -122,12 +137,12 @@ const DressCode = () => {
           </p>
           <p className="font-poppins text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#3f3348' }}>
             {mainDressCode.description.split('\n\n').map((paragraph, i) => {
-              const isAvoidLine = /^avoid\s+wearing\s+bright\s+colors/i.test(paragraph.trim())
+              const isAvoidLine = /^avoid\s+wearing/i.test(paragraph.trim())
               return (
                 <React.Fragment key={i}>
                   {i > 0 ? <br /> : null}
                   {isAvoidLine ? (
-                    <span className="font-semibold" style={{ color: '#5a4868' }}>
+                    <span className="font-semibold" style={{ color: '#c45c5c' }}>
                       {paragraph}
                     </span>
                   ) : (

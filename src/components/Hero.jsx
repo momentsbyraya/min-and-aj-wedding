@@ -13,6 +13,13 @@ const Hero = () => {
 
   const debutInfo = celebrant?.debutant?.debut ?? {}
   const debutTime = (debutInfo.time || '').trim()
+  const preferredName = (
+    celebrant?.debutant?.name?.preferred ||
+    celebrant?.debutant?.name?.nickname ||
+    [celebrant?.debutant?.name?.first, celebrant?.debutant?.name?.middle].filter(Boolean).join(' ') ||
+    celebrant?.debutant?.name?.first ||
+    ''
+  ).trim()
   const venueName = (venues?.venue?.name || '').trim()
   let debutDateLabel = ''
   if (debutInfo.date) {
@@ -57,7 +64,7 @@ const Hero = () => {
       aria-label="Invitation"
     >
       <img
-        src="/images/graphics/hero-bg.png"
+        src="/images/graphics/firs-bg.png"
         alt="Hero background"
         className="absolute inset-0 w-full h-full object-cover z-[1]"
       />
@@ -108,8 +115,8 @@ const Hero = () => {
           >
             <img
               src="/images/graphics/name.png"
-              alt="Shanara"
-              className="block w-full h-auto max-w-full object-contain mx-auto"
+              alt={preferredName || 'Althea Louisse'}
+              className="mx-auto block h-auto w-[85%] max-w-[22rem] object-contain sm:w-[80%] sm:max-w-[26rem]"
               draggable={false}
             />
           </h1>

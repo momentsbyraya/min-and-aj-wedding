@@ -35,20 +35,16 @@ const Gallery = () => {
   const imageRefs = useRef([])
 
   const gridColumnPattern = [
+    'span 5', // row 1 — full
+    'span 2', // row 2
     'span 3',
-    'span 1',
-    'span 2',
-    'span 2',
-    'span 1',
-    'span 3',
-    'span 1',
-    'span 2',
-    'span 2',
-    'span 1'
+    'span 3', // row 3
+    'span 2', // 5th image — 2/5 of third row
+    'span 5'  // row 4 — full
   ]
 
   const gridColumnForIndex = (index) => {
-    if (galleryImages.length === 4 && index === 3) return 'span 3'
+    if (galleryImages.length === 4 && index === 3) return 'span 5'
     return gridColumnPattern[index % gridColumnPattern.length]
   }
 
@@ -166,16 +162,14 @@ const Gallery = () => {
   }, [isModalOpen])
 
   const galleryCount = galleryImages.length
-  const mainGallery = galleryCount > 2 ? galleryImages.slice(0, -2) : []
-  const tailPair = galleryCount >= 2 ? galleryImages.slice(-2) : galleryImages
 
-  /** Oval frame on 2 of every 5 tiles (e.g. indices 1 and 3). */
-  const useOvalFrame = (index) => index % 5 === 1 || index % 5 === 3
+  /** Oval frame on 2/5 tiles; image-frame on 3/5 (and full-width) tiles. */
+  const useOvalFrame = (gridColumn) => gridColumn === 'span 2'
 
   const renderGridTile = (image, index, gridColumn) => {
-    const isFullWidthRow = gridColumn === 'span 3'
+    const isFullWidthRow = gridColumn === 'span 5'
     const objectPosition = tileObjectPosition[image]
-    const ovalClass = useOvalFrame(index) ? ' gallery-tile--oval' : ''
+    const ovalClass = useOvalFrame(gridColumn) ? ' gallery-tile--oval' : ''
     return (
       <div
         ref={(el) => {
@@ -257,61 +251,12 @@ const Gallery = () => {
           </h3>
 
           <div className="mt-6 sm:mt-8 md:mt-10">
-            <div className="grid auto-rows-auto grid-cols-3 gap-3 sm:gap-4 md:gap-5">
-              {galleryCount === 1 && renderGridTile(galleryImages[0], 0, gridColumnForIndex(0))}
-
-              {galleryCount >= 2 &&
-                mainGallery.map((image, index) => (
-                  <React.Fragment key={image}>{renderGridTile(image, index, gridColumnForIndex(index))}</React.Fragment>
-                ))}
-
-              {galleryCount >= 2 && (
-                <div className="col-span-3 flex min-w-0 flex-row gap-3 sm:gap-4 md:gap-5">
-                  {tailPair.map((image, i) => {
-                    const index = galleryCount - 2 + i
-                    const objectPosition = tileObjectPosition[image]
-                    const flexGrow = i === 0 ? 'flex-[2]' : 'flex-[3]'
-                    const ovalClass = useOvalFrame(index) ? ' gallery-tile--oval' : ''
-                    return (
-                      <div
-                        key={image}
-                        ref={(el) => {
-                          imageRefs.current[index] = el
-                        }}
-                        className={`min-w-0 ${flexGrow} ${compactTileClass}${ovalClass}`}
-                        style={{
-                          height: '100%',
-                          willChange: 'transform',
-                          backfaceVisibility: 'hidden',
-                          transform: 'translateZ(0)'
-                        }}
-                        onClick={() => handleImageClick(index)}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault()
-                            handleImageClick(index)
-                          }
-                        }}
-                        aria-label={`Open gallery image ${index + 1}`}
-                      >
-                        <div className="gallery-tile-inner h-full w-full">
-                          <img
-                            src={image}
-                            alt={`${altDefault} — preview ${index + 1}`}
-                            draggable="false"
-                            style={{
-                              objectPosition: objectPosition ?? 'center'
-                            }}
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              )}
+            <div className="grid auto-rows-auto grid-cols-5 gap-3 sm:gap-4 md:gap-5">
+              {galleryImages.map((image, index) => (
+                <React.Fragment key={image}>
+                  {renderGridTile(image, index, gridColumnForIndex(index))}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>

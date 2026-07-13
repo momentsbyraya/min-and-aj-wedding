@@ -1,24 +1,16 @@
 {
   "faqData": [
     {
-      "question": "Do I need to confirm my attendance?",
-      "answer": "Yes, you can answer the RSVP through the link provided on or before June 15."
-    },
-    {
       "question": "Can I bring a plus one?",
       "answer": "Kindly please inform us beforehand. Only guests whose names are on the official list will be allowed to enter."
     },
     {
-      "question": "What time should I arrive?",
-      "answer": "Please arrive 30 minutes before the program starts to allow time for seating and registration."
-    },
-    {
-      "question": "Can I take photos and videos?",
-      "answer": "Absolutely yes! I would love to see how my night will look like on your point of view. However, please be mindful during formal parts of the program."
-    },
-    {
       "question": "Who can I contact for concerns or messages?",
-      "answer": "For any questions, concerns, or messages, feel free to chat me anytime. I'll gladly assist you!"
+      "answer": "For any questions, concerns, or messages, feel free to chat me anytime."
+    },
+    {
+      "question": "Do I need to confirm my attendance?",
+      "answer": "Yes, you can answer the RSVP through the link provided on or before July 30, 2026."
     }
   ]
 }

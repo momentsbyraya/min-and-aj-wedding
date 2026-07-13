@@ -4,10 +4,6 @@ import { gsap } from 'gsap'
 import { FiX } from 'react-icons/fi'
 import { theme } from '../data'
 
-/** Google Form “RSVP for the Debut Celebration of Shanara” — embed URL (from forms.gle/ZkAo7kRBXdxQS9vF6). */
-export const RSVP_FORM_EMBED_SRC =
-  'https://docs.google.com/forms/d/e/1FAIpQLSfSn39o0vTU2jVxICCVNISOrUQhoF3QvkSvgx1vOIAadDeXdw/viewform?embedded=true'
-
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
   const overlayRef = useRef(null)
@@ -89,13 +85,13 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        <div className="h-[calc(100vh-97px)] w-full overflow-hidden bg-white">
-          <iframe
-            title="RSVP for the debut celebration of Shanara"
-            src={RSVP_FORM_EMBED_SRC}
-            className="h-full w-full border-0"
-            loading="lazy"
-          />
+        <div className="flex h-[calc(100vh-97px)] w-full items-center justify-center overflow-hidden bg-white px-6">
+          <p
+            className="font-beautyofthebeast text-center capitalize tracking-[0.04em]"
+            style={{ color: '#3f3348', fontSize: 'clamp(1.75rem, 6vw, 2.75rem)' }}
+          >
+            To be added
+          </p>
         </div>
       </div>
     </div>,

@@ -1,40 +1,35 @@
 ﻿{
   "mainDressCode": {
-    "title": "FORMAL ATTIRE",
-    "subtitle": "JEWEL TONES",
-    "description": "I would love to see you wearing FORMAL ATTIRE in the shade of JEWEL TONES.\n\nGentlemen can wear black suits or long sleeves, while ladies may opt for cocktail or long dresses in the preferred color palette.\n\nAvoid wearing bright colors.",
+    "title": "PASTEL COLORS",
+    "subtitle": "GUESTS",
+    "description": "I would love to see you wearing pastel colors — specifically green, yellow, purple, gray, and beige.\n\nAvoid wearing pink.",
     "inspoUrl": ""
   },
   "colorPalette": [
     {
-      "name": "color-emerald",
-      "hex": "#046307",
-      "label": "Emerald"
+      "name": "color-green",
+      "hex": "#C9DCC4",
+      "label": "Green"
     },
     {
-      "name": "color-ruby",
-      "hex": "#9B111E",
-      "label": "Ruby"
+      "name": "color-yellow",
+      "hex": "#F2E6B8",
+      "label": "Yellow"
     },
     {
-      "name": "color-sapphire",
-      "hex": "#0F52BA",
-      "label": "Sapphire"
+      "name": "color-purple",
+      "hex": "#E5D7ED",
+      "label": "Purple"
     },
     {
-      "name": "color-amethyst",
-      "hex": "#9966CC",
-      "label": "Amethyst"
+      "name": "color-gray",
+      "hex": "#D4D4D4",
+      "label": "Gray"
     },
     {
-      "name": "color-garnet",
-      "hex": "#733635",
-      "label": "Garnet"
-    },
-    {
-      "name": "color-black",
-      "hex": "#1a1a1a",
-      "label": "Black (gentlemen)"
+      "name": "color-beige",
+      "hex": "#FAE8CE",
+      "label": "Beige"
     }
   ]
 }

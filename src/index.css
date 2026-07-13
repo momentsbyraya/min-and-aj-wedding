@@ -1176,15 +1176,12 @@ body {
   z-index: 1 !important;
 }
 
-/* Active calendar day: pastel fill + soft beige pearl border */
+/* Active calendar day: distinct pastel fill against soft panel */
 .calendar-day-active {
-  background-image:
-    linear-gradient(#fae8ce, #fae8ce),
-    linear-gradient(135deg, #d4c4a8, #fae8ce, #c9b89a);
-  background-origin: padding-box, border-box;
-  background-clip: padding-box, border-box;
-  border: 2px solid transparent;
-  color: #3f3348;
+  background-color: #5a4868;
+  border: 2px solid #3f3348;
+  color: #fae8ce;
+  font-weight: 600;
 }
 
 /* Venue map embed with soft beige pearl border */

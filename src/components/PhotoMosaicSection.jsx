@@ -1,11 +1,11 @@
 import React from 'react'
 
 const photos = [
-  '/images/prenup/DSC07371.jpg', // div1 (center tall)
-  '/images/prenup/DSC07409.jpg', // div2 (top left)
-  '/images/prenup/DSC07504.jpg', // div3 (bottom left)
-  '/images/prenup/DSC07640.jpg', // div4 (top right)
-  '/images/prenup/DSC07675.jpg'  // div5 (bottom right)
+  '/images/prenup/prenup-01.jpg',
+  '/images/prenup/prenup-02.jpg',
+  '/images/prenup/prenup-03.jpg',
+  '/images/prenup/prenup-04.jpg',
+  '/images/prenup/prenup-05.jpg'
 ]
 
 const PhotoMosaicSection = () => {

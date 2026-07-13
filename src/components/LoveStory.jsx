@@ -12,7 +12,7 @@ const LoveStory = () => {
   const contentRef = useRef(null)
   const imageContainerRef = useRef(null)
 
-  const image = '/images/prenup/DSC07129.jpg'
+  const image = '/images/prenup/prenup-05.jpg'
 
   useEffect(() => {
     // Scroll-triggered animations

@@ -2,31 +2,31 @@
   "events": [
     {
       "id": 1,
-      "time": "4:00 PM",
+      "time": "3:00 PM",
       "title": "Guest Gathering",
       "description": "Guest gathering and arrivals",
-      "venue": "Villa Encarnacion Resort & Events Place"
+      "venue": "Limay Multi Purpose Hall"
     },
     {
       "id": 2,
-      "time": "4:30 PM",
+      "time": "3:30 PM",
       "title": "Cocktail Hour",
       "description": "Cocktail hour",
-      "venue": "Villa Encarnacion Resort & Events Place"
+      "venue": "Limay Multi Purpose Hall"
     },
     {
       "id": 3,
-      "time": "5:00 PM",
+      "time": "4:00 PM",
       "title": "Program Begins",
-      "description": "Main celebration program begins",
-      "venue": "Villa Encarnacion Resort & Events Place"
+      "description": "Main celebration / program begins",
+      "venue": "Limay Multi Purpose Hall"
     },
     {
       "id": 4,
-      "time": "10:00 PM",
-      "title": "After Party",
-      "description": "After party",
-      "venue": "Villa Encarnacion Resort & Events Place"
+      "time": "7:00 PM",
+      "title": "End",
+      "description": "Celebration ends",
+      "venue": "Limay Multi Purpose Hall"
     }
   ]
 }

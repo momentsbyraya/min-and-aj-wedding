@@ -1,23 +1,25 @@
 {
   "debutant": {
     "name": {
-      "first": "Shanara",
-      "last": "Del Rosario",
-      "full": "Shanara Hadelyn S. Del Rosario",
-      "nickname": "Shanara"
+      "first": "Althea",
+      "middle": "Louisse",
+      "last": "Rodriguez",
+      "full": "Althea Louisse B. Rodriguez",
+      "preferred": "Althea Louisse",
+      "nickname": "Althea"
     },
     "about": {
-      "headingName": "Elegance at Eighteen",
-      "bioHtml": "I feel like I'm stepping into a world of gold and elegance, where I carry myself with a quiet kind of confidence that naturally stands out. Tonight is a celebration of everything I've become and everything I am still becoming. This is a night where I shine, surrounded by the people who have blessed me along the way.<br /><br />Now that I turn 18, I step into a new chapter full of love and grace, bigger dreams, and a heart ready for everything that's ahead.<br /><br />I want to make this night sparkle, and I hope to share it with you.<br /><br /><em>Love, Shanara.</em>"
+      "headingName": "Turning Eighteen",
+      "bioHtml": "Turning 18 is a milestone I'll always remember. Looking back, I'm grateful for all the memories, lessons, and experiences that have shaped me into who I am today. I've faced challenges, made mistakes, and celebrated small victories, and each one has helped me grow stronger and wiser.<br /><br />As I enter this new chapter of my life, I hope to continue learning, chasing my dreams, and becoming someone my family and I can be proud of. I'm thankful to everyone who has been part of my journey and for celebrating this special day with me."
     },
     "debut": {
-      "date": "2026-06-27",
-      "time": "4:00 PM",
-      "dayOfWeek": "Saturday",
-      "month": "June",
-      "day": "27",
+      "date": "2026-08-09",
+      "time": "3:00 PM",
+      "dayOfWeek": "Sunday",
+      "month": "August",
+      "day": "9",
       "year": "2026",
-      "location": "Villa Encarnacion Resort & Events Place"
+      "location": "Limay Multi Purpose Hall"
     },
     "announcement": "Turning 18!"
   }

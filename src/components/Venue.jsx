@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiArrowRight } from 'react-icons/fi'
-import { venues as venuesData } from '../data'
+import { venues as venuesData, celebrant } from '../data'
 import GraphicLink from './GraphicLink'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -10,15 +10,12 @@ gsap.registerPlugin(ScrollTrigger)
 const Venue = () => {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
-  const venuePhotoRef = useRef(null)
   const venueNameRef = useRef(null)
   const buttonRef = useRef(null)
   const fanBannerRef = useRef(null)
   const venueData = venuesData.venue
+  const dayOfWeek = celebrant?.debutant?.debut?.dayOfWeek || ''
   const directionsUrl = venueData.googleMapsUrl || venueData.directionsUrl || '#'
-  const venueEmbedUrl =
-    venueData.googleMapsEmbedUrl ||
-    `https://www.google.com/maps?q=${encodeURIComponent(venueData.name || venueData.address || '')}&output=embed`
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -36,16 +33,10 @@ const Venue = () => {
       { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }
     )
       .fromTo(
-        venuePhotoRef.current,
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
-        '-=0.3'
-      )
-      .fromTo(
         venueNameRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-        '-=0.2'
+        '-=0.25'
       )
       .fromTo(
         buttonRef.current,
@@ -73,10 +64,10 @@ const Venue = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-x-clip bg-cover bg-center bg-no-repeat"
+      className="relative flex min-h-[800px] w-full flex-col justify-between overflow-x-clip bg-cover bg-center bg-no-repeat pt-2 pb-24 sm:pt-3 sm:pb-28"
       style={{
         backgroundColor: '#e5d7ed',
-        backgroundImage: 'url(/images/graphics/bg-2.png)'
+        backgroundImage: `url(${venueData.image || '/images/venue/venue.png'})`
       }}
     >
       <div className="soft-blob soft-blob--small absolute top-[10%] left-[6%] w-36 h-36 z-[1]" aria-hidden="true" />
@@ -100,51 +91,35 @@ const Venue = () => {
         className="pointer-events-none absolute bottom-0 left-1/2 z-[5] h-auto -translate-x-1/2"
         style={{ width: '150vw', maxWidth: 'none' }}
       />
-      <img
-        src="/images/graphics/location.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute top-8 right-6 z-[6] h-16 w-16 sm:h-20 sm:w-20 object-contain opacity-90"
-      />
       <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
-        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mb-10">
-          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mx-auto mb-0">
+          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize !mb-0 -translate-y-2 sm:-translate-y-3">
             The Venue
           </span>
         </h2>
+      </div>
 
-        <div className="px-4 pt-8 pb-3 sm:px-6 sm:pt-10 sm:pb-4 md:px-8 md:pt-12 md:pb-5">
-          <div className="flex flex-col items-center justify-center gap-6 sm:gap-8">
-            <div ref={venuePhotoRef} className="flex w-full justify-center">
-              <div
-                className="venue-map-frame h-[264px] w-full max-w-[576px] sm:h-[336px] md:h-[384px]"
-                style={{ willChange: 'transform', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
-              >
-                <iframe
-                  src={venueEmbedUrl}
-                  title={venueData.name ? `Google Map — ${venueData.name}` : 'Google Map location'}
-                  className="venue-map-frame__iframe h-full w-full"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+      <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
+        <div
+          ref={venueNameRef}
+          className="mx-auto w-fit max-w-full rounded-sm px-5 py-4 text-center sm:px-8 sm:py-5"
+          style={{ backgroundColor: 'rgba(250, 232, 206, 0.94)' }}
+        >
+          {venueData.name ? (
+            <p
+              className="font-poppins text-lg capitalize leading-tight tracking-[0.02em] sm:text-xl md:text-2xl"
+              style={{ color: '#3f3348' }}
+            >
+              {venueData.name}
+            </p>
+          ) : null}
+          {venueData.main?.time ? (
+            <div className="mt-2 font-poppins" style={{ color: '#3f3348' }}>
+              <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">
+                {[venueData.main.time, dayOfWeek].filter(Boolean).join(' | ')}
+              </p>
             </div>
-
-            <div ref={venueNameRef} className="w-full text-center">
-              {venueData.name ? (
-                <p className="font-poppins text-lg capitalize leading-tight tracking-[0.02em] sm:text-xl md:text-2xl">
-                  <span className="bg-gradient-to-r from-[#5a4868] via-[#c9b4d4] to-[#3f3348] bg-clip-text text-transparent">
-                    {venueData.name}
-                  </span>
-                </p>
-              ) : null}
-              {venueData.main?.time ? (
-                <div className="mt-3 font-poppins" style={{ color: '#3f3348' }}>
-                  <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">{venueData.main.time} | Saturday</p>
-                </div>
-              ) : null}
-            </div>
-          </div>
+          ) : null}
         </div>
 
         <div className="mt-1 flex w-full justify-center sm:mt-2">

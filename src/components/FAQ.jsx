@@ -88,7 +88,7 @@ const FAQ = ({ id = 'faq' }) => {
         aria-hidden="true"
         className="pointer-events-none absolute top-4 left-1/2 z-[6] h-auto w-40 -translate-x-1/2 opacity-80 sm:w-52"
       />
-      <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 py-24 sm:py-32 md:py-40">
+      <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 pb-24 pt-0 sm:pb-32 md:pb-40">
         <div className="mb-12 flex w-full justify-center px-6">
           <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">
             <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast uppercase tracking-[0.12em]">

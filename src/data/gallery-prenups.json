@@ -2,23 +2,19 @@
   "altDefault": "Gallery",
   "bannerImage": "/images/graphics/palace.png",
   "files": [
-    "DSC06785.jpg",
-    "DSC06812.jpg",
-    "DSC06982.jpg",
-    "DSC07027.jpg",
-    "DSC07129.jpg",
-    "DSC07234.jpg",
-    "DSC07257.jpg",
-    "DSC07371.jpg",
-    "DSC07409.jpg",
-    "DSC07504.jpg",
-    "DSC07640.jpg",
-    "DSC07675.jpg"
+    "prenup-01.jpg",
+    "prenup-02.jpg",
+    "prenup-03.jpg",
+    "prenup-04.jpg",
+    "prenup-05.jpg",
+    "prenup-06.jpg"
   ],
   "tileObjectPosition": {
-    "DSC06785.jpg": "center 40%",
-    "DSC06982.jpg": "center 40%",
-    "DSC07129.jpg": "center 40%",
-    "DSC07675.jpg": "center 25%"
+    "prenup-01.jpg": "center center",
+    "prenup-02.jpg": "center center",
+    "prenup-03.jpg": "center center",
+    "prenup-04.jpg": "center center",
+    "prenup-05.jpg": "center center",
+    "prenup-06.jpg": "center center"
   }
 }

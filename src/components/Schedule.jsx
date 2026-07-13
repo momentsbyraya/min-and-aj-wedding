@@ -5,17 +5,6 @@ import { schedule } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/** Sketch graphic per schedule event (cycles if there are more events than sketches). */
-const EVENT_SKETCHES = [
-  '/images/graphics/welcome-sketch.png',
-  '/images/graphics/cocktil-sketch.png',
-  '/images/graphics/program-sketch.png',
-  '/images/graphics/party-sketch.png'
-]
-
-const getSketchForIndex = (index) =>
-  EVENT_SKETCHES[((index % EVENT_SKETCHES.length) + EVENT_SKETCHES.length) % EVENT_SKETCHES.length]
-
 const Schedule = () => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
@@ -143,23 +132,6 @@ const Schedule = () => {
     )
   }
 
-  const renderSketchSide = (event, index, align) => {
-    const isRight = align === 'right'
-    return (
-      <div
-        className={`flex items-center ${isRight ? 'justify-start' : 'justify-end'}`}
-      >
-        <img
-          src={getSketchForIndex(index)}
-          alt={event.title || ''}
-          className="schedule-sketch w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-90"
-          loading="lazy"
-          draggable={false}
-        />
-      </div>
-    )
-  }
-
   return (
     <section
       ref={sectionRef}
@@ -236,13 +208,13 @@ const Schedule = () => {
                     >
                       {isTextRight ? (
                         <>
-                          {renderSketchSide(event, index, 'left')}
+                          <div aria-hidden="true" />
                           {renderEventContent(event, 'right')}
                         </>
                       ) : (
                         <>
                           {renderEventContent(event, 'left')}
-                          {renderSketchSide(event, index, 'right')}
+                          <div aria-hidden="true" />
                         </>
                       )}
 

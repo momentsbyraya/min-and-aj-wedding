@@ -4,7 +4,7 @@
     "phone": "",
     "website": "https://example.rsvp",
     "formUrl": "https://forms.gle/J58WkXLVY88nfiX1A",
-    "message": "Please RSVP on or before June 15 so we can finalize seating, catering, and the program."
+    "message": "Please RSVP on or before July 30, 2026 so we can finalize seating, catering, and the program."
   },
   "theme": {
     "primaryColor": "#e5d7ed",
@@ -24,10 +24,10 @@
     "background": "/images/background-pattern.jpg"
   },
   "details": {
-    "hashtag": "#ShanaraTurns18",
+    "hashtag": "#AltheaTurns18",
     "website": "https://example.com",
     "registry": "https://registry.example.com",
-    "message": "We're excited to celebrate Shanara's special milestone with you!",
+    "message": "We're excited to celebrate Althea Louisse's special milestone with you!",
     "covidInfo": "We're following local health guidelines. Please stay home if you're feeling unwell."
   },
   "giftSection": {
@@ -37,7 +37,7 @@
     "intro": "With love and gratitude, I kindly share this little gift guide for those who have been asking what I would appreciate most.\n\nRegardless, your presence at my debut will already mean the world to me.",
     "ctaLabel": "View registry",
     "ctaUrl": "https://docs.google.com/document/d/197ydMWnR4tAohhnXPs5i7OLrK2lzjxIaAfNx4TAQU0U/edit?usp=drivesdk",
-    "backgroundImage": "/images/prenup/DSC07027.jpg"
+    "backgroundImage": "/images/prenup/prenup-03.jpg"
   },
   "social": {
     "instagram": "@example",

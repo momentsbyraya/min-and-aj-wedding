@@ -15,11 +15,12 @@ const scrollTriggerScroller = (scrollerElement) =>
 
 /** Prenup background per category (cycles if more categories than images). */
 const CATEGORY_PRENUP_BGS = [
-  '/images/prenup/DSC07725.jpg',
-  '/images/prenup/DSC07907.jpg',
-  '/images/prenup/DSC07993.jpg',
-  '/images/prenup/DSC07675.jpg',
-  '/images/prenup/DSC07640.jpg'
+  '/images/prenup/prenup-01.jpg',
+  '/images/prenup/prenup-02.jpg',
+  '/images/prenup/prenup-03.jpg',
+  '/images/prenup/prenup-04.jpg',
+  '/images/prenup/prenup-05.jpg',
+  '/images/prenup/prenup-06.jpg'
 ]
 
 /**

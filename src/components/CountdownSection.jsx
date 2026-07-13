@@ -6,7 +6,7 @@ import { celebrant } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const COUNTDOWN_PRENUP = '/images/prenup/DSC07504.jpg'
+const COUNTDOWN_PRENUP = '/images/prenup/prenup-04.jpg'
 
 const CountdownSection = () => {
   const sectionRef = useRef(null)
