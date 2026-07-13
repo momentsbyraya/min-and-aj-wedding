@@ -64,7 +64,7 @@ const Venue = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[800px] w-full flex-col justify-between overflow-x-clip bg-cover bg-center bg-no-repeat pt-2 pb-24 sm:pt-3 sm:pb-28"
+      className="relative flex min-h-[800px] w-full flex-col justify-between overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-6 sm:pt-28 sm:pb-8"
       style={{
         backgroundColor: '#e5d7ed',
         backgroundImage: `url(${venueData.image || '/images/venue/venue.png'})`
