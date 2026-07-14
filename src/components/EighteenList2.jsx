@@ -328,12 +328,6 @@ const EighteenList2 = () => {
                     be there
                   </span>
                 </h3>
-                <img 
-                  src="/images/graphics/tennis.png" 
-                  alt="Tennis" 
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto mb-8"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
                 <p 
                   className="text-base sm:text-lg md:text-xl font-poppins uppercase mb-8"
                   style={{ 

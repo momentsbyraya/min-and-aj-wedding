@@ -228,18 +228,6 @@ const Gallery = () => {
           backgroundBlendMode: 'soft-light'
         }}
       >
-        <img
-          src="/images/graphics/fan%20flower%20-%203.png"
-          alt=""
-          aria-hidden="true"
-          className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-[5]"
-        />
-        <img
-          src="/images/graphics/flower-right-2.png"
-          alt=""
-          aria-hidden="true"
-          className="intro-corner-accent intro-corner-accent--flower-right absolute top-0 right-0 h-auto pointer-events-none z-[5]"
-        />
         <div className="soft-blob soft-blob--alt absolute bottom-[8%] left-[12%] w-40 h-40 z-[1]" aria-hidden="true" />
         <div className={`mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
           <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">

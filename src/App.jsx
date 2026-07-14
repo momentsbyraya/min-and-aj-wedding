@@ -16,20 +16,28 @@ function App() {
 
   useEffect(() => {
     // Initialize audio once - it will persist across component changes
-    audioRef.current = new Audio(audio.background)
-    audioRef.current.loop = audio.loop
-    audioRef.current.volume = audio.volume
+    const el = new Audio(audio.background)
+    el.loop = false // custom loop from loopStart (native loop always restarts at 0)
+    el.volume = audio.volume
+    audioRef.current = el
 
-    // Listen to audio events to update state
+    const loopStart = Number(audio.loopStart) || 0
+
     const handlePlay = () => setIsMusicPlaying(true)
     const handlePause = () => setIsMusicPlaying(false)
-    const handleEnded = () => setIsMusicPlaying(false)
+    const handleEnded = () => {
+      if (!audio.loop || !audioRef.current) {
+        setIsMusicPlaying(false)
+        return
+      }
+      audioRef.current.currentTime = loopStart
+      audioRef.current.play().catch(() => setIsMusicPlaying(false))
+    }
 
-    audioRef.current.addEventListener('play', handlePlay)
-    audioRef.current.addEventListener('pause', handlePause)
-    audioRef.current.addEventListener('ended', handleEnded)
+    el.addEventListener('play', handlePlay)
+    el.addEventListener('pause', handlePause)
+    el.addEventListener('ended', handleEnded)
 
-    // Cleanup only on app unmount
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener('play', handlePlay)
@@ -43,8 +51,8 @@ function App() {
 
   const startMusic = () => {
     if (audioRef.current) {
-      audioRef.current.loop = true
-      audioRef.current.currentTime = 1 // Start at 1 second
+      const loopStart = Number(audio.loopStart) || 0
+      audioRef.current.currentTime = loopStart
       audioRef.current.play().catch(error => {
         console.error('Error playing audio:', error)
       })

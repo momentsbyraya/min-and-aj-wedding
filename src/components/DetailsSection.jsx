@@ -229,11 +229,6 @@ const DetailsSection = () => {
                 }}
               >
                 <span className="details-button-text font-poppins">RSVP</span>
-                <img
-                  src="/images/graphics/tennis.png"
-                  alt="Tennis"
-                  className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
-                />
               </button>
             </div>
 
@@ -269,11 +264,6 @@ const DetailsSection = () => {
                   }}
                 >
                   <span className="details-button-text font-poppins">Send Funds</span>
-                  <img
-                    src="/images/graphics/tennis.png"
-                    alt="Tennis"
-                    className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
-                  />
                 </button>
                 <a
                   ref={giftLinkRef}
@@ -293,11 +283,6 @@ const DetailsSection = () => {
                   }}
                 >
                   <span className="details-button-text font-poppins">View My Gift Registry</span>
-                  <img
-                    src="/images/graphics/tennis.png"
-                    alt="Tennis"
-                    className="details-button-icon w-5 h-5 object-contain transition-all duration-200"
-                  />
                 </a>
               </div>
             </div>

@@ -62,9 +62,7 @@ const GiftRegistry = () => {
   }, [])
   const gifts = [
     { name: 'Perfume', image: '/images/graphics/perfume.png' },
-    { name: 'Books', image: '/images/graphics/books.png' },
-    { name: 'Accessories', image: '/images/graphics/accessory.png' },
-    { name: 'Money', image: '/images/graphics/money.png' }
+    { name: 'Books', image: '/images/graphics/books.png' }
   ]
 
   return (

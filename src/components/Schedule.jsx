@@ -149,12 +149,6 @@ const Schedule = () => {
       <div className="soft-blob soft-blob--small absolute top-[12%] left-[8%] w-40 h-40 z-[1]" aria-hidden="true" />
       <div className="soft-blob soft-blob--alt absolute bottom-[18%] right-[6%] w-52 h-52 z-[1]" aria-hidden="true" />
       <img
-        src="/images/graphics/fan%20flower%20-%203.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
-      />
-      <img
         src="/images/graphics/bird-2.png"
         alt=""
         aria-hidden="true"
@@ -165,19 +159,6 @@ const Schedule = () => {
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-10"
-      />
-      <img
-        src="/images/graphics/flower-right-2.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 h-auto pointer-events-none z-10"
-      />
-      <img
-        src="/images/graphics/flower-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="schedule-flower-banner-bottom absolute bottom-0 left-1/2 -translate-x-1/2 h-auto pointer-events-none z-[5]"
-        style={{ width: '110vw', maxWidth: 'none' }}
       />
 
       <div className="relative z-10">

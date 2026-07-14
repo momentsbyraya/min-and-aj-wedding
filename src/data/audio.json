@@ -1,5 +1,6 @@
 {
-  "background": "/music/Crazy%20Rich%20Asians%20Official%20Soundtrack.mp3",
+  "background": "/music/august.mp3",
   "volume": 0.5,
-  "loop": true
+  "loop": true,
+  "loopStart": 5
 }

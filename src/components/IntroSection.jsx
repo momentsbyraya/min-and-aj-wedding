@@ -98,12 +98,6 @@ const IntroSection = () => {
       <div className="soft-blob absolute top-[15%] right-[12%] w-48 h-48 z-[1]" aria-hidden="true" />
       <div className="soft-blob soft-blob--alt soft-blob--small absolute bottom-[22%] left-[10%] w-36 h-36 z-[1]" aria-hidden="true" />
       <img
-        src="/images/graphics/fan%20flower%20-%201.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 h-auto pointer-events-none z-10"
-      />
-      <img
         src="/images/graphics/butterfly-half-left.png"
         alt=""
         aria-hidden="true"

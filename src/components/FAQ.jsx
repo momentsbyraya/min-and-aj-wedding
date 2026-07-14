@@ -82,12 +82,6 @@ const FAQ = ({ id = 'faq' }) => {
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5]"
       />
-      <img
-        src="/images/graphics/divider.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute top-4 left-1/2 z-[6] h-auto w-40 -translate-x-1/2 opacity-80 sm:w-52"
-      />
       <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 pb-24 pt-0 sm:pb-32 md:pb-40">
         <div className="mb-12 flex w-full justify-center px-6">
           <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">

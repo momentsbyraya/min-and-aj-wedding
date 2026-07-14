@@ -44,12 +44,6 @@ function OpeningScreen({ onEnvelopeOpen }) {
         aria-hidden
       />
       <img
-        src="/images/graphics/fan%20flower%20-%201.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--fan absolute top-0 left-0 z-[5] h-auto pointer-events-none"
-      />
-      <img
         src="/images/graphics/bird-2.png"
         alt=""
         aria-hidden="true"

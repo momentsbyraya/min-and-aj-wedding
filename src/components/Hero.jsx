@@ -55,7 +55,11 @@ const Hero = () => {
       .to(debutLineRef.current, { opacity: 1, y: 0, duration: 0.52 }, overlap)
       .to(datetimeRef.current, { opacity: 1, y: 0, duration: 0.6 }, overlap)
 
-    return () => tl.kill()
+    return () => {
+      tl.kill()
+      // Strict Mode remount can kill mid-fade and leave elements invisible
+      gsap.set(steps, { opacity: 1, y: 0 })
+    }
   }, [])
 
   return (
@@ -73,27 +77,15 @@ const Hero = () => {
         style={{ backgroundImage: "url('/images/graphics/butterflies-bg.png')" }}
         aria-hidden
       />
-      <img
-        src="/images/graphics/fan%20flower%20-%201.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--fan absolute bottom-0 left-0 z-[3] h-auto pointer-events-none opacity-80"
-      />
-      <img
-        src="/images/graphics/flower-right-2.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[3] h-auto pointer-events-none opacity-80"
-      />
-      <div className="absolute top-0 left-0 right-0 z-40 flex justify-end pt-8 sm:pt-12 md:pt-14 pl-5 sm:pl-8 pr-5 sm:pr-8 md:pr-12 lg:pr-16 pointer-events-none">
+      <div className="absolute top-0 left-0 right-0 z-40 flex justify-end pt-3 sm:pt-4 md:pt-5 pl-5 sm:pl-8 pr-5 sm:pr-8 md:pr-12 lg:pr-16 pointer-events-none">
         <div className="hero-invitation-serif flex flex-col items-center text-center w-[min(88vw,28rem)] shrink-0">
-          <header className="flex flex-col items-center text-center gap-2 sm:gap-2.5">
+          <header className="flex flex-col items-center text-center gap-0">
             <img
               ref={crownRef}
               src="/images/graphics/crown.png"
               alt=""
               aria-hidden
-              className="block h-auto w-[clamp(2.5rem,9vw,3.75rem)] object-contain opacity-95"
+              className="-mb-1 block h-auto w-[clamp(4.5rem,20vw,7.5rem)] object-contain"
               draggable={false}
             />
             <p

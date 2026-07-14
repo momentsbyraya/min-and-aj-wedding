@@ -12,7 +12,6 @@ const Venue = () => {
   const headingRef = useRef(null)
   const venueNameRef = useRef(null)
   const buttonRef = useRef(null)
-  const fanBannerRef = useRef(null)
   const venueData = venuesData.venue
   const dayOfWeek = celebrant?.debutant?.debut?.dayOfWeek || ''
   const directionsUrl = venueData.googleMapsUrl || venueData.directionsUrl || '#'
@@ -44,17 +43,6 @@ const Venue = () => {
         { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' },
         '-=0.2'
       )
-      .fromTo(
-        fanBannerRef.current,
-        { opacity: 0, y: '40%' },
-        {
-          opacity: 1,
-          y: '0%',
-          duration: 1,
-          ease: 'power3.out'
-        },
-        0
-      )
 
     return () => {
       tl.kill()
@@ -82,14 +70,6 @@ const Venue = () => {
         alt=""
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[8] h-auto pointer-events-none"
-      />
-      <img
-        ref={fanBannerRef}
-        src="/images/graphics/fan-banner.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-1/2 z-[5] h-auto -translate-x-1/2"
-        style={{ width: '150vw', maxWidth: 'none' }}
       />
       <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
         <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mx-auto mb-0">
