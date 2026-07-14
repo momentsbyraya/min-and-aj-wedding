@@ -85,13 +85,13 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        <div className="flex h-[calc(100vh-97px)] w-full items-center justify-center overflow-hidden bg-white px-6">
-          <p
-            className="font-beautyofthebeast text-center capitalize tracking-[0.04em]"
-            style={{ color: '#3f3348', fontSize: 'clamp(1.75rem, 6vw, 2.75rem)' }}
-          >
-            To be added
-          </p>
+        <div className="h-[calc(100vh-97px)] w-full overflow-hidden bg-white">
+          <iframe
+            title="RSVP for the debut celebration of Althea Louisse"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSf-v2hvEPrRf6XSN5Y96-LBpIWqvaBZ046CIwDZzkWPuWdfCQ/viewform?embedded=true"
+            className="h-full w-full border-0"
+            allow="autoplay"
+          />
         </div>
       </div>
     </div>,

@@ -14,13 +14,11 @@ const scrollTriggerScroller = (scrollerElement) =>
     : { invalidateOnRefresh: true }
 
 /** Prenup background per category (cycles if more categories than images). */
+/** Prenup backgrounds for 18s modal only — must not reuse main-invitation prenup-01..06. */
 const CATEGORY_PRENUP_BGS = [
-  '/images/prenup/prenup-01.jpg',
-  '/images/prenup/prenup-02.jpg',
-  '/images/prenup/prenup-03.jpg',
-  '/images/prenup/prenup-04.jpg',
-  '/images/prenup/prenup-05.jpg',
-  '/images/prenup/prenup-06.jpg'
+  '/images/prenup/DJS-20.jpg',
+  '/images/prenup/DJS-39.jpg',
+  '/images/prenup/DJS-45.jpg'
 ]
 
 /**
@@ -140,6 +138,18 @@ const SoftEdgeWash = ({ mirrored = false, palette }) => {
   )
 }
 
+const getCategoryTitleImage = (nameLabel) => {
+  const key = nameLabel.toLowerCase().replace(/\s+/g, ' ').trim()
+  const map = {
+    shots: '/images/graphics/shots-title.png',
+    bills: '/images/graphics/bills-title.png',
+    'blue bills': '/images/graphics/bills-title.png',
+    gifts: '/images/graphics/treasures-title.png',
+    treasures: '/images/graphics/treasures-title.png'
+  }
+  return map[key] || null
+}
+
 const CategorySection = ({ category, index = 0, scrollerElement, isLast = false }) => {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
@@ -154,7 +164,8 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
 
   const names = getNames()
   const nameLabel = (category.name || '').trim()
-  const titleText = nameLabel ? `18 ${capitalizeWords(nameLabel)}` : ''
+  const titleImageSrc = getCategoryTitleImage(nameLabel)
+  const titleAltText = nameLabel ? `18 ${capitalizeWords(nameLabel)}` : ''
 
   const bgImage = getCategoryPrenupBg(index)
   const palette = getCategoryPalette(index)
@@ -228,19 +239,13 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
       <div className={`relative z-20 w-full max-w-lg px-5 sm:px-8 ${isRightAligned ? 'ml-auto' : 'mr-auto'}`}>
         <div className={`flex flex-col py-24 sm:py-32 md:py-40 ${contentSideClass}`}>
           <div ref={titleRef} className="eighteenths-cat-title-wrap inline-block">
-            {titleText ? (
-              <h3 className="section-title-graphic section-title-graphic--eighteenths">
-                <span
-                  className={`section-title-graphic-inner section-title-graphic-inner--line section-title-graphic-inner--light font-beautyofthebeast capitalize ${
-                    isRightAligned
-                      ? 'section-title-graphic-inner--right'
-                      : 'section-title-graphic-inner--left'
-                  }`}
-                  style={{ marginBottom: 0 }}
-                >
-                  {titleText.toLowerCase()}
-                </span>
-              </h3>
+            {titleImageSrc ? (
+              <img
+                src={titleImageSrc}
+                alt={titleAltText}
+                className="eighteenths-cat-title-image"
+                loading="lazy"
+              />
             ) : null}
           </div>
 
@@ -301,6 +306,13 @@ const EighteenList = ({ scrollerElement } = {}) => {
         }
         .eighteenths-cat-shell .text-right .eighteenths-cat-title-wrap { align-items: flex-end; }
         .eighteenths-cat-shell .text-left  .eighteenths-cat-title-wrap { align-items: flex-start; }
+
+        .eighteenths-cat-title-image {
+          display: block;
+          width: clamp(180px, 50vw, 320px);
+          height: auto;
+          object-fit: contain;
+        }
 
         .eighteenths-cat-divider {
           width: 100vw;

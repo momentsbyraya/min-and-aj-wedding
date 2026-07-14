@@ -2,7 +2,8 @@ import React from 'react'
 import { theme } from '../data'
 
 const Loader = ({ className = '' }) => {
-  const primaryColor = theme.colors.primary
+  // Pastel pink (blush) — prefer brand pink over purple primary
+  const primaryColor = theme.colors.secondary || theme.colors.blush || '#f1d7d7'
   
   return (
     <>

@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import GraphicLink from './GraphicLink'
-import { FiExternalLink } from 'react-icons/fi'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { wedding } from '../data'
@@ -15,12 +13,9 @@ const OurGiftSection = () => {
   const titleLead = (gs.titleLead ?? 'gift').trim()
   const titleRest = (gs.titleRest ?? 'ideas').trim()
   const intro = (gs.intro ?? '').trim()
-  const ctaLabel = (gs.ctaLabel ?? 'View registry').trim()
-  const ctaHref = gs.ctaUrl || wedding.details?.registry || '#'
 
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
-  const buttonRef = useRef(null)
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -36,11 +31,6 @@ const OurGiftSection = () => {
       contentRef.current,
       { opacity: 0, y: 22 },
       { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }
-    ).fromTo(
-      buttonRef.current,
-      { opacity: 0, y: 16 },
-      { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' },
-      '-=0.35'
     )
 
     return () => tl.kill()
@@ -127,21 +117,6 @@ const OurGiftSection = () => {
           </div>
         </div>
       </div>
-
-      <GraphicLink
-        ref={buttonRef}
-        href={ctaHref}
-        target="_blank"
-        rel="noreferrer"
-        imageSrc="/images/graphics/button-container.png"
-        className="graphic-button--cta absolute bottom-[max(2rem,env(safe-area-inset-bottom))] right-5 z-30 shrink-0 whitespace-nowrap transition-opacity hover:opacity-95 sm:right-8"
-        contentClassName="font-beautyofthebeast lowercase !mb-0 -translate-y-2 !text-[0.9rem] sm:!text-[1rem]"
-      >
-        <span style={{ color: '#3f3348' }}>
-          {ctaLabel}
-        </span>
-        <FiExternalLink className="h-4 w-4 shrink-0 text-[#5a4868]" aria-hidden />
-      </GraphicLink>
     </section>
   )
 }

@@ -14,9 +14,6 @@ const INTRO_BG = '/images/prenup/prenup-02.jpg'
 /** Eighteenths full-screen modal background (graphics). */
 const MODAL_PALACE_BG = '/images/graphics/palace.png'
 
-/** Flip to true when the full eighteenths list is ready to show. */
-const SHOW_EIGHTEENTHS_CONTENT = false
-
 const EighteenIntroSection = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [listScroller, setListScroller] = useState(null)
@@ -208,18 +205,7 @@ const EighteenIntroSection = () => {
                 paddingBottom: 'max(1rem, env(safe-area-inset-bottom))'
               }}
             >
-              {SHOW_EIGHTEENTHS_CONTENT ? (
-                listScroller ? <EighteenList scrollerElement={listScroller} /> : null
-              ) : (
-                <div className="flex min-h-full items-center justify-center px-6 py-24">
-                  <p
-                    className="font-beautyofthebeast text-center capitalize tracking-[0.04em]"
-                    style={{ color: '#3f3348', fontSize: 'clamp(1.75rem, 6vw, 2.75rem)' }}
-                  >
-                    To be added
-                  </p>
-                </div>
-              )}
+              {listScroller ? <EighteenList scrollerElement={listScroller} /> : null}
             </div>
           </div>
           <button
