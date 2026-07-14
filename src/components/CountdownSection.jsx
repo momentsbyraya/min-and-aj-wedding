@@ -22,7 +22,7 @@ const CountdownSection = () => {
     if (!year || !month || !day) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
 
     // Dubai is UTC+4 with no DST.
-    // Event is treated as Dubai midnight at the selected date.
+    // Event is treated as Dubai midnight at the selected date. 
     const targetMs = Date.UTC(year, month - 1, day, -4, 0, 0)
     const nowMs = Date.now()
     const diff = targetMs - nowMs
