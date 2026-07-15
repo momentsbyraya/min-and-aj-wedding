@@ -72,11 +72,6 @@ const Hero = () => {
         alt="Hero background"
         className="absolute inset-0 w-full h-full object-cover z-[1]"
       />
-      <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-cover bg-center opacity-25"
-        style={{ backgroundImage: "url('/images/graphics/butterflies-bg.png')" }}
-        aria-hidden
-      />
       <div className="absolute top-0 left-0 right-0 z-40 flex justify-end pt-3 sm:pt-4 md:pt-5 pl-5 sm:pl-8 pr-5 sm:pr-8 md:pr-12 lg:pr-16 pointer-events-none">
         <div className="hero-invitation-serif flex flex-col items-center text-center w-[min(88vw,28rem)] shrink-0">
           <header className="flex flex-col items-center text-center gap-0">
