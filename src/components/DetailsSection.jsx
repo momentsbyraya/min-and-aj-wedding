@@ -6,7 +6,7 @@ import RSVPModal from './RSVPModal'
 import GiftModal from './GiftModal'
 import './DetailsSection.css'
 
-// Register ScrollTrigger pluginxsa
+// Register ScrollTrigger pluginxsafewf
 gsap.registerPlugin(ScrollTrigger)
 
 const DetailsSection = () => {
