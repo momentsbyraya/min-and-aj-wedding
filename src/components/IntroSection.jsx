@@ -91,7 +91,7 @@ const IntroSection = () => {
       ref={sectionRef}
       className="relative w-full pt-60 pb-32 overflow-hidden bg-cover bg-center bg-no-repeat md:pt-96 md:pb-44"
       style={{
-        backgroundColor: '#e5d7ed',
+        backgroundColor: '#E8C4C8',
         backgroundImage: 'url(/images/graphics/palace.png)'
       }}
     >
@@ -113,7 +113,7 @@ const IntroSection = () => {
         <p
           ref={copyRef}
           className="mb-6 text-center font-beautyofthebeast text-2xl leading-snug sm:mb-7 sm:text-3xl md:text-4xl"
-          style={{ color: '#3f3348' }}
+          style={{ color: '#6F4A52' }}
         >
           I am so excited to celebrate my special day with you.
           Thank you for being part of my journey!
@@ -122,16 +122,16 @@ const IntroSection = () => {
           <div ref={calendarRef} className="w-4/5 mx-auto origin-top scale-125 sm:scale-[1.35]">
             <p
               className="font-rozha text-2xl tracking-[0.12em] uppercase"
-              style={{ color: '#3f3348' }}
+              style={{ color: '#6F4A52' }}
             >
               {monthLabel} {yearLabel}
             </p>
-            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#3f3348' }}>
+            <div className="mt-3 grid grid-cols-7 gap-y-1 text-center text-xs font-poppins uppercase" style={{ color: '#6F4A52' }}>
               {weekLabels.map((label, index) => (
                 <span key={`${label}-${index}`}>{label}</span>
               ))}
             </div>
-            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#3f3348' }}>
+            <div className="mt-1 grid grid-cols-7 gap-y-1 text-center text-sm font-poppins" style={{ color: '#6F4A52' }}>
               {calendarCells.map((day, index) => {
                 const isSelected = day === selectedDay
                 return (
@@ -158,10 +158,10 @@ const IntroSection = () => {
             className="graphic-button--cta graphic-button--cta-centered attendance-confirm-button shrink-0"
             contentClassName="font-beautyofthebeast lowercase !mb-0 items-center"
           >
-            <span style={{ color: '#3f3348' }}>
+            <span style={{ color: '#6F4A52' }}>
               respond
             </span>
-            <FiMail className="h-5 w-5 shrink-0 text-[#5a4868]" aria-hidden="true" />
+            <FiMail className="h-5 w-5 shrink-0 text-[#9B737C]" aria-hidden="true" />
           </GraphicButton>
         </div>
       </div>
@@ -172,11 +172,11 @@ const IntroSection = () => {
             onClick={() => setIsRsvpModalOpen(false)}
             aria-hidden
           />
-          <div className="modal-slide-up-panel relative w-screen h-screen bg-[#fae8ce] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
+          <div className="modal-slide-up-panel relative w-screen h-screen bg-[#F8F1EA] p-4 sm:p-6 shadow-[0_18px_45px_rgba(0,0,0,0.28)]">
             <button
               type="button"
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#3f3348]"
+              className="absolute right-4 top-4 z-10 font-poppins text-xs uppercase tracking-[0.2em] text-[#6F4A52]"
             >
               Close
             </button>

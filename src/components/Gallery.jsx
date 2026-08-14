@@ -25,7 +25,7 @@ const Gallery = () => {
     return out
   }, [])
 
-  const galleryBlushBg = '#fae8ce'
+  const galleryBlushBg = '#F8F1EA'
 
   const titleRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -224,7 +224,7 @@ const Gallery = () => {
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           backgroundColor: galleryBlushBg,
-          backgroundImage: "url('/images/graphics/hero-bg.png')",
+          backgroundImage: "url('/images/graphics/blush-wash-bg.png')",
           backgroundBlendMode: 'soft-light'
         }}
       >
@@ -232,9 +232,9 @@ const Gallery = () => {
         <div className={`mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
           <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">
             <span className="section-title-graphic section-title-graphic--center">
-              <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
-                Gallery
-              </span>
+                <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">
+                  Gallery
+                </span>
             </span>
           </h3>
 
@@ -306,7 +306,7 @@ const Gallery = () => {
             </div>
 
             <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
-              <span className="font-poppins text-sm text-white">
+              <span className="font-albert text-sm text-white">
                 {currentImageIndex + 1} / {galleryImages.length}
               </span>
             </div>

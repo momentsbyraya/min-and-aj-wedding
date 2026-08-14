@@ -49,12 +49,16 @@ const Venue = () => {
     }
   }, [])
 
+  const addressLine = [venueData.address, venueData.city, [venueData.state, venueData.zip].filter(Boolean).join(' ')]
+    .filter(Boolean)
+    .join(', ')
+
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[800px] w-full flex-col justify-between overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-6 sm:pt-28 sm:pb-8"
+      className="relative flex min-h-[800px] w-full flex-col items-center justify-center overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-12 sm:pt-28 sm:pb-16"
       style={{
-        backgroundColor: '#e5d7ed',
+        backgroundColor: '#E8C4C8',
         backgroundImage: `url(${venueData.image || '/images/venue/venue.png'})`
       }}
     >
@@ -71,30 +75,36 @@ const Venue = () => {
         aria-hidden="true"
         className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[8] h-auto pointer-events-none"
       />
-      <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
-        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mx-auto mb-0">
-          <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize !mb-0 -translate-y-2 sm:-translate-y-3">
+      <div className="relative z-20 mx-auto flex w-full max-w-2xl flex-col items-center px-4 text-center">
+        <h2 ref={headingRef} className="section-title-graphic section-title-graphic--center mx-auto mb-4 sm:mb-6">
+          <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize !mb-0 -translate-y-2 sm:-translate-y-3">
             The Venue
           </span>
         </h2>
-      </div>
 
-      <div className="relative z-20 w-full max-w-2xl mx-auto px-4 text-center">
         <div
           ref={venueNameRef}
           className="mx-auto w-fit max-w-full rounded-sm px-5 py-4 text-center sm:px-8 sm:py-5"
-          style={{ backgroundColor: 'rgba(250, 232, 206, 0.94)' }}
+          style={{ backgroundColor: 'rgba(248, 241, 234, 0.94)' }}
         >
           {venueData.name ? (
             <p
-              className="font-poppins text-lg capitalize leading-tight tracking-[0.02em] sm:text-xl md:text-2xl"
-              style={{ color: '#3f3348' }}
+              className="font-lavishly text-2xl capitalize leading-tight tracking-[0.02em] sm:text-3xl md:text-4xl"
+              style={{ color: '#6F4A52' }}
             >
               {venueData.name}
             </p>
           ) : null}
+          {addressLine ? (
+            <p
+              className="mt-2 font-albert font-thin text-sm leading-snug tracking-[0.02em] opacity-90 sm:text-base"
+              style={{ color: '#6F4A52' }}
+            >
+              {addressLine}
+            </p>
+          ) : null}
           {venueData.main?.time ? (
-            <div className="mt-2 font-poppins" style={{ color: '#3f3348' }}>
+            <div className="mt-2 alice-regular" style={{ color: '#6F4A52' }}>
               <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">
                 {[venueData.main.time, dayOfWeek].filter(Boolean).join(' | ')}
               </p>
@@ -102,7 +112,7 @@ const Venue = () => {
           ) : null}
         </div>
 
-        <div className="mt-1 flex w-full justify-center sm:mt-2">
+        <div className="mt-3 flex w-full justify-center sm:mt-4">
           <GraphicLink
             ref={buttonRef}
             href={directionsUrl}
@@ -110,12 +120,12 @@ const Venue = () => {
             rel="noreferrer"
             imageSrc="/images/graphics/button-container.png"
             className="graphic-button--cta graphic-button--cta-centered mx-auto shrink-0"
-            contentClassName="font-beautyofthebeast lowercase !mb-0 items-center"
+            contentClassName="alice-regular lowercase !mb-0 items-center"
           >
-            <span style={{ color: '#3f3348' }}>
+            <span style={{ color: '#6F4A52' }}>
               get direction
             </span>
-            <FiArrowRight className="h-5 w-5 shrink-0 text-[#5a4868]" aria-hidden="true" />
+            <FiArrowRight className="h-5 w-5 shrink-0 text-[#9B737C]" aria-hidden="true" />
           </GraphicLink>
         </div>
       </div>

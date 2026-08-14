@@ -3,7 +3,7 @@ import { theme } from '../data'
 
 const Loader = ({ className = '' }) => {
   // Pastel pink (blush) — prefer brand pink over purple primary
-  const primaryColor = theme.colors.secondary || theme.colors.blush || '#f1d7d7'
+  const primaryColor = theme.colors.secondary || theme.colors.blush || '#E8C4C8'
   
   return (
     <>

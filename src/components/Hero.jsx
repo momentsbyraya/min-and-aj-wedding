@@ -1,176 +1,245 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useRef, useMemo } from 'react'
 import { gsap } from 'gsap'
-import { FiHeart } from 'react-icons/fi'
 import { celebrant, venues } from '../data'
 
 const Hero = () => {
-  const crownRef = useRef(null)
-  const inviteLineRef = useRef(null)
-  const nameRef = useRef(null)
-  const dividerRef = useRef(null)
-  const debutLineRef = useRef(null)
-  const datetimeRef = useRef(null)
+  const heroRef = useRef(null)
+  const contentRef = useRef(null)
 
-  const debutInfo = celebrant?.debutant?.debut ?? {}
-  const debutTime = (debutInfo.time || '').trim()
-  const preferredName = (
-    celebrant?.debutant?.name?.preferred ||
-    celebrant?.debutant?.name?.nickname ||
-    [celebrant?.debutant?.name?.first, celebrant?.debutant?.name?.middle].filter(Boolean).join(' ') ||
-    celebrant?.debutant?.name?.first ||
-    ''
-  ).trim()
-  const venueName = (venues?.venue?.name || '').trim()
-  let debutDateLabel = ''
-  if (debutInfo.date) {
-    const [year, month, day] = debutInfo.date.split('-').map(Number)
-    if (year && month && day) {
-      const d = new Date(year, month - 1, day)
-      debutDateLabel = d.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase()
+  const bgStyle = useMemo(
+    () => ({
+      backgroundImage: 'url(/images/graphics/old-book-2.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      opacity: 0.75
+    }),
+    []
+  )
+
+  const bgTopStyle = useMemo(
+    () => ({
+      backgroundImage: 'url(/images/graphics/old-book-bg.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      opacity: 0.5
+    }),
+    []
+  )
+
+  const formatDate = (dateString) => {
+    if (!dateString) {
+      return { dayOfWeek: '', month: '', day: '', year: '' }
+    }
+    const [year, month, day] = String(dateString).split('-').map(Number)
+    const date =
+      year && month && day ? new Date(year, month - 1, day) : new Date(dateString)
+    return {
+      dayOfWeek: date.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase(),
+      month: date.toLocaleDateString('en-US', { month: 'long' }).toUpperCase(),
+      day: date.getDate().toString().padStart(2, '0'),
+      year: date.getFullYear().toString()
     }
   }
 
-  useLayoutEffect(() => {
-    const steps = [
-      crownRef.current,
-      inviteLineRef.current,
-      nameRef.current,
-      dividerRef.current,
-      debutLineRef.current,
-      datetimeRef.current
-    ].filter(Boolean)
+  const debutInfo = celebrant?.debutant?.debut ?? {}
+  const dateInfo = formatDate(debutInfo.date)
+  const venue = venues?.venue ?? {}
+  const venueTime = (venue.main?.time || debutInfo.time || '').replace(/\s/g, '').toUpperCase()
+  const preferredName = (
+    celebrant?.debutant?.name?.preferred ||
+    celebrant?.debutant?.name?.nickname ||
+    celebrant?.debutant?.name?.first ||
+    'Althea'
+  ).trim()
+  const venueAddressLine = [venue.address, venue.city, [venue.state, venue.zip].filter(Boolean).join(' ')]
+    .filter(Boolean)
+    .join(', ')
 
-    if (!steps.length) return undefined
-
-    gsap.set(steps, { opacity: 0, y: 26 })
-
-    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
-    // Staggered starts with overlap (not simultaneous, not strictly serial)
-    const overlap = '-=0.42'
-
-    tl.to(crownRef.current, { opacity: 1, y: 0, duration: 0.68 })
-      .to(inviteLineRef.current, { opacity: 1, y: 0, duration: 0.62 }, overlap)
-      .to(nameRef.current, { opacity: 1, y: 0, duration: 0.78 }, overlap)
-      .to(dividerRef.current, { opacity: 1, y: 0, duration: 0.52 }, overlap)
-      .to(debutLineRef.current, { opacity: 1, y: 0, duration: 0.52 }, overlap)
-      .to(datetimeRef.current, { opacity: 1, y: 0, duration: 0.6 }, overlap)
-
-    return () => {
-      tl.kill()
-      // Strict Mode remount can kill mid-fade and leave elements invisible
-      gsap.set(steps, { opacity: 1, y: 0 })
+  useEffect(() => {
+    if (contentRef.current) {
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'power2.out',
+          delay: 0.3
+        }
+      )
     }
   }, [])
 
   return (
-    <section
-      className="relative min-h-screen w-full overflow-hidden"
-      aria-label="Invitation"
-    >
-      <img
-        src="/images/graphics/firs-bg.png"
-        alt="Hero background"
-        className="absolute inset-0 w-full h-full object-cover z-[1]"
-      />
-      <div className="absolute top-0 left-0 right-0 z-40 flex justify-end pt-3 sm:pt-4 md:pt-5 pl-5 sm:pl-8 pr-5 sm:pr-8 md:pr-12 lg:pr-16 pointer-events-none">
-        <div className="hero-invitation-serif flex flex-col items-center text-center w-[min(88vw,28rem)] shrink-0">
-          <header className="flex flex-col items-center text-center gap-0">
-            <img
-              ref={crownRef}
-              src="/images/graphics/crown.png"
-              alt=""
-              aria-hidden
-              className="-mb-1 block h-auto w-[clamp(4.5rem,20vw,7.5rem)] object-contain"
-              draggable={false}
-            />
-            <p
-              ref={inviteLineRef}
-              className="uppercase max-w-[min(100%,36rem)] leading-none opacity-95"
-              style={{
-                color: '#3f3348',
-                fontSize: 'clamp(0.4375rem, 1.25vw, 0.5625rem)',
-                letterSpacing: '0.12em'
-              }}
-            >
-              YOU ARE INVITED TO CELEBRATE
-            </p>
-          </header>
+    <>
+      <section
+        ref={heroRef}
+        className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
+        aria-label="Invitation"
+      >
+        <div className="absolute inset-0 z-0" style={bgStyle} />
+        <div className="absolute inset-0 z-0" style={bgTopStyle} />
 
-          <h1
-            ref={nameRef}
-            className="m-0 mt-0 p-0 w-full leading-none border-0 [font:inherit]"
-          >
-            <img
-              src="/images/graphics/name.png"
-              alt={preferredName || 'Althea Louisse'}
-              className="mx-auto block h-auto w-[85%] max-w-[22rem] object-contain sm:w-[80%] sm:max-w-[26rem]"
-              draggable={false}
-            />
-          </h1>
+        <img
+          src="/images/graphics/corner-border.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 left-0 z-10 object-contain"
+          style={{
+            width: '25vh',
+            height: '25vh',
+            minWidth: '120px',
+            minHeight: '120px',
+            maxWidth: '300px',
+            maxHeight: '300px',
+            transform: 'rotate(90deg) scaleY(-1)'
+          }}
+        />
+        <img
+          src="/images/graphics/corner-border.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 right-0 z-10 object-contain transform rotate-90"
+          style={{
+            width: '25vh',
+            height: '25vh',
+            minWidth: '120px',
+            minHeight: '120px',
+            maxWidth: '300px',
+            maxHeight: '300px'
+          }}
+        />
+        <img
+          src="/images/graphics/corner-border.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 z-10 object-contain transform -rotate-90"
+          style={{
+            width: '25vh',
+            height: '25vh',
+            minWidth: '120px',
+            minHeight: '120px',
+            maxWidth: '300px',
+            maxHeight: '300px'
+          }}
+        />
+        <img
+          src="/images/graphics/corner-border.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute bottom-0 right-0 z-10 object-contain transform rotate-180"
+          style={{
+            width: '25vh',
+            height: '25vh',
+            minWidth: '120px',
+            minHeight: '120px',
+            maxWidth: '300px',
+            maxHeight: '300px'
+          }}
+        />
 
-          <div className="flex flex-col items-center text-center gap-2 mt-0 max-w-[min(100%,36rem)]">
-            <div ref={dividerRef} className="flex w-full items-center justify-center gap-3 opacity-95">
-              <span
-                className="block h-px flex-1 max-w-[5rem]"
-                style={{ backgroundColor: 'rgba(63, 51, 72, 0.35)' }}
-              />
-              <FiHeart
-                className="h-3 w-3 shrink-0 fill-current"
-                style={{ color: '#5a4868' }}
-                aria-hidden="true"
-              />
-              <span
-                className="block h-px flex-1 max-w-[5rem]"
-                style={{ backgroundColor: 'rgba(63, 51, 72, 0.35)' }}
-              />
+        <div
+          ref={contentRef}
+          className="relative z-10 max-w-2xl w-full px-8 py-12 sm:px-12 sm:py-16"
+        >
+          <div className="relative z-10 text-center">
+            <div className="mb-4 sm:mb-6">
+              <div className="text-[#6F4A52] alice-regular font-bold text-xs sm:text-sm md:text-base tracking-widest leading-none">
+                <div className="text-sm sm:text-base md:text-lg font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>
+                  A NEW
+                </div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>
+                  CHAPTER
+                </div>
+                <div className="text-[10px] sm:text-xs md:text-sm" style={{ lineHeight: '1.1' }}>
+                  WILL SOON BEGIN
+                </div>
+              </div>
             </div>
-            <p
-              ref={debutLineRef}
-              className="font-foglihten uppercase leading-tight m-0 opacity-92"
-              style={{
-                color: '#3f3348',
-                fontSize: 'clamp(0.875rem, 3vw, 1.25rem)',
-                letterSpacing: '0.22em'
-              }}
-            >
-              A DECADE AND EIGHT
-            </p>
+
+            <div className="mb-6 sm:mb-8">
+              <h1 className="text-[#6F4A52] font-caribbean text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">
+                <span
+                  className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] leading-none inline-block"
+                  style={{ lineHeight: '0.8' }}
+                >
+                  O
+                </span>
+                <span className="inline-block">nce upon</span>
+                <br />
+                <span className="inline-block" style={{ paddingLeft: '2rem' }}>
+                  <span
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none mr-1"
+                    style={{ lineHeight: '0.75', marginTop: '-0.1em' }}
+                  >
+                    A
+                  </span>
+                  <span className="inline-block">time...</span>
+                </span>
+              </h1>
+            </div>
+
+            <div className="mb-6 sm:mb-8 text-center max-w-xl mx-auto">
+              <p
+                className="text-[#6F4A52] font-albert font-thin text-sm sm:text-base md:text-lg leading-relaxed"
+                style={{ textIndent: '0', overflow: 'hidden' }}
+              >
+                <span
+                  className="font-caribbean text-4xl sm:text-5xl md:text-6xl inline-block leading-none mr-1"
+                  style={{ lineHeight: '0.75', marginTop: '0' }}
+                >
+                  I
+                </span>
+                <span>
+                  n a kingdom not so far away, <br /> a story was planned <br /> for a debutante turning eighteen.
+                </span>
+              </p>
+            </div>
+
+            <div className="mb-6 sm:mb-8">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
+                <span className="text-[#6F4A52] font-lavishly text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                  {preferredName}
+                </span>
+              </div>
+            </div>
+
+            <div className="mb-2 sm:mb-3">
+              <div className="text-[#6F4A52] alice-regular font-bold text-base sm:text-lg md:text-xl tracking-wider text-center">
+                {dateInfo.month}
+              </div>
+              <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 max-w-md mx-auto">
+                <div className="flex flex-col items-center">
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mb-0" />
+                  <div className="text-[#6F4A52] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
+                    {dateInfo.dayOfWeek}
+                  </div>
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mt-0" />
+                </div>
+                <div className="text-[#6F4A52] alice-regular font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+                  {dateInfo.day}
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mb-0" />
+                  <div className="text-[#6F4A52] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
+                    {venueTime}
+                  </div>
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mt-0" />
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center max-w-md mx-auto text-[#6F4A52] font-albert font-thin text-xs sm:text-sm md:text-base space-y-1 mb-6">
+              {venue.name ? <div className="alice-regular font-bold">{venue.name}</div> : null}
+              {venueAddressLine ? <div>{venueAddressLine}</div> : null}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div
-        ref={datetimeRef}
-        className="absolute bottom-0 left-0 right-0 z-40 flex flex-col items-center text-center pb-6 sm:pb-8 md:pb-10 pointer-events-none"
-      >
-        <div className="flex flex-col items-center gap-1.5 px-4">
-          {debutDateLabel || debutTime ? (
-            <p
-              className="font-poppins uppercase leading-none m-0"
-              style={{
-                color: '#3f3348',
-                fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
-                letterSpacing: '0.18em'
-              }}
-            >
-              {[debutDateLabel, debutTime].filter(Boolean).join('  |  ')}
-            </p>
-          ) : null}
-          {venueName ? (
-            <p
-              className="font-poppins uppercase leading-tight m-0"
-              style={{
-                color: '#5a4868',
-                fontSize: 'clamp(0.55rem, 1.6vw, 0.7rem)',
-                letterSpacing: '0.18em'
-              }}
-            >
-              {venueName}
-            </p>
-          ) : null}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 

@@ -110,7 +110,7 @@ const CTASection = () => {
               <h2 ref={titleRef} className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-antsvalley mb-6" style={{ color: '#4b2259' }}>
                 respond
               </h2>
-              <p ref={textRef} className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#3f3348', fontSize: '1rem' }}>
+              <p ref={textRef} className="font-poppins max-w-lg mr-auto mb-6" style={{ color: '#6F4A52', fontSize: '1rem' }}>
                 Please let us know if you'll <br /> be joining us.
               </p>
 
@@ -122,7 +122,7 @@ const CTASection = () => {
                   style={{ 
                     backgroundColor: 'rgba(255, 255, 255, 0.3)', 
                     borderRadius: '25px', 
-                    color: '#1e3a5f',
+                    color: '#9B737C',
                     border: '1px solid #4b2259',
                     paddingLeft: '2rem',
                     paddingRight: '2rem'
@@ -133,7 +133,7 @@ const CTASection = () => {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
-                    e.currentTarget.style.color = '#1e3a5f'
+                    e.currentTarget.style.color = '#9B737C'
                   }}
                 >
                   <span>RSVP</span>

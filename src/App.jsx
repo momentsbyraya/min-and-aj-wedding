@@ -1,17 +1,14 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import './App.css'
 import WeddingInvitation from './components/WeddingInvitation'
-import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
 import OpeningScreen from './components/OpeningScreen'
 import Preloader from './components/Preloader'
 import { audio } from './data'
 
 function App() {
-  const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
   const [showOpeningScreen, setShowOpeningScreen] = useState(true)
   const [isPreloaderComplete, setIsPreloaderComplete] = useState(false)
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -23,25 +20,16 @@ function App() {
 
     const loopStart = Number(audio.loopStart) || 0
 
-    const handlePlay = () => setIsMusicPlaying(true)
-    const handlePause = () => setIsMusicPlaying(false)
     const handleEnded = () => {
-      if (!audio.loop || !audioRef.current) {
-        setIsMusicPlaying(false)
-        return
-      }
+      if (!audio.loop || !audioRef.current) return
       audioRef.current.currentTime = loopStart
-      audioRef.current.play().catch(() => setIsMusicPlaying(false))
+      audioRef.current.play().catch(() => {})
     }
 
-    el.addEventListener('play', handlePlay)
-    el.addEventListener('pause', handlePause)
     el.addEventListener('ended', handleEnded)
 
     return () => {
       if (audioRef.current) {
-        audioRef.current.removeEventListener('play', handlePlay)
-        audioRef.current.removeEventListener('pause', handlePause)
         audioRef.current.removeEventListener('ended', handleEnded)
         audioRef.current.pause()
         audioRef.current = null
@@ -53,20 +41,6 @@ function App() {
     if (audioRef.current) {
       const loopStart = Number(audio.loopStart) || 0
       audioRef.current.currentTime = loopStart
-      audioRef.current.play().catch(error => {
-        console.error('Error playing audio:', error)
-      })
-    }
-  }
-
-  const pauseMusic = () => {
-    if (audioRef.current && !audioRef.current.paused) {
-      audioRef.current.pause()
-    }
-  }
-
-  const resumeMusic = () => {
-    if (audioRef.current && audioRef.current.paused) {
       audioRef.current.play().catch(error => {
         console.error('Error playing audio:', error)
       })
@@ -90,16 +64,7 @@ function App() {
       ) : showOpeningScreen ? (
         <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />
       ) : (
-        <>
-          <WeddingInvitation 
-            onOpenRSVP={() => setIsRSVPModalOpen(true)} 
-            onPauseMusic={pauseMusic}
-            onResumeMusic={resumeMusic}
-            onStartMusic={startMusic}
-            isMusicPlaying={isMusicPlaying}
-          />
-          <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
-        </>
+        <WeddingInvitation />
       )}
     </div>
   )

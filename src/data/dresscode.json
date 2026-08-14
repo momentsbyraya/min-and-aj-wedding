@@ -1,4 +1,4 @@
-﻿{
+{
   "mainDressCode": {
     "title": "PASTEL COLORS",
     "subtitle": "GUESTS",
@@ -18,7 +18,7 @@
     },
     {
       "name": "color-purple",
-      "hex": "#E5D7ED",
+      "hex": "#D4C4DC",
       "label": "Purple"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "name": "color-beige",
-      "hex": "#FAE8CE",
+      "hex": "#F8F1EA",
       "label": "Beige"
     }
   ]

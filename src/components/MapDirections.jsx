@@ -112,7 +112,7 @@ const MapDirections = () => {
                     </React.Fragment>
                   ))}
                 </h3>
-                <p className="font-poppins" style={{ color: '#3f3348', fontSize: '14px' }}>
+                <p className="font-poppins" style={{ color: '#6F4A52', fontSize: '14px' }}>
                   {venues.main.address}, {venues.main.city}, {venues.main.state} {venues.main.zip}
                 </p>
               </div>
@@ -136,7 +136,7 @@ const MapDirections = () => {
                   style={{ 
                     backgroundColor: 'rgba(255, 255, 255, 0.3)', 
                     borderRadius: '25px', 
-                    color: '#1e3a5f',
+                    color: '#9B737C',
                     border: `1px solid ${theme.colors.primary}`,
                     paddingLeft: '2rem',
                     paddingRight: '2rem'
@@ -147,7 +147,7 @@ const MapDirections = () => {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
-                    e.currentTarget.style.color = '#1e3a5f'
+                    e.currentTarget.style.color = '#9B737C'
                   }}
                 >
                   <span>Check for directions</span>

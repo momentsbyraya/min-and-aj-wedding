@@ -82,7 +82,7 @@ const EighteenIntroSection = () => {
       <section
         ref={sectionRef}
         className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-        style={{ backgroundColor: '#fae8ce' }}
+        style={{ backgroundColor: '#F8F1EA' }}
       >
         <div
           className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -93,14 +93,14 @@ const EighteenIntroSection = () => {
           aria-hidden
         />
         <div
-          className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#d2e0ee]/90 via-[#e5d7ed]/65 to-transparent"
+          className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#F3DDE0]/90 via-[#E8C4C8]/65 to-transparent"
           aria-hidden
         />
         <div
           className="absolute inset-0 z-[2] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(229, 215, 237, 0.85) 0%, rgba(241, 215, 215, 0.45) 48%, transparent 78%)'
+              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(232, 196, 200, 0.85) 0%, rgba(232, 196, 200, 0.45) 48%, transparent 78%)'
           }}
           aria-hidden
         />
@@ -108,7 +108,7 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[3] pointer-events-none"
           style={{
             background:
-              'linear-gradient(115deg, rgba(90, 72, 104, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(216, 167, 177, 0.5) 100%)'
           }}
           aria-hidden
         />
@@ -116,7 +116,7 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[4] pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(90, 72, 104, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(232, 196, 200, 0.75) 0%, rgba(232, 196, 200, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(155, 115, 124, 0.5) 0%, transparent 70%)'
           }}
           aria-hidden
         />
@@ -124,21 +124,21 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[5] pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(241, 215, 215, 0.6) 0%, rgba(250, 232, 206, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(210, 224, 238, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(216, 167, 177, 0.45) 0%, transparent 52%)'
           }}
           aria-hidden
         />
         <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
           <div className="overflow-hidden">
             <div ref={contentRef} className="py-5 text-left">
-              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#3f3348', textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)' }}>
+              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#6F4A52', textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)' }}>
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   Programme
                 </p>
                 <h2 className="leading-tight">
                   <span
                     className="section-title-graphic-inner--line font-beautyofthebeast capitalize"
-                    style={{ textShadow: '0 1px 4px rgba(250, 232, 206, 0.9)' }}
+                    style={{ textShadow: '0 1px 4px rgba(248, 241, 234, 0.9)' }}
                   >
                     The eighteenth&apos;s
                   </span>
@@ -146,7 +146,7 @@ const EighteenIntroSection = () => {
               </div>
               <p
                 className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4"
-                style={{ color: '#3f3348', textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)' }}
+                style={{ color: '#6F4A52', textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)' }}
               >
                 {teaser}
               </p>
@@ -165,10 +165,10 @@ const EighteenIntroSection = () => {
             contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem] !mb-2"
             aria-haspopup="dialog"
           >
-            <span style={{ color: '#3f3348' }}>
+            <span style={{ color: '#6F4A52' }}>
               view full list
             </span>
-            <FiArrowRight className="h-4 w-4 shrink-0 text-[#5a4868] -mb-1.5" aria-hidden="true" />
+            <FiArrowRight className="h-4 w-4 shrink-0 text-[#9B737C] -mb-1.5" aria-hidden="true" />
           </GraphicButton>
         </div>
       </section>
@@ -176,7 +176,7 @@ const EighteenIntroSection = () => {
       {modalOpen && (
         <div
           className="fixed inset-0 z-[195] flex min-h-0 flex-col modal-slide-up-panel"
-          style={{ backgroundColor: '#fae8ce' }}
+          style={{ backgroundColor: '#F8F1EA' }}
           role="dialog"
           aria-modal="true"
           aria-labelledby="eighteen-modal-title"
@@ -211,7 +211,7 @@ const EighteenIntroSection = () => {
           <button
             type="button"
             onClick={closeModal}
-            className="absolute z-20 rounded-full border border-[#d2e0ee]/18 bg-white/90 p-2.5 text-[#3f3348] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
+            className="absolute z-20 rounded-full border border-[#F3DDE0]/18 bg-white/90 p-2.5 text-[#6F4A52] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
             style={{
               top: 'max(1rem, env(safe-area-inset-top))',
               right: 'max(1rem, env(safe-area-inset-right))'

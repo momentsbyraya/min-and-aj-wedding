@@ -1,10 +1,28 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+
+const BOOK_FRAMES = Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`)
 
 function OpeningScreen({ onEnvelopeOpen }) {
   const introCopyRef = useRef(null)
-  const envelopeButtonRef = useRef(null)
+  const bookWrapRef = useRef(null)
+  const bookImgRef = useRef(null)
   const clickLabelRef = useRef(null)
+  const overlayRef = useRef(null)
+  const screenRef = useRef(null)
+  const [frameIndex, setFrameIndex] = useState(0)
+  const [isOpening, setIsOpening] = useState(false)
+  const openingLock = useRef(false)
+
+  const frameSrc = useMemo(() => BOOK_FRAMES[frameIndex] || BOOK_FRAMES[0], [frameIndex])
+
+  useEffect(() => {
+    // Preload book frames so the click animation doesn't hitch
+    BOOK_FRAMES.forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [])
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
@@ -15,9 +33,9 @@ function OpeningScreen({ onEnvelopeOpen }) {
       { opacity: 1, y: 0, duration: 0.82 }
     )
       .fromTo(
-        envelopeButtonRef.current,
-        { opacity: 0, y: 34 },
-        { opacity: 1, y: 0, duration: 0.88 },
+        bookWrapRef.current,
+        { opacity: 0, y: 34, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.95 },
         '-=0.52'
       )
       .fromTo(
@@ -31,97 +49,174 @@ function OpeningScreen({ onEnvelopeOpen }) {
   }, [])
 
   const handleOpen = () => {
-    if (onEnvelopeOpen) onEnvelopeOpen()
+    if (openingLock.current) return
+    openingLock.current = true
+    setIsOpening(true)
+
+    const frameState = { index: 0 }
+    const lastFrame = BOOK_FRAMES.length - 1
+
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.inOut' },
+      onComplete: () => {
+        if (onEnvelopeOpen) onEnvelopeOpen()
+      }
+    })
+
+    // Hide invitation copy + prompt while the book opens
+    tl.to(
+      [introCopyRef.current, clickLabelRef.current],
+      { opacity: 0, y: -18, duration: 0.45, ease: 'power2.in' },
+      0
+    )
+
+    // Step through book frames (closed → fully open)
+    tl.to(
+      frameState,
+      {
+        index: lastFrame,
+        duration: 1.85,
+        ease: 'none',
+        onUpdate: () => {
+          const next = Math.round(frameState.index)
+          setFrameIndex((prev) => (prev === next ? prev : next))
+        }
+      },
+      0.12
+    )
+
+    // Zoom into the glowing open book
+    tl.to(
+      bookWrapRef.current,
+      {
+        scale: 3.4,
+        y: 40,
+        duration: 2.1,
+        ease: 'power3.in'
+      },
+      0.55
+    )
+
+    // Soften surrounding décor as we dive in
+    tl.to(
+      screenRef.current?.querySelectorAll('.opening-decor'),
+      { opacity: 0, duration: 0.9, ease: 'power2.in' },
+      0.7
+    )
+
+    // Warm glow wash → full cover → hand off to hero
+    tl.to(
+      overlayRef.current,
+      {
+        opacity: 1,
+        duration: 1.05,
+        ease: 'power2.in'
+      },
+      1.35
+    )
   }
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-white">
+    <div ref={screenRef} className="fixed inset-0 z-[9999] overflow-hidden bg-[#FFF9F5]">
       <img
         src="/images/graphics/palace-1.png"
         alt=""
-        className="opening-screen-bg-image"
-        style={{ width: '100vw', height: '100vh', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+        className="opening-screen-bg-image opening-decor"
+        style={{
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          display: 'block'
+        }}
         aria-hidden
       />
       <img
         src="/images/graphics/bird-2.png"
         alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 z-[5] h-auto pointer-events-none"
+        aria-hidden
+        className="opening-decor intro-corner-accent intro-corner-accent--lantern absolute top-0 right-0 z-[5] h-auto pointer-events-none"
       />
       <img
         src="/images/graphics/flower-left.png"
         alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[5] h-auto pointer-events-none"
+        aria-hidden
+        className="opening-decor intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[5] h-auto pointer-events-none"
       />
       <img
         src="/images/graphics/flower-right.png"
         alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[5] h-auto pointer-events-none"
+        aria-hidden
+        className="opening-decor intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[5] h-auto pointer-events-none"
       />
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 px-4 py-8 text-center pointer-events-none sm:gap-4">
         <div ref={introCopyRef} className="mb-0">
           <p
-            className="opening-invite-kicker font-foglihten tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
+            className="opening-invite-kicker alice-regular tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
-              color: '#3f3348',
-              textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)'
+              color: '#6F4A52',
+              textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)'
             }}
           >
             YOU ARE CORDIALLY
           </p>
           <p
-            className="opening-invite-title font-pinyon text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
+            className="opening-invite-title font-lavishly text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
             style={{
-              color: '#3f3348',
-              textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)'
+              color: '#6F4A52',
+              textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)'
             }}
           >
             Invited
           </p>
         </div>
+
         <button
-          ref={envelopeButtonRef}
+          ref={bookWrapRef}
           type="button"
           onClick={handleOpen}
-          aria-label="Open invitation"
-          className="focus:outline-none m-0 inline-block border-0 bg-transparent p-0 leading-none pointer-events-auto relative"
+          disabled={isOpening}
+          aria-label="Open invitation book"
+          className="opening-book-button focus:outline-none m-0 inline-flex items-center justify-center border-0 bg-transparent p-0 leading-none pointer-events-auto relative origin-center will-change-transform disabled:cursor-default"
+          style={{ transformOrigin: 'center center' }}
         >
           <img
-            src="/images/graphics/envelope.png"
-            alt="Envelope"
-            className="w-[74vw] h-auto max-w-[460px] md:w-auto md:h-[21vh] opening-envelope-image"
-          />
-          <img
-            src="/images/graphics/stamp.png"
-            alt="Stamp"
-            aria-hidden="true"
-            className="absolute pointer-events-none opening-stamp-spin"
+            ref={bookImgRef}
+            src={frameSrc}
+            alt="Storybook invitation"
+            draggable={false}
+            className="opening-book-image block h-full w-full object-contain select-none"
             style={{
-              width: '22%',
-              height: 'auto',
-              left: '50%',
-              top: '72%'
+              filter: 'drop-shadow(0 18px 28px rgba(63, 51, 72, 0.28))'
             }}
           />
         </button>
+
         <p
           ref={clickLabelRef}
-          className="font-foglihten mt-0 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
+          className="alice-regular mt-1 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
           style={{
-            color: '#3f3348',
-            textShadow: '0 1px 2px rgba(250, 232, 206, 0.8)'
+            color: '#6F4A52',
+            textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)'
           }}
         >
-          CLICK TO OPEN
+          {isOpening ? 'OPENING…' : 'CLICK TO OPEN'}
         </p>
       </div>
+
+      {/* Zoom wash — warm parchment/glow into the hero */}
+      <div
+        ref={overlayRef}
+        className="pointer-events-none absolute inset-0 z-30 opacity-0"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(255, 248, 235, 0.55) 0%, rgba(248, 241, 234, 0.92) 42%, #FFF9F5 78%)'
+        }}
+        aria-hidden
+      />
     </div>
   )
 }
 
 export default OpeningScreen
-

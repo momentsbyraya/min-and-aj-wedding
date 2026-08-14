@@ -7,6 +7,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+
+/* Custom Font - Caribbean (Hero "Once upon a time" — from wedding-rosetta) */
+@font-face {
+  font-family: 'Caribbean';
+  src: url('/fonts/Caribbeantool-GZwO.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Canterbury (also from wedding-rosetta assets) */
+@font-face {
+  font-family: 'Canterbury';
+  src: url('/fonts/CanterburyRegular-MVqn.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Custom Font - Tebranos */
 @font-face {
@@ -85,45 +110,57 @@ html {
   width: 100%;
 }
 
+:root {
+  --blush-primary: #D8A7B1;
+  --blush-dusty: #C98F9B;
+  --blush-soft: #E8C4C8;
+  --blush-pale: #F3DDE0;
+  --blush-cream: #F8F1EA;
+  --blush-ivory: #FFF9F5;
+  --blush-mauve: #9B737C;
+  --blush-deep: #6F4A52;
+  --blush-champagne: #C9A07A;
+}
+
 body {
   overflow-x: hidden; /* Prevent horizontal scrollbar */
-  font-family: 'Elsie Swash Caps', cursive;
-  font-weight: 400;
+  font-family: 'Albert Sans', sans-serif;
+  font-weight: 300;
   line-height: 1.6;
-  color: #3f3348;
-  background-color: #fae8ce; /* Page background — pastel cream */
+  color: var(--blush-deep);
+  background-color: var(--blush-cream);
 }
 
 @layer base {
   body {
-    font-family: 'Elsie Swash Caps', cursive;
-    font-weight: 400;
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 300;
     line-height: 1.6;
   }
 }
 
 @layer components {
   .wedding-gradient {
-    /* background: #212639; */
+    background: linear-gradient(180deg, #FFF9F5 0%, #F8F1EA 45%, #F3DDE0 100%);
   }
   
   .wedding-text {
-    /* color: #ad8369; */
+    color: #6F4A52;
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, #bfa094 0%, #a18072 100%);
+    background: linear-gradient(135deg, #D8A7B1 0%, #C98F9B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .card-shadow {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(111, 74, 82, 0.08);
   }
   
   .elegant-border {
-    border: 1px solid rgba(191, 160, 148, 0.2);
+    border: 1px solid rgba(216, 167, 177, 0.35);
   }
 }
 
@@ -137,25 +174,32 @@ body {
     font-family: 'Elsie Swash Caps', cursive;
   }
   
-  /* Main website font */
+  /* Main website font — body */
   .font-main {
-    font-family: 'Elsie Swash Caps', cursive !important;
+    font-family: 'Albert Sans', sans-serif !important;
   }
   
   /* Handwritten style font for photo text */
   .font-handwritten {
-    font-family: 'Nothing You Could Do', cursive !important;
+    font-family: 'Lavishly Yours', cursive !important;
   }
   
-  /* Albert Sans font for countdown numbers */
+  /* Albert Sans — body copy */
   .font-albert {
     font-family: 'Albert Sans', sans-serif !important;
   }
+
+  /* Leckerli One — modal headings */
+  .font-leckerli {
+    font-family: 'Leckerli One', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
   
-  /* Poppins font */
+  /* Poppins alias → Albert Sans (body system) */
   .font-poppins,
   .font-poppins * {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Albert Sans', sans-serif !important;
   }
   
   /* Caudex font */
@@ -175,7 +219,7 @@ body {
   footer a,
   footer a *,
   footer a span {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Albert Sans', sans-serif !important;
   }
   
   /* Footer link active/focus states */
@@ -188,7 +232,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #3f3348 !important;
+    background-color: #6F4A52 !important;
   }
   
   footer a:hover,
@@ -394,10 +438,10 @@ body {
   .eighteenths-title-gradient {
     background: linear-gradient(
       110deg,
-      #F6FBFA 0%,
-      #DDF1F0 22%,
-      #A8DBD9 50%,
-      #F4FAF9 88%,
+      #FFF9F5 0%,
+      #F3DDE0 22%,
+      #D8A7B1 50%,
+      #E8C4C8 88%,
       #ffffff 100%
     );
     -webkit-background-clip: text;
@@ -459,6 +503,49 @@ body {
   }
 
   /* Venue title + CTA / graphic buttons — local display font */
+  .alice-regular {
+    font-family: 'Alice', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .crimson-text-regular {
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .font-caribbean,
+  .font-caribbean * {
+    font-family: 'Caribbean', serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  .font-canterbury {
+    font-family: 'Canterbury', serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  .fleur-de-leah-regular {
+    font-family: 'Fleur De Leah', cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .font-lavishly {
+    font-family: 'Lavishly Yours', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  .imperial-script-regular {
+    font-family: 'Imperial Script', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
   .font-beautyofthebeast,
   .font-beautyofthebeast * {
     font-family: 'Beauty of the Beast', 'Cormorant SC', cursive !important;
@@ -542,8 +629,8 @@ body {
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #fae8ce;
-  --envelope-shadow: #d4c5b0;
+  --envelope-bg: #F8F1EA;
+  --envelope-shadow: #D8A7B1;
   --heart-bg: darkred;
   --heart-text: white;
   --letter-font: "Dancing Script", serif;
@@ -873,11 +960,11 @@ body {
 }
 
 .opening-invite-kicker {
-  text-shadow: 0 1px 2px rgba(250, 232, 206, 0.85);
+  text-shadow: 0 1px 2px rgba(248, 241, 234, 0.85);
 }
 
 .opening-invite-title {
-  text-shadow: 0 1px 3px rgba(250, 232, 206, 0.9);
+  text-shadow: 0 1px 3px rgba(248, 241, 234, 0.9);
 }
 
 @media (min-width: 992px) {
@@ -894,13 +981,33 @@ body {
   }
 }
 
+/* Fixed square slot so every book frame renders at the same display size */
+.opening-book-button {
+  width: min(78vw, 420px) !important;
+  height: min(78vw, 420px) !important;
+}
+
+.opening-book-image {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+@media (min-width: 768px) {
+  .opening-book-button {
+    width: min(52vh, 520px) !important;
+    height: min(52vh, 520px) !important;
+  }
+}
+
 @media (min-width: 768px) {
   .opening-invite-kicker {
-    text-shadow: 0 0 8px rgba(250, 232, 206, 0.95);
+    text-shadow: 0 0 8px rgba(248, 241, 234, 0.95);
   }
 
   .opening-invite-title {
-    text-shadow: 0 0 10px rgba(250, 232, 206, 0.98);
+    text-shadow: 0 0 10px rgba(248, 241, 234, 0.98);
   }
 }
 
@@ -972,7 +1079,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a5f;
+  background: #9B737C;
   border-radius: 5px;
 }
 
@@ -983,7 +1090,7 @@ body {
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1e3a5f #f1f1f1;
+  scrollbar-color: #9B737C #f1f1f1;
 }
 
 /* Gallery Performance Optimizations */
@@ -1122,13 +1229,13 @@ body {
   }
 }
 
-/* Subtle floating pink blobs for section texture */
+/* Subtle floating blush blobs for section texture */
 .soft-blob {
   position: absolute;
   border-radius: 42% 58% 53% 47% / 44% 39% 61% 56%;
-  background: rgba(210, 224, 238, 0.35);
+  background: rgba(216, 167, 177, 0.32);
   filter: blur(10px);
-  box-shadow: 0 0 24px rgba(210, 224, 238, 0.28);
+  box-shadow: 0 0 24px rgba(201, 143, 155, 0.22);
   pointer-events: none;
   overflow: visible;
   isolation: isolate;
@@ -1143,7 +1250,7 @@ body {
   top: -8%;
   right: -6%;
   border-radius: 58% 42% 54% 46% / 45% 57% 43% 55%;
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 249, 245, 0.7);
   filter: blur(8px);
   opacity: 0.92;
   transform: rotate(-10deg);
@@ -1152,7 +1259,7 @@ body {
 
 .soft-blob--alt {
   border-radius: 61% 39% 49% 51% / 52% 62% 38% 48%;
-  background: rgba(241, 215, 215, 0.4);
+  background: rgba(232, 196, 200, 0.38);
   animation-duration: 16s;
 }
 
@@ -1178,9 +1285,9 @@ body {
 
 /* Active calendar day: distinct pastel fill against soft panel */
 .calendar-day-active {
-  background-color: #5a4868;
-  border: 2px solid #3f3348;
-  color: #fae8ce;
+  background-color: #9B737C;
+  border: 2px solid #6F4A52;
+  color: #F8F1EA;
   font-weight: 600;
 }
 
@@ -1189,7 +1296,7 @@ body {
   position: relative;
   padding: 3px;
   border-radius: 8px;
-  background-image: linear-gradient(135deg, #d4c4a8, #fae8ce, #c9b89a);
+  background-image: linear-gradient(135deg, #C9A07A, #F8F1EA, #C9A07A);
   box-shadow: 0 6px 24px rgba(63, 51, 72, 0.12);
 }
 
@@ -1376,7 +1483,7 @@ body {
 }
 
 .graphic-button:focus-visible {
-  outline: 2px solid #d2e0ee;
+  outline: 2px solid #F3DDE0;
   outline-offset: 3px;
 }
 
@@ -1386,7 +1493,7 @@ body {
   justify-content: center;
   gap: 0.35rem;
   font-size: 0.8125rem;
-  color: #3f3348;
+  color: #6F4A52;
   text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
   white-space: nowrap;
   pointer-events: none;
@@ -1479,7 +1586,7 @@ body {
 
 .section-title-graphic-inner {
   text-align: center;
-  background-image: linear-gradient(to right, #5a4868, #c9b4d4, #3f3348);
+  background-image: linear-gradient(to right, #9B737C, #C98F9B, #6F4A52);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1501,7 +1608,7 @@ body {
 }
 
 .section-title-graphic-inner--light {
-  color: #3f3348;
+  color: #6F4A52;
   text-shadow: 0 1px 2px rgba(63, 51, 72, 0.18);
 }
 
@@ -1592,11 +1699,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(229, 215, 237, 0.55);
-  border: 2px solid #d4c4a8;
+  background: rgba(232, 196, 200, 0.55);
+  border: 2px solid #C9A07A;
   box-shadow:
-    0 0 12px rgba(210, 224, 238, 0.45),
-    inset 0 0 8px rgba(250, 232, 206, 0.35);
+    0 0 12px rgba(216, 167, 177, 0.45),
+    inset 0 0 8px rgba(248, 241, 234, 0.35);
 }
 
 /* Celebrant story: frame + aspect box; feather comes from `.soft-edges img` */
@@ -1617,7 +1724,7 @@ body {
 .intro-content-soft-panel {
   position: relative;
   overflow: hidden;
-  background: rgba(250, 232, 206, 0.94);
+  background: rgba(248, 241, 234, 0.94);
   mask-image:
     radial-gradient(ellipse 100% 88% at 50% 50%, black 25%, transparent 65%),
     linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
@@ -1632,15 +1739,15 @@ body {
   0%, 100% {
     transform: scale(1);
     filter:
-      drop-shadow(0 0 3px rgba(229, 215, 237, 0.45))
-      drop-shadow(0 0 8px rgba(210, 224, 238, 0.35));
+      drop-shadow(0 0 3px rgba(232, 196, 200, 0.45))
+      drop-shadow(0 0 8px rgba(216, 167, 177, 0.35));
   }
   50% {
     transform: scale(1.04);
     filter:
-      drop-shadow(0 0 16px rgba(250, 232, 206, 0.95))
-      drop-shadow(0 0 34px rgba(229, 215, 237, 0.75))
-      drop-shadow(0 0 58px rgba(241, 215, 215, 0.55));
+      drop-shadow(0 0 16px rgba(248, 241, 234, 0.95))
+      drop-shadow(0 0 34px rgba(232, 196, 200, 0.75))
+      drop-shadow(0 0 58px rgba(232, 196, 200, 0.55));
   }
 }
 
@@ -1654,8 +1761,8 @@ body {
   .dresscode-swatch-glow {
     animation: none;
     filter:
-      drop-shadow(0 0 8px rgba(229, 215, 237, 0.6))
-      drop-shadow(0 0 18px rgba(210, 224, 238, 0.5));
+      drop-shadow(0 0 8px rgba(232, 196, 200, 0.6))
+      drop-shadow(0 0 18px rgba(216, 167, 177, 0.5));
   }
 }
 

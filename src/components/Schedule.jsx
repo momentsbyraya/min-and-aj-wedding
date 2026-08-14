@@ -93,9 +93,9 @@ const Schedule = () => {
     return (
       <div className={`flex flex-col justify-center ${isRight ? 'text-left' : 'text-right'}`}>
         <div
-          className="schedule-time font-instrument-serif font-semibold leading-none"
+          className="schedule-time alice-regular font-semibold leading-none"
           style={{
-            color: '#3f3348',
+            color: '#6F4A52',
             fontSize: 'clamp(1.85rem, 6vw, 3.25rem)'
           }}
         >
@@ -104,12 +104,12 @@ const Schedule = () => {
         </div>
         <div
           className="my-2 border-b border-dashed opacity-70"
-          style={{ borderColor: '#c9b4d4' }}
+          style={{ borderColor: '#C98F9B' }}
         />
         <div
-          className="schedule-title font-poppins font-bold uppercase"
+          className="schedule-title alice-regular font-bold uppercase"
           style={{
-            color: '#3f3348',
+            color: '#6F4A52',
             letterSpacing: '0.08em',
             fontSize: 'clamp(0.75rem, 1.6vw, 0.95rem)'
           }}
@@ -118,9 +118,9 @@ const Schedule = () => {
         </div>
         {event.description ? (
           <div
-            className="schedule-description font-poppins italic mt-1"
+            className="schedule-description font-albert font-thin italic mt-1"
             style={{
-              color: '#5a4868',
+              color: '#9B737C',
               opacity: 0.9,
               fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)'
             }}
@@ -136,7 +136,7 @@ const Schedule = () => {
     <section
       ref={sectionRef}
       className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
-      style={{ backgroundColor: '#fae8ce' }}
+      style={{ backgroundColor: '#F8F1EA' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -166,7 +166,7 @@ const Schedule = () => {
           <div className="w-full max-w-3xl mx-auto pt-8 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
             <div ref={headerRef} className="mb-12 flex justify-center">
               <h2 className="section-title-graphic section-title-graphic--center mb-4 text-center">
-                <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast capitalize">
+                <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">
                   Program
                 </span>
               </h2>
@@ -176,7 +176,7 @@ const Schedule = () => {
               <div
                 ref={lineRef}
                 className="absolute top-0 bottom-0 w-px -translate-x-1/2"
-                style={{ left: '50%', backgroundColor: '#6b5a70', opacity: 0.85 }}
+                style={{ left: '50%', backgroundColor: '#9B737C', opacity: 0.85 }}
               />
 
               <div ref={eventsRef} className="space-y-16 sm:space-y-20 md:space-y-24">
@@ -205,8 +205,8 @@ const Schedule = () => {
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)',
-                          backgroundColor: '#e5d7ed',
-                          borderColor: '#6b5a70'
+                          backgroundColor: '#E8C4C8',
+                          borderColor: '#9B737C'
                         }}
                       />
                     </div>
@@ -218,9 +218,9 @@ const Schedule = () => {
             <div className="flex items-center justify-center mt-16 sm:mt-20 px-4 sm:px-8">
               <div className="text-center">
                 <p
-                  className="text-xs sm:text-sm md:text-base font-poppins leading-relaxed"
+                  className="text-xs sm:text-sm md:text-base font-albert font-thin leading-relaxed"
                   style={{
-                    color: '#3f3348',
+                    color: '#6F4A52',
                     opacity: 0.95,
                     fontSize: 'clamp(0.75rem, 1vw, 1rem)'
                   }}

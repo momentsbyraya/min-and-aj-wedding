@@ -2,194 +2,92 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { celebrant } from '../data'
-import PhotoSection from './PhotoSection'
+import StorybookSectionBg from './StorybookSectionBg'
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
 const LoveStory = () => {
   const sectionRef = useRef(null)
-  const contentRef = useRef(null)
-  const imageContainerRef = useRef(null)
+  const storyRef = useRef(null)
+  const imageRef = useRef(null)
 
-  const image = '/images/prenup/prenup-05.jpg'
+  const bioHtml = celebrant?.debutant?.about?.bioHtml || ''
+  const heading = celebrant?.debutant?.about?.headingName || 'Turning Eighteen'
+  // Split bio on <br> tags into readable lines for storybook layout
+  const bioLines = bioHtml
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
 
   useEffect(() => {
-    // Scroll-triggered animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
+        start: 'top 50%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
       }
     })
 
-    // Fade in animation for content
-    if (contentRef.current) {
-      tl.fromTo(contentRef.current,
-        { 
-          opacity: 0, 
-          y: 30 
-        },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1, 
-          ease: "power2.out" 
-        }
-      )
-    }
+    tl.fromTo(storyRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }).fromTo(
+      imageRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      '-=0.4'
+    )
 
-    // Image container animation - responsive
-    if (imageContainerRef.current) {
-      const mm = gsap.matchMedia()
-      
-      // Mobile: fade in
-      mm.add("(max-width: 1023px)", () => {
-        gsap.fromTo(imageContainerRef.current,
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: imageContainerRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        )
-      })
-      
-      // Large screens: slide from right
-      mm.add("(min-width: 1024px)", () => {
-        gsap.fromTo(imageContainerRef.current,
-          { opacity: 0, x: 100 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: imageContainerRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        )
-      })
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
+    return () => tl.kill()
   }, [])
 
-  return (
-    <>
-      <style>{`
-        @media (max-width: 1023px) {
-          .lovestory-image-mobile {
-            margin-left: calc(-1rem - 2rem) !important;
-            margin-right: calc(-1rem - 2rem) !important;
-            width: calc(100% + 6rem) !important;
-          }
-        }
-        @media (min-width: 1024px) {
-          .lovestory-text-paragraph {
-            font-size: 0.96875rem !important; /* 15.5px - 0.5px smaller than 1rem */
-          }
-        }
-      `}</style>
-    <section
-      ref={sectionRef}
-      className="relative w-full overflow-hidden pl-8 pr-8 lg:pl-0 lg:pr-0"
-      style={{ 
-        backgroundColor: '#f1d7d7'
-      }}
-    >
-      {/* Content */}
-      <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-          {/* Flex Container - Side by side on lg screens */}
-          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
-            {/* Left Side - Text Content (50% on lg) */}
-            <div ref={contentRef} className="w-full lg:w-1/2 lg:pl-8 lg:pr-8 pt-16 pb-2 lg:pt-16 lg:pb-4 lg:flex lg:flex-col text-center">
-              {/* Our Debutant */}
-              <h1 
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-ballet mb-2"
-                style={{ color: '#3f3348', fontSize: 'clamp(3rem, 8vw, 5.5rem)' }}
-              >
-                Our
-              </h1>
-              
-              <h2 
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-tebranos mb-8 uppercase"
-                style={{ 
-                  color: '#3f3348', 
-                  fontWeight: 900,
-                  lineHeight: '1',
-                  marginTop: '-0.4em',
-                  fontSize: 'clamp(3rem, 8vw, 8rem)'
-                }}
-              >
-                Debutant
-              </h2>
-              
-              {/* Paragraphs */}
-              <div className="space-y-6">
-                <p 
-                  className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#3f3348', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
-                >
-                  Game. Set. Match. Amanda Ira! 🎾
-                </p>
-                
-                <p 
-                  className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#3f3348', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
-                >
-                  She's been serving brilliance since pre-school years – whether it's hitting the perfect note with her violin 🎻, smashing aces on the tennis court 💥, or solving math problems like a grand slam champ 🧠✨. Amanda is a true all-court player: born leader, Philippine team mathlete, and high school top seed (consistent Top 1). Focused, passionate, and always ready to chase the next big win.
-                </p>
-                
-                <p 
-                  className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#3f3348', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
-                >
-                  Ira is the kind of person who turns every challenge into a win. Off the court, she's the ultimate team player — loving, responsible, obedient, and thoughtful daughter & big sis!
-                </p>
-                
-                <p 
-                  className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#3f3348', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
-                >
-                  Today, we celebrate not just her milestones but the incredible person she has become, and the amazing lady that she will become.
-                </p>
-                
-                <p 
-                  className="lovestory-text-paragraph text-base sm:text-lg md:text-xl font-poppins leading-relaxed max-w-2xl mx-auto"
-                  style={{ color: '#3f3348', fontSize: 'clamp(0.875rem, 1.2vw, 1rem)' }}
-                >
-                  Prep up for this big day, and let's all enjoy as we celebrate Amanda! ❤️‍ 🙌
-                </p>
-              </div>
-            </div>
+  const firstLine = bioLines[0] || heading
+  const restLines = bioLines.slice(1)
 
-            {/* Right Side - Image (50% on lg) */}
-            <div ref={imageContainerRef} className="w-full lg:w-1/2 lg:mt-0 mt-8 overflow-hidden relative lovestory-image-mobile">
-              <img
-                src={image}
-                alt=""
-                aria-hidden="true"
-                className="block w-full h-auto"
-              />
-            </div>
+  return (
+    <section ref={sectionRef} className="relative py-20 w-full overflow-hidden min-h-screen">
+      <StorybookSectionBg variant="book" />
+
+      <div className="relative z-20 flex items-center justify-center py-12 pb-32 sm:pb-40 md:pb-48">
+        <div className="max-w-2xl sm:max-w-3xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+          <div ref={storyRef} className="text-left mb-12">
+            <p className="alice-regular text-[#6F4A52] mb-6" style={{ fontSize: '1.25rem', letterSpacing: '0.04em' }}>
+              {heading}
+            </p>
+            <p
+              className="font-albert font-thin text-[#6F4A52] leading-relaxed"
+              style={{ fontSize: '1rem', lineHeight: '1.8' }}
+            >
+              <span className="font-caribbean" style={{ fontSize: '1.5rem' }}>
+                {firstLine.charAt(0)}
+              </span>
+              {firstLine.slice(1)}
+              {restLines.map((line) => (
+                <React.Fragment key={line}>
+                  <br />
+                  <br />
+                  {line}
+                </React.Fragment>
+              ))}
+            </p>
           </div>
         </div>
       </div>
+
+      <div
+        ref={imageRef}
+        className="absolute bottom-0 z-10 pointer-events-none"
+        style={{ right: '-15%', transform: 'translateX(20%)' }}
+        aria-hidden
+      >
+        <img
+          src="/images/graphics/castle-2.png"
+          alt=""
+          className="h-auto opacity-60"
+          style={{ maxWidth: '350px', maxHeight: '100%' }}
+        />
+      </div>
     </section>
-    </>
   )
 }
 

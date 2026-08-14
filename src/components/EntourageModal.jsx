@@ -1,127 +1,70 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import { theme } from '../data'
+import { FiX } from 'react-icons/fi'
+import { entourage } from '../data'
 
 const EntourageModal = ({ isOpen, onClose }) => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null)
-  
+  useEffect(() => {
+    if (!isOpen) return undefined
+    document.body.style.overflow = 'hidden'
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [isOpen, onClose])
+
   if (!isOpen) return null
 
-  const entourageImages = [
-    "/images/entourage/1.png",
-    "/images/entourage/2.png", 
-    "/images/entourage/3.png",
-    "/images/entourage/4.png",
-    "/images/entourage/5.png",
-    "/images/entourage/6.png"
-  ]
-
-  const openImageViewer = (index) => {
-    setSelectedImageIndex(index)
-  }
-
-  const closeImageViewer = () => {
-    setSelectedImageIndex(null)
-  }
-
-  const nextImage = () => {
-    setSelectedImageIndex((prev) => (prev + 1) % entourageImages.length)
-  }
-
-  const prevImage = () => {
-    setSelectedImageIndex((prev) => (prev - 1 + entourageImages.length) % entourageImages.length)
-  }
+  const list = entourage?.entourageList || []
 
   return createPortal(
-    <>
-      {/* Main Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        {/* Backdrop */}
-        <div 
-          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-          onClick={onClose}
-        />
-        
-        {/* Modal Content */}
-        <div className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-          {/* Header - Sticky */}
-          <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200 rounded-t-2xl">
-            <h3 className="text-2xl font-script text-gray-800">Wedding Entourage</h3>
-            <button
-              onClick={onClose}
-              className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
-            >
-              <FiX className="w-6 h-6" />
-            </button>
-          </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-[#6F4A52]/55 backdrop-blur-sm" onClick={onClose} aria-hidden />
 
-          {/* Content */}
-          <div className="p-6">
-            <div className="grid grid-cols-2 gap-4 md:gap-6">
-              {entourageImages.map((image, index) => (
-                <div key={index} className="relative group cursor-pointer" onClick={() => openImageViewer(index)}>
-                  <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img 
-                      src={image} 
-                      alt={`Entourage member ${index + 1}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                </div>
-              ))}
+      <div className="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-[#FFF9F5] border border-[#D8A7B1]/40 shadow-xl">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-25 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/graphics/blush-wash-bg.png')" }}
+          aria-hidden
+        />
+
+        <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-[#D8A7B1]/35 bg-[#FFF9F5]/92 backdrop-blur-sm rounded-t-2xl">
+          <h3 className="text-2xl sm:text-3xl font-leckerli text-[#6F4A52]">Entourage</h3>
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-[#9B737C] hover:text-[#6F4A52] transition-colors duration-200"
+            aria-label="Close entourage"
+          >
+            <FiX className="w-6 h-6" />
+          </button>
+        </div>
+
+        <div className="relative z-10 p-6 sm:p-8 space-y-8">
+          {list.map((group) => (
+            <div key={group.category} className="text-center">
+              <h4 className="text-lg sm:text-xl alice-regular text-[#9B737C] mb-3 tracking-wide">
+                {group.category}
+              </h4>
+              <div className="w-16 h-px bg-[#D8A7B1] mx-auto mb-4" />
+              <ul className="space-y-1.5">
+                {(group.names || []).map((name) => (
+                  <li key={name} className="font-lavishly text-lg sm:text-xl text-[#6F4A52]">
+                    {name}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-
-      {/* Full-screen Image Viewer */}
-      {selectedImageIndex !== null && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center">
-          {/* Black Semi-transparent Overlay */}
-          <div 
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            onClick={closeImageViewer}
-          />
-          
-          {/* Image Container */}
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
-            {/* Previous Button */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-gray-800 p-2 rounded-full transition-colors duration-200"
-            >
-              <FiChevronLeft className="w-6 h-6" />
-            </button>
-            
-            {/* Image */}
-            <img 
-              src={entourageImages[selectedImageIndex]} 
-              alt={`Entourage member ${selectedImageIndex + 1}`}
-              className="w-full h-full object-contain rounded-lg shadow-2xl"
-            />
-            
-            {/* Next Button */}
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-gray-800 p-2 rounded-full transition-colors duration-200"
-            >
-              <FiChevronRight className="w-6 h-6" />
-            </button>
-            
-            {/* Close Button */}
-            <button
-              onClick={closeImageViewer}
-              className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors duration-200"
-            >
-              <FiX className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      )}
-    </>,
+    </div>,
     document.body
   )
 }
 
-export default EntourageModal 
+export default EntourageModal

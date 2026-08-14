@@ -38,7 +38,7 @@ const CelebrantStory = ({ onImageClick }) => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-      style={{ backgroundColor: '#fae8ce' }}
+      style={{ backgroundColor: '#F8F1EA' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat cursor-pointer"
@@ -54,33 +54,33 @@ const CelebrantStory = ({ onImageClick }) => {
         style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }}
         aria-hidden
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#d2e0ee]/90 via-[#e5d7ed]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F3DDE0]/90 via-[#E8C4C8]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(229, 215, 237, 0.85) 0%, rgba(241, 215, 215, 0.45) 48%, transparent 78%)'
+              'radial-gradient(ellipse 95% 115% at 0% 50%, rgba(232, 196, 200, 0.85) 0%, rgba(232, 196, 200, 0.45) 48%, transparent 78%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(90, 72, 104, 0.45) 0%, rgba(229, 215, 237, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(250, 232, 206, 0.65) 0%, transparent 38%, transparent 62%, rgba(210, 224, 238, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(216, 167, 177, 0.5) 100%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(229, 215, 237, 0.75) 0%, rgba(229, 215, 237, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(90, 72, 104, 0.5) 0%, transparent 70%)'
+              'radial-gradient(ellipse 32% 100% at 0% 50%, rgba(232, 196, 200, 0.75) 0%, rgba(232, 196, 200, 0.4) 45%, transparent 68%), radial-gradient(ellipse 24% 78% at 14% 45%, rgba(155, 115, 124, 0.5) 0%, transparent 70%)'
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(241, 215, 215, 0.6) 0%, rgba(250, 232, 206, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(210, 224, 238, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(216, 167, 177, 0.45) 0%, transparent 52%)'
           }}
         />
       </div>
@@ -90,8 +90,8 @@ const CelebrantStory = ({ onImageClick }) => {
             <h2
               className="mb-2 leading-tight sm:mb-2.5"
               style={{
-                color: '#3f3348',
-                textShadow: '0 1px 4px rgba(250, 232, 206, 0.9)'
+                color: '#6F4A52',
+                textShadow: '0 1px 4px rgba(248, 241, 234, 0.9)'
               }}
             >
               <span className="section-title-graphic-inner--line font-beautyofthebeast capitalize">
@@ -101,8 +101,8 @@ const CelebrantStory = ({ onImageClick }) => {
             <p
               className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full ml-auto pb-4"
               style={{
-                color: '#3f3348',
-                textShadow: '0 1px 3px rgba(250, 232, 206, 0.85)'
+                color: '#6F4A52',
+                textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)'
               }}
               dangerouslySetInnerHTML={{ __html: bioHtml }}
             />

@@ -28,6 +28,8 @@ const Preloader = ({ onComplete }) => {
       '/images/prenup/prenup-04.jpg',
       '/images/prenup/prenup-05.jpg',
       '/images/prenup/prenup-06.jpg',
+      // Opening storybook frames (click-to-open animation)
+      ...Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`),
     ]
 
     let loadedCount = 0

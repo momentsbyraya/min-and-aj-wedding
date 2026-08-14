@@ -76,7 +76,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
       >
         {/* Header - Sticky */}
         <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200" style={{ borderRadius: 0 }}>
-          <h3 className="font-rozha text-2xl uppercase tracking-[0.08em] sm:text-3xl" style={{ color: theme.colors.primary }}>RSVP</h3>
+          <h3 className="font-leckerli text-2xl sm:text-3xl" style={{ color: theme.colors.ink || theme.colors.primary }}>RSVP</h3>
           <button
             onClick={handleClose}
             className="text-gray-500 hover:text-gray-800 transition-colors duration-200"

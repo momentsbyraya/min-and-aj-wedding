@@ -38,44 +38,44 @@ const getCategoryPrenupBg = (index) =>
 
 /**
  * Color palettes for the soft-edge wash, one per category.
- * Built from pastel brand: #e5d7ed, #f1d7d7, #fae8ce, #d2e0ee
+ * Built from pastel brand: #E8C4C8, #E8C4C8, #F8F1EA, #F3DDE0
  */
 const CATEGORY_PALETTES = [
   {
-    // 0 — Lavender #e5d7ed
+    // 0 — Lavender #E8C4C8
     deep: '90, 72, 104',
     mid: '229, 215, 237',
     light: '236, 226, 242',
     pale: '242, 235, 247',
     pale2: '229, 215, 237',
-    palest: '#e5d7ed'
+    palest: '#E8C4C8'
   },
   {
-    // 1 — Blush #f1d7d7
+    // 1 — Blush #E8C4C8
     deep: '154, 111, 111',
     mid: '241, 215, 215',
     light: '245, 226, 226',
     pale: '248, 236, 236',
     pale2: '241, 215, 215',
-    palest: '#f1d7d7'
+    palest: '#E8C4C8'
   },
   {
-    // 2 — Cream #fae8ce
+    // 2 — Cream #F8F1EA
     deep: '168, 140, 96',
     mid: '250, 232, 206',
     light: '252, 239, 220',
     pale: '253, 245, 232',
     pale2: '250, 232, 206',
-    palest: '#fae8ce'
+    palest: '#F8F1EA'
   },
   {
-    // 3 — Powder blue #d2e0ee
+    // 3 — Powder blue #F3DDE0
     deep: '107, 132, 153',
     mid: '210, 224, 238',
     light: '222, 232, 243',
     pale: '232, 239, 247',
     pale2: '210, 224, 238',
-    palest: '#d2e0ee'
+    palest: '#F3DDE0'
   },
   {
     // 4 — Lavender ↔ blue blend
@@ -84,7 +84,7 @@ const CATEGORY_PALETTES = [
     light: '229, 224, 237',
     pale: '242, 235, 247',
     pale2: '210, 224, 238',
-    palest: '#e5d7ed'
+    palest: '#E8C4C8'
   }
 ]
 
@@ -258,11 +258,11 @@ const CategorySection = ({ category, index = 0, scrollerElement, isLast = false 
                 key={nameIndex}
                 className="font-poppins text-[11px] sm:text-xs"
                 style={{
-                  color: '#3f3348',
+                  color: '#6F4A52',
                   textTransform: 'uppercase',
                   letterSpacing: '0.12em',
                   lineHeight: 1.4,
-                  textShadow: '0 1px 2px rgba(250, 232, 206, 0.85)'
+                  textShadow: '0 1px 2px rgba(248, 241, 234, 0.85)'
                 }}
               >
                 {name}

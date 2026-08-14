@@ -1,225 +1,117 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { theme } from '../data'
-import { celebrant } from '../data'
+import StorybookSectionBg from './StorybookSectionBg'
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
-const Counter = ({ countdown }) => {
+const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) => {
   const sectionRef = useRef(null)
+  const headerRef = useRef(null)
   const countdownRef = useRef(null)
-  const dateTimeRef = useRef(null)
 
   useEffect(() => {
-    // Scroll-triggered animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
+        start: 'top 50%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
       }
     })
 
+    tl.fromTo(headerRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
+      .fromTo(
+        countdownRef.current,
+        { opacity: 0, y: 50, scale: 0.9 },
+        { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power2.out' },
+        '-=0.4'
+      )
+      .fromTo(
+        '.countdown-number',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.2 },
+        '-=0.5'
+      )
 
-    // Countdown title animation
-    tl.fromTo(".save-date-title", 
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    )
-
-    // Countdown numbers stagger animation with delay
-    tl.fromTo(".countdown-number", 
-      { opacity: 0, y: 50 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.6, 
-        ease: "power2.out",
-        stagger: 0.15
-      },
-      "-=0.3"
-    )
-
-    // Cleanup function
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
+    return () => tl.kill()
   }, [])
 
   return (
-    <>
-      <style>{`
-        .counter-stripes {
-          --stripe-unit: clamp(15px, 2.5vw, 40px);
-          background: repeating-linear-gradient(
-            90deg,
-            ${theme.colors.primary} 0,
-            ${theme.colors.primary} var(--stripe-unit),
-            #fae8ce var(--stripe-unit),
-            #fae8ce calc(var(--stripe-unit) * 2),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 2),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 3),
-            #fae8ce calc(var(--stripe-unit) * 3),
-            #fae8ce calc(var(--stripe-unit) * 4),
-            ${theme.colors.primary} calc(var(--stripe-unit) * 4),
-            ${theme.colors.primary} calc(var(--stripe-unit) * 5),
-            #fae8ce calc(var(--stripe-unit) * 5),
-            #fae8ce calc(var(--stripe-unit) * 6),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 6),
-            ${theme.colors.tertiary} calc(var(--stripe-unit) * 7),
-            #fae8ce calc(var(--stripe-unit) * 7),
-            #fae8ce calc(var(--stripe-unit) * 8)
-          );
-        }
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .timer-graphics-section {
-            margin-top: -1.5rem !important;
-          }
-        }
-        @media (min-width: 1024px) {
-          .timer-graphics-section {
-            margin-top: -2rem !important;
-          }
-        }
-        .timer-image {
-          object-position: center 0% !important;
-          margin-top: -2rem !important;
-        }
-        @media (min-width: 768px) {
-          .timer-image {
-            margin-top: -3rem !important;
-          }
-        }
-        @media (min-width: 1024px) {
-          .timer-image {
-            margin-top: -5rem !important;
-            object-position: center top !important;
-          }
-          .counter-section {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-          }
-          .counter-inner-container {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            max-width: 400px !important;
-          }
-        }
-      `}</style>
-    <section
-      ref={sectionRef}
-      id="details"
-      className="relative overflow-hidden flex items-stretch justify-center text-center counter-stripes counter-section"
-      style={{
-        minHeight: '100vh',
-        paddingTop: '5rem',
-        paddingBottom: '5rem',
-        paddingLeft: '1rem',
-        paddingRight: '1rem'
-      }}
-    >
-      
-       {/* Main Content Container */}
-       <div className={`relative z-20 w-full ${theme.container.padding} flex items-stretch`} style={{ minHeight: 'calc(100vh - 10rem)' }}>
-         {/* Countdown Timer */}
-         <div
-           ref={countdownRef}
-           className="w-full max-w-4xl mx-auto px-8 sm:px-12 py-8 flex flex-col justify-center counter-inner-container"
-           style={{
-             backgroundColor: '#fae8ce',
-             border: `0.5px solid ${theme.colors.primary}`,
-             outline: `0.5px solid ${theme.colors.primary}`,
-             outlineOffset: '-10px',
-             borderRadius: 0,
-             minHeight: '100%'
-           }}
-         >
-          {/* Title Section */}
-          <div className="flex justify-center">
-            <h3 className="save-date-title flex flex-col items-center" style={{ lineHeight: '1', gap: 0 }}>
-              <div className="font-tebranos" style={{ color: theme.colors.primary, marginBottom: '-0.4em', fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}>
-                SAVE
-              </div>
-              <div className="font-ballet" style={{ color: theme.colors.primary, marginTop: 0, marginBottom: 0, fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}>
-                the
-              </div>
-              <div className="font-tebranos" style={{ color: theme.colors.primary, marginTop: '-0.4em', fontSize: 'clamp(3.5rem, 9vw, 9rem)' }}>
-                DATE
-              </div>
-            </h3>
-          </div>
+    <section ref={sectionRef} id="details" className="relative py-20 w-full overflow-hidden">
+      <StorybookSectionBg variant="book" />
 
-          {/* Timer Graphics Section */}
-          <div className="timer-graphics-section flex justify-center items-center mb-6 mt-6">
-            {/* Month on the left */}
-            <div className="font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(1rem, 2vw, 1.5rem)' }}>
-              {new Date(celebrant.debutant.debut.date).getMonth() + 1 < 10 ? `0${new Date(celebrant.debutant.debut.date).getMonth() + 1}` : new Date(celebrant.debutant.debut.date).getMonth() + 1}
-            </div>
-            
-            {/* Timer Graphics in the center */}
-            <div className="mx-8" style={{ display: 'flex', alignItems: 'flex-start' }}>
-              <img 
-                src="/images/prenup/prenup-05.jpg" 
-                alt="Prenup" 
-                className="timer-image w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover"
-              />
-            </div>
-            
-            {/* Year on the right */}
-            <div className="font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(1rem, 2vw, 1.5rem)' }}>
-              {'\'' + celebrant.debutant.debut.year.slice(-2)}
+      <div className="relative z-20 flex items-center justify-center py-12">
+        <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">
+          <div className="text-center">
+            <h2
+              ref={headerRef}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#6F4A52] mb-3 font-caribbean"
+            >
+              <span
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
+                style={{ lineHeight: '0.8' }}
+              >
+                S
+              </span>
+              <span className="inline-block">ave</span> the Date
+            </h2>
+            <div ref={countdownRef}>
+              <p className="text-base sm:text-lg font-albert font-thin text-[#6F4A52] max-w-3xl mx-auto leading-relaxed">
+                Mark your calendar for
+                <br />
+                this special day
+              </p>
+              <div className="flex justify-center items-center">
+                <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+                <img
+                  src="/images/graphics/graphics-1.svg"
+                  alt=""
+                  aria-hidden
+                  className="w-32 sm:w-40 md:w-48 h-auto mx-4"
+                />
+                <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+              </div>
             </div>
           </div>
 
-          {/* Little sentence in Poppins */}
-          <p className="font-poppins text-center mb-6 uppercase" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 1rem)' }}>
-            Join us as we celebrate this special milestone
-          </p>
-          
-          {/* Counter */}
-          <div className="flex justify-center items-center space-x-2 px-4 max-w-md mx-auto">
-            <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
-                {countdown.days}
-              </div>
-              <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Days</div>
-            </div>
-            
-            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 4rem)' }}>:</div>
-            
-            <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
-                {countdown.hours}
-              </div>
-              <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Hours</div>
-            </div>
-            
-            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 4rem)' }}>:</div>
-            
-            <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
-                {countdown.minutes}
-              </div>
-              <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Minutes</div>
-            </div>
-            
-            <div className="font-instrument-serif font-semibold" style={{ color: theme.colors.primary, fontSize: 'clamp(2rem, 5vw, 4rem)' }}>:</div>
-            
-            <div className="text-center">
-              <div className="font-instrument-serif font-semibold mb-1 countdown-number" style={{ color: theme.colors.primary, fontSize: 'clamp(3rem, 7vw, 5rem)' }}>
-                {countdown.seconds}
-              </div>
-              <div className="font-medium font-poppins" style={{ color: theme.colors.primary, fontSize: 'clamp(0.75rem, 1vw, 0.875rem)' }}>Seconds</div>
-            </div>
+          <div className="flex justify-center items-center space-x-3 px-4 mt-8">
+            {[
+              { value: countdown.days, label: 'Days' },
+              { value: countdown.hours, label: 'Hours' },
+              { value: countdown.minutes, label: 'Minutes' },
+              { value: countdown.seconds, label: 'Seconds' }
+            ].map((item, index) => (
+              <React.Fragment key={item.label}>
+                {index > 0 ? (
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#6F4A52]">:</div>
+                ) : null}
+                <div className="text-center">
+                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lavishly text-[#6F4A52] mb-1 countdown-number not-italic">
+                    {item.value}
+                  </div>
+                  <div className="text-xs sm:text-sm text-[#6F4A52] opacity-80 alice-regular uppercase tracking-wider">
+                    {item.label}
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
+
+          <div className="flex justify-center items-center mt-6">
+            <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+            <img
+              src="/images/graphics/graphics-1.svg"
+              alt=""
+              aria-hidden
+              className="w-32 sm:w-40 md:w-48 h-auto mx-4 scale-y-[-1]"
+            />
+            <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
           </div>
         </div>
-    </div>
+      </div>
     </section>
-    </>
   )
 }
 
-export default Counter 
+export default Counter

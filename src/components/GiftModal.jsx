@@ -102,7 +102,7 @@ const GiftModal = ({ isOpen, onClose }) => {
       >
         {/* Header - Sticky */}
         <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200" style={{ borderRadius: 0 }}>
-          <h3 className="font-rozha text-2xl uppercase tracking-[0.08em] sm:text-3xl" style={{ color: theme.colors.primary }}>METHOD/S</h3>
+          <h3 className="font-leckerli text-2xl sm:text-3xl" style={{ color: theme.colors.ink || theme.colors.primary }}>METHOD/S</h3>
           <button
             onClick={handleClose}
             className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
@@ -133,7 +133,7 @@ const GiftModal = ({ isOpen, onClose }) => {
                     <div className="my-3">
                       <div className="w-full h-px bg-gray-300 mb-2"></div>
                       <div className="flex items-center justify-center gap-2 relative">
-                        <p className="font-poppins text-center" style={{ color: theme.colors.primary, fontWeight: 600, fontSize: '1rem' }}>{method.accountInfo.accountNumber}</p>
+                        <p className="font-albert text-center" style={{ color: theme.colors.ink || theme.colors.primary, fontWeight: 600, fontSize: '1rem' }}>{method.accountInfo.accountNumber}</p>
                         <div className="relative">
                           <button
                             onClick={handleCopyAccountNumber}
@@ -149,7 +149,7 @@ const GiftModal = ({ isOpen, onClose }) => {
                           </button>
                           {copied && (
                             <div 
-                              className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 rounded bg-gray-800 text-white text-xs font-poppins whitespace-nowrap z-10"
+                              className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 rounded bg-gray-800 text-white text-xs font-albert whitespace-nowrap z-10"
                               style={{ pointerEvents: 'none' }}
                             >
                               Copied
@@ -158,7 +158,7 @@ const GiftModal = ({ isOpen, onClose }) => {
                         </div>
                       </div>
                       <div className="w-full h-px bg-gray-300 mt-2"></div>
-                      <p className="font-poppins text-center mt-2" style={{ color: theme.colors.primary, fontWeight: 500, fontSize: '1rem', opacity: 0.8, padding: '1.5rem' }}>{method.accountInfo.accountName}</p>
+                      <p className="font-albert text-center mt-2" style={{ color: theme.colors.ink || theme.colors.primary, fontWeight: 500, fontSize: '1rem', opacity: 0.8, padding: '1.5rem' }}>{method.accountInfo.accountName}</p>
                     </div>
                   </div>
                 )
