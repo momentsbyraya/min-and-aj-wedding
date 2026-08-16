@@ -95,7 +95,7 @@ const Schedule = () => {
         <div
           className="schedule-time alice-regular font-semibold leading-none"
           style={{
-            color: '#6F4A52',
+            color: '#8B5560',
             fontSize: 'clamp(1.85rem, 6vw, 3.25rem)'
           }}
         >
@@ -104,12 +104,12 @@ const Schedule = () => {
         </div>
         <div
           className="my-2 border-b border-dashed opacity-70"
-          style={{ borderColor: '#C98F9B' }}
+          style={{ borderColor: '#D4A0A8' }}
         />
         <div
           className="schedule-title alice-regular font-bold uppercase"
           style={{
-            color: '#6F4A52',
+            color: '#8B5560',
             letterSpacing: '0.08em',
             fontSize: 'clamp(0.75rem, 1.6vw, 0.95rem)'
           }}
@@ -120,7 +120,7 @@ const Schedule = () => {
           <div
             className="schedule-description font-albert font-thin italic mt-1"
             style={{
-              color: '#9B737C',
+              color: '#B07D86',
               opacity: 0.9,
               fontSize: 'clamp(0.7rem, 1.4vw, 0.85rem)'
             }}
@@ -135,8 +135,9 @@ const Schedule = () => {
   return (
     <section
       ref={sectionRef}
+      id="program"
       className="relative w-full pt-32 md:pt-56 pb-32 md:pb-48 overflow-hidden"
-      style={{ backgroundColor: '#F8F1EA' }}
+      style={{ backgroundColor: '#FBF3F0' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -165,9 +166,9 @@ const Schedule = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
           <div className="w-full max-w-3xl mx-auto pt-8 pb-8 lg:pt-16 lg:pb-16 lg:flex lg:flex-col">
             <div ref={headerRef} className="mb-12 flex justify-center">
-              <h2 className="section-title-graphic section-title-graphic--center mb-4 text-center">
+              <h2 className="section-title-graphic section-title-graphic--wide section-title-graphic--center mb-4 text-center">
                 <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">
-                  Program
+                  Wedding Program
                 </span>
               </h2>
             </div>
@@ -176,7 +177,7 @@ const Schedule = () => {
               <div
                 ref={lineRef}
                 className="absolute top-0 bottom-0 w-px -translate-x-1/2"
-                style={{ left: '50%', backgroundColor: '#9B737C', opacity: 0.85 }}
+                style={{ left: '50%', backgroundColor: '#B07D86', opacity: 0.85 }}
               />
 
               <div ref={eventsRef} className="space-y-16 sm:space-y-20 md:space-y-24">
@@ -205,8 +206,8 @@ const Schedule = () => {
                           left: '50%',
                           top: '50%',
                           transform: 'translate(-50%, -50%)',
-                          backgroundColor: '#E8C4C8',
-                          borderColor: '#9B737C'
+                          backgroundColor: '#F0C9CE',
+                          borderColor: '#B07D86'
                         }}
                       />
                     </div>
@@ -220,12 +221,12 @@ const Schedule = () => {
                 <p
                   className="text-xs sm:text-sm md:text-base font-albert font-thin leading-relaxed"
                   style={{
-                    color: '#6F4A52',
+                    color: '#8B5560',
                     opacity: 0.95,
                     fontSize: 'clamp(0.75rem, 1vw, 1rem)'
                   }}
                 >
-                  Looking forward to celebrating this special milestone with you. Your presence will make this day even more meaningful.
+                  Looking forward to celebrating this special day with you. Your presence will make it even more meaningful.
                 </p>
               </div>
             </div>

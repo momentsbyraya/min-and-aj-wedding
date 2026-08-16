@@ -87,7 +87,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         
         <div className="h-[calc(100vh-97px)] w-full overflow-hidden bg-white">
           <iframe
-            title="RSVP for the debut celebration of Althea Louisse"
+            title="RSVP for the wedding of AJ & Min"
             src="https://docs.google.com/forms/d/e/1FAIpQLSf-v2hvEPrRf6XSN5Y96-LBpIWqvaBZ046CIwDZzkWPuWdfCQ/viewform?embedded=true"
             className="h-full w-full border-0"
             allow="autoplay"

@@ -22,12 +22,12 @@ const Preloader = ({ onComplete }) => {
 
     // List of critical images to preload
     const criticalImages = [
-      '/images/prenup/prenup-01.jpg',
-      '/images/prenup/prenup-02.jpg',
-      '/images/prenup/prenup-03.jpg',
-      '/images/prenup/prenup-04.jpg',
-      '/images/prenup/prenup-05.jpg',
-      '/images/prenup/prenup-06.jpg',
+      '/images/prenup/NZ6_7683.jpeg',
+      '/images/prenup/NZ6_7546.jpeg',
+      '/images/prenup/NZ6_7550.jpeg',
+      '/images/prenup/NZ6_8884.jpeg',
+      '/images/prenup/NZ6_6935.jpeg',
+      '/images/prenup/NZ6_9054.jpeg',
       // Opening storybook frames (click-to-open animation)
       ...Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`),
     ]
@@ -75,7 +75,7 @@ const Preloader = ({ onComplete }) => {
         // Ensure hero image is fully loaded and rendered
         // Create a temporary image element to ensure it's in browser cache
         const heroImg = new Image()
-        heroImg.src = '/images/prenup/prenup-01.jpg'
+        heroImg.src = '/images/prenup/NZ6_7683.jpeg'
         
         await new Promise((resolve) => {
           if (heroImg.complete) {

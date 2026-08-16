@@ -1,26 +1,37 @@
 {
   "debutant": {
     "name": {
-      "first": "Althea",
-      "middle": "Louisse",
-      "last": "Rodriguez",
-      "full": "Althea Louisse B. Rodriguez",
-      "preferred": "Althea Louisse",
-      "nickname": "Althea"
+      "first": "AJ",
+      "middle": "Josephine",
+      "last": "Hernando",
+      "full": "Ana Josephine Hernando & Muhaymin Adjula",
+      "preferred": "AJ & Min",
+      "nickname": "AJ & Min"
     },
     "about": {
-      "headingName": "Turning Eighteen",
-      "bioHtml": "Turning 18 is a milestone I'll always remember. Looking back, I'm grateful for all the memories, lessons, and experiences that have shaped me into who I am today. I've faced challenges, made mistakes, and celebrated small victories, and each one has helped me grow stronger and wiser.<br /><br />As I enter this new chapter of my life, I hope to continue learning, chasing my dreams, and becoming someone my family and I can be proud of. I'm thankful to everyone who has been part of my journey and for celebrating this special day with me."
+      "headingName": "Our Love Story",
+      "bioHtml": "August 18, 2022 — we casually said hi after friends introduced us over a borrowed charger.<br /><br />October 18, 2022 — we made it official.<br /><br />Foodtrips became our go-to date, especially in BGC and Makati.<br /><br />January 25, 2024 — we started travelling inside and outside the country.<br /><br />May 12, 2025 — we got engaged in Vietnam."
     },
     "debut": {
-      "date": "2026-08-09",
+      "date": "2027-04-17",
       "time": "3:00 PM",
-      "dayOfWeek": "Sunday",
-      "month": "August",
-      "day": "9",
-      "year": "2026",
-      "location": "Limay Multi Purpose Hall"
+      "dayOfWeek": "Saturday",
+      "month": "April",
+      "day": "17",
+      "year": "2027",
+      "location": "Villa Ardin Events Place"
     },
-    "announcement": "Turning 18!"
+    "announcement": "We're getting married!"
+  },
+  "couple": {
+    "bride": {
+      "firstName": "AJ",
+      "fullName": "Ana Josephine Hernando"
+    },
+    "groom": {
+      "firstName": "Min",
+      "fullName": "Muhaymin Adjula"
+    },
+    "displayName": "AJ & Min"
   }
 }

@@ -1,64 +1,57 @@
 import React, { useMemo } from 'react'
 
 /**
- * Wedding-rosetta style layered old-book background + soft white edge fades.
+ * Layered textured background for invitation sections.
+ * Always fills with blush pink first so rotated textures never leave white gaps.
  * variant: "book" (default) | "calligraphy" | "plain"
  */
-const StorybookSectionBg = ({ variant = 'book', calligraphyOpacity = 0.15 }) => {
+const StorybookSectionBg = ({
+  variant = 'book',
+  calligraphyOpacity = 0.15,
+  baseColor = '#F0C9CE',
+  fadeColor = '#F7E0E3'
+}) => {
   const bookBase = useMemo(() => {
     const posX = Math.random() * 100
     const posY = Math.random() * 100
-    const rotation = Math.random() * 360 - 180
-    const flipX = Math.random() > 0.5 ? -1 : 1
-    const flipY = Math.random() > 0.5 ? -1 : 1
     return {
       backgroundImage: 'url(/images/graphics/old-book-2.png)',
       backgroundSize: 'cover',
       backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.75
+      opacity: 0.55
     }
   }, [])
 
   const bookTop = useMemo(() => {
     const posX = Math.random() * 100
     const posY = Math.random() * 100
-    const rotation = Math.random() * 360 - 180
-    const flipX = Math.random() > 0.5 ? -1 : 1
-    const flipY = Math.random() > 0.5 ? -1 : 1
     return {
       backgroundImage: 'url(/images/graphics/old-book-bg.png)',
       backgroundSize: 'cover',
       backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.5
+      opacity: 0.35
     }
   }, [])
 
   return (
     <>
+      {/* Solid blush fill — prevents white wedges behind textures */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ backgroundColor: baseColor }}
+        aria-hidden
+      />
+
       {variant === 'book' && (
         <>
           <div
-            className="absolute bg-no-repeat pointer-events-none"
-            style={{
-              ...bookBase,
-              width: '200%',
-              height: '200%',
-              left: '-50%',
-              top: '-50%'
-            }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+            style={bookBase}
             aria-hidden
           />
           <div
-            className="absolute bg-no-repeat pointer-events-none"
-            style={{
-              ...bookTop,
-              width: '200%',
-              height: '200%',
-              left: '-50%',
-              top: '-50%'
-            }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+            style={bookTop}
             aria-hidden
           />
         </>
@@ -74,11 +67,17 @@ const StorybookSectionBg = ({ variant = 'book', calligraphyOpacity = 0.15 }) => 
         />
       )}
       <div
-        className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#FFF9F5]/70 to-transparent pointer-events-none z-10"
+        className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to bottom, ${fadeColor} 0%, transparent 100%)`
+        }}
         aria-hidden
       />
       <div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FFF9F5]/70 to-transparent pointer-events-none z-10"
+        className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{
+          background: `linear-gradient(to top, ${fadeColor} 0%, transparent 100%)`
+        }}
         aria-hidden
       />
     </>

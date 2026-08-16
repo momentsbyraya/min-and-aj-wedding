@@ -117,7 +117,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
   }
 
   return (
-    <div ref={screenRef} className="fixed inset-0 z-[9999] overflow-hidden bg-[#FFF9F5]">
+    <div ref={screenRef} className="fixed inset-0 z-[9999] overflow-hidden bg-[#FFF8F7]">
       <img
         src="/images/graphics/palace-1.png"
         alt=""
@@ -155,7 +155,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-kicker alice-regular tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
             style={{
-              color: '#6F4A52',
+              color: '#8B5560',
               textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)'
             }}
           >
@@ -164,7 +164,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p
             className="opening-invite-title font-lavishly text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
             style={{
-              color: '#6F4A52',
+              color: '#8B5560',
               textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)'
             }}
           >
@@ -188,7 +188,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
             draggable={false}
             className="opening-book-image block h-full w-full object-contain select-none"
             style={{
-              filter: 'drop-shadow(0 18px 28px rgba(63, 51, 72, 0.28))'
+              filter: 'drop-shadow(0 18px 28px rgba(139, 85, 96, 0.28))'
             }}
           />
         </button>
@@ -197,7 +197,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           ref={clickLabelRef}
           className="alice-regular mt-1 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
           style={{
-            color: '#6F4A52',
+            color: '#8B5560',
             textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)'
           }}
         >
@@ -211,7 +211,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
         className="pointer-events-none absolute inset-0 z-30 opacity-0"
         style={{
           background:
-            'radial-gradient(ellipse at center, rgba(255, 248, 235, 0.55) 0%, rgba(248, 241, 234, 0.92) 42%, #FFF9F5 78%)'
+            'radial-gradient(ellipse at center, rgba(255, 248, 235, 0.55) 0%, rgba(248, 241, 234, 0.92) 42%, #FFF8F7 78%)'
         }}
         aria-hidden
       />

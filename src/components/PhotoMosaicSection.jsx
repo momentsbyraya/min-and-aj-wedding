@@ -1,20 +1,20 @@
 import React from 'react'
 
 const photos = [
-  '/images/prenup/prenup-01.jpg',
-  '/images/prenup/prenup-02.jpg',
-  '/images/prenup/prenup-03.jpg',
-  '/images/prenup/prenup-04.jpg',
-  '/images/prenup/prenup-05.jpg'
+  '/images/prenup/NZ6_6935.jpeg',
+  '/images/prenup/NZ6_6972.jpeg',
+  '/images/prenup/NZ6_6986.jpeg',
+  '/images/prenup/NZ6_7434.jpeg',
+  '/images/prenup/NZ6_7546.jpeg'
 ]
 
 const PhotoMosaicSection = () => {
   return (
-    <section className="w-full py-14 px-4 sm:px-6" style={{ background: 'linear-gradient(180deg, #F8F1EA 0%, #E8C4C8 100%)' }}>
+    <section className="w-full py-14 px-4 sm:px-6" style={{ background: 'linear-gradient(180deg, #FBF3F0 0%, #F0C9CE 100%)' }}>
       <div className="max-w-5xl mx-auto">
         <h2
           className="font-my-soul text-center mb-8"
-          style={{ color: '#6F4A52', fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}
+          style={{ color: '#8B5560', fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}
         >
           Our Photo Moments
         </h2>

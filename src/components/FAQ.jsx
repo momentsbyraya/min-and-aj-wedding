@@ -86,7 +86,7 @@ const FAQ = ({ id = 'faq' }) => {
         <div className="mb-12 flex w-full justify-center px-6">
           <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">
             <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast uppercase tracking-[0.12em]">
-              FAQ
+              FAQs
             </span>
           </h2>
         </div>

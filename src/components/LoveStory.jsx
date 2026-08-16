@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { celebrant } from '../data'
+import { loveStory } from '../data'
 import StorybookSectionBg from './StorybookSectionBg'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -11,15 +11,7 @@ const LoveStory = () => {
   const storyRef = useRef(null)
   const imageRef = useRef(null)
 
-  const bioHtml = celebrant?.debutant?.about?.bioHtml || ''
-  const heading = celebrant?.debutant?.about?.headingName || 'Turning Eighteen'
-  // Split bio on <br> tags into readable lines for storybook layout
-  const bioLines = bioHtml
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean)
+  const timeline = Array.isArray(loveStory?.timeline) ? loveStory.timeline.filter(Boolean) : []
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -41,35 +33,53 @@ const LoveStory = () => {
     return () => tl.kill()
   }, [])
 
-  const firstLine = bioLines[0] || heading
-  const restLines = bioLines.slice(1)
-
   return (
-    <section ref={sectionRef} className="relative py-20 w-full overflow-hidden min-h-screen">
+    <section
+      ref={sectionRef}
+      id="love-story"
+      className="relative py-20 w-full overflow-hidden min-h-screen"
+      style={{ backgroundColor: '#F0C9CE' }}
+    >
       <StorybookSectionBg variant="book" />
 
       <div className="relative z-20 flex items-center justify-center py-12 pb-32 sm:pb-40 md:pb-48">
         <div className="max-w-2xl sm:max-w-3xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           <div ref={storyRef} className="text-left mb-12">
-            <p className="alice-regular text-[#6F4A52] mb-6" style={{ fontSize: '1.25rem', letterSpacing: '0.04em' }}>
-              {heading}
-            </p>
-            <p
-              className="font-albert font-thin text-[#6F4A52] leading-relaxed"
-              style={{ fontSize: '1rem', lineHeight: '1.8' }}
-            >
-              <span className="font-caribbean" style={{ fontSize: '1.5rem' }}>
-                {firstLine.charAt(0)}
+            <h2 className="section-title-graphic section-title-graphic--center mb-8 text-center mx-auto">
+              <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">
+                Love Story
               </span>
-              {firstLine.slice(1)}
-              {restLines.map((line) => (
-                <React.Fragment key={line}>
-                  <br />
-                  <br />
-                  {line}
-                </React.Fragment>
-              ))}
-            </p>
+            </h2>
+            <div className="space-y-6">
+              {timeline.map((item, index) => {
+                const firstChar = (item.description || item.title || ' ').charAt(0)
+                const rest = (item.description || item.title || '').slice(1)
+                return (
+                  <div key={`${item.date}-${item.title}-${index}`}>
+                    {item.date ? (
+                      <p className="alice-regular text-white/80 mb-1 tracking-[0.08em] uppercase text-xs sm:text-sm">
+                        {item.date}
+                      </p>
+                    ) : null}
+                    <p
+                      className="font-albert font-thin text-white leading-relaxed"
+                      style={{ fontSize: '1rem', lineHeight: '1.8' }}
+                    >
+                      {index === 0 ? (
+                        <>
+                          <span className="font-caribbean" style={{ fontSize: '1.5rem' }}>
+                            {firstChar}
+                          </span>
+                          {rest}
+                        </>
+                      ) : (
+                        item.description || item.title
+                      )}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>

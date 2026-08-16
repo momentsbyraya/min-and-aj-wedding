@@ -38,7 +38,12 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
   }, [])
 
   return (
-    <section ref={sectionRef} id="details" className="relative py-20 w-full overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="save-the-date"
+      className="relative py-20 w-full overflow-hidden"
+      style={{ backgroundColor: '#F0C9CE' }}
+    >
       <StorybookSectionBg variant="book" />
 
       <div className="relative z-20 flex items-center justify-center py-12">
@@ -46,7 +51,7 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
           <div className="text-center">
             <h2
               ref={headerRef}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#6F4A52] mb-3 font-caribbean"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 font-caribbean"
             >
               <span
                 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
@@ -57,20 +62,20 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
               <span className="inline-block">ave</span> the Date
             </h2>
             <div ref={countdownRef}>
-              <p className="text-base sm:text-lg font-albert font-thin text-[#6F4A52] max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg font-albert font-thin text-white max-w-3xl mx-auto leading-relaxed">
                 Mark your calendar for
                 <br />
                 this special day
               </p>
               <div className="flex justify-center items-center">
-                <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+                <div className="w-16 h-px bg-white opacity-50" />
                 <img
                   src="/images/graphics/graphics-1.svg"
                   alt=""
                   aria-hidden
                   className="w-32 sm:w-40 md:w-48 h-auto mx-4"
                 />
-                <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+                <div className="w-16 h-px bg-white opacity-50" />
               </div>
             </div>
           </div>
@@ -84,13 +89,13 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
             ].map((item, index) => (
               <React.Fragment key={item.label}>
                 {index > 0 ? (
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#6F4A52]">:</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-white">:</div>
                 ) : null}
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lavishly text-[#6F4A52] mb-1 countdown-number not-italic">
+                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lavishly text-white mb-1 countdown-number not-italic">
                     {item.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-[#6F4A52] opacity-80 alice-regular uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm text-white opacity-80 alice-regular uppercase tracking-wider">
                     {item.label}
                   </div>
                 </div>
@@ -99,14 +104,14 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
           </div>
 
           <div className="flex justify-center items-center mt-6">
-            <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+            <div className="w-16 h-px bg-white opacity-50" />
             <img
               src="/images/graphics/graphics-1.svg"
               alt=""
               aria-hidden
               className="w-32 sm:w-40 md:w-48 h-auto mx-4 scale-y-[-1]"
             />
-            <div className="w-16 h-px bg-[#6F4A52] opacity-40" />
+            <div className="w-16 h-px bg-white opacity-50" />
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { celebrant } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const ABOUT_BG = '/images/prenup/prenup-01.jpg'
+const ABOUT_BG = '/images/prenup/NZ6_7683.jpeg'
 
 const CelebrantStory = ({ onImageClick }) => {
   const about = celebrant.debutant.about
@@ -38,7 +38,7 @@ const CelebrantStory = ({ onImageClick }) => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-      style={{ backgroundColor: '#F8F1EA' }}
+      style={{ backgroundColor: '#FBF3F0' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat cursor-pointer"
@@ -54,7 +54,7 @@ const CelebrantStory = ({ onImageClick }) => {
         style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }}
         aria-hidden
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F3DDE0]/90 via-[#E8C4C8]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F7E0E3]/90 via-[#F0C9CE]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
@@ -66,7 +66,7 @@ const CelebrantStory = ({ onImageClick }) => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(216, 167, 177, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(232, 180, 184, 0.5) 100%)'
           }}
         />
         <div
@@ -80,7 +80,7 @@ const CelebrantStory = ({ onImageClick }) => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(216, 167, 177, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(232, 180, 184, 0.45) 0%, transparent 52%)'
           }}
         />
       </div>
@@ -90,7 +90,7 @@ const CelebrantStory = ({ onImageClick }) => {
             <h2
               className="mb-2 leading-tight sm:mb-2.5"
               style={{
-                color: '#6F4A52',
+                color: '#8B5560',
                 textShadow: '0 1px 4px rgba(248, 241, 234, 0.9)'
               }}
             >
@@ -101,7 +101,7 @@ const CelebrantStory = ({ onImageClick }) => {
             <p
               className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full ml-auto pb-4"
               style={{
-                color: '#6F4A52',
+                color: '#8B5560',
                 textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)'
               }}
               dangerouslySetInnerHTML={{ __html: bioHtml }}

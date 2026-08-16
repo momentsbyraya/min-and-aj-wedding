@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { getTimeUntilWedding } from '../utils/countdown'
 import FallingPetals from './FallingPetals'
 import HeroStorybook from './HeroStorybook'
-import LoveStory from './LoveStory'
-import Counter from './Counter'
-import Gallery from './Gallery'
 import Venue from './Venue'
 import Schedule from './Schedule'
-import DressCode from './DressCode'
+import Entourage from './Entourage'
 import RSVP from './RSVP'
-import Paragraph from './Paragraph'
+import Gifts from './Gifts'
+import DressCode from './DressCode'
+import LoveStory from './LoveStory'
+import Gallery from './Gallery'
+import FAQ from './FAQ'
+import Counter from './Counter'
 import Footer from './Footer'
 import './WeddingInvitation.css'
 
 /**
- * Section tree matched to wedding-rosetta:
- * FallingPetals → HeroStorybook → LoveStory → Counter → Gallery →
- * Venue → Schedule → DressCode → RSVP → Paragraph → Footer
+ * Section order:
+ * Hero → Where to go → Wedding program → Entourage → RSVP → Gift →
+ * Dress code → Love story → Gallery → FAQs → Save the date → Footer
  */
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -36,21 +38,25 @@ const WeddingInvitation = () => {
           <HeroStorybook />
         </section>
 
-        <LoveStory />
-
-        <Counter countdown={countdown} />
-
-        <Gallery />
-
         <Venue />
 
         <Schedule />
 
-        <DressCode />
+        <Entourage />
 
         <RSVP />
 
-        <Paragraph />
+        <Gifts />
+
+        <DressCode />
+
+        <LoveStory />
+
+        <Gallery />
+
+        <FAQ />
+
+        <Counter countdown={countdown} />
 
         <Footer />
       </main>

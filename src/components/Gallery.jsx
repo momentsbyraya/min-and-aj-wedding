@@ -25,7 +25,7 @@ const Gallery = () => {
     return out
   }, [])
 
-  const galleryBlushBg = '#F8F1EA'
+  const galleryBlushBg = '#F0C9CE'
 
   const titleRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -218,18 +218,26 @@ const Gallery = () => {
   return (
     <div id="gallery" className="relative">
       <div
-        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16 bg-cover bg-left bg-no-repeat"
+        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16 bg-cover bg-center bg-no-repeat"
         style={{
           width: '100vw',
           marginLeft: 'calc(-50vw + 50%)',
           marginRight: 'calc(-50vw + 50%)',
           backgroundColor: galleryBlushBg,
-          backgroundImage: "url('/images/graphics/blush-wash-bg.png')",
-          backgroundBlendMode: 'soft-light'
+          backgroundImage: "url('/images/graphics/old-book-2.png')",
+          backgroundBlendMode: 'multiply',
+          opacity: 1
         }}
       >
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundColor: 'rgba(240, 201, 206, 0.55)'
+          }}
+          aria-hidden
+        />
         <div className="soft-blob soft-blob--alt absolute bottom-[8%] left-[12%] w-40 h-40 z-[1]" aria-hidden="true" />
-        <div className={`mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
+        <div className={`relative z-10 mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
           <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">
             <span className="section-title-graphic section-title-graphic--center">
                 <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">

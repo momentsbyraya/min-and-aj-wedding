@@ -2,37 +2,37 @@
   "backgrounds": {
     "primary": "bg-gray-900",
     "secondary": "bg-gray-800",
-    "accent": "bg-[#E8C4C8]",
+    "accent": "bg-[#F0C9CE]",
     "light": "bg-white/50",
-    "theme": "bg-[#F3DDE0]",
+    "theme": "bg-[#F7E0E3]",
     "crumpledPaper": "bg-[url(\"/images/crumpled-paper.png\")] bg-cover bg-center bg-no-repeat"
   },
   "text": {
     "primary": "text-white",
     "secondary": "text-gray-300",
-    "accent": "text-[#9B737C]",
+    "accent": "text-[#B07D86]",
     "muted": "text-gray-400",
     "dark": "text-wedding-800",
-    "theme": "text-[#6F4A52]",
+    "theme": "text-[#8B5560]",
     "pause": "text-[#dcdcdc]",
     "custom": "text-[#44484d]"
   },
   "borders": {
     "primary": "border-gray-700",
     "secondary": "border-gray-600",
-    "accent": "border-[#D8A7B1]",
-    "theme": "border-[#6F4A52]"
+    "accent": "border-[#E8B4B8]",
+    "theme": "border-[#8B5560]"
   },
   "buttons": {
-    "primary": "bg-[#D8A7B1] hover:bg-[#C98F9B]",
+    "primary": "bg-[#E8B4B8] hover:bg-[#D4A0A8]",
     "secondary": "border border-gray-600 hover:border-gray-400",
     "text": "text-gray-300 hover:text-white",
-    "theme": "bg-[#6F4A52] hover:bg-[#6F4A52]/80"
+    "theme": "bg-[#8B5560] hover:bg-[#8B5560]/80"
   },
   "hover": {
     "primary": "hover:bg-wedding-700",
     "secondary": "hover:border-gray-400 hover:text-white",
-    "theme": "hover:bg-[#6F4A52]/80"
+    "theme": "hover:bg-[#8B5560]/80"
   },
   "container": {
     "maxWidth": "max-w-[1300px]",
@@ -40,43 +40,43 @@
     "center": "mx-auto"
   },
   "calendar": {
-    "weddingDate": "2026-06-27",
-    "highlightColor": "bg-[#D8A7B1]",
-    "heartColor": "text-[#9B737C]",
+    "weddingDate": "2027-04-17",
+    "highlightColor": "bg-[#E8B4B8]",
+    "heartColor": "text-[#B07D86]",
     "textColor": "text-gray-700",
     "headerColor": "text-gray-800",
     "dayNamesColor": "text-gray-600",
-    "background": "bg-[#F8F1EA]"
+    "background": "bg-[#FBF3F0]"
   },
   "cssVariables": {
     "--primary-bg": "#111827",
     "--secondary-bg": "#1f2937",
-    "--accent-bg": "#D8A7B1",
+    "--accent-bg": "#E8B4B8",
     "--primary-text": "#ffffff",
     "--secondary-text": "#d1d5db",
-    "--accent-text": "#9B737C",
+    "--accent-text": "#B07D86",
     "--muted-text": "#9ca3af",
     "--border-color": "#374151",
-    "--custom-theme": "#F3DDE0",
-    "--primary-color": "#D8A7B1",
-    "--secondary-color": "#E8C4C8",
-    "--tertiary-color": "#F3DDE0",
-    "--cream-color": "#F8F1EA",
-    "--ink-color": "#6F4A52"
+    "--custom-theme": "#F7E0E3",
+    "--primary-color": "#E8B4B8",
+    "--secondary-color": "#F0C9CE",
+    "--tertiary-color": "#F7E0E3",
+    "--cream-color": "#FBF3F0",
+    "--ink-color": "#8B5560"
   },
   "colors": {
-    "primary": "#D8A7B1",
-    "secondary": "#E8C4C8",
-    "tertiary": "#F3DDE0",
-    "cream": "#F8F1EA",
-    "ink": "#6F4A52",
-    "dustyRose": "#C98F9B",
-    "softRose": "#E8C4C8",
-    "paleBlush": "#F3DDE0",
-    "warmCream": "#F8F1EA",
-    "ivory": "#FFF9F5",
-    "mutedMauve": "#9B737C",
-    "deepRose": "#6F4A52",
-    "champagne": "#C9A07A"
+    "primary": "#E8B4B8",
+    "secondary": "#F0C9CE",
+    "tertiary": "#F7E0E3",
+    "cream": "#FBF3F0",
+    "ink": "#8B5560",
+    "dustyRose": "#D4A0A8",
+    "softRose": "#F0C9CE",
+    "paleBlush": "#F7E0E3",
+    "warmCream": "#FBF3F0",
+    "ivory": "#FFF8F7",
+    "mutedMauve": "#B07D86",
+    "deepRose": "#8B5560",
+    "champagne": "#E8D5C4"
   }
 }

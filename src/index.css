@@ -111,15 +111,15 @@ html {
 }
 
 :root {
-  --blush-primary: #D8A7B1;
-  --blush-dusty: #C98F9B;
-  --blush-soft: #E8C4C8;
-  --blush-pale: #F3DDE0;
-  --blush-cream: #F8F1EA;
-  --blush-ivory: #FFF9F5;
-  --blush-mauve: #9B737C;
-  --blush-deep: #6F4A52;
-  --blush-champagne: #C9A07A;
+  --blush-primary: #E8B4B8;
+  --blush-dusty: #D4A0A8;
+  --blush-soft: #F0C9CE;
+  --blush-pale: #F7E0E3;
+  --blush-cream: #FBF3F0;
+  --blush-ivory: #FFF8F7;
+  --blush-mauve: #B07D86;
+  --blush-deep: #8B5560;
+  --blush-champagne: #E8D5C4;
 }
 
 body {
@@ -141,26 +141,26 @@ body {
 
 @layer components {
   .wedding-gradient {
-    background: linear-gradient(180deg, #FFF9F5 0%, #F8F1EA 45%, #F3DDE0 100%);
+    background: linear-gradient(180deg, #FFF8F7 0%, #FBF3F0 45%, #F7E0E3 100%);
   }
   
   .wedding-text {
-    color: #6F4A52;
+    color: #8B5560;
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, #D8A7B1 0%, #C98F9B 100%);
+    background: linear-gradient(135deg, #E8B4B8 0%, #D4A0A8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .card-shadow {
-    box-shadow: 0 10px 25px rgba(111, 74, 82, 0.08);
+    box-shadow: 0 10px 25px rgba(139, 85, 96, 0.08);
   }
   
   .elegant-border {
-    border: 1px solid rgba(216, 167, 177, 0.35);
+    border: 1px solid rgba(232, 180, 184, 0.35);
   }
 }
 
@@ -232,7 +232,7 @@ body {
   footer:has(a:hover),
   footer:has(a:active),
   footer:has(a:focus) {
-    background-color: #6F4A52 !important;
+    background-color: #8B5560 !important;
   }
   
   footer a:hover,
@@ -438,10 +438,10 @@ body {
   .eighteenths-title-gradient {
     background: linear-gradient(
       110deg,
-      #FFF9F5 0%,
-      #F3DDE0 22%,
-      #D8A7B1 50%,
-      #E8C4C8 88%,
+      #FFF8F7 0%,
+      #F7E0E3 22%,
+      #E8B4B8 50%,
+      #F0C9CE 88%,
       #ffffff 100%
     );
     -webkit-background-clip: text;
@@ -629,8 +629,8 @@ body {
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #F8F1EA;
-  --envelope-shadow: #D8A7B1;
+  --envelope-bg: #FBF3F0;
+  --envelope-shadow: #E8B4B8;
   --heart-bg: darkred;
   --heart-text: white;
   --letter-font: "Dancing Script", serif;
@@ -1079,7 +1079,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9B737C;
+  background: #B07D86;
   border-radius: 5px;
 }
 
@@ -1090,7 +1090,7 @@ body {
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #9B737C #f1f1f1;
+  scrollbar-color: #B07D86 #f1f1f1;
 }
 
 /* Gallery Performance Optimizations */
@@ -1233,7 +1233,7 @@ body {
 .soft-blob {
   position: absolute;
   border-radius: 42% 58% 53% 47% / 44% 39% 61% 56%;
-  background: rgba(216, 167, 177, 0.32);
+  background: rgba(232, 180, 184, 0.32);
   filter: blur(10px);
   box-shadow: 0 0 24px rgba(201, 143, 155, 0.22);
   pointer-events: none;
@@ -1285,9 +1285,9 @@ body {
 
 /* Active calendar day: distinct pastel fill against soft panel */
 .calendar-day-active {
-  background-color: #9B737C;
-  border: 2px solid #6F4A52;
-  color: #F8F1EA;
+  background-color: #B07D86;
+  border: 2px solid #8B5560;
+  color: #FBF3F0;
   font-weight: 600;
 }
 
@@ -1296,8 +1296,8 @@ body {
   position: relative;
   padding: 3px;
   border-radius: 8px;
-  background-image: linear-gradient(135deg, #C9A07A, #F8F1EA, #C9A07A);
-  box-shadow: 0 6px 24px rgba(63, 51, 72, 0.12);
+  background-image: linear-gradient(135deg, #E8D5C4, #FBF3F0, #E8D5C4);
+  box-shadow: 0 6px 24px rgba(139, 85, 96, 0.12);
 }
 
 .venue-map-frame__iframe {
@@ -1398,7 +1398,7 @@ body {
   animation-iteration-count: infinite;
   animation-fill-mode: both;
   will-change: transform, opacity;
-  filter: drop-shadow(0 1px 2px rgba(63, 51, 72, 0.15));
+  filter: drop-shadow(0 1px 2px rgba(139, 85, 96, 0.15));
 }
 
 @keyframes petalWindDrift {
@@ -1483,7 +1483,7 @@ body {
 }
 
 .graphic-button:focus-visible {
-  outline: 2px solid #F3DDE0;
+  outline: 2px solid #F7E0E3;
   outline-offset: 3px;
 }
 
@@ -1493,7 +1493,7 @@ body {
   justify-content: center;
   gap: 0.35rem;
   font-size: 0.8125rem;
-  color: #6F4A52;
+  color: #8B5560;
   text-shadow: 0 1px 0 rgba(255, 250, 252, 0.35);
   white-space: nowrap;
   pointer-events: none;
@@ -1586,12 +1586,13 @@ body {
 
 .section-title-graphic-inner {
   text-align: center;
-  background-image: linear-gradient(to right, #9B737C, #C98F9B, #6F4A52);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  background-image: none;
+  color: #FFFFFF;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #FFFFFF;
   line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(74, 44, 51, 0.18);
 }
 
 .section-title-graphic-inner--line {
@@ -1608,8 +1609,9 @@ body {
 }
 
 .section-title-graphic-inner--light {
-  color: #6F4A52;
-  text-shadow: 0 1px 2px rgba(63, 51, 72, 0.18);
+  color: #FFFFFF;
+  -webkit-text-fill-color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(74, 44, 51, 0.18);
 }
 
 /* Gallery grid: image-frame overlay + inset photo (80% scale) */
@@ -1700,9 +1702,9 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(232, 196, 200, 0.55);
-  border: 2px solid #C9A07A;
+  border: 2px solid #E8D5C4;
   box-shadow:
-    0 0 12px rgba(216, 167, 177, 0.45),
+    0 0 12px rgba(232, 180, 184, 0.45),
     inset 0 0 8px rgba(248, 241, 234, 0.35);
 }
 
@@ -1740,7 +1742,7 @@ body {
     transform: scale(1);
     filter:
       drop-shadow(0 0 3px rgba(232, 196, 200, 0.45))
-      drop-shadow(0 0 8px rgba(216, 167, 177, 0.35));
+      drop-shadow(0 0 8px rgba(232, 180, 184, 0.35));
   }
   50% {
     transform: scale(1.04);
@@ -1762,7 +1764,7 @@ body {
     animation: none;
     filter:
       drop-shadow(0 0 8px rgba(232, 196, 200, 0.6))
-      drop-shadow(0 0 18px rgba(216, 167, 177, 0.5));
+      drop-shadow(0 0 18px rgba(232, 180, 184, 0.5));
   }
 }
 

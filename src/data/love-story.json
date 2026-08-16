@@ -1,22 +1,32 @@
 {
+  "narrative": "From a borrowed charger to a forever yes — AJ and Min's story, one chapter at a time.",
+  "content": "From a borrowed charger to a forever yes — AJ and Min's story, one chapter at a time.",
+  "paragraphs": [],
   "timeline": [
     {
-      "title": "First Steps",
-      "date": "2008",
-      "description": "The beginning of an incredible journey. From those first steps to discovering the world, every moment has been a precious memory.",
-      "image": "couple2"
+      "title": "First hello",
+      "date": "August 18, 2022",
+      "description": "Casually said hi to each other as we were introduced by friends using a borrowed charger."
     },
     {
-      "title": "Growing Up",
-      "date": "2015",
-      "description": "School days filled with learning, friendships, and dreams. These years shaped who I am today and taught me the value of hard work and perseverance.",
-      "image": "couple4"
+      "title": "Official",
+      "date": "October 18, 2022",
+      "description": "We made it official!"
     },
     {
-      "title": "Turning 18",
-      "date": "2026",
-      "description": "A new chapter begins! Turning 18 marks the start of adulthood, new opportunities, and exciting adventures ahead. This milestone is just the beginning!",
-      "image": "couple7"
+      "title": "Foodtrips",
+      "date": "",
+      "description": "Foodtrip is our go-to date, especially in BGC and Makati."
+    },
+    {
+      "title": "Traveling",
+      "date": "January 25, 2024",
+      "description": "We started travelling inside and outside the country."
+    },
+    {
+      "title": "Engaged",
+      "date": "May 12, 2025",
+      "description": "We got engaged in Vietnam."
     }
   ]
-} 
+}

@@ -2,31 +2,38 @@
   "events": [
     {
       "id": 1,
-      "time": "3:00 PM",
+      "time": "2:00 PM",
       "title": "Guest Gathering",
-      "description": "Guest gathering and arrivals",
-      "venue": "Limay Multi Purpose Hall"
+      "description": "Guests arrive and settle in",
+      "venue": "Villa Ardin Events Place"
     },
     {
       "id": 2,
-      "time": "3:30 PM",
-      "title": "Light Snacks and Drinks",
-      "description": "Light snacks and drinks",
-      "venue": "Limay Multi Purpose Hall"
+      "time": "3:00 PM",
+      "title": "Ceremony",
+      "description": "Wedding ceremony",
+      "venue": "Villa Ardin Events Place"
     },
     {
       "id": 3,
       "time": "4:00 PM",
-      "title": "Program Begins",
-      "description": "Main celebration / program begins",
-      "venue": "Limay Multi Purpose Hall"
+      "title": "Cocktail Hour",
+      "description": "Cocktails after the ceremony",
+      "venue": "Villa Ardin Events Place"
     },
     {
       "id": 4,
-      "time": "7:00 PM",
-      "title": "End",
-      "description": "Celebration ends",
-      "venue": "Limay Multi Purpose Hall"
+      "time": "5:00 PM",
+      "title": "Reception",
+      "description": "Reception begins",
+      "venue": "Villa Ardin Events Place"
+    },
+    {
+      "id": 5,
+      "time": "5:30 PM",
+      "title": "Dinner",
+      "description": "Dinner is served",
+      "venue": "Villa Ardin Events Place"
     }
   ]
 }

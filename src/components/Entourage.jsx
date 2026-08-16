@@ -1,93 +1,93 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { theme } from '../data'
+import { FiUsers } from 'react-icons/fi'
+import EntourageModal from './EntourageModal'
+import StorybookSectionBg from './StorybookSectionBg'
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
+
+const Divider = ({ flip = false }) => (
+  <div className="flex justify-center items-center">
+    <div className="w-16 h-px bg-white opacity-50" />
+    <img
+      src="/images/graphics/graphics-1.svg"
+      alt=""
+      aria-hidden
+      className={`w-32 sm:w-40 md:w-48 h-auto mx-4 ${flip ? 'scale-y-[-1]' : ''}`}
+    />
+    <div className="w-16 h-px bg-white opacity-50" />
+  </div>
+)
 
 const Entourage = () => {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
+  const [isEntourageOpen, setIsEntourageOpen] = useState(false)
 
   useEffect(() => {
-    // Scroll-triggered animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse"
+        start: 'top 50%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
       }
     })
 
-    // Section title animation
-    tl.fromTo(".entourage-title", 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-    )
+    tl.fromTo(contentRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
 
-    // Content animation with stagger
-    tl.fromTo(contentRef.current.children, 
-      { opacity: 0, y: 50 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.8, 
-        ease: "power2.out",
-        stagger: 0.2
-      },
-      "-=0.5"
-    )
-
-    // Cleanup function
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
+    return () => tl.kill()
   }, [])
 
-  const entourageImages = [
-    "/images/entourage/1.png",
-    "/images/entourage/2.png", 
-    "/images/entourage/3.png",
-    "/images/entourage/4.png",
-    "/images/entourage/5.png",
-    "/images/entourage/6.png"
-  ]
-
   return (
-    <section
-      ref={sectionRef}
-      className={`py-20 ${theme.backgrounds.primary}`}
-    >
-        <div className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <div ref={contentRef} className="text-center mb-20">
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script ${theme.text.theme} mb-6 entourage-title`}>
-            Entourage
-          </h2>
-          <p className={`text-xl sm:text-2xl ${theme.text.secondary} max-w-3xl mx-auto`}>
-            Honoring those who will stand with us on our special day
-          </p>
-        </div>
-
-        {/* Entourage Images Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-          {entourageImages.map((image, index) => (
-            <div key={index} className="relative group">
-              <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <img 
-                  src={image} 
-                  alt={`Entourage member ${index + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+    <>
+      <section
+        ref={sectionRef}
+        id="entourage"
+        className="relative py-20 w-full overflow-hidden bg-[#FBF3F0] min-h-[500px]"
+      >
+        <StorybookSectionBg variant="book" />
+        <div className="relative z-20 flex items-center justify-center min-h-[500px]">
+          <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+            <Divider />
+            <div ref={contentRef} className="flex flex-col items-center w-full">
+              <div className="w-full text-center">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 font-caribbean">
+                  <span
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
+                    style={{ lineHeight: '0.8' }}
+                  >
+                    E
+                  </span>
+                  <span className="inline-block">ntourage</span>
+                </h2>
+                <p className="text-base sm:text-lg font-albert font-thin text-white max-w-3xl mx-auto leading-relaxed mb-4">
+                  Meet the special people who will stand with us on our wedding day.
+                </p>
+                <div className="flex justify-center items-center mt-6">
+                  <button
+                    type="button"
+                    onClick={() => setIsEntourageOpen(true)}
+                    className="flex items-center justify-center gap-2 px-6 py-3 border border-white/70 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                    style={{ borderRadius: '25px' }}
+                  >
+                    <span className="text-sm sm:text-base font-albert font-thin text-white">
+                      View our entourage
+                    </span>
+                    <FiUsers className="h-5 w-5 text-white" aria-hidden />
+                  </button>
+                </div>
+                <Divider flip />
               </div>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <EntourageModal isOpen={isEntourageOpen} onClose={() => setIsEntourageOpen(false)} />
+    </>
   )
 }
 
-export default Entourage 
+export default Entourage

@@ -5,7 +5,7 @@ import { wedding } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const BG = wedding.giftSection?.backgroundImage || '/images/prenup/prenup-03.jpg'
+const BG = wedding.giftSection?.backgroundImage || '/images/prenup/NZ6_7546.jpeg'
 
 const OurGiftSection = () => {
   const gs = wedding.giftSection ?? {}
@@ -40,7 +40,7 @@ const OurGiftSection = () => {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-24 pb-28 md:pt-44 md:pb-36"
-      style={{ backgroundColor: '#F8F1EA' }}
+      style={{ backgroundColor: '#FBF3F0' }}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -53,7 +53,7 @@ const OurGiftSection = () => {
 
       {/* Mirrored overlays (pastel wash anchors on the right, matching right-aligned copy) */}
       <div className="pointer-events-none absolute inset-0 z-[1]" style={{ transform: 'scaleX(-1)', transformOrigin: 'center' }} aria-hidden>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F3DDE0]/90 via-[#E8C4C8]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F7E0E3]/90 via-[#F0C9CE]/65 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
@@ -65,7 +65,7 @@ const OurGiftSection = () => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(216, 167, 177, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(232, 180, 184, 0.5) 100%)'
           }}
         />
         <div
@@ -79,7 +79,7 @@ const OurGiftSection = () => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(216, 167, 177, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(232, 180, 184, 0.45) 0%, transparent 52%)'
           }}
         />
       </div>
@@ -87,7 +87,7 @@ const OurGiftSection = () => {
       <div className="relative z-20 ml-auto mr-0 flex w-full max-w-lg justify-end px-5 sm:px-8">
         <div className="overflow-hidden">
           <div ref={contentRef} className="py-5 text-right">
-            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#6F4A52', textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)' }}>
+            <div className="mb-2 ml-auto mr-0 inline-block text-right sm:mb-2.5" style={{ color: '#8B5560', textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)' }}>
               {eyebrow ? (
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   {eyebrow.toLowerCase()}
@@ -106,7 +106,7 @@ const OurGiftSection = () => {
               <p
                 className="ml-auto w-[60%] max-w-full pb-4 font-poppins text-xs leading-snug font-light sm:text-[0.8125rem]"
                 style={{
-                  color: '#6F4A52',
+                  color: '#8B5560',
                   textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)',
                   whiteSpace: 'pre-line'
                 }}

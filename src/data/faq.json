@@ -1,16 +1,40 @@
 {
   "faqData": [
     {
+      "question": "What time should I arrive?",
+      "answer": "Please arrive 30 minutes before the ceremony so everyone is seated before we begin."
+    },
+    {
+      "question": "Is there a dress code?",
+      "answer": "Formal / Semi-formal. We kindly ask guests to avoid wearing white, ivory, or colors too similar to the bride's gown, and to strictly follow the color palette."
+    },
+    {
       "question": "Can I bring a plus one?",
-      "answer": "Kindly please inform us beforehand. Only guests whose names are on the official list will be allowed to enter."
+      "answer": "Due to venue capacity, only guests whose names appear on the invitation are invited. Thank you for understanding."
     },
     {
-      "question": "Who can I contact for concerns or messages?",
-      "answer": "For any questions, concerns, or messages, feel free to chat me anytime."
+      "question": "Are children invited?",
+      "answer": "We love your little ones! However, only children who are invited together with their parents may come, and with strict supervision."
     },
     {
-      "question": "Do I need to confirm my attendance?",
-      "answer": "Yes, you can answer the RSVP through the link provided on or before July 30, 2026."
+      "question": "Will the ceremony and reception be at the same venue?",
+      "answer": "Yes."
+    },
+    {
+      "question": "Is parking available?",
+      "answer": "Yes, complimentary parking is available at the venue."
+    },
+    {
+      "question": "What if I'm late?",
+      "answer": "To avoid interrupting the ceremony, late arrivals may be asked to wait until an appropriate moment before being seated."
+    },
+    {
+      "question": "When is the RSVP deadline?",
+      "answer": "Please RSVP on or before January 17, 2027. If we don't hear from you by then, we will miss you but will have to count you as not attending. Hope to see you there!"
+    },
+    {
+      "question": "Can I take photos during the ceremony?",
+      "answer": "We kindly ask everyone to keep phones and cameras away during the ceremony and simply enjoy the moment with us. Once the ceremony is over, we'd love for you to take as many photos as you'd like!"
     }
   ]
 }

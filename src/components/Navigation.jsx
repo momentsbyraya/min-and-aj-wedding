@@ -94,7 +94,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div ref={logoRef} className="flex items-center space-x-2">
-              <FiHeart className="h-8 w-8 text-[#9B737C] nav-heart" />
+              <FiHeart className="h-8 w-8 text-[#B07D86] nav-heart" />
               <span className="text-xl font-serif font-semibold text-wedding-800">
                 {celebrant.debutant.name.full}
               </span>
@@ -108,7 +108,7 @@ const Navigation = () => {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href, item.action)}
-                    className="flex items-center space-x-2 text-wedding-700 hover:text-[#9B737C] transition-all duration-200 hover:scale-105 active:scale-95"
+                    className="flex items-center space-x-2 text-wedding-700 hover:text-[#B07D86] transition-all duration-200 hover:scale-105 active:scale-95"
                   >
                     <Icon className="h-5 w-5" />
                     <span>{item.name}</span>
@@ -120,7 +120,7 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 rounded-md text-wedding-700 hover:text-[#9B737C] hover:bg-wedding-100 transition-colors duration-200"
+              className="md:hidden p-2 rounded-md text-wedding-700 hover:text-[#B07D86] hover:bg-wedding-100 transition-colors duration-200"
             >
               {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
             </button>
@@ -139,7 +139,7 @@ const Navigation = () => {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href, item.action)}
-                    className="flex items-center space-x-3 w-full px-4 py-3 text-left text-wedding-700 hover:text-[#9B737C] hover:bg-wedding-100 rounded-md transition-all duration-200 hover:translate-x-2"
+                    className="flex items-center space-x-3 w-full px-4 py-3 text-left text-wedding-700 hover:text-[#B07D86] hover:bg-wedding-100 rounded-md transition-all duration-200 hover:translate-x-2"
                   >
                     <Icon className="h-5 w-5" />
                     <span>{item.name}</span>

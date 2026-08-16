@@ -57,8 +57,9 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
+      id="dress-code"
       className="relative w-full overflow-hidden pt-24 pb-52 sm:pt-28 sm:pb-60 md:pt-32 md:pb-72"
-      style={{ backgroundColor: '#E8C4C8' }}
+      style={{ backgroundColor: '#F0C9CE' }}
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -93,7 +94,7 @@ const DressCode = () => {
         <div ref={descriptionRef} className="mt-5 flex flex-col items-center gap-3 text-center">
           <p
             className="alice-regular leading-none"
-            style={{ color: '#6F4A52' }}
+            style={{ color: '#FFFFFF' }}
           >
             <span style={{ fontSize: 'clamp(1.75rem, 5.2vw, 2.85rem)' }}>
               {mainDressCode.title}
@@ -103,7 +104,7 @@ const DressCode = () => {
               {mainDressCode.subtitle}
             </span>
           </p>
-          <p className="font-albert font-thin text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#6F4A52' }}>
+          <p className="font-albert font-thin text-[11px] sm:text-xs leading-relaxed max-w-md px-6 sm:px-8" style={{ color: '#FFFFFF' }}>
             {mainDressCode.description.split('\n\n').map((paragraph, i) => {
               const isAvoidLine = /^avoid\s+wearing/i.test(paragraph.trim())
               return (
@@ -133,22 +134,22 @@ const DressCode = () => {
               className="dresscode-guests-image w-full h-auto object-contain"
             />
           </div>
-          <div
+            <div
             ref={swatchesRef}
-            className="flex w-[20%] flex-col items-center gap-2 sm:gap-3"
+            className="flex w-[20%] flex-col items-center gap-1.5 sm:gap-2"
             aria-label={colorPalette.map((c) => c.label).join(', ')}
           >
             {colorPalette.map((color) => (
               <div key={color.name} className="flex flex-col items-center gap-1">
                 <span
-                  className="block h-8 w-8 rounded-full border border-[#6F4A52]/15 shadow-sm sm:h-10 sm:w-10"
+                  className="block h-8 w-8 rounded-full border border-white/25 shadow-sm sm:h-10 sm:w-10"
                   style={{ backgroundColor: color.hex }}
                   title={color.label}
                   aria-hidden="true"
                 />
                 <span
-                  className="alice-regular text-[8px] uppercase tracking-[0.1em] sm:text-[9px]"
-                  style={{ color: '#9B737C' }}
+                  className="alice-regular text-[7px] uppercase tracking-[0.06em] sm:text-[8px] leading-tight text-center"
+                  style={{ color: 'rgba(255,255,255,0.85)' }}
                 >
                   {color.label}
                 </span>

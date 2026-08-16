@@ -43,20 +43,20 @@ const Paragraph = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden min-h-screen md:min-h-0 bg-[#F8F1EA]"
+      className="relative py-20 w-full overflow-hidden min-h-screen md:min-h-0 bg-[#FBF3F0]"
     >
       <StorybookSectionBg variant="calligraphy" />
 
       <div className="relative z-20 flex items-center justify-center py-12">
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           <div ref={headerRef} className="text-left mb-12">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#6F4A52] font-lavishly italic">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#8B5560] font-lavishly italic">
               when {preferredName.split(' ')[0]} turned eighteen....
             </h2>
             <div ref={contentRef}>
               <div className="soft-edges mb-8 relative">
                 <img
-                  src="/images/prenup/prenup-05.jpg"
+                  src="/images/prenup/NZ6_8202.jpeg"
                   alt={preferredName}
                   className="w-full"
                 />
@@ -74,7 +74,7 @@ const Paragraph = () => {
                   }}
                 />
               </div>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#6F4A52] font-lavishly italic text-center">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#8B5560] font-lavishly italic text-center">
                 a new chapter
                 <br />
                 began to bloom.

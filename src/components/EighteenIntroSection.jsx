@@ -9,7 +9,7 @@ import { eighteenths } from '../data'
 gsap.registerPlugin(ScrollTrigger)
 
 /** Prenup photo not referenced elsewhere on this invitation. */
-const INTRO_BG = '/images/prenup/prenup-02.jpg'
+const INTRO_BG = '/images/prenup/NZ6_7550.jpeg'
 
 /** Eighteenths full-screen modal background (graphics). */
 const MODAL_PALACE_BG = '/images/graphics/palace.png'
@@ -82,7 +82,7 @@ const EighteenIntroSection = () => {
       <section
         ref={sectionRef}
         className="relative w-full overflow-hidden pt-24 pb-32 md:pt-44 md:pb-44"
-        style={{ backgroundColor: '#F8F1EA' }}
+        style={{ backgroundColor: '#FBF3F0' }}
       >
         <div
           className="absolute inset-0 z-0 bg-cover bg-no-repeat"
@@ -93,7 +93,7 @@ const EighteenIntroSection = () => {
           aria-hidden
         />
         <div
-          className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#F3DDE0]/90 via-[#E8C4C8]/65 to-transparent"
+          className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#F7E0E3]/90 via-[#F0C9CE]/65 to-transparent"
           aria-hidden
         />
         <div
@@ -108,7 +108,7 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[3] pointer-events-none"
           style={{
             background:
-              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(216, 167, 177, 0.5) 100%)'
+              'linear-gradient(115deg, rgba(155, 115, 124, 0.45) 0%, rgba(232, 196, 200, 0.4) 32%, transparent 62%), linear-gradient(180deg, rgba(248, 241, 234, 0.65) 0%, transparent 38%, transparent 62%, rgba(232, 180, 184, 0.5) 100%)'
           }}
           aria-hidden
         />
@@ -124,14 +124,14 @@ const EighteenIntroSection = () => {
           className="absolute inset-0 z-[5] pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(216, 167, 177, 0.45) 0%, transparent 52%)'
+              'linear-gradient(90deg, rgba(232, 196, 200, 0.6) 0%, rgba(248, 241, 234, 0.4) 22%, transparent 50%), linear-gradient(102deg, rgba(232, 180, 184, 0.45) 0%, transparent 52%)'
           }}
           aria-hidden
         />
         <div className="relative z-20 w-full max-w-lg mr-auto px-5 sm:px-8">
           <div className="overflow-hidden">
             <div ref={contentRef} className="py-5 text-left">
-              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#6F4A52', textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)' }}>
+              <div className="mb-2 inline-block text-left sm:mb-2.5" style={{ color: '#8B5560', textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)' }}>
                 <p className="font-beautyofthebeast mb-2 text-lg capitalize tracking-[0.08em] sm:mb-2.5 sm:text-xl">
                   Programme
                 </p>
@@ -146,7 +146,7 @@ const EighteenIntroSection = () => {
               </div>
               <p
                 className="font-poppins font-light text-xs sm:text-[0.8125rem] leading-snug w-[60%] max-w-full pb-4"
-                style={{ color: '#6F4A52', textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)' }}
+                style={{ color: '#8B5560', textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)' }}
               >
                 {teaser}
               </p>
@@ -165,10 +165,10 @@ const EighteenIntroSection = () => {
             contentClassName="font-beautyofthebeast lowercase !text-[0.9rem] sm:!text-[1rem] !mb-2"
             aria-haspopup="dialog"
           >
-            <span style={{ color: '#6F4A52' }}>
+            <span style={{ color: '#8B5560' }}>
               view full list
             </span>
-            <FiArrowRight className="h-4 w-4 shrink-0 text-[#9B737C] -mb-1.5" aria-hidden="true" />
+            <FiArrowRight className="h-4 w-4 shrink-0 text-[#B07D86] -mb-1.5" aria-hidden="true" />
           </GraphicButton>
         </div>
       </section>
@@ -176,7 +176,7 @@ const EighteenIntroSection = () => {
       {modalOpen && (
         <div
           className="fixed inset-0 z-[195] flex min-h-0 flex-col modal-slide-up-panel"
-          style={{ backgroundColor: '#F8F1EA' }}
+          style={{ backgroundColor: '#FBF3F0' }}
           role="dialog"
           aria-modal="true"
           aria-labelledby="eighteen-modal-title"
@@ -211,7 +211,7 @@ const EighteenIntroSection = () => {
           <button
             type="button"
             onClick={closeModal}
-            className="absolute z-20 rounded-full border border-[#F3DDE0]/18 bg-white/90 p-2.5 text-[#6F4A52] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
+            className="absolute z-20 rounded-full border border-[#F7E0E3]/18 bg-white/90 p-2.5 text-[#8B5560] shadow-[0_4px_16px_rgba(111,45,54,0.12)] transition-colors hover:bg-white"
             style={{
               top: 'max(1rem, env(safe-area-inset-top))',
               right: 'max(1rem, env(safe-area-inset-right))'

@@ -84,10 +84,10 @@ const GiftRegistry = () => {
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-4">
           {/* Header Section */}
           <div className="text-center mb-12">
-            <h2 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-6" style={{ color: '#9B737C' }}>
+            <h2 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl font-antsvalley mb-6" style={{ color: '#B07D86' }}>
               Gift Suggestions
             </h2>
-            <p ref={descriptionRef} className="max-w-3xl mx-auto mb-8 font-poppins" style={{ fontSize: '1rem', color: '#6F4A52' }}>
+            <p ref={descriptionRef} className="max-w-3xl mx-auto mb-8 font-poppins" style={{ fontSize: '1rem', color: '#8B5560' }}>
               Your presence is the greatest gift, but if you'd like to give something special, 
               I would appreciate:
             </p>
@@ -108,7 +108,7 @@ const GiftRegistry = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-antsvalley" style={{ color: '#9B737C' }}>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-antsvalley" style={{ color: '#B07D86' }}>
                     {gift.name}
                   </h3>
                 </div>

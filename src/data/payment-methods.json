@@ -1,32 +1,3 @@
 {
-  "paymentMethods": [
-    {
-      "name": "Bank Transfer",
-      "icon": "Building",
-      "accountInfo": {
-        "bank": "Chase Bank",
-        "accountNumber": "8299212972",
-        "accountName": "Amanda Ira Inis Panuncialman",
-        "qrCode": "/images/gift/gcash%20no.jpg"
-      }
-    },
-    {
-      "name": "PayPal",
-      "icon": "CreditCard",
-      "accountInfo": {
-        "provider": "PayPal",
-        "accountNumber": "wedding@email.com",
-        "accountName": "Michael Smith"
-      }
-    },
-    {
-      "name": "Venmo",
-      "icon": "Smartphone",
-      "accountInfo": {
-        "provider": "Venmo",
-        "accountNumber": "@SarahMichaelWedding",
-        "accountName": "Michael Smith"
-      }
-    }
-  ]
-} 
+  "paymentMethods": []
+}

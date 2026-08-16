@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { celebrant, venues } from '../data'
+import './Hero.css'
 
 const Hero = () => {
   const heroRef = useRef(null)
@@ -8,22 +9,10 @@ const Hero = () => {
 
   const bgStyle = useMemo(
     () => ({
-      backgroundImage: 'url(/images/graphics/old-book-2.png)',
+      backgroundImage: 'url(/images/bg-1.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      opacity: 0.75
-    }),
-    []
-  )
-
-  const bgTopStyle = useMemo(
-    () => ({
-      backgroundImage: 'url(/images/graphics/old-book-bg.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      opacity: 0.5
+      backgroundRepeat: 'no-repeat'
     }),
     []
   )
@@ -47,15 +36,6 @@ const Hero = () => {
   const dateInfo = formatDate(debutInfo.date)
   const venue = venues?.venue ?? {}
   const venueTime = (venue.main?.time || debutInfo.time || '').replace(/\s/g, '').toUpperCase()
-  const preferredName = (
-    celebrant?.debutant?.name?.preferred ||
-    celebrant?.debutant?.name?.nickname ||
-    celebrant?.debutant?.name?.first ||
-    'Althea'
-  ).trim()
-  const venueAddressLine = [venue.address, venue.city, [venue.state, venue.zip].filter(Boolean).join(' ')]
-    .filter(Boolean)
-    .join(', ')
 
   useEffect(() => {
     if (contentRef.current) {
@@ -77,11 +57,11 @@ const Hero = () => {
     <>
       <section
         ref={heroRef}
+        id="hero"
         className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
         aria-label="Invitation"
       >
         <div className="absolute inset-0 z-0" style={bgStyle} />
-        <div className="absolute inset-0 z-0" style={bgTopStyle} />
 
         <img
           src="/images/graphics/corner-border.svg"
@@ -143,11 +123,11 @@ const Hero = () => {
 
         <div
           ref={contentRef}
-          className="relative z-10 max-w-2xl w-full px-8 py-12 sm:px-12 sm:py-16"
+          className="relative z-10 max-w-2xl w-full px-6 py-8 sm:px-12 sm:py-10"
         >
           <div className="relative z-10 text-center">
-            <div className="mb-4 sm:mb-6">
-              <div className="text-[#6F4A52] alice-regular font-bold text-xs sm:text-sm md:text-base tracking-widest leading-none">
+            <div className="mb-3 sm:mb-4">
+              <div className="text-[#8B5560] alice-regular font-bold text-xs sm:text-sm md:text-base tracking-widest leading-none">
                 <div className="text-sm sm:text-base md:text-lg font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>
                   A NEW
                 </div>
@@ -160,81 +140,64 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="mb-6 sm:mb-8">
-              <h1 className="text-[#6F4A52] font-caribbean text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">
-                <span
-                  className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] leading-none inline-block"
-                  style={{ lineHeight: '0.8' }}
-                >
-                  O
-                </span>
-                <span className="inline-block">nce upon</span>
-                <br />
-                <span className="inline-block" style={{ paddingLeft: '2rem' }}>
-                  <span
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none mr-1"
-                    style={{ lineHeight: '0.75', marginTop: '-0.1em' }}
-                  >
-                    A
-                  </span>
-                  <span className="inline-block">time...</span>
-                </span>
-              </h1>
-            </div>
-
-            <div className="mb-6 sm:mb-8 text-center max-w-xl mx-auto">
-              <p
-                className="text-[#6F4A52] font-albert font-thin text-sm sm:text-base md:text-lg leading-relaxed"
-                style={{ textIndent: '0', overflow: 'hidden' }}
+            <h1 className="text-[#8B5560] font-caribbean text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-3 sm:mb-4">
+              <span
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none inline-block"
+                style={{ lineHeight: '0.8' }}
               >
+                O
+              </span>
+              <span className="inline-block">nce upon</span>
+              <br />
+              <span className="inline-block" style={{ paddingLeft: '1.5rem' }}>
                 <span
-                  className="font-caribbean text-4xl sm:text-5xl md:text-6xl inline-block leading-none mr-1"
-                  style={{ lineHeight: '0.75', marginTop: '0' }}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl inline-block leading-none mr-1"
+                  style={{ lineHeight: '0.75', marginTop: '-0.1em' }}
                 >
-                  I
+                  A
                 </span>
-                <span>
-                  n a kingdom not so far away, <br /> a story was planned <br /> for a debutante turning eighteen.
-                </span>
-              </p>
-            </div>
+                <span className="inline-block">time...</span>
+              </span>
+            </h1>
 
-            <div className="mb-6 sm:mb-8">
-              <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
-                <span className="text-[#6F4A52] font-lavishly text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                  {preferredName}
-                </span>
+            <div className="hero-mirror mb-4 sm:mb-5">
+              <div className="hero-mirror-photo">
+                <img
+                  src="/images/prenup/NZ6_7683.jpeg"
+                  alt="AJ and Min"
+                />
               </div>
+              <img
+                className="hero-mirror-frame"
+                src="/images/graphics/oval-frame.png"
+                alt=""
+                aria-hidden="true"
+              />
             </div>
 
             <div className="mb-2 sm:mb-3">
-              <div className="text-[#6F4A52] alice-regular font-bold text-base sm:text-lg md:text-xl tracking-wider text-center">
+              <div className="text-[#8B5560] alice-regular font-bold text-base sm:text-lg md:text-xl tracking-wider text-center">
                 {dateInfo.month}
               </div>
               <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 max-w-md mx-auto">
                 <div className="flex flex-col items-center">
-                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mb-0" />
-                  <div className="text-[#6F4A52] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#8B5560] mb-0" />
+                  <div className="text-[#8B5560] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
                     {dateInfo.dayOfWeek}
                   </div>
-                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mt-0" />
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#8B5560] mt-0" />
                 </div>
-                <div className="text-[#6F4A52] alice-regular font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+                <div className="text-[#8B5560] alice-regular font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
                   {dateInfo.day}
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mb-0" />
-                  <div className="text-[#6F4A52] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#8B5560] mb-0" />
+                  <div className="text-[#8B5560] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
                     {venueTime}
                   </div>
-                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#6F4A52] mt-0" />
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#8B5560] mt-0" />
                 </div>
               </div>
-            </div>
-
-            <div className="text-center max-w-md mx-auto text-[#6F4A52] font-albert font-thin text-xs sm:text-sm md:text-base space-y-1 mb-6">
-              {venue.name ? <div className="alice-regular font-bold">{venue.name}</div> : null}
-              {venueAddressLine ? <div>{venueAddressLine}</div> : null}
             </div>
           </div>
         </div>

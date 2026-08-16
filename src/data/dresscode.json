@@ -1,34 +1,39 @@
 {
   "mainDressCode": {
-    "title": "PASTEL COLORS",
+    "title": "BLUSH PALETTE",
     "subtitle": "GUESTS",
-    "description": "I would love to see you wearing pastel colors — specifically green, yellow, purple, gray, and beige.\n\nAvoid wearing pink.",
+    "description": "Formal / Semi-formal. We kindly ask guests to wear dusty pink, nude pink, blush pink, champagne pink, soft taupe, or beige.\n\nAvoid wearing white, ivory, or colors too similar to the bride's gown.",
     "inspoUrl": ""
   },
   "colorPalette": [
     {
-      "name": "color-green",
-      "hex": "#C9DCC4",
-      "label": "Green"
+      "name": "dusty-pink",
+      "hex": "#C9A3A6",
+      "label": "Dusty Pink"
     },
     {
-      "name": "color-yellow",
-      "hex": "#F2E6B8",
-      "label": "Yellow"
+      "name": "nude-pink",
+      "hex": "#E6C7BE",
+      "label": "Nude Pink"
     },
     {
-      "name": "color-purple",
-      "hex": "#D4C4DC",
-      "label": "Purple"
+      "name": "blush-pink",
+      "hex": "#E8B4B8",
+      "label": "Blush Pink"
     },
     {
-      "name": "color-gray",
-      "hex": "#D4D4D4",
-      "label": "Gray"
+      "name": "champagne-pink",
+      "hex": "#E8D5C4",
+      "label": "Champagne"
     },
     {
-      "name": "color-beige",
-      "hex": "#F8F1EA",
+      "name": "soft-taupe",
+      "hex": "#C4B5A5",
+      "label": "Soft Taupe"
+    },
+    {
+      "name": "beige",
+      "hex": "#EDE4D4",
       "label": "Beige"
     }
   ]
