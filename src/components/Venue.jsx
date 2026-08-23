@@ -1,15 +1,14 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { venues as venuesData, celebrant } from '../data'
+import { venues as venuesData } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Venue = () => {
   const sectionRef = useRef(null)
-  const venueNameRef = useRef(null)
+  const contentRef = useRef(null)
   const venueData = venuesData.venue
-  const dayOfWeek = celebrant?.debutant?.debut?.dayOfWeek || ''
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -22,7 +21,7 @@ const Venue = () => {
     })
 
     tl.fromTo(
-      venueNameRef.current,
+      contentRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
     )
@@ -32,68 +31,111 @@ const Venue = () => {
     }
   }, [])
 
-  const addressLine = [venueData.address, venueData.city, [venueData.state, venueData.zip].filter(Boolean).join(' ')]
+  const locationLine = [venueData.address, venueData.city, [venueData.state, venueData.zip].filter(Boolean).join(' ')]
     .filter(Boolean)
     .join(', ')
+
+  const times = [venueData.main?.time, venueData.reception?.time].filter(Boolean)
+  const timeLine = times.length > 1 && times[0] !== times[1]
+    ? times.join(' · ')
+    : times[0] || ''
+
+  const hasCeremony = Boolean(venueData.main?.time || venueData.main?.label)
+  const hasReception = Boolean(venueData.reception?.time || venueData.reception?.label)
+  const sameVenueLabel =
+    hasCeremony && hasReception
+      ? 'Ceremony & Reception'
+      : hasCeremony
+        ? venueData.main?.label || 'Ceremony'
+        : hasReception
+          ? venueData.reception?.label || 'Reception'
+          : ''
 
   return (
     <section
       ref={sectionRef}
       id="where-to-go"
-      className="relative flex min-h-[800px] w-full flex-col items-center justify-center overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-12 sm:pt-28 sm:pb-16"
+      className="relative flex min-h-[800px] w-full flex-col items-center justify-start overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-12 sm:pt-28 sm:pb-16"
       style={{
         backgroundColor: '#F0C9CE',
         backgroundImage: `url(${venueData.image || '/images/venue/venue.png'})`
       }}
     >
-      <div className="soft-blob soft-blob--small absolute top-[10%] left-[6%] w-36 h-36 z-[1]" aria-hidden="true" />
+      <div className="soft-blob soft-blob--small absolute top-[10%] left-[6%] z-[1] h-36 w-36" aria-hidden="true" />
       <img
         src="/images/graphics/flower-left.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute top-0 right-0 z-[8] h-auto pointer-events-none scale-[-1]"
+        className="intro-corner-accent intro-corner-accent--flower-left pointer-events-none absolute -right-[8%] -top-[4%] z-[8] h-auto scale-[-1]"
       />
       <img
         src="/images/graphics/flower-left.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[8] h-auto pointer-events-none"
+        className="intro-corner-accent intro-corner-accent--flower-left pointer-events-none absolute -bottom-[4%] -left-[8%] z-[8] h-auto"
       />
-      <div className="relative z-20 mx-auto flex w-full max-w-2xl flex-col items-center px-4 text-center">
-        <div
-          ref={venueNameRef}
-          className="mx-auto w-fit max-w-full rounded-sm px-5 py-4 text-center sm:px-8 sm:py-5"
-          style={{ backgroundColor: 'rgba(248, 241, 234, 0.94)' }}
-        >
-          {venueData.name ? (
-            <p
-              className="font-lavishly text-2xl capitalize leading-tight tracking-[0.02em] sm:text-3xl md:text-4xl"
-              style={{ color: '#8B5560' }}
+
+      <div
+        ref={contentRef}
+        className="relative z-20 mx-auto flex w-full max-w-2xl flex-col items-center px-6 text-center sm:px-10"
+      >
+        {sameVenueLabel ? (
+          <p
+            className="font-lavishly text-xl leading-none sm:text-2xl md:text-3xl"
+            style={{ color: '#8B5560' }}
+          >
+            {sameVenueLabel}
+          </p>
+        ) : null}
+
+        {venueData.name ? (() => {
+          const words = venueData.name.trim().split(/\s+/)
+          const line1Words = words.slice(0, 2)
+          const line2Words = words.slice(2)
+          const firstWord = line1Words[0] || ''
+          const firstLetter = firstWord.charAt(0)
+          const firstWordRest = firstWord.slice(1)
+          const line1Rest = [firstWordRest, ...line1Words.slice(1)].filter(Boolean).join(' ')
+          const line2 = line2Words.join(' ')
+
+          return (
+            <h2
+              className="font-caribbean mt-2 text-2xl leading-snug sm:mt-3 sm:text-3xl md:text-4xl lg:text-5xl"
+              style={{ color: '#8B5560', lineHeight: '1.15' }}
             >
-              {venueData.name}
-            </p>
-          ) : null}
-          {addressLine ? (
-            <p
-              className="mt-2 font-albert font-thin text-sm leading-snug tracking-[0.02em] opacity-90 sm:text-base"
-              style={{ color: '#8B5560' }}
-            >
-              {addressLine}
-            </p>
-          ) : null}
-          {venueData.main?.time || venueData.reception?.time ? (
-            <div className="mt-2 alice-regular" style={{ color: '#8B5560' }}>
-              {venueData.main?.time ? (
-                <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">
-                  {[venueData.main.label || 'Ceremony', venueData.main.time, dayOfWeek].filter(Boolean).join(' · ')}
-                </p>
+              <span
+                className="inline-block text-4xl leading-none sm:text-5xl md:text-6xl lg:text-7xl"
+                style={{ lineHeight: '1' }}
+              >
+                {firstLetter}
+              </span>
+              <span className="inline-block">{line1Rest}</span>
+              {line2 ? (
+                <>
+                  <br />
+                  <span className="inline-block" style={{ paddingLeft: '1.25rem' }}>
+                    {line2}
+                  </span>
+                </>
               ) : null}
-              {venueData.reception?.time ? (
-                <p className="text-base tracking-[0.04em] opacity-90 sm:text-lg md:text-xl">
-                  {[venueData.reception.label || 'Reception', venueData.reception.time].filter(Boolean).join(' · ')}
-                </p>
-              ) : null}
-            </div>
+            </h2>
+          )
+        })() : null}
+
+        <div className="mt-3 mb-4 flex items-center justify-center gap-3 sm:mt-4 sm:mb-5" aria-hidden="true">
+          <span className="h-px w-8 bg-[#8B5560]/40 sm:w-12" />
+          <span className="text-sm leading-none text-[#8B5560]/70">✦</span>
+          <span className="h-px w-8 bg-[#8B5560]/40 sm:w-12" />
+        </div>
+
+        <div className="mx-auto w-fit max-w-full alice-regular" style={{ color: '#8B5560' }}>
+          {timeLine ? (
+            <p className="text-base tracking-[0.04em] sm:text-lg">{timeLine}</p>
+          ) : null}
+          {locationLine ? (
+            <p className={`font-albert font-thin text-sm leading-snug tracking-[0.02em] sm:text-base ${timeLine ? 'mt-1' : ''}`}>
+              {locationLine}
+            </p>
           ) : null}
         </div>
       </div>

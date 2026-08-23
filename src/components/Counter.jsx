@@ -5,10 +5,14 @@ import StorybookSectionBg from './StorybookSectionBg'
 
 gsap.registerPlugin(ScrollTrigger)
 
+/** Unused elsewhere on the invitation */
+const SAVE_THE_DATE_PRENUP = '/images/prenup/NZ6_7550.jpeg'
+
 const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
   const countdownRef = useRef(null)
+  const imageRef = useRef(null)
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -33,6 +37,12 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
         { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.2 },
         '-=0.5'
       )
+      .fromTo(
+        imageRef.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+        '-=0.35'
+      )
 
     return () => tl.kill()
   }, [])
@@ -41,20 +51,20 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
     <section
       ref={sectionRef}
       id="save-the-date"
-      className="relative py-20 w-full overflow-hidden"
+      className="relative w-full overflow-hidden pt-20 pb-0"
       style={{ backgroundColor: '#F0C9CE' }}
     >
       <StorybookSectionBg variant="book" />
 
-      <div className="relative z-20 flex items-center justify-center py-12">
-        <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">
+      <div className="relative z-20 flex flex-col items-center justify-center py-12">
+        <div className="mx-auto w-full max-w-xs px-8 sm:max-w-md sm:px-12 md:px-8 lg:max-w-xl lg:px-16">
           <div className="text-center">
             <h2
               ref={headerRef}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 font-caribbean"
+              className="mb-3 font-caribbean text-3xl text-[#8B5560] sm:text-4xl md:text-5xl lg:text-6xl"
             >
               <span
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
+                className="inline-block text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl"
                 style={{ lineHeight: '0.8' }}
               >
                 S
@@ -62,25 +72,25 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
               <span className="inline-block">ave</span> the Date
             </h2>
             <div ref={countdownRef}>
-              <p className="text-base sm:text-lg font-albert font-thin text-white max-w-3xl mx-auto leading-relaxed">
+              <p className="mx-auto max-w-3xl font-albert text-base font-thin leading-relaxed text-[#8B5560] sm:text-lg">
                 Mark your calendar for
                 <br />
                 this special day
               </p>
-              <div className="flex justify-center items-center">
-                <div className="w-16 h-px bg-white opacity-50" />
+              <div className="flex items-center justify-center">
+                <div className="h-px w-10 bg-[#8B5560] opacity-40" />
                 <img
                   src="/images/graphics/graphics-1.svg"
                   alt=""
                   aria-hidden
-                  className="w-32 sm:w-40 md:w-48 h-auto mx-4"
+                  className="mx-3 h-auto w-20 sm:w-24 md:w-28"
                 />
-                <div className="w-16 h-px bg-white opacity-50" />
+                <div className="h-px w-10 bg-[#8B5560] opacity-40" />
               </div>
             </div>
           </div>
 
-          <div className="flex justify-center items-center space-x-3 px-4 mt-8">
+          <div className="flex items-center justify-center space-x-3 px-4">
             {[
               { value: countdown.days, label: 'Days' },
               { value: countdown.hours, label: 'Hours' },
@@ -89,30 +99,53 @@ const Counter = ({ countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 } }) 
             ].map((item, index) => (
               <React.Fragment key={item.label}>
                 {index > 0 ? (
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-white">:</div>
+                  <div className="font-albert text-2xl font-thin text-[#8B5560] sm:text-3xl md:text-4xl">:</div>
                 ) : null}
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lavishly text-white mb-1 countdown-number not-italic">
+                  <div className="countdown-number mb-1 font-lavishly text-3xl not-italic text-[#6B3F48] sm:text-4xl md:text-5xl lg:text-6xl">
                     {item.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-white opacity-80 alice-regular uppercase tracking-wider">
+                  <div className="alice-regular text-xs uppercase tracking-wider text-[#8B5560] sm:text-sm">
                     {item.label}
                   </div>
                 </div>
               </React.Fragment>
             ))}
           </div>
+        </div>
 
-          <div className="flex justify-center items-center mt-6">
-            <div className="w-16 h-px bg-white opacity-50" />
-            <img
-              src="/images/graphics/graphics-1.svg"
-              alt=""
-              aria-hidden
-              className="w-32 sm:w-40 md:w-48 h-auto mx-4 scale-y-[-1]"
-            />
-            <div className="w-16 h-px bg-white opacity-50" />
+        <div className="mx-auto mt-8 w-full max-w-md px-3 sm:mt-10 sm:max-w-xl sm:px-4 lg:max-w-2xl">
+          <div
+            ref={imageRef}
+            className="gallery-tile gallery-tile--landscape w-full"
+            style={{
+              aspectRatio: '3 / 2',
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)'
+            }}
+          >
+            <div className="gallery-tile-inner h-full w-full">
+              <img
+                src={SAVE_THE_DATE_PRENUP}
+                alt="AJ & Min"
+                draggable={false}
+                loading="lazy"
+                style={{ objectPosition: 'center top' }}
+              />
+            </div>
           </div>
+        </div>
+
+        <div className="flex items-center justify-center px-8">
+          <div className="h-px w-10 bg-[#8B5560] opacity-40" />
+          <img
+            src="/images/graphics/graphics-1.svg"
+            alt=""
+            aria-hidden
+            className="mx-3 h-auto w-20 scale-y-[-1] sm:w-24 md:w-28"
+          />
+          <div className="h-px w-10 bg-[#8B5560] opacity-40" />
         </div>
       </div>
     </section>

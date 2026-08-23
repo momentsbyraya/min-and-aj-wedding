@@ -12,6 +12,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
   const screenRef = useRef(null)
   const [frameIndex, setFrameIndex] = useState(0)
   const [isOpening, setIsOpening] = useState(false)
+  const [idleReady, setIdleReady] = useState(false)
   const openingLock = useRef(false)
 
   const frameSrc = useMemo(() => BOOK_FRAMES[frameIndex] || BOOK_FRAMES[0], [frameIndex])
@@ -25,7 +26,11 @@ function OpeningScreen({ onEnvelopeOpen }) {
   }, [])
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.out' },
+      onComplete: () => setIdleReady(true)
+    })
+    const clickEl = clickLabelRef.current
 
     tl.fromTo(
       introCopyRef.current,
@@ -39,13 +44,20 @@ function OpeningScreen({ onEnvelopeOpen }) {
         '-=0.52'
       )
       .fromTo(
-        clickLabelRef.current,
+        clickEl,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.62 },
         '-=0.45'
       )
 
-    return () => tl.kill()
+    return () => {
+      tl.kill()
+      // Strict Mode remount can kill mid-tween and leave opacity at 0
+      if (clickEl) gsap.set(clickEl, { opacity: 1, y: 0, clearProps: 'transform' })
+      if (introCopyRef.current) gsap.set(introCopyRef.current, { opacity: 1, y: 0 })
+      if (bookWrapRef.current) gsap.set(bookWrapRef.current, { opacity: 1, y: 0, scale: 1 })
+      setIdleReady(true)
+    }
   }, [])
 
   const handleOpen = () => {
@@ -141,7 +153,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
         src="/images/graphics/flower-left.png"
         alt=""
         aria-hidden
-        className="opening-decor intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 z-[5] h-auto pointer-events-none"
+        className="opening-decor intro-corner-accent intro-corner-accent--flower-left absolute -bottom-[4%] -left-[12%] z-[5] h-auto pointer-events-none"
       />
       <img
         src="/images/graphics/flower-right.png"
@@ -150,25 +162,16 @@ function OpeningScreen({ onEnvelopeOpen }) {
         className="opening-decor intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[5] h-auto pointer-events-none"
       />
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 px-4 py-8 text-center pointer-events-none sm:gap-4">
-        <div ref={introCopyRef} className="mb-0">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 px-4 py-6 text-center pointer-events-none sm:gap-3 sm:py-8">
+        <div ref={introCopyRef} className="mb-0 shrink-0">
           <p
-            className="opening-invite-kicker alice-regular tracking-[0.2em] text-sm sm:text-base md:text-lg uppercase"
-            style={{
-              color: '#8B5560',
-              textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)'
-            }}
-          >
-            YOU ARE CORDIALLY
-          </p>
-          <p
-            className="opening-invite-title font-lavishly text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight"
+            className="opening-invite-title font-lavishly text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight px-2"
             style={{
               color: '#8B5560',
               textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)'
             }}
           >
-            Invited
+            In a world of love....
           </p>
         </div>
 
@@ -178,27 +181,33 @@ function OpeningScreen({ onEnvelopeOpen }) {
           onClick={handleOpen}
           disabled={isOpening}
           aria-label="Open invitation book"
-          className="opening-book-button focus:outline-none m-0 inline-flex items-center justify-center border-0 bg-transparent p-0 leading-none pointer-events-auto relative origin-center will-change-transform disabled:cursor-default"
+          className="opening-book-button focus:outline-none m-0 inline-flex shrink items-center justify-center border-0 bg-transparent p-0 leading-none pointer-events-auto relative origin-center will-change-transform disabled:cursor-default"
           style={{ transformOrigin: 'center center' }}
         >
-          <img
-            ref={bookImgRef}
-            src={frameSrc}
-            alt="Storybook invitation"
-            draggable={false}
-            className="opening-book-image block h-full w-full object-contain select-none"
-            style={{
-              filter: 'drop-shadow(0 18px 28px rgba(139, 85, 96, 0.28))'
-            }}
-          />
+          <span
+            className={`opening-book-float ${
+              idleReady && !isOpening ? 'is-floating' : ''
+            }`}
+          >
+            <img
+              ref={bookImgRef}
+              src={frameSrc}
+              alt="Storybook invitation"
+              draggable={false}
+              className={`opening-book-image block h-full w-full object-contain select-none ${
+                idleReady && !isOpening ? 'is-glowing' : ''
+              }`}
+            />
+          </span>
         </button>
 
         <p
           ref={clickLabelRef}
-          className="alice-regular mt-1 text-xs uppercase tracking-[0.3em] sm:text-sm md:text-base"
+          className="alice-regular relative z-[25] mt-2 shrink-0 px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.28em] sm:mt-3 sm:text-base md:text-lg"
           style={{
-            color: '#8B5560',
-            textShadow: '0 1px 2px rgba(248, 241, 234, 0.8)'
+            color: '#5C3340',
+            backgroundColor: 'rgba(255, 248, 247, 0.72)',
+            textShadow: '0 1px 2px rgba(255, 248, 247, 0.9)'
           }}
         >
           {isOpening ? 'OPENING…' : 'CLICK TO OPEN'}

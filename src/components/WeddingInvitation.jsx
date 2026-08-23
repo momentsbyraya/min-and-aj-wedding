@@ -3,7 +3,9 @@ import { getTimeUntilWedding } from '../utils/countdown'
 import FallingPetals from './FallingPetals'
 import HeroStorybook from './HeroStorybook'
 import Venue from './Venue'
+import VideoIntroSection from './VideoIntroSection'
 import Schedule from './Schedule'
+import PrenupFeature from './PrenupFeature'
 import Entourage from './Entourage'
 import RSVP from './RSVP'
 import Gifts from './Gifts'
@@ -17,8 +19,9 @@ import './WeddingInvitation.css'
 
 /**
  * Section order:
- * Hero → Where to go → Wedding program → Entourage → RSVP → Gift →
- * Dress code → Love story → Gallery → FAQs → Save the date → Footer
+ * Hero → Where to go → Video intro → Wedding program → Prenup → Entourage → Prenup →
+ * RSVP → Prenup → Gift → Prenup → Dress code → Prenup → Love story → Prenup →
+ * Gallery → Prenup → FAQs → Prenup → Save the date → Footer
  */
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -40,21 +43,39 @@ const WeddingInvitation = () => {
 
         <Venue />
 
+        <VideoIntroSection />
+
         <Schedule />
+
+        <PrenupFeature src="/images/prenup/NZ6_6972.jpeg" />
 
         <Entourage />
 
+        <PrenupFeature src="/images/prenup/NZ6_6935.jpeg" />
+
         <RSVP />
+
+        <PrenupFeature src="/images/prenup/NZ6_8884.jpeg" />
 
         <Gifts />
 
+        <PrenupFeature src="/images/prenup/NZ6_7434.jpeg" />
+
         <DressCode />
+
+        <PrenupFeature src="/images/prenup/NZ6_6986.jpeg" />
 
         <LoveStory />
 
+        <PrenupFeature src="/images/prenup/NZ6_7917.jpeg" />
+
         <Gallery />
 
+        <PrenupFeature src="/images/prenup/NZ6_8482.jpeg" />
+
         <FAQ />
+
+        <PrenupFeature src="/images/prenup/NZ6_8574.jpeg" />
 
         <Counter countdown={countdown} />
 

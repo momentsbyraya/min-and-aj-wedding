@@ -159,7 +159,13 @@ const Schedule = () => {
         src="/images/graphics/flower-left.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-10"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute -bottom-[4%] -left-[8%] h-auto pointer-events-none z-10"
+      />
+      <img
+        src="/images/graphics/couple-dancing.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 -right-[22%] z-10 h-[50vh] w-auto max-w-none object-contain object-bottom sm:-right-[28%]"
       />
 
       <div className="relative z-10">

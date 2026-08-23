@@ -70,19 +70,7 @@ const FAQ = ({ id = 'faq' }) => {
     <div id={id} data-section="faq" className="relative z-20 faq-section">
       <div className="soft-blob absolute top-[18%] right-[8%] w-44 h-44 z-[1]" aria-hidden="true" />
       <div className="soft-blob soft-blob--alt soft-blob--small absolute bottom-[20%] left-[6%] w-32 h-32 z-[1]" aria-hidden="true" />
-      <img
-        src="/images/graphics/flower-right.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-right absolute top-0 right-0 h-auto pointer-events-none z-[5]"
-      />
-      <img
-        src="/images/graphics/flower-left.png"
-        alt=""
-        aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-[5]"
-      />
-      <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16 pb-24 pt-0 sm:pb-32 md:pb-40">
+      <div ref={faqRef} className="relative z-10 w-full px-8 pt-0 pb-10 sm:px-12 sm:pb-12 md:px-8 md:pb-14 lg:px-16">
         <div className="mb-12 flex w-full justify-center px-6">
           <h2 ref={faqTitleRef} className="section-title-graphic section-title-graphic--center text-center">
             <span className="section-title-graphic-inner section-title-graphic-inner--line font-beautyofthebeast uppercase tracking-[0.12em]">

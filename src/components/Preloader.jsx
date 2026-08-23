@@ -28,6 +28,9 @@ const Preloader = ({ onComplete }) => {
       '/images/prenup/NZ6_8884.jpeg',
       '/images/prenup/NZ6_6935.jpeg',
       '/images/prenup/NZ6_9054.jpeg',
+      '/images/prenup/NZ6_7917.jpeg',
+      '/images/prenup/NZ6_8482.jpeg',
+      '/images/prenup/NZ6_8574.jpeg',
       // Opening storybook frames (click-to-open animation)
       ...Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`),
     ]

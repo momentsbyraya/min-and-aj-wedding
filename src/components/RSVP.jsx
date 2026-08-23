@@ -4,20 +4,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMail } from 'react-icons/fi'
 import { wedding } from '../data'
 import RSVPModal from './RSVPModal'
-import StorybookSectionBg from './StorybookSectionBg'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Divider = ({ flip = false }) => (
   <div className="flex justify-center items-center">
-    <div className="w-16 h-px bg-white opacity-50" />
+    <div className="w-16 h-px bg-[#8B5560] opacity-50" />
     <img
       src="/images/graphics/graphics-1.svg"
       alt=""
       aria-hidden
       className={`w-32 sm:w-40 md:w-48 h-auto mx-4 ${flip ? 'scale-y-[-1]' : ''}`}
     />
-    <div className="w-16 h-px bg-white opacity-50" />
+    <div className="w-16 h-px bg-[#8B5560] opacity-50" />
   </div>
 )
 
@@ -50,24 +49,22 @@ const RSVP = () => {
       <section
         ref={sectionRef}
         id="rsvp"
-        className="relative py-20 w-full overflow-hidden bg-white min-h-[500px]"
+        className="relative py-20 w-full overflow-hidden bg-[#FBF3F0] min-h-[500px]"
       >
-        {/* Soft faded blush pink band in the center; white top & bottom remain */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-[10%] bottom-[10%] z-0"
+          className="pointer-events-none absolute inset-0 z-0 bg-center bg-no-repeat"
           style={{
-            background:
-              'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(247,224,227,0.55) 14%, rgba(240,201,206,0.7) 36%, rgba(232,180,184,0.55) 50%, rgba(240,201,206,0.7) 64%, rgba(247,224,227,0.55) 86%, rgba(255,255,255,0) 100%)'
+            backgroundImage: 'url(/images/graphics/scroll.png)',
+            backgroundSize: 'contain'
           }}
-          aria-hidden
+          aria-hidden="true"
         />
-        <StorybookSectionBg variant="calligraphy" calligraphyOpacity={0.06} />
         <div className="relative z-20 flex items-center justify-center min-h-[500px]">
-          <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+          <div className="max-w-4xl w-full mx-auto pl-16 pr-10 sm:pl-24 sm:pr-14 md:pl-32 md:pr-16 lg:pl-40 lg:pr-20">
             <Divider />
-            <div ref={contentRef} className="flex flex-col items-center w-full">
+            <div ref={contentRef} className="flex flex-col items-center w-full pl-4 sm:pl-6 md:pl-8">
               <div className="w-full text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 font-caribbean">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#8B5560] mb-3 font-caribbean">
                   <span
                     className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
                     style={{ lineHeight: '0.8' }}
@@ -76,20 +73,20 @@ const RSVP = () => {
                   </span>
                   <span className="inline-block">svp</span>
                 </h2>
-                <p className="text-base sm:text-lg font-albert font-thin text-white max-w-3xl mx-auto leading-relaxed mb-4">
+                <p className="text-base sm:text-lg font-albert font-thin text-[#8B5560] max-w-3xl mx-auto leading-relaxed mb-4">
                   {rsvpMessage}
                 </p>
                 <div className="flex justify-center items-center mt-6">
                   <button
                     type="button"
                     onClick={() => setIsRsvpOpen(true)}
-                    className="flex items-center justify-center gap-2 px-6 py-3 border border-white/70 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 border border-[#8B5560]/70 bg-transparent hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                     style={{ borderRadius: '25px' }}
                   >
-                    <span className="text-sm sm:text-base font-albert font-thin text-white">
-                      Submit your response
+                    <span className="text-sm sm:text-base font-albert font-thin text-[#8B5560]">
+                      Respond
                     </span>
-                    <FiMail className="h-5 w-5 text-white" aria-hidden />
+                    <FiMail className="h-5 w-5 text-[#8B5560]" aria-hidden />
                   </button>
                 </div>
                 <Divider flip />

@@ -85,13 +85,13 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        <div className="h-[calc(100vh-97px)] w-full overflow-hidden bg-white">
-          <iframe
-            title="RSVP for the wedding of AJ & Min"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSf-v2hvEPrRf6XSN5Y96-LBpIWqvaBZ046CIwDZzkWPuWdfCQ/viewform?embedded=true"
-            className="h-full w-full border-0"
-            allow="autoplay"
-          />
+        <div className="flex h-[calc(100vh-97px)] w-full items-center justify-center bg-white">
+          <p
+            className="font-albert text-sm font-thin uppercase tracking-[0.2em] sm:text-base"
+            style={{ color: theme.colors.ink || theme.colors.primary }}
+          >
+            TO BE ADDED
+          </p>
         </div>
       </div>
     </div>,

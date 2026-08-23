@@ -45,11 +45,6 @@ const LoveStory = () => {
       <div className="relative z-20 flex items-center justify-center py-12 pb-32 sm:pb-40 md:pb-48">
         <div className="max-w-2xl sm:max-w-3xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           <div ref={storyRef} className="text-left mb-12">
-            <h2 className="section-title-graphic section-title-graphic--center mb-8 text-center mx-auto">
-              <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">
-                Love Story
-              </span>
-            </h2>
             <div className="space-y-6">
               {timeline.map((item, index) => {
                 const firstChar = (item.description || item.title || ' ').charAt(0)
@@ -57,13 +52,16 @@ const LoveStory = () => {
                 return (
                   <div key={`${item.date}-${item.title}-${index}`}>
                     {item.date ? (
-                      <p className="alice-regular text-white/80 mb-1 tracking-[0.08em] uppercase text-xs sm:text-sm">
+                      <p
+                        className="alice-regular mb-1 tracking-[0.08em] uppercase text-xs sm:text-sm"
+                        style={{ color: '#6B3F48' }}
+                      >
                         {item.date}
                       </p>
                     ) : null}
                     <p
-                      className="font-albert font-thin text-white leading-relaxed"
-                      style={{ fontSize: '1rem', lineHeight: '1.8' }}
+                      className="font-albert font-thin leading-relaxed"
+                      style={{ fontSize: '1rem', lineHeight: '1.8', color: '#6B3F48' }}
                     >
                       {index === 0 ? (
                         <>

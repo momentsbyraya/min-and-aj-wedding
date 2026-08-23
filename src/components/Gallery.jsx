@@ -1,328 +1,109 @@
-import React, { useMemo, useRef, useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi'
-import { galleryPrenups, theme } from '../data'
+import { galleryPrenups } from '../data'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const prenupUrl = (file) => `/images/prenup/${file}`
 
 const Gallery = () => {
-  const galleryImages = useMemo(
-    () => galleryPrenups.files.map(prenupUrl),
-    []
-  )
-  const altDefault = galleryPrenups.altDefault ?? 'Gallery'
+  const sectionRef = useRef(null)
+  const headerRef = useRef(null)
+  const contentRef = useRef(null)
 
-  const tileObjectPosition = useMemo(() => {
-    const raw = galleryPrenups.tileObjectPosition ?? {}
-    const out = {}
-    for (const [file, pos] of Object.entries(raw)) {
-      out[prenupUrl(file)] = pos
+  const galleryItems = useMemo(() => {
+    if (Array.isArray(galleryPrenups.items) && galleryPrenups.items.length > 0) {
+      return galleryPrenups.items.map((item) => ({
+        src: prenupUrl(item.file),
+        portrait: Boolean(item.portrait),
+        objectPosition: item.objectPosition || 'center'
+      }))
     }
-    return out
+
+    return (galleryPrenups.files || []).map((file) => ({
+      src: prenupUrl(file),
+      portrait: false,
+      objectPosition: galleryPrenups.tileObjectPosition?.[file] || 'center'
+    }))
   }, [])
 
-  const galleryBlushBg = '#F0C9CE'
-
-  const titleRef = useRef(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const overlayRef = useRef(null)
-  const contentRef = useRef(null)
-  const imageRefs = useRef([])
-
-  const gridColumnPattern = [
-    'span 5', // row 1 — full
-    'span 2', // row 2
-    'span 3',
-    'span 3', // row 3
-    'span 2', // 5th image — 2/5 of third row
-    'span 5'  // row 4 — full
-  ]
-
-  const gridColumnForIndex = (index) => {
-    if (galleryImages.length === 4 && index === 3) return 'span 5'
-    return gridColumnPattern[index % gridColumnPattern.length]
-  }
-
-  const compactTileClass =
-    'gallery-tile max-h-[150px] cursor-pointer md:max-h-[260px] lg:max-h-[300px]'
+  const altDefault = galleryPrenups.altDefault ?? 'Gallery'
 
   useEffect(() => {
-    if (titleRef.current) {
-      ScrollTrigger.create({
-        trigger: titleRef.current,
-        start: 'top 80%',
-        animation: gsap.fromTo(
-          titleRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
-        ),
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 50%',
+        end: 'bottom 20%',
         toggleActions: 'play none none reverse'
-      })
-    }
-
-    imageRefs.current.forEach((ref, index) => {
-      if (!ref) return
-
-      const isFromLeft = index % 2 === 0
-      const xValue = isFromLeft ? -100 : 100
-
-      gsap.set(ref, {
-        opacity: 0,
-        x: xValue,
-        force3D: true
-      })
-
-      ScrollTrigger.create({
-        trigger: ref,
-        start: 'top 85%',
-        animation: gsap.to(ref, {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          force3D: true
-        }),
-        toggleActions: 'play none none reverse'
-      })
+      }
     })
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        const t = trigger.vars?.trigger
-        if (t === titleRef.current || imageRefs.current.includes(t)) {
-          trigger.kill()
-        }
-      })
-    }
-  }, [galleryImages.length])
-
-  const handleImageClick = (index) => {
-    setCurrentImageIndex(index)
-    setIsModalOpen(true)
-  }
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
-  }
-
-  const closeModal = () => setIsModalOpen(false)
-
-  useEffect(() => {
-    if (!isModalOpen) return
-
-    const onKeyDown = (e) => {
-      if (e.key === 'Escape') setIsModalOpen(false)
-      else if (e.key === 'ArrowLeft') {
-        setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
-      } else if (e.key === 'ArrowRight') {
-        setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length)
-      }
-    }
-
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [isModalOpen, galleryImages.length])
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden'
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-      if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`
-
-      if (overlayRef.current && contentRef.current) {
-        gsap.set([overlayRef.current, contentRef.current], { opacity: 0 })
-        gsap.set(contentRef.current, { scale: 0.9 })
-
-        gsap.to(overlayRef.current, { opacity: 1, duration: 0.3, ease: 'power2.out' })
-        gsap.to(contentRef.current, {
-        opacity: 1,
-          scale: 1,
-          duration: 0.4,
-          ease: 'power2.out'
-        })
-      }
-    } else {
-      document.body.style.overflow = ''
-      document.body.style.paddingRight = ''
-    }
-
-    return () => {
-      document.body.style.overflow = ''
-      document.body.style.paddingRight = ''
-    }
-  }, [isModalOpen])
-
-  const galleryCount = galleryImages.length
-
-  /** Oval frame on 2/5 tiles; image-frame on 3/5 (and full-width) tiles. */
-  const useOvalFrame = (gridColumn) => gridColumn === 'span 2'
-
-  const renderGridTile = (image, index, gridColumn) => {
-    const isFullWidthRow = gridColumn === 'span 5'
-    const objectPosition = tileObjectPosition[image]
-    const ovalClass = useOvalFrame(gridColumn) ? ' gallery-tile--oval' : ''
-    return (
-      <div
-        ref={(el) => {
-          imageRefs.current[index] = el
-        }}
-        className={
-          (isFullWidthRow
-            ? 'gallery-tile min-h-[11rem] max-h-[220px] cursor-pointer sm:min-h-[13rem] sm:max-h-[260px] md:min-h-[17rem] md:max-h-[400px] lg:min-h-[18rem] lg:max-h-[440px]'
-            : compactTileClass) + ovalClass
-        }
-        style={{
-          gridColumn,
-          height: '100%',
-          willChange: 'transform',
-          backfaceVisibility: 'hidden',
-          transform: 'translateZ(0)'
-        }}
-        onClick={() => handleImageClick(index)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault()
-            handleImageClick(index)
-          }
-        }}
-        aria-label={`Open gallery image ${index + 1}`}
-      >
-        <div className="gallery-tile-inner h-full w-full">
-          <img
-            src={image}
-            alt={`${altDefault} — preview ${index + 1}`}
-            draggable="false"
-            style={{
-              objectPosition: objectPosition ?? 'center'
-            }}
-            loading="lazy"
-          />
-        </div>
-      </div>
+    tl.fromTo(
+      headerRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+    ).fromTo(
+      contentRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' },
+      '-=0.4'
     )
-  }
 
-  if (galleryCount === 0) return null
+    return () => {
+      tl.kill()
+    }
+  }, [])
+
+  if (galleryItems.length === 0) return null
 
   return (
-    <div id="gallery" className="relative">
-      <div
-        className="relative z-10 pb-8 pt-8 sm:pb-12 sm:pt-10 md:pb-16 bg-cover bg-center bg-no-repeat"
-        style={{
-          width: '100vw',
-          marginLeft: 'calc(-50vw + 50%)',
-          marginRight: 'calc(-50vw + 50%)',
-          backgroundColor: galleryBlushBg,
-          backgroundImage: "url('/images/graphics/old-book-2.png')",
-          backgroundBlendMode: 'multiply',
-          opacity: 1
-        }}
-      >
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundColor: 'rgba(240, 201, 206, 0.55)'
-          }}
-          aria-hidden
-        />
-        <div className="soft-blob soft-blob--alt absolute bottom-[8%] left-[12%] w-40 h-40 z-[1]" aria-hidden="true" />
-        <div className={`relative z-10 mx-auto w-full ${theme.container.padding} ${theme.container.maxWidth} ${theme.container.center}`}>
-          <h3 ref={titleRef} className="relative flex w-full justify-center py-3 text-center">
-            <span className="section-title-graphic section-title-graphic--center">
-                <span className="section-title-graphic-inner section-title-graphic-inner--line font-caribbean capitalize">
-                  Gallery
-                </span>
-            </span>
-          </h3>
+    <section
+      ref={sectionRef}
+      id="gallery"
+      className="relative min-h-screen w-full overflow-hidden bg-cover bg-no-repeat py-20 md:min-h-0"
+      style={{
+        backgroundColor: '#F0C9CE',
+        backgroundImage: 'url(/images/graphics/gallery-bg.png)',
+        backgroundPosition: 'right center'
+      }}
+    >
+      <div className="relative z-20 flex items-center justify-center py-12">
+        <div className="mx-auto w-full max-w-md px-8 sm:max-w-xl sm:px-12 lg:max-w-4xl lg:px-16 xl:max-w-5xl">
+          <div ref={headerRef} className="mb-12 text-center">
+            <h2 className="font-lavishly text-5xl italic text-[#6B3F48] sm:text-6xl md:text-7xl lg:text-8xl">
+              Our Moments
+            </h2>
+          </div>
 
-          <div className="mt-6 sm:mt-8 md:mt-10">
-            <div className="grid auto-rows-auto grid-cols-5 gap-3 sm:gap-4 md:gap-5">
-              {galleryImages.map((image, index) => (
-                <React.Fragment key={image}>
-                  {renderGridTile(image, index, gridColumnForIndex(index))}
-                </React.Fragment>
-              ))}
-            </div>
+          <div
+            ref={contentRef}
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3"
+          >
+            {galleryItems.map((item, index) => (
+              <div
+                key={item.src}
+                className={`soft-edges relative overflow-hidden ${
+                  item.portrait ? 'aspect-[3/4]' : ''
+                }`}
+              >
+                <img
+                  src={item.src}
+                  alt={`${altDefault} — ${index + 1}`}
+                  className={`w-full object-cover ${
+                    item.portrait ? 'h-full' : 'h-auto'
+                  }`}
+                  style={{ objectPosition: item.objectPosition }}
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      {isModalOpen &&
-        createPortal(
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center" style={{ position: 'fixed' }}>
-            <div
-              ref={overlayRef}
-              className="absolute inset-0 bg-black/90 backdrop-blur-sm"
-              onClick={closeModal}
-              aria-hidden
-            />
-
-            <button
-              type="button"
-              onClick={closeModal}
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/20 transition-colors duration-200 hover:bg-white/30"
-              aria-label="Close gallery"
-            >
-              <FiX className="h-6 w-6 text-white" />
-            </button>
-
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation()
-                prevImage()
-              }}
-              className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 transition-colors duration-200 hover:bg-white/30"
-              aria-label="Previous image"
-            >
-              <FiChevronLeft className="h-6 w-6 text-white" />
-            </button>
-
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation()
-                nextImage()
-              }}
-              className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 transition-colors duration-200 hover:bg-white/30"
-              aria-label="Next image"
-            >
-              <FiChevronRight className="h-6 w-6 text-white" />
-            </button>
-
-            <div
-              ref={contentRef}
-              className="relative z-10 flex max-h-[90vh] max-w-[90vw] items-center justify-center"
-              style={{ pointerEvents: 'none' }}
-            >
-              <img
-                src={galleryImages[currentImageIndex]}
-                alt={`${altDefault} — fullscreen ${currentImageIndex + 1}`}
-                className="max-h-[90vh] max-w-full object-contain"
-              />
-            </div>
-
-            <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
-              <span className="font-albert text-sm text-white">
-                {currentImageIndex + 1} / {galleryImages.length}
-              </span>
-            </div>
-          </div>,
-          document.body
-        )}
-    </div>
+    </section>
   )
 }
 
-export default Gallery 
+export default Gallery

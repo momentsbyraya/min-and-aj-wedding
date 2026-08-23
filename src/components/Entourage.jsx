@@ -3,20 +3,19 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiUsers } from 'react-icons/fi'
 import EntourageModal from './EntourageModal'
-import StorybookSectionBg from './StorybookSectionBg'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Divider = ({ flip = false }) => (
-  <div className="flex justify-center items-center">
-    <div className="w-16 h-px bg-white opacity-50" />
+  <div className="flex items-center justify-center">
+    <div className="h-px w-16 bg-[#8B5560] opacity-50" />
     <img
       src="/images/graphics/graphics-1.svg"
       alt=""
       aria-hidden
-      className={`w-32 sm:w-40 md:w-48 h-auto mx-4 ${flip ? 'scale-y-[-1]' : ''}`}
+      className={`mx-4 h-auto w-32 sm:w-40 md:w-48 ${flip ? 'scale-y-[-1]' : ''}`}
     />
-    <div className="w-16 h-px bg-white opacity-50" />
+    <div className="h-px w-16 bg-[#8B5560] opacity-50" />
   </div>
 )
 
@@ -45,37 +44,42 @@ const Entourage = () => {
       <section
         ref={sectionRef}
         id="entourage"
-        className="relative py-20 w-full overflow-hidden bg-[#FBF3F0] min-h-[500px]"
+        className="relative flex h-[70vh] max-h-[640px] min-h-[420px] w-full items-center justify-center overflow-hidden bg-[#FBF3F0] py-10 sm:h-[65vh] sm:max-h-[700px] sm:min-h-[480px] sm:py-12"
       >
-        <StorybookSectionBg variant="book" />
-        <div className="relative z-20 flex items-center justify-center min-h-[500px]">
-          <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+        <div
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/graphics/bg-with-ribbon.png)' }}
+          aria-hidden="true"
+        />
+        <div className="relative z-20 mx-auto flex h-full max-h-full w-full max-w-4xl items-center justify-center overflow-hidden px-8 sm:px-12 lg:px-16">
+          <div className="flex max-h-full w-full flex-col items-center justify-center overflow-hidden">
             <Divider />
-            <div ref={contentRef} className="flex flex-col items-center w-full">
+            <div ref={contentRef} className="flex w-full flex-col items-center overflow-hidden">
               <div className="w-full text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 font-caribbean">
+                <h2 className="mb-3 font-caribbean text-3xl text-[#8B5560] sm:text-4xl md:text-5xl lg:text-6xl">
                   <span
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
+                    className="inline-block text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl"
                     style={{ lineHeight: '0.8' }}
                   >
                     E
                   </span>
                   <span className="inline-block">ntourage</span>
                 </h2>
-                <p className="text-base sm:text-lg font-albert font-thin text-white max-w-3xl mx-auto leading-relaxed mb-4">
-                  Meet the special people who will stand with us on our wedding day.
+                <p className="mx-auto mb-4 max-w-3xl font-albert text-base font-thin leading-relaxed text-[#8B5560] sm:text-lg">
+                  To the family and friends who have been our constants: thank you for walking this
+                  path with us.
                 </p>
-                <div className="flex justify-center items-center mt-6">
+                <div className="mt-6 flex items-center justify-center">
                   <button
                     type="button"
                     onClick={() => setIsEntourageOpen(true)}
-                    className="flex items-center justify-center gap-2 px-6 py-3 border border-white/70 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                    className="flex cursor-pointer items-center justify-center gap-2 border border-[#8B5560]/70 px-6 py-3 transition-opacity duration-300 hover:opacity-80"
                     style={{ borderRadius: '25px' }}
                   >
-                    <span className="text-sm sm:text-base font-albert font-thin text-white">
-                      View our entourage
+                    <span className="font-albert text-sm font-thin text-[#8B5560] sm:text-base">
+                      View Entourage
                     </span>
-                    <FiUsers className="h-5 w-5 text-white" aria-hidden />
+                    <FiUsers className="h-5 w-5 text-[#8B5560]" aria-hidden />
                   </button>
                 </div>
                 <Divider flip />

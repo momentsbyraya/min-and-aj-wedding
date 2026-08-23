@@ -1,10 +1,14 @@
 /* FAQ — layout aligned with kevin-and-rea-wedding FAQSection; colors for debut theme */
 .faq-section {
-  padding: 4rem 0;
+  padding: 4rem 0 1.5rem;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   background-color: #F0C9CE;
+  background-image: url('/images/bg-1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -14,13 +18,13 @@
 .faq-question .faq-question-label {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 600 !important;
-  color: #FFFFFF;
+  color: #8B5560;
 }
 
 .faq-answer-body {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 400 !important;
-  color: #FFFFFF;
+  color: #8B5560;
 }
 
 .faq-answer-body *,
@@ -36,7 +40,7 @@
 }
 
 .faq-answer-body a {
-  color: #FFFFFF;
+  color: #8B5560;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -81,7 +85,7 @@
 }
 
 .faq-question-button:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline: 2px solid rgba(139, 85, 96, 0.5);
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -90,7 +94,7 @@
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  color: #FFFFFF;
+  color: #8B5560;
   transition: transform 0.3s ease;
 }
 
@@ -115,5 +119,5 @@
 .faq-item-divider {
   height: 1px;
   margin-top: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(139, 85, 96, 0.35);
 }

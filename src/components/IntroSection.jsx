@@ -107,7 +107,7 @@ const IntroSection = () => {
         src="/images/graphics/flower-left.png"
         alt=""
         aria-hidden="true"
-        className="intro-corner-accent intro-corner-accent--flower-left absolute bottom-0 left-0 h-auto pointer-events-none z-10"
+        className="intro-corner-accent intro-corner-accent--flower-left absolute -bottom-[4%] -left-[12%] h-auto pointer-events-none z-10"
       />
       <div className="relative z-20 mx-auto max-w-sm px-5 sm:px-7">
         <p

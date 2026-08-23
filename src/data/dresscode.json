@@ -1,40 +1,22 @@
 {
   "mainDressCode": {
-    "title": "BLUSH PALETTE",
-    "subtitle": "GUESTS",
-    "description": "Formal / Semi-formal. We kindly ask guests to wear dusty pink, nude pink, blush pink, champagne pink, soft taupe, or beige.\n\nAvoid wearing white, ivory, or colors too similar to the bride's gown.",
-    "inspoUrl": ""
+    "title": "Dress Code",
+    "description": "Formal / Semi-formal. We kindly ask guests to wear dusty pink, nude pink, blush pink, champagne pink, soft taupe, or beige.",
+    "avoidNote": "Avoid wearing white, ivory, or colors too similar to the bride's gown."
   },
-  "colorPalette": [
+  "sections": [
     {
-      "name": "dusty-pink",
-      "hex": "#C9A3A6",
-      "label": "Dusty Pink"
-    },
-    {
-      "name": "nude-pink",
-      "hex": "#E6C7BE",
-      "label": "Nude Pink"
-    },
-    {
-      "name": "blush-pink",
-      "hex": "#E8B4B8",
-      "label": "Blush Pink"
-    },
-    {
-      "name": "champagne-pink",
-      "hex": "#E8D5C4",
-      "label": "Champagne"
-    },
-    {
-      "name": "soft-taupe",
-      "hex": "#C4B5A5",
-      "label": "Soft Taupe"
-    },
-    {
-      "name": "beige",
-      "hex": "#EDE4D4",
-      "label": "Beige"
+      "title": "Guests",
+      "image": "/images/dresscode/guests.png",
+      "description": "Please dress in soft blush tones from our palette.",
+      "colors": [
+        { "name": "Dusty Pink", "hex": "#C9A3A6" },
+        { "name": "Nude Pink", "hex": "#E6C7BE" },
+        { "name": "Blush Pink", "hex": "#E8B4B8" },
+        { "name": "Champagne", "hex": "#E8D5C4" },
+        { "name": "Soft Taupe", "hex": "#C4B5A5" },
+        { "name": "Beige", "hex": "#EDE4D4" }
+      ]
     }
   ]
 }

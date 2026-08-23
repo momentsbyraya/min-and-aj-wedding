@@ -1,27 +1,27 @@
 {
   "altDefault": "AJ & Min prenup",
   "bannerImage": "/images/graphics/palace.png",
-  "files": [
-    "NZ6_6935.jpeg",
-    "NZ6_6972.jpeg",
-    "NZ6_6986.jpeg",
-    "NZ6_7434.jpeg",
-    "NZ6_7546.jpeg",
-    "NZ6_7550.jpeg",
-    "NZ6_7683.jpeg",
-    "NZ6_7721.jpeg",
-    "NZ6_7917.jpeg",
-    "NZ6_8202.jpeg",
-    "NZ6_8482.jpeg",
-    "NZ6_8574.jpeg",
-    "NZ6_8629.jpeg",
-    "NZ6_8884.jpeg",
-    "NZ6_9054.jpeg"
-  ],
-  "tileObjectPosition": {
-    "NZ6_7546.jpeg": "center 35%",
-    "NZ6_7683.jpeg": "center 30%",
-    "NZ6_8884.jpeg": "center 40%",
-    "NZ6_9054.jpeg": "center 35%"
-  }
+  "items": [
+    {
+      "file": "NZ6_9054.jpeg"
+    },
+    {
+      "file": "NZ6_8202.jpeg"
+    },
+    {
+      "file": "NZ6_8629.jpeg",
+      "portrait": true,
+      "objectPosition": "78% center"
+    },
+    {
+      "file": "NZ6_7721.jpeg",
+      "portrait": true,
+      "objectPosition": "38% center"
+    },
+    {
+      "file": "NZ6_7546.jpeg",
+      "portrait": true,
+      "objectPosition": "75% center"
+    }
+  ]
 }

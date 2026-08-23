@@ -1,0 +1,35 @@
+/* Entourage modal — wrapper (ribbon cover) + child panel */
+
+.entourage-modal-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.entourage-modal-child {
+  max-height: 90vh;
+}
+
+.entourage-modal-scroll {
+  position: relative;
+  z-index: 10;
+}
+
+.entourage-display-title,
+.entourage-title {
+  color: #8B5560;
+}
+
+.entourage-name,
+.ninong-item,
+.ninang-item {
+  white-space: nowrap;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.entourage-blurb {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}

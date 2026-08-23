@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+/* Google Fonts — matched to wedding-rosetta */
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carattere:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Custom Font - Caribbean (Hero "Once upon a time" — from wedding-rosetta) */
+/* Custom fonts from wedding-rosetta */
 @font-face {
   font-family: 'Caribbean';
   src: url('/fonts/Caribbeantool-GZwO.otf') format('opentype');
@@ -24,7 +26,6 @@
   font-display: swap;
 }
 
-/* Canterbury (also from wedding-rosetta assets) */
 @font-face {
   font-family: 'Canterbury';
   src: url('/fonts/CanterburyRegular-MVqn.ttf') format('truetype');
@@ -124,8 +125,8 @@ html {
 
 body {
   overflow-x: hidden; /* Prevent horizontal scrollbar */
-  font-family: 'Albert Sans', sans-serif;
-  font-weight: 300;
+  font-family: 'Elsie Swash Caps', cursive;
+  font-weight: 400;
   line-height: 1.6;
   color: var(--blush-deep);
   background-color: var(--blush-cream);
@@ -133,8 +134,8 @@ body {
 
 @layer base {
   body {
-    font-family: 'Albert Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Elsie Swash Caps', cursive;
+    font-weight: 400;
     line-height: 1.6;
   }
 }
@@ -174,17 +175,17 @@ body {
     font-family: 'Elsie Swash Caps', cursive;
   }
   
-  /* Main website font — body */
+  /* Main website font — wedding-rosetta default */
   .font-main {
-    font-family: 'Albert Sans', sans-serif !important;
+    font-family: 'Elsie Swash Caps', cursive !important;
   }
   
   /* Handwritten style font for photo text */
   .font-handwritten {
-    font-family: 'Lavishly Yours', cursive !important;
+    font-family: 'Nothing You Could Do', cursive !important;
   }
   
-  /* Albert Sans — body copy */
+  /* Albert Sans — body copy / UI */
   .font-albert {
     font-family: 'Albert Sans', sans-serif !important;
   }
@@ -196,10 +197,10 @@ body {
     font-style: normal !important;
   }
   
-  /* Poppins alias → Albert Sans (body system) */
+  /* Poppins — UI text (wedding-rosetta) */
   .font-poppins,
   .font-poppins * {
-    font-family: 'Albert Sans', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
   }
   
   /* Caudex font */
@@ -215,7 +216,7 @@ body {
     font-style: normal;
   }
   
-  /* Footer with Poppins font - override global font */
+  /* Footer — Albert Sans like rosetta body UI */
   footer a,
   footer a *,
   footer a span {
@@ -257,18 +258,17 @@ body {
     color: white !important;
   }
   
-  /* Force font on all text elements */
+  /* Match wedding-rosetta: weight only — do not force a family on every node */
   * {
-    font-family: 'Elsie Swash Caps', cursive !important;
     font-weight: 400 !important;
   }
 
-  /* Hero headline copy — section title face (overrides utility-layer * reset) */
+  /* Hero headline — Caribbean (wedding-rosetta title face) */
   .hero-invitation-serif,
   .hero-invitation-serif * {
-    font-family: 'Cormorant SC', 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    font-family: 'Caribbean', serif !important;
     font-weight: 400 !important;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
   }
 
   /* Cookie font - must come after global rule */
@@ -310,15 +310,14 @@ body {
     letter-spacing: 0.02em;
   }
   
-  /* Ants Valley → section titles use Cormorant SC */
+  /* Ants Valley → Caribbean section titles (wedding-rosetta) */
   .font-antsvalley,
   h1.font-antsvalley,
   h1.font-antsvalley span,
   .font-antsvalley * {
-    font-family: 'Cormorant SC', 'Ants Valley', cursive !important;
+    font-family: 'Caribbean', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
   
   /* Carattere font - must come after global rule */
@@ -390,26 +389,24 @@ body {
     letter-spacing: 0.02em;
   }
   
-  /* Tebranos → section titles use Cormorant SC */
+  /* Tebranos → Caribbean section titles (wedding-rosetta) */
   .font-tebranos,
   h1.font-tebranos,
   h1.font-tebranos span,
   .font-tebranos * {
-    font-family: 'Cormorant SC', 'Tebranos', cursive !important;
+    font-family: 'Caribbean', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
   
-  /* Instrument Serif → subsection titles align with Cormorant SC */
+  /* Instrument Serif → Alice (wedding-rosetta detail face) */
   .font-instrument-serif,
   h1.font-instrument-serif,
   h1.font-instrument-serif span,
   .font-instrument-serif * {
-    font-family: 'Cormorant SC', 'Instrument Serif', serif !important;
+    font-family: 'Alice', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
   
   /* Stylish Calligraphy font - must come after global rule */
@@ -423,15 +420,14 @@ body {
     letter-spacing: 0.02em;
   }
   
-  /* Ballet → section titles use Cormorant SC */
+  /* Ballet → Caribbean section titles (wedding-rosetta) */
   .font-ballet,
   h1.font-ballet,
   h1.font-ballet span,
   .font-ballet * {
-    font-family: 'Cormorant SC', 'Ballet', cursive !important;
+    font-family: 'Caribbean', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
 
   /* Eighteenths modal / section main title (Kayleen-style gradient, pink palette) */
@@ -449,14 +445,14 @@ body {
     background-clip: text;
   }
 
-  /* Eighteen / gift eyebrow — Cormorant SC light */
+  /* Eighteen / gift eyebrow — Alice light */
   .eighteen-intro-rozha-label.font-rozha {
     font-weight: 300 !important;
   }
 
   .font-nanum,
   .font-nanum * {
-    font-family: 'Nanum Myeongjo', serif !important;
+    font-family: 'Alice', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
   }
@@ -465,48 +461,45 @@ body {
   h1.font-foglihten,
   h1.font-foglihten span,
   .font-foglihten * {
-    font-family: 'Cormorant SC', 'Foglihten', 'Cinzel', serif !important;
+    font-family: 'Caribbean', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.06em;
   }
 
   .font-pinyon,
   .font-pinyon * {
-    font-family: 'Pinyon Script', cursive !important;
+    font-family: 'Lavishly Yours', cursive !important;
     font-weight: 400 !important;
     font-style: normal !important;
   }
 
+  /* Legacy display aliases → wedding-rosetta faces */
   .font-rozha,
   .font-rozha * {
-    font-family: 'Cormorant SC', 'Foglihten', 'Cinzel', serif !important;
+    font-family: 'Alice', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
 
   .font-my-soul,
   .font-my-soul * {
-    font-family: 'Cormorant SC', 'Great Vibes', cursive !important;
+    font-family: 'Lavishly Yours', cursive !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
 
   .font-halimun,
   .font-halimun * {
-    font-family: 'Cormorant SC', 'Halimun', 'Great Vibes', cursive !important;
+    font-family: 'Lavishly Yours', cursive !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.04em;
   }
 
-  /* Venue title + CTA / graphic buttons — local display font */
+  /* Venue title + CTA / graphic buttons — Alice (wedding-rosetta) */
   .alice-regular {
-    font-family: 'Alice', serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: 'Alice', serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
   }
 
   .crimson-text-regular {
@@ -546,12 +539,12 @@ body {
     font-style: normal !important;
   }
 
+  /* Legacy section titles → Caribbean (wedding-rosetta) */
   .font-beautyofthebeast,
   .font-beautyofthebeast * {
-    font-family: 'Beauty of the Beast', 'Cormorant SC', cursive !important;
+    font-family: 'Caribbean', serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    letter-spacing: 0.06em;
   }
 
   .font-qaskin,
@@ -983,8 +976,10 @@ body {
 
 /* Fixed square slot so every book frame renders at the same display size */
 .opening-book-button {
-  width: min(78vw, 420px) !important;
-  height: min(78vw, 420px) !important;
+  width: min(78vw, 400px) !important;
+  height: min(78vw, 400px) !important;
+  max-height: 50vh !important;
+  max-width: 50vh !important;
 }
 
 .opening-book-image {
@@ -996,8 +991,10 @@ body {
 
 @media (min-width: 768px) {
   .opening-book-button {
-    width: min(52vh, 520px) !important;
-    height: min(52vh, 520px) !important;
+    width: min(56vh, 540px) !important;
+    height: min(56vh, 540px) !important;
+    max-height: 58vh !important;
+    max-width: 58vh !important;
   }
 }
 
@@ -1008,6 +1005,52 @@ body {
 
   .opening-invite-title {
     text-shadow: 0 0 10px rgba(248, 241, 234, 0.98);
+  }
+}
+
+/* Magical idle float + glow until the book is clicked */
+@keyframes openingBookFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-0.6deg);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0) rotate(0.6deg);
+  }
+}
+
+@keyframes openingBookGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 14px 22px rgba(139, 85, 96, 0.26))
+      drop-shadow(0 0 12px rgba(255, 214, 196, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 24px 36px rgba(139, 85, 96, 0.38))
+      drop-shadow(0 0 28px rgba(255, 224, 200, 0.7))
+      drop-shadow(0 0 48px rgba(255, 190, 170, 0.45));
+  }
+}
+
+.opening-book-float {
+  display: block;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.opening-book-float.is-floating {
+  animation: openingBookFloat 2.8s ease-in-out infinite;
+}
+
+.opening-book-image.is-glowing {
+  animation: openingBookGlow 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening-book-float.is-floating,
+  .opening-book-image.is-glowing {
+    animation: none;
   }
 }
 
@@ -1587,12 +1630,12 @@ body {
 .section-title-graphic-inner {
   text-align: center;
   background-image: none;
-  color: #FFFFFF;
+  color: #8B5560;
   -webkit-background-clip: unset;
   background-clip: unset;
-  -webkit-text-fill-color: #FFFFFF;
+  -webkit-text-fill-color: #8B5560;
   line-height: 1.2;
-  text-shadow: 0 1px 2px rgba(74, 44, 51, 0.18);
+  text-shadow: none;
 }
 
 .section-title-graphic-inner--line {
@@ -1609,9 +1652,9 @@ body {
 }
 
 .section-title-graphic-inner--light {
-  color: #FFFFFF;
-  -webkit-text-fill-color: #FFFFFF;
-  text-shadow: 0 1px 2px rgba(74, 44, 51, 0.18);
+  color: #8B5560;
+  -webkit-text-fill-color: #8B5560;
+  text-shadow: none;
 }
 
 /* Gallery grid: image-frame overlay + inset photo (80% scale) */
@@ -1639,6 +1682,10 @@ body {
 
 .gallery-tile--oval::after {
   background-image: url('/images/graphics/oval-frame.png');
+}
+
+.gallery-tile--landscape::after {
+  background-image: url('/images/graphics/image-frame%20-%20landscape.png');
 }
 
 .gallery-tile--oval .gallery-tile-inner {

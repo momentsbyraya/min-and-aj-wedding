@@ -64,7 +64,7 @@ const Hero = () => {
         <div className="absolute inset-0 z-0" style={bgStyle} />
 
         <img
-          src="/images/graphics/corner-border.svg"
+          src="/images/graphics/corner-border-2.png"
           alt=""
           aria-hidden="true"
           className="absolute top-0 left-0 z-10 object-contain"
@@ -79,7 +79,7 @@ const Hero = () => {
           }}
         />
         <img
-          src="/images/graphics/corner-border.svg"
+          src="/images/graphics/corner-border-2.png"
           alt=""
           aria-hidden="true"
           className="absolute top-0 right-0 z-10 object-contain transform rotate-90"
@@ -93,7 +93,7 @@ const Hero = () => {
           }}
         />
         <img
-          src="/images/graphics/corner-border.svg"
+          src="/images/graphics/corner-border-2.png"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 left-0 z-10 object-contain transform -rotate-90"
@@ -107,7 +107,7 @@ const Hero = () => {
           }}
         />
         <img
-          src="/images/graphics/corner-border.svg"
+          src="/images/graphics/corner-border-2.png"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 right-0 z-10 object-contain transform rotate-180"

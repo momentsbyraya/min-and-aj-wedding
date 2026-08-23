@@ -4,20 +4,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiGift } from 'react-icons/fi'
 import { wedding, paymentMethods as paymentMethodsData } from '../data'
 import GiftModal from './GiftModal'
-import StorybookSectionBg from './StorybookSectionBg'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Divider = ({ flip = false }) => (
   <div className="flex justify-center items-center">
-    <div className="w-16 h-px bg-white opacity-50" />
+    <div className="w-16 h-px bg-[#8B5560] opacity-50" />
     <img
       src="/images/graphics/graphics-1.svg"
       alt=""
       aria-hidden
       className={`w-32 sm:w-40 md:w-48 h-auto mx-4 ${flip ? 'scale-y-[-1]' : ''}`}
     />
-    <div className="w-16 h-px bg-white opacity-50" />
+    <div className="w-16 h-px bg-[#8B5560] opacity-50" />
   </div>
 )
 
@@ -53,13 +52,17 @@ const Gifts = () => {
         id="gifts"
         className="relative py-20 w-full overflow-hidden bg-[#FBF3F0] min-h-[500px]"
       >
-        <StorybookSectionBg variant="book" />
+        <div
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/graphics/bg-with-ribbon.png)' }}
+          aria-hidden="true"
+        />
         <div className="relative z-20 flex items-center justify-center min-h-[500px]">
           <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
             <Divider />
             <div ref={contentRef} className="flex flex-col items-center w-full">
               <div className="w-full text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 font-caribbean">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#8B5560] mb-3 font-caribbean">
                   <span
                     className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
                     style={{ lineHeight: '0.8' }}
@@ -68,21 +71,28 @@ const Gifts = () => {
                   </span>
                   <span className="inline-block">ifts</span>
                 </h2>
-                <p className="text-base sm:text-lg font-albert font-thin text-white max-w-3xl mx-auto leading-relaxed mb-4">
+                <p className="text-base sm:text-lg font-albert font-thin text-[#8B5560] max-w-3xl mx-auto leading-relaxed mb-4">
                   {giftIntro}
                 </p>
+                <div className="mx-auto mb-6 flex w-full max-w-[140px] justify-center sm:mb-8 sm:max-w-[160px]">
+                  <img
+                    src="/images/gift/Gotyme%20QR.jpg"
+                    alt="GCash / GoTyme QR code for gifts"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
                 {giftPaymentMethods.length > 0 ? (
                   <div className="flex justify-center items-center mt-6">
                     <button
                       type="button"
                       onClick={() => setIsGiftModalOpen(true)}
-                      className="flex items-center justify-center gap-2 px-6 py-3 border border-white/70 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                      className="flex items-center justify-center gap-2 px-6 py-3 border border-[#8B5560]/70 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
                       style={{ borderRadius: '25px' }}
                     >
-                      <span className="text-sm sm:text-base font-albert font-thin text-white">
+                      <span className="text-sm sm:text-base font-albert font-thin text-[#8B5560]">
                         {wedding?.giftSection?.ctaLabel || 'Send a gift'}
                       </span>
-                      <FiGift className="h-5 w-5 text-white" aria-hidden />
+                      <FiGift className="h-5 w-5 text-[#8B5560]" aria-hidden />
                     </button>
                   </div>
                 ) : null}
