@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const NICKNAMES = 'AJ & Min'
+const NICKNAMES = 'Min & AJ'
 const DATE_NUMBERS = '04.17.2027'
 const INTRO_MESSAGE =
   'With joyful hearts, we invite you to witness the beginning of our forever.'
@@ -106,7 +106,7 @@ const VideoIntroSection = () => {
           aria-hidden
         >
           <span className="font-lavishly text-5xl leading-none text-[#8B5560] sm:text-6xl">
-            A
+            M
           </span>
           <svg
             viewBox="0 0 24 24"
@@ -117,7 +117,7 @@ const VideoIntroSection = () => {
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
           <span className="font-lavishly text-5xl leading-none text-[#8B5560] sm:text-6xl">
-            M
+            A
           </span>
         </div>
 
@@ -137,7 +137,7 @@ const VideoIntroSection = () => {
             {inView ? (
               <iframe
                 key="yt-autoplay"
-                title="AJ & Min wedding video"
+                title="Min & AJ wedding video"
                 src={YOUTUBE_EMBED}
                 className="pointer-events-none absolute inset-0 h-full w-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

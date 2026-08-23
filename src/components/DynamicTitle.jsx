@@ -6,8 +6,8 @@ const SOCIAL_THUMB_URL = 'https://min-and-aj-wedding.vercel.app/images/graphics/
 const SITE_URL = 'https://min-and-aj-wedding.vercel.app/'
 
 const DynamicTitle = () => {
-  const coupleName = celebrant?.couple?.displayName || celebrant?.debutant?.name?.preferred || 'AJ & Min'
-  const fullNames = celebrant?.debutant?.name?.full || 'Ana Josephine Hernando & Muhaymin Adjula'
+  const coupleName = celebrant?.couple?.displayName || celebrant?.debutant?.name?.preferred || 'Min & AJ'
+  const fullNames = celebrant?.debutant?.name?.full || 'Muhaymin Adjula & Ana Josephine Hernando'
   const weddingDate = new Date(celebrant.debutant.debut.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
