@@ -2,12 +2,18 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { FiX } from 'react-icons/fi'
-import { theme } from '../data'
+import { theme, wedding } from '../data'
+
+/** https://forms.gle/aFCVfZY9Vyq1LEge9 */
+const RSVP_FORM_EMBED_SRC =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfUS2vCV_oOOabNmF_bbGBpnKVRDot782lQfnnDvHgJuC5mCw/viewform?embedded=true'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
   const overlayRef = useRef(null)
   const contentRef = useRef(null)
+
+  const formSrc = wedding?.rsvp?.formEmbedUrl || RSVP_FORM_EMBED_SRC
 
   useEffect(() => {
     if (isOpen) {
@@ -80,18 +86,19 @@ const RSVPModal = ({ isOpen, onClose }) => {
           <button
             onClick={handleClose}
             className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
+            aria-label="Close RSVP"
           >
             <FiX className="w-6 h-6" />
           </button>
         </div>
         
-        <div className="flex h-[calc(100vh-97px)] w-full items-center justify-center bg-white">
-          <p
-            className="font-albert text-sm font-thin uppercase tracking-[0.2em] sm:text-base"
-            style={{ color: theme.colors.ink || theme.colors.primary }}
-          >
-            TO BE ADDED
-          </p>
+        <div className="h-[calc(100vh-97px)] w-full overflow-hidden bg-white">
+          <iframe
+            title="RSVP for the Wedding of Min and AJ"
+            src={formSrc}
+            className="h-full w-full border-0"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>,
@@ -99,4 +106,4 @@ const RSVPModal = ({ isOpen, onClose }) => {
   )
 }
 
-export default RSVPModal 
+export default RSVPModal

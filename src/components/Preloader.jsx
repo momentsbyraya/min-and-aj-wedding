@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Loader from './Loader'
+import { prenupAsset, FEATURE_PHOTOS, prenupAssetFromPath } from '../utils/prenupAssets'
 
 const Preloader = ({ onComplete }) => {
   const [loading, setLoading] = useState(true)
@@ -22,17 +23,16 @@ const Preloader = ({ onComplete }) => {
 
     // List of critical images to preload
     const criticalImages = [
-      '/images/prenup/NZ6_7683.jpeg',
-      '/images/prenup/NZ6_7546.jpeg',
-      '/images/prenup/NZ6_7550.jpeg',
-      '/images/prenup/NZ6_8884.jpeg',
-      '/images/prenup/NZ6_6935.jpeg',
-      '/images/prenup/NZ6_9054.jpeg',
-      '/images/prenup/NZ6_7917.jpeg',
-      '/images/prenup/NZ6_8482.jpeg',
-      '/images/prenup/NZ6_8574.jpeg',
+      prenupAsset(FEATURE_PHOTOS.hero),
+      prenupAsset(FEATURE_PHOTOS.afterProgram),
+      prenupAsset(FEATURE_PHOTOS.afterEntourage),
+      prenupAsset(FEATURE_PHOTOS.afterRsvp),
+      prenupAsset(FEATURE_PHOTOS.afterGallery),
+      prenupAsset(FEATURE_PHOTOS.afterFaq),
+      prenupAssetFromPath('New folder/Baguio.jpg'),
+      prenupAssetFromPath('New folder/Vietnam.jpg'),
       // Opening storybook frames (click-to-open animation)
-      ...Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`),
+      ...Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`)
     ]
 
     let loadedCount = 0
@@ -78,7 +78,7 @@ const Preloader = ({ onComplete }) => {
         // Ensure hero image is fully loaded and rendered
         // Create a temporary image element to ensure it's in browser cache
         const heroImg = new Image()
-        heroImg.src = '/images/prenup/NZ6_7683.jpeg'
+        heroImg.src = prenupAsset(FEATURE_PHOTOS.hero)
         
         await new Promise((resolve) => {
           if (heroImg.complete) {

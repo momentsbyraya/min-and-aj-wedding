@@ -15,9 +15,8 @@ const CEREMONIAL_CATEGORIES = [
 
 /** Men (left) → women (right) partner categories */
 const PARTNER_PAIRS = {
-  'Best Man': 'Maid of Honour',
-  Groomsmen: 'Bridesmaids',
-  'Ring Bearer': 'Flower Girl'
+  'Best Man': 'Maid and Matron of Honor',
+  Groomsmen: 'Bridesmaids'
 }
 
 const expandStackedNames = (names = []) =>

@@ -2,37 +2,44 @@
   "events": [
     {
       "id": 1,
-      "time": "2:00 PM",
+      "time": "1:00 PM",
       "title": "Guest Gathering",
       "description": "Guests arrive and settle in",
       "venue": "Villa Ardin Events Place"
     },
     {
       "id": 2,
-      "time": "3:00 PM",
+      "time": "2:00 PM",
       "title": "Ceremony",
       "description": "Wedding ceremony",
       "venue": "Villa Ardin Events Place"
     },
     {
       "id": 3,
-      "time": "4:00 PM",
+      "time": "3:00 PM",
       "title": "Cocktail Hour",
       "description": "Cocktails after the ceremony",
       "venue": "Villa Ardin Events Place"
     },
     {
       "id": 4,
-      "time": "5:00 PM",
-      "title": "Reception",
+      "time": "4:00 PM",
+      "title": "Reception Begins",
       "description": "Reception begins",
       "venue": "Villa Ardin Events Place"
     },
     {
       "id": 5,
-      "time": "5:30 PM",
+      "time": "5:00 PM",
       "title": "Dinner",
       "description": "Dinner is served",
+      "venue": "Villa Ardin Events Place"
+    },
+    {
+      "id": 6,
+      "time": "7:00 PM",
+      "title": "End of Event",
+      "description": "End of event",
       "venue": "Villa Ardin Events Place"
     }
   ]

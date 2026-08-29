@@ -94,7 +94,7 @@ const EntourageModal = ({ isOpen, onClose }) => {
         {/* Child modal — 90vh, centered, holds text */}
         <div
           ref={childRef}
-          className="entourage-modal-child relative z-10 flex h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-sm bg-[#FFF8F7]/92 shadow-lg backdrop-blur-[2px]"
+          className="entourage-modal-child relative z-10 flex h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-sm bg-[#FFF8F7]/92 shadow-lg backdrop-blur-[2px] sm:h-auto sm:max-h-[90vh]"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="entourage-modal-scroll min-h-0 flex-1 overflow-y-auto py-8 sm:py-10">

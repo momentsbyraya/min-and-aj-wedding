@@ -6,8 +6,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const NICKNAMES = 'Min & AJ'
 const DATE_NUMBERS = '04.17.2027'
-const INTRO_MESSAGE =
-  'With joyful hearts, we invite you to witness the beginning of our forever.'
+const INTRO_MESSAGE = 'Join us as we begin our forever together.'
 
 /** https://youtu.be/Qd5sQskdbDw — muted autoplay, no controls chrome */
 const YOUTUBE_ID = 'Qd5sQskdbDw'

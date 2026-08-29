@@ -52,10 +52,9 @@ const RSVP = () => {
         className="relative py-20 w-full overflow-hidden bg-[#FBF3F0] min-h-[500px]"
       >
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-center bg-no-repeat"
+          className="pointer-events-none absolute inset-0 z-0 bg-contain bg-center bg-no-repeat sm:bg-cover"
           style={{
-            backgroundImage: 'url(/images/graphics/scroll.png)',
-            backgroundSize: 'contain'
+            backgroundImage: 'url(/images/graphics/scroll.png)'
           }}
           aria-hidden="true"
         />

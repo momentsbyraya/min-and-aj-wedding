@@ -44,17 +44,17 @@ const Entourage = () => {
       <section
         ref={sectionRef}
         id="entourage"
-        className="relative flex h-[70vh] max-h-[640px] min-h-[420px] w-full items-center justify-center overflow-hidden bg-[#FBF3F0] py-10 sm:h-[65vh] sm:max-h-[700px] sm:min-h-[480px] sm:py-12"
+        className="relative flex min-h-[420px] w-full items-center justify-center overflow-hidden bg-[#FBF3F0] py-10 sm:min-h-0 sm:h-auto sm:max-h-none sm:overflow-visible sm:py-16 md:py-20"
       >
         <div
           className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/graphics/bg-with-ribbon.png)' }}
           aria-hidden="true"
         />
-        <div className="relative z-20 mx-auto flex h-full max-h-full w-full max-w-4xl items-center justify-center overflow-hidden px-8 sm:px-12 lg:px-16">
-          <div className="flex max-h-full w-full flex-col items-center justify-center overflow-hidden">
+        <div className="relative z-20 mx-auto flex w-full max-w-4xl items-center justify-center px-8 sm:px-12 lg:px-16">
+          <div className="flex w-full flex-col items-center justify-center">
             <Divider />
-            <div ref={contentRef} className="flex w-full flex-col items-center overflow-hidden">
+            <div ref={contentRef} className="flex w-full flex-col items-center">
               <div className="w-full text-center">
                 <h2 className="mb-3 font-caribbean text-3xl text-[#8B5560] sm:text-4xl md:text-5xl lg:text-6xl">
                   <span

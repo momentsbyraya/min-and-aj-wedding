@@ -107,13 +107,13 @@ const DressCode = () => {
         src="/images/graphics/flower-bottom.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 z-10 h-auto w-[min(100vw,720px)] max-w-none -translate-x-1/2 scale-y-[-1]"
+        className="pointer-events-none absolute top-0 left-1/2 z-10 h-auto w-screen max-w-none -translate-x-1/2 scale-y-[-1]"
       />
       <img
         src="/images/graphics/flower-bottom.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto w-[min(100vw,720px)] max-w-none -translate-x-1/2"
+        className="pointer-events-none absolute bottom-0 left-1/2 z-10 h-auto w-screen max-w-none -translate-x-1/2"
       />
 
       <div className="relative z-20 mx-auto w-full max-w-md px-5 sm:max-w-xl sm:px-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl">

@@ -4,7 +4,6 @@ import WeddingInvitation from './components/WeddingInvitation'
 import DynamicTitle from './components/DynamicTitle'
 import OpeningScreen from './components/OpeningScreen'
 import Preloader from './components/Preloader'
-import Watermark from './components/Watermark'
 import { audio } from './data'
 
 function App() {
@@ -39,13 +38,11 @@ function App() {
   }, [])
 
   const startMusic = () => {
-    if (audioRef.current) {
-      const loopStart = Number(audio.loopStart) || 0
-      audioRef.current.currentTime = loopStart
-      audioRef.current.play().catch(error => {
-        console.error('Error playing audio:', error)
-      })
-    }
+    if (!audioRef.current) return
+
+    const loopStart = Number(audio.loopStart) || 0
+    audioRef.current.currentTime = loopStart
+    audioRef.current.play().catch(() => {})
   }
 
   const handleEnvelopeOpen = () => {
@@ -60,7 +57,6 @@ function App() {
   return (
     <div className="App min-h-screen wedding-gradient relative">
       <DynamicTitle />
-      <Watermark />
       {!isPreloaderComplete ? (
         <Preloader onComplete={handlePreloaderComplete} />
       ) : showOpeningScreen ? (

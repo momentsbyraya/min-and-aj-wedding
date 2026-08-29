@@ -1,32 +1,18 @@
 {
-  "narrative": "From a borrowed charger to a forever yes — AJ and Min's story, one chapter at a time.",
-  "content": "From a borrowed charger to a forever yes — AJ and Min's story, one chapter at a time.",
+  "narrative": "Ours is filled with laughter and late nights, quiet conversations and wild dreams, ordinary moments that became extraordinary. After all the chapters, the miles, the lessons, and the in-between, we've found our way home to each other.",
+  "content": "Ours is filled with laughter and late nights, quiet conversations and wild dreams, ordinary moments that became extraordinary. After all the chapters, the miles, the lessons, and the in-between, we've found our way home to each other.",
+  "stanzas": [
+    [
+      "Ours is filled with laughter and late nights",
+      "quiet conversations and wild dreams,",
+      "ordinary moments that became extraordinary"
+    ],
+    [
+      "After all the chapters, the miles,",
+      "the lessons, and the in-between,",
+      "we've found our way home to each other"
+    ]
+  ],
   "paragraphs": [],
-  "timeline": [
-    {
-      "title": "First hello",
-      "date": "August 18, 2022",
-      "description": "Casually said hi to each other as we were introduced by friends using a borrowed charger."
-    },
-    {
-      "title": "Official",
-      "date": "October 18, 2022",
-      "description": "We made it official!"
-    },
-    {
-      "title": "Foodtrips",
-      "date": "",
-      "description": "Foodtrip is our go-to date, especially in BGC and Makati."
-    },
-    {
-      "title": "Traveling",
-      "date": "January 25, 2024",
-      "description": "We started travelling inside and outside the country."
-    },
-    {
-      "title": "Engaged",
-      "date": "May 12, 2025",
-      "description": "We got engaged in Vietnam."
-    }
-  ]
+  "timeline": []
 }

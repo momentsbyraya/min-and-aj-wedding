@@ -1,27 +1,27 @@
 {
-  "altDefault": "AJ & Min prenup",
+  "altDefault": "Min & AJ",
   "bannerImage": "/images/graphics/palace.png",
   "items": [
     {
-      "file": "NZ6_9054.jpeg"
+      "file": "New folder/Baguio.jpg",
+      "alt": "Baguio"
     },
     {
-      "file": "NZ6_8202.jpeg"
+      "file": "New folder/ELYU.jpg",
+      "alt": "Elyu"
     },
     {
-      "file": "NZ6_8629.jpeg",
-      "portrait": true,
-      "objectPosition": "78% center"
+      "file": "New folder/HK.jpg",
+      "alt": "Hongkong"
     },
     {
-      "file": "NZ6_7721.jpeg",
-      "portrait": true,
-      "objectPosition": "38% center"
+      "file": "New folder/Mt. Pinatubo.jpg",
+      "alt": "Mt. Pinatubo"
     },
     {
-      "file": "NZ6_7546.jpeg",
-      "portrait": true,
-      "objectPosition": "75% center"
+      "file": "New folder/Vietnam.jpg",
+      "alt": "Vietnam engagement",
+      "objectPosition": "right center"
     }
   ]
 }

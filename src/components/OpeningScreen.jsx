@@ -162,16 +162,18 @@ function OpeningScreen({ onEnvelopeOpen }) {
         className="opening-decor intro-corner-accent intro-corner-accent--flower-right absolute bottom-0 right-0 z-[5] h-auto pointer-events-none"
       />
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 px-4 py-6 text-center pointer-events-none sm:gap-3 sm:py-8">
-        <div ref={introCopyRef} className="mb-0 shrink-0">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-0 px-4 py-6 text-center pointer-events-none sm:gap-3 sm:py-8">
+        <div ref={introCopyRef} className="mb-1 shrink-0 sm:mb-0">
           <p
-            className="opening-invite-title font-lavishly text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight px-2"
+            className="opening-invite-title font-lavishly text-[1.85rem] leading-none px-2 sm:text-4xl md:text-5xl lg:text-6xl"
             style={{
               color: '#8B5560',
               textShadow: '0 1px 3px rgba(248, 241, 234, 0.85)'
             }}
           >
-            In a world of love....
+            Every great love story begins with a
+            <br />
+            single page.....
           </p>
         </div>
 
@@ -203,7 +205,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
 
         <p
           ref={clickLabelRef}
-          className="alice-regular relative z-[25] mt-2 shrink-0 px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.28em] sm:mt-3 sm:text-base md:text-lg"
+          className="alice-regular relative z-[25] -mt-1 shrink-0 px-3 py-1 text-sm font-semibold uppercase tracking-[0.28em] sm:mt-3 sm:py-1.5 sm:text-base md:text-lg"
           style={{
             color: '#5C3340',
             backgroundColor: 'rgba(255, 248, 247, 0.72)',

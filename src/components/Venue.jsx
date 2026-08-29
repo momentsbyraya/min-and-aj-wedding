@@ -51,11 +51,13 @@ const Venue = () => {
           ? venueData.reception?.label || 'Reception'
           : ''
 
+  const mapUrl = venueData.googleMapsUrl || venueData.directionsUrl
+
   return (
     <section
       ref={sectionRef}
       id="where-to-go"
-      className="relative flex min-h-[800px] w-full flex-col items-center justify-start overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-12 sm:pt-28 sm:pb-16"
+      className="relative flex min-h-[800px] w-full flex-col items-center justify-between overflow-x-clip bg-cover bg-center bg-no-repeat pt-24 pb-10 sm:pt-28 sm:pb-14"
       style={{
         backgroundColor: '#F0C9CE',
         backgroundImage: `url(${venueData.image || '/images/venue/venue.png'})`
@@ -139,6 +141,22 @@ const Venue = () => {
           ) : null}
         </div>
       </div>
+
+      {mapUrl ? (
+        <a
+          href={mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="alice-regular relative z-20 shrink-0 px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.28em] sm:text-base md:text-lg transition-opacity hover:opacity-80"
+          style={{
+            color: '#5C3340',
+            backgroundColor: 'rgba(255, 248, 247, 0.72)',
+            textShadow: '0 1px 2px rgba(255, 248, 247, 0.9)'
+          }}
+        >
+          View on map
+        </a>
+      ) : null}
     </section>
   )
 }

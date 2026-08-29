@@ -33,28 +33,33 @@ const FAQ = ({ id = 'faq' }) => {
       trigger: faqRef.current,
       start: 'top 80%',
       onEnter: () => {
+        if (!faqTitleRef.current) return
+
         gsap.to(faqTitleRef.current, {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: 'power2.out',
           onComplete: () => {
-            const faqItemsContainer = faqRef.current.querySelector('.faq-items-stack')
-            if (faqItemsContainer) {
-              const items = Array.from(faqItemsContainer.children).filter(
-                (child) => child.classList.contains('faq-item')
-              )
-              if (items.length > 0) {
-                gsap.set(items, { opacity: 0, y: 30 })
-                gsap.to(items, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.6,
-                  ease: 'power2.out',
-                  stagger: 0.2
-                })
-              }
-            }
+            const container = faqRef.current
+            if (!container) return
+
+            const faqItemsContainer = container.querySelector('.faq-items-stack')
+            if (!faqItemsContainer) return
+
+            const items = Array.from(faqItemsContainer.children).filter((child) =>
+              child.classList.contains('faq-item')
+            )
+            if (items.length === 0) return
+
+            gsap.set(items, { opacity: 0, y: 30 })
+            gsap.to(items, {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: 'power2.out',
+              stagger: 0.2
+            })
           }
         })
       }

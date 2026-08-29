@@ -957,6 +957,7 @@ body {
 }
 
 .opening-invite-title {
+  line-height: 0.92;
   text-shadow: 0 1px 3px rgba(248, 241, 234, 0.9);
 }
 

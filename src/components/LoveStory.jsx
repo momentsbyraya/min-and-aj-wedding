@@ -11,7 +11,9 @@ const LoveStory = () => {
   const storyRef = useRef(null)
   const imageRef = useRef(null)
 
-  const timeline = Array.isArray(loveStory?.timeline) ? loveStory.timeline.filter(Boolean) : []
+  const stanzas = Array.isArray(loveStory?.stanzas)
+    ? loveStory.stanzas.filter((stanza) => Array.isArray(stanza) && stanza.length > 0)
+    : []
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -44,39 +46,21 @@ const LoveStory = () => {
 
       <div className="relative z-20 flex items-center justify-center py-12 pb-32 sm:pb-40 md:pb-48">
         <div className="max-w-2xl sm:max-w-3xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
-          <div ref={storyRef} className="text-left mb-12">
-            <div className="space-y-6">
-              {timeline.map((item, index) => {
-                const firstChar = (item.description || item.title || ' ').charAt(0)
-                const rest = (item.description || item.title || '').slice(1)
-                return (
-                  <div key={`${item.date}-${item.title}-${index}`}>
-                    {item.date ? (
-                      <p
-                        className="alice-regular mb-1 tracking-[0.08em] uppercase text-xs sm:text-sm"
-                        style={{ color: '#6B3F48' }}
-                      >
-                        {item.date}
-                      </p>
-                    ) : null}
+          <div ref={storyRef} className="mb-12 text-center">
+            <div className="space-y-10">
+              {stanzas.map((stanza, stanzaIndex) => (
+                <div key={`stanza-${stanzaIndex}`} className="space-y-1">
+                  {stanza.map((line, lineIndex) => (
                     <p
+                      key={`line-${stanzaIndex}-${lineIndex}`}
                       className="font-albert font-thin leading-relaxed"
                       style={{ fontSize: '1rem', lineHeight: '1.8', color: '#6B3F48' }}
                     >
-                      {index === 0 ? (
-                        <>
-                          <span className="font-caribbean" style={{ fontSize: '1.5rem' }}>
-                            {firstChar}
-                          </span>
-                          {rest}
-                        </>
-                      ) : (
-                        item.description || item.title
-                      )}
+                      {line}
                     </p>
-                  </div>
-                )
-              })}
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>

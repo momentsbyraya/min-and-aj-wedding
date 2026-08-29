@@ -5,80 +5,67 @@
   },
   "parents": {
     "groom": {
-      "father": "",
-      "mother": ""
+      "father": "Mr. Winnie Adiula",
+      "mother": "Mrs. Catherine Adjula"
     },
     "bride": {
-      "father": "",
-      "mother": ""
+      "father": "Mr. Fidel Hernando",
+      "mother": "Mrs. Maria Victoria Hernando"
     }
   },
   "entourageList": [
     {
       "ninong": [
-        "Pedro Fernandez",
-        "Richard Sanchez",
-        "Teddy Yu",
-        "Francisco Andrade"
+        "Mr. Rene Gella",
+        "Mr. Vic Villapande",
+        "Mr. Andy Velasquez",
+        "Mr. Robert John Pineda",
+        "Atty. Larry Tobias"
       ],
       "ninang": [
-        "Lorna Alvarada",
-        "Margarita Perez",
-        "Jamie Chastain",
-        "Dani Martinez",
-        "Isabel Mercado",
-        "Hannah Morales"
+        "Mrs. Teresita Gella",
+        "Mrs. Edna Villapando",
+        "Mrs. Cristy Velasquez",
+        "Mrs. Rhea Pineda",
+        "Mrs. Cindy Tobias"
       ]
     },
     {
       "category": "Best Man",
-      "names": ["Sebastian Bennett"]
+      "names": ["Renand Christian Asuncion"]
+    },
+    {
+      "category": "Maid and Matron of Honor",
+      "names": ["Angelika Ana Hernando", "Anna Vyoletta Espolon"]
     },
     {
       "category": "Groomsmen",
       "names": [
-        "Morgan Maxwell",
-        "Jonathan Patterson",
-        "Howard Ong",
-        "James Thompson",
-        "David Wilson",
-        "Robert Lee"
+        "Andrey Adjula",
+        "Winnie Boy Adjula",
+        "Alrashid Adjula",
+        "Mark Jhon Adjula"
       ]
-    },
-    {
-      "category": "Maid of Honour",
-      "names": ["Kimberly Nguyen"]
     },
     {
       "category": "Bridesmaids",
       "names": [
-        "Chiaki Sato",
-        "Juliana Silva",
-        "Lars Peeters",
-        "Harper Russo",
-        "Helene Paquet",
-        "Yael Amari"
+        "Eloisa Veronica Villapando",
+        "Eliza Vanessa Villapando",
+        "Karla Mae Aleta"
       ]
     },
     {
       "category": "Ring Bearer",
-      "names": ["Taylor Alonso"]
+      "names": ["James Gabriel Espolon", "Guided by Alexander Espolon"]
+    },
+    {
+      "category": "Coin Bearer",
+      "names": ["Thirdy Tobias", "Guided by Cindy Tobias"]
     },
     {
       "category": "Flower Girl",
-      "names": ["Henrietta Mitchell"]
-    },
-    {
-      "category": "To Light our Path",
-      "names": ["Noah Schumacher", "Chiaki Sato"]
-    },
-    {
-      "category": "To Cloth us as One",
-      "names": ["Yael Amari", "Hannah Morales"]
-    },
-    {
-      "category": "To Bind us Together",
-      "names": ["Francisco Andrade", "Isabel Mercado"]
+      "names": ["Luna Elle Dy", "Zabrina Pineda"]
     }
   ]
 }

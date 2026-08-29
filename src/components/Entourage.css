@@ -9,6 +9,13 @@
   max-height: 90vh;
 }
 
+@media (min-width: 640px) {
+  .entourage-modal-child {
+    height: fit-content;
+    max-height: 90vh;
+  }
+}
+
 .entourage-modal-scroll {
   position: relative;
   z-index: 10;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { celebrant, venues } from '../data'
+import { prenupAsset, FEATURE_PHOTOS } from '../utils/prenupAssets'
 import './Hero.css'
 
 const Hero = () => {
@@ -123,48 +124,56 @@ const Hero = () => {
 
         <div
           ref={contentRef}
-          className="relative z-10 max-w-2xl w-full px-6 py-8 sm:px-12 sm:py-10"
+          className="relative z-10 max-w-2xl w-full py-8 sm:py-10"
         >
           <div className="relative z-10 text-center">
             <div className="mb-3 sm:mb-4">
               <div className="text-[#8B5560] alice-regular font-bold text-xs sm:text-sm md:text-base tracking-widest leading-none">
-                <div className="text-sm sm:text-base md:text-lg font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>
-                  A NEW
+                <div
+                  className="text-sm sm:text-base md:text-lg font-black whitespace-nowrap"
+                  style={{ fontWeight: 900, lineHeight: '1.1' }}
+                >
+                  OUR GREATEST
                 </div>
-                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>
+                <div
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black"
+                  style={{ fontWeight: 900, lineHeight: '1.1' }}
+                >
                   CHAPTER
                 </div>
-                <div className="text-[10px] sm:text-xs md:text-sm" style={{ lineHeight: '1.1' }}>
-                  WILL SOON BEGIN
+                <div
+                  className="text-[10px] sm:text-xs md:text-sm whitespace-nowrap"
+                  style={{ lineHeight: '1.1' }}
+                >
+                  BEGINS ON
                 </div>
               </div>
             </div>
 
-            <h1 className="text-[#8B5560] font-caribbean text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-3 sm:mb-4">
-              <span
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none inline-block"
-                style={{ lineHeight: '0.8' }}
-              >
-                O
-              </span>
-              <span className="inline-block">nce upon</span>
-              <br />
-              <span className="inline-block" style={{ paddingLeft: '1.5rem' }}>
+            <h1 className="text-[#8B5560] font-caribbean text-base sm:text-lg md:text-xl lg:text-2xl text-center mb-3 sm:mb-4">
+              <span className="inline-block whitespace-nowrap">
+                <span className="inline-block">#</span>
                 <span
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl inline-block leading-none mr-1"
-                  style={{ lineHeight: '0.75', marginTop: '-0.1em' }}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none inline-block"
+                  style={{ lineHeight: '0.8' }}
                 >
-                  A
+                  O
                 </span>
-                <span className="inline-block">time...</span>
+                <span className="inline-block">nce</span>
+                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">a</span>
+                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">pen</span>
+                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">a</span>
+                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">min</span>
+                <span className="inline-block">ingful</span>
+                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">story</span>
               </span>
             </h1>
 
             <div className="hero-mirror mb-4 sm:mb-5">
               <div className="hero-mirror-photo">
                 <img
-                  src="/images/prenup/NZ6_7683.jpeg"
-                  alt="AJ and Min"
+                  src={prenupAsset(FEATURE_PHOTOS.hero)}
+                  alt="Min and AJ"
                 />
               </div>
               <img

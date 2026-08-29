@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getTimeUntilWedding } from '../utils/countdown'
+import { prenupAsset, FEATURE_PHOTOS } from '../utils/prenupAssets'
 import FallingPetals from './FallingPetals'
 import HeroStorybook from './HeroStorybook'
 import Venue from './Venue'
@@ -47,35 +48,38 @@ const WeddingInvitation = () => {
 
         <Schedule />
 
-        <PrenupFeature src="/images/prenup/NZ6_6972.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterProgram)} />
 
         <Entourage />
 
-        <PrenupFeature src="/images/prenup/NZ6_6935.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterEntourage)} />
 
         <RSVP />
 
-        <PrenupFeature src="/images/prenup/NZ6_8884.jpeg" />
+        <PrenupFeature
+          src={prenupAsset(FEATURE_PHOTOS.afterRsvp)}
+          objectPosition="center 35%"
+        />
 
         <Gifts />
 
-        <PrenupFeature src="/images/prenup/NZ6_7434.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterGifts)} />
 
         <DressCode />
 
-        <PrenupFeature src="/images/prenup/NZ6_6986.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterDressCode)} />
 
         <LoveStory />
 
-        <PrenupFeature src="/images/prenup/NZ6_7917.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterLoveStory)} />
 
         <Gallery />
 
-        <PrenupFeature src="/images/prenup/NZ6_8482.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterGallery)} />
 
         <FAQ />
 
-        <PrenupFeature src="/images/prenup/NZ6_8574.jpeg" />
+        <PrenupFeature src={prenupAsset(FEATURE_PHOTOS.afterFaq)} />
 
         <Counter countdown={countdown} />
 
