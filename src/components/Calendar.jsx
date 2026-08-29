@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { theme, celebrant } from '../data'
 
-// Register ScrollTrigger plugin
+// Register ScrollTrigger frplugin
 gsap.registerPlugin(ScrollTrigger)
 
 const Calendar = () => {
