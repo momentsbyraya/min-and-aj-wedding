@@ -112,14 +112,15 @@
 .hero-mirror-photo img {
   position: absolute;
   left: 50%;
-  top: 46%;
+  top: 50%;
+  right: auto;
   display: block;
-  width: 130%;
-  height: 130%;
+  width: 190%;
+  height: 190%;
   max-width: none;
   object-fit: cover;
-  object-position: center 28%;
-  transform: translate(-50%, -50%);
+  object-position: center;
+  transform: translate(calc(-50% - 9%), -50%);
 }
 
 .hero-mirror-frame {

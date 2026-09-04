@@ -7,14 +7,15 @@
     "zip": "1900",
     "main": {
       "label": "Ceremony",
-      "time": "3:00 PM",
-      "details": "Ceremony begins at 3:00 PM. Please arrive 30 minutes early."
+      "time": "2:00 PM",
+      "details": "Ceremony begins at 2:00 PM. Please arrive 30 minutes early."
     },
     "reception": {
       "label": "Reception",
       "time": "5:00 PM",
       "details": "Reception follows at the same venue."
     },
+    "hours": "2:00 PM TO 7:00 PM",
     "image": "/images/venue/venue.png",
     "googleMapsUrl": "https://maps.app.goo.gl/2gWQAhSi3dmoPbKq8?g_st=ic",
     "directionsUrl": "https://maps.app.goo.gl/2gWQAhSi3dmoPbKq8?g_st=ic",

@@ -1,7 +1,7 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "Formal / Semi-formal. We kindly ask guests to wear dusty pink, nude pink, blush pink, champagne pink, soft taupe, or beige.",
+    "description": "Semi-formal · Garden celebration · Blush palette. We kindly ask guests to wear brown gold beauty, dusty pink, nude pink, blush, champagne, beige, or soft taupe.",
     "avoidNote": "Avoid wearing white, ivory, or colors too similar to the bride's gown."
   },
   "sections": [
@@ -10,12 +10,13 @@
       "image": "/images/dresscode/guests.png",
       "description": "Please dress in soft blush tones from our palette.",
       "colors": [
-        { "name": "Dusty Pink", "hex": "#C9A3A6" },
-        { "name": "Nude Pink", "hex": "#E6C7BE" },
-        { "name": "Blush Pink", "hex": "#E8B4B8" },
-        { "name": "Champagne", "hex": "#E8D5C4" },
-        { "name": "Soft Taupe", "hex": "#C4B5A5" },
-        { "name": "Beige", "hex": "#EDE4D4" }
+        { "name": "Brown Gold Beauty", "hex": "#B68966" },
+        { "name": "Dusty Pink", "hex": "#D28580" },
+        { "name": "Nude Pink", "hex": "#EBA899" },
+        { "name": "Blush", "hex": "#E9A098" },
+        { "name": "Champagne", "hex": "#F3BDA2" },
+        { "name": "Beige", "hex": "#EDC19F" },
+        { "name": "Soft Taupe", "hex": "#D7AE98" }
       ]
     }
   ]

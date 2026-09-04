@@ -30,7 +30,7 @@ const Preloader = ({ onComplete }) => {
       prenupAsset(FEATURE_PHOTOS.afterGallery),
       prenupAsset(FEATURE_PHOTOS.afterFaq),
       prenupAssetFromPath('New folder/Baguio.jpg'),
-      prenupAssetFromPath('New folder/Vietnam.jpg'),
+      prenupAssetFromPath('New folder/Vietnam.png'),
       // Opening storybook frames (click-to-open animation)
       ...Array.from({ length: 14 }, (_, i) => `/images/openingscreen/${i + 4}.png`)
     ]

@@ -36,7 +36,7 @@ const Hero = () => {
   const debutInfo = celebrant?.debutant?.debut ?? {}
   const dateInfo = formatDate(debutInfo.date)
   const venue = venues?.venue ?? {}
-  const venueTime = (venue.main?.time || debutInfo.time || '').replace(/\s/g, '').toUpperCase()
+  const venueTime = (venue.main?.time || debutInfo.time || '2:00 PM').trim()
 
   useEffect(() => {
     if (contentRef.current) {
@@ -150,22 +150,13 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1 className="text-[#8B5560] font-caribbean text-base sm:text-lg md:text-xl lg:text-2xl text-center mb-3 sm:mb-4">
+            <h1 className="text-[#8B5560] alice-regular text-lg sm:text-xl md:text-2xl lg:text-3xl text-center mb-3 sm:mb-4 uppercase">
               <span className="inline-block whitespace-nowrap">
-                <span className="inline-block">#</span>
-                <span
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none inline-block"
-                  style={{ lineHeight: '0.8' }}
-                >
-                  O
-                </span>
-                <span className="inline-block">nce</span>
-                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">a</span>
-                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">pen</span>
-                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">a</span>
-                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">min</span>
-                <span className="inline-block">ingful</span>
-                <span className="inline-block text-lg sm:text-xl md:text-2xl lg:text-3xl">story</span>
+                <span className="inline-block">#once</span>
+                <span className="inline-block text-2xl sm:text-3xl md:text-4xl lg:text-5xl">apen</span>
+                <span className="inline-block">a</span>
+                <span className="inline-block text-2xl sm:text-3xl md:text-4xl lg:text-5xl">mini</span>
+                <span className="inline-block">ngfulstory</span>
               </span>
             </h1>
 

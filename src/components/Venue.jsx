@@ -35,10 +35,12 @@ const Venue = () => {
     .filter(Boolean)
     .join(', ')
 
-  const times = [venueData.main?.time, venueData.reception?.time].filter(Boolean)
-  const timeLine = times.length > 1 && times[0] !== times[1]
-    ? times.join(' · ')
-    : times[0] || ''
+  const timeLine = venueData.hours || (() => {
+    const times = [venueData.main?.time, venueData.reception?.time].filter(Boolean)
+    return times.length > 1 && times[0] !== times[1]
+      ? times.join(' · ')
+      : times[0] || ''
+  })()
 
   const hasCeremony = Boolean(venueData.main?.time || venueData.main?.label)
   const hasReception = Boolean(venueData.reception?.time || venueData.reception?.label)
