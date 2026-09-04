@@ -6,7 +6,7 @@ import RSVPModal from './RSVPModal'
 import EntourageModal from './EntourageModal'
 import { theme } from '../data'
 
-// Register ScrollTrigger plugigrgn
+// Register ScrollTrigger plugign
 gsap.registerPlugin(ScrollTrigger)
 
 const CTASection = () => {
